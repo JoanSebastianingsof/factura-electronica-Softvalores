@@ -1,0 +1,107 @@
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csprojAssemblyReference.cache
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\grid.FormEdit.resources
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Form1.resources
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.config
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.application
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\sebat\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.config
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.manifest
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.application
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.AssemblyReference.cache
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Form1.resources
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\grid.FormEdit.resources
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+D:\Proyectos c#\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.config
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.application
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Form1.resources
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\grid.FormAdd.resources
+C:\Users\TK01\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEdit.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.config
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.manifest
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.application
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.AssemblyReference.cache
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Form1.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\grid.FormAdd.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEdit.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+D:\Proyectos c#\2021 Septiembre\source\repos\Facturacion_Electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.config
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.manifest
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.application
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.AssemblyReference.cache
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\grid.FormAdd.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEdit.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.SuggestedBindingRedirects.cache
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
+D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Pagina_Principal.resources
