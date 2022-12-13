@@ -105,3 +105,34 @@ D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\
 D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.SuggestedBindingRedirects.cache
 D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
 D:\Proyectos c#\2021 Septiembre\source\repos\FE Mod\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Pagina_Principal.resources
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.AssemblyReference.cache
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Pagina_Principal.resources
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\grid.FormAdd.resources
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEdit.resources
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+C:\Users\BASES\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Pagina_Principal.resources
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\grid.FormAdd.resources
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEdit.resources
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.config
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.application
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
+C:\Users\BASES\Desktop\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.AssemblyReference.cache

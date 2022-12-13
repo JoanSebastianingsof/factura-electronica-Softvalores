@@ -17,9 +17,19 @@ namespace Facturacion_Electronica
             con.Open();
             SqlCommand cmd = new SqlCommand("select * from dbo.gn_arbol", con);
             SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            string[] arrayConsulta = null;
+            while (dr.Read()) 
             {
-                cb.Items.Add( dr[1].ToString());
+               // cb.Items.Add( dr[1].ToString());
+
+                 string[] array = {
+                 //cb.Items.Add( dr[0].ToString());
+                  dr[0].ToString(),
+                  dr[1].ToString()
+                 };
+                 arrayConsulta= array ;
+                 cb.Items.Add(arrayConsulta[1]);
+
             }
             con.Close();
             cb.Items.Insert(0, "Seleccione un Item...");
@@ -41,6 +51,7 @@ namespace Facturacion_Electronica
                     dr[3].ToString()
                 };
                 resultado = valores;
+
             }
             con.Close();
             return resultado;

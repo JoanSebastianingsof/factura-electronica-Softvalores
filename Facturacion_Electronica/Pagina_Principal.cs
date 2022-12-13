@@ -87,7 +87,7 @@ namespace Facturacion_Electronica
                         }
                         else
                         {
-                            MessageBox.Show("ERROR : La Contabilidad Seleccionada no Existe!");
+                            MessageBox.Show("ERROR : La contabilidad seleccionada no existe!");
                         }
                         conexion.Close();
                         conexion.Open();
@@ -99,17 +99,19 @@ namespace Facturacion_Electronica
                             conexion.Close();
                             conexion.Open();
                             string cadena22 = "select nit_clie,tip_iden,Nombres from dbo.cm_terce where nit_clie='" + cod + "'";
-                            string NombreEmpresa = "";
+                            //string NombreEmpresa = "";
                             SqlCommand comando = new SqlCommand(cadena22, conexion);
                             SqlDataReader registro = comando.ExecuteReader();
                             if (registro.Read())
                             {
                                 if ((registro["tip_iden"].ToString()) == Tcod)
                                 {
-                                    NombreEmpresa = registro["Nombres"].ToString();
+                                   // NombreEmpresa = registro["Nombres"].ToString();
                                     conexion.Close();
                                     conexion.Open();
-                                    string insert = "update fe_ParametrosGenerales set Contabilidad='" + cont + "' , Tipo_Comprobante='" + cb_TipoComp.Text + "' , TipoId='" + comboBox9.Text + "' , NoId='" + txt_id.Text + "' , Empresa='" + NombreEmpresa + "' where Contabilidad ='" + cont + "'";
+                                    //string insert = "update fe_ParametrosGenerales set Contabilidad='" + cont + "' , Tipo_Comprobante='" + cb_TipoComp.Text + "' , TipoId='" + comboBox9.Text + "' , NoId='" + txt_id.Text + "' , Empresa='" + NombreEmpresa + "' where Contabilidad ='" + cont + "'";
+                                    string insert = "update fe_ParametrosGenerales set Contabilidad='" + cont + "' , Tipo_Comprobante='" + cb_TipoComp.Text + "' , TipoId='" + comboBox9.Text + "' , NoId='" + txt_id.Text + "' where Contabilidad ='" + cont + "'";
+
                                     SqlCommand agregar = new SqlCommand(insert, conexion);
                                     agregar.ExecuteNonQuery();
                                     conexion.Close();
@@ -128,14 +130,14 @@ namespace Facturacion_Electronica
                             else
                             {
                                 conexion.Close();
-                                MessageBox.Show("La Contabilidad No existe");
+                                MessageBox.Show("La contabilidad no existe");
                             }
 
                         }
                         else
                         {
                             conexion.Close();
-                            MessageBox.Show("ERROR : El ID Ingresado No se encuentra Registrado!");
+                            MessageBox.Show("ERROR : El ID Ingresado no se encuentra registrado!");
                         }
                     }
                     else
@@ -145,12 +147,12 @@ namespace Facturacion_Electronica
                 }
                 else
                 {
-                    MessageBox.Show("El Campo Tipo de Comprobante Es requerido");
+                    MessageBox.Show("El campo Tipo de Comprobante es requerido");
                 }
             }
             else
             {
-                MessageBox.Show("El Campo Contabilidad Es requerido");
+                MessageBox.Show("El campo Contabilidad es requerido");
             }
         }
 
@@ -169,7 +171,7 @@ namespace Facturacion_Electronica
                         if (registroCIDC.Read())
                         {
                             conexion.Close();
-                            MessageBox.Show("ERROR : El ID Ingresado ya se encuentra Registrado!");
+                            MessageBox.Show("ERROR : El ID Ingresado ya se encuentra registrado!");
                         }
                         else
                         {
@@ -185,7 +187,7 @@ namespace Facturacion_Electronica
                             }
                             else
                             {
-                                MessageBox.Show("ERROR : La Contabilidad Seleccionada no Existe!");
+                                MessageBox.Show("ERROR : La contabilidad seleccionada no existe!");
                             }
                             conexion.Close();
                             conexion.Open();
@@ -195,35 +197,37 @@ namespace Facturacion_Electronica
                             if (registroContaRegis.Read())
                             {
                                 conexion.Close();
-                                MessageBox.Show("La Contabilidad ya se encuentra Asignada");
+                                MessageBox.Show("La contabilidad ya se encuentra asignada");
                             }
                             else
                             {
                                 conexion.Close();
                                 conexion.Open();
                                 string cadena22 = "select nit_clie,tip_iden,Nombres from dbo.cm_terce where nit_clie='" + cod + "'";
-                                string NombreEmpresa = "";
+                                //string NombreEmpresa = "";
                                 SqlCommand comando = new SqlCommand(cadena22, conexion);
                                 SqlDataReader registro = comando.ExecuteReader();
                                 if (registro.Read())
                                 {
                                     if ((registro["tip_iden"].ToString()) == Tcod)
                                     {
-                                        NombreEmpresa = registro["Nombres"].ToString();
+                                        //NombreEmpresa = registro["Nombres"].ToString();
                                         conexion.Close();
                                         conexion.Open();
-                                        string insert = "insert into fe_ParametrosGenerales values(@Contabilidad, @Tipo_Comprobante, @TipoId, @NoId, @Empresa)";
+                                       // string insert = "insert into fe_ParametrosGenerales values(@Contabilidad, @Tipo_Comprobante, @TipoId, @NoId, @Empresa)";
+                                        string insert = "insert into fe_ParametrosGenerales values(@Contabilidad, @Tipo_Comprobante, @TipoId, @NoId)";
                                         SqlCommand agregar = new SqlCommand(insert, conexion);
 
                                         agregar.Parameters.AddWithValue("@Contabilidad", cont);
                                         agregar.Parameters.AddWithValue("@Tipo_Comprobante", cb_TipoComp.Text);
                                         agregar.Parameters.AddWithValue("@TipoId", Tcod);
                                         agregar.Parameters.AddWithValue("@NoId", cod);
-                                        agregar.Parameters.AddWithValue("@Empresa", NombreEmpresa);
+                                        //agregar.Parameters.AddWithValue("@Empresa", NombreEmpresa);
 
                                         agregar.ExecuteNonQuery();
                                         conexion.Close();
-                                        dgv_ParametrosGenerales.Rows.Add(cont, cb_TipoComp.Text, comboBox9.Text, txt_id.Text, NombreEmpresa);
+                                        //dgv_ParametrosGenerales.Rows.Add(cont, cb_TipoComp.Text, comboBox9.Text, txt_id.Text, NombreEmpresa);
+                                        dgv_ParametrosGenerales.Rows.Add(cont, cb_TipoComp.Text, comboBox9.Text, txt_id.Text);
                                         comboBox9.Text = "Seleccione un Item..."; comboBox8.Text = "Seleccione un Item..."; cb_TipoComp.Text = "Seleccione un Item...";
                                         txt_id.Text = "";
                                         btn_PGGuardar.Visible = false; btn_PGConsulta.Visible = true; btn_PGAgregar.Visible = true; btn_PGVolver.Visible = false;
@@ -236,7 +240,7 @@ namespace Facturacion_Electronica
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Error: El No de Id No existe");
+                                    MessageBox.Show("Error: El No de Id no existe");
                                     conexion.Close();
                                 }
 
@@ -245,17 +249,17 @@ namespace Facturacion_Electronica
                     }
                     else
                     {
-                        MessageBox.Show("Los campos del Cliente no pueden estar Vacios");
+                        MessageBox.Show("Los campos del Cliente no pueden estar vacios");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El Campo Tipo de Comprobante Es requerido");
+                    MessageBox.Show("El campo Tipo de Comprobante es requerido");
                 }
             }
             else
             {
-                MessageBox.Show("El Campo Contabilidad Es requerido");
+                MessageBox.Show("El campo Contabilidad es requerido");
             }
         }
 
@@ -386,13 +390,13 @@ namespace Facturacion_Electronica
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione un Numero de ID o Nombre del Cliente para realizar la Busqueda por Cliente.");
+                    MessageBox.Show("Seleccione un Numero de ID o Nombre del Cliente para realizar la busqueda por Cliente.");
                     lbl_PCNombreCliente.Visible = false;
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione Contabilidad para realizar Busqueda");
+                MessageBox.Show("Seleccione Contabilidad para realizar busqueda");
                 dgv_ParametrosContables.Rows.Clear();
                 lbl_PCNombreCliente.Visible = false;
             }
@@ -457,10 +461,9 @@ namespace Facturacion_Electronica
                 }
                 else
                 {
-                    MessageBox.Show("ERROR : La Contabilidad Seleccionada no Existe!");
+                    MessageBox.Show("ERROR : La contabilidad seleccionada no existe!");
                 }
                 conexion.Close();
-
                 conexion.Open();
                 string NoEmpresaFactura = ""; string TipoIdEmpresaFactura = "";
                 string cadenaConsultaEF = "select NoId,TipoId from fe_ParametrosGenerales where Contabilidad='" + cont + "'";
@@ -473,10 +476,11 @@ namespace Facturacion_Electronica
                 }
                 else
                 {
-                    MessageBox.Show("ERROR 2: La Contabilidad Seleccionada no Existe!");
+                    MessageBox.Show("ERROR 2: La contabilidad seleccionada no existe!");
                 }
                 conexion.Close();
-
+                // openFileDialog1.Filter = "archivos xml (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
+                openFileDialog1.Filter = "archivos xml (*.xml)|*.xml";
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     Lbl_Abrir.Text = openFileDialog1.FileName;
@@ -486,12 +490,12 @@ namespace Facturacion_Electronica
                 if (path != "0")
                 {
                     int cantId = 0; int cantNote = 0; int cantIva = 0; int cantVtotal = 0; int cantNit = 0; int idschemes = 0;
-                    int clientePosition = 0; int cantSubT = 0;
+                    int clientePosition = 0; int cantSubT = 0; int idschemesName = 0;
 
                     String date = " "; string[] subTotal = new string[50];
 
                     string[] id = new string[50]; string[] note = new string[10]; string[] iva = new string[50];
-                    string[] Vtotal = new string[50]; string[] nit = new string[50]; string[] idscheme = new string[50];
+                    string[] Vtotal = new string[50]; string[] nit = new string[50];  string[] idschemeName = new string[50];string[] idscheme = new string[50];
                     string[] clienteNombre = new string[50];
 
                     XmlReader xmlReader = XmlReader.Create(path);
@@ -513,6 +517,8 @@ namespace Facturacion_Electronica
                             {
                                 idscheme[idschemes] = xmlReader.GetAttribute("schemeID");
                                 idschemes++;
+                                idschemeName[idschemesName] = xmlReader.GetAttribute("schemeName");
+                                idschemesName++;
                                 nit[cantNit] = (xmlReader.ReadInnerXml());
                                 cantNit = cantNit + 1;
                             }
@@ -550,10 +556,16 @@ namespace Facturacion_Electronica
                             cantIva = cantIva + 1;
                         }
                     }
+                   
+
                     String FacturaEmpresaFactura = "";
-                    if(idscheme[1] != null)
+                    String Nit = "31";
+                    if (idschemeName[1] == Nit)
                     {
-                        FacturaEmpresaFactura = id[1] + "-" + idscheme[1] + "   ";
+                        if (idscheme[1] != null)
+                        {
+                            FacturaEmpresaFactura = id[1] + "-" + idscheme[1] + "   ";
+                        }
                     }
                     else
                     {
@@ -609,11 +621,34 @@ namespace Facturacion_Electronica
 
                         dgv_FacturaCargada.Rows.Clear();
                         conexion.Open();
-                        string cod = nit[2] + "-" + idscheme[2];
+                        //prueba
+                        string NitCliente = "";
+                        if (idschemeName[2] == Nit)
+                            NitCliente = nit[2] + "-" + idscheme[2];
+                        else
+                            NitCliente = nit[2];
+                        string cadenaCliente = "select nom_terc from dbo.cm_terce where nit_clie='" + NitCliente + "'";
+                        SqlCommand comandoCliente = new SqlCommand(cadenaCliente, conexion);
+                        SqlDataReader registrosClientes = comandoCliente.ExecuteReader();
+                        bool registroCliente = registrosClientes.Read();
+                        conexion.Close();
+
+                        conexion.Open();
+                        string cod = "";
+                        if (idschemeName[2] == Nit)
+                        {
+                            cod = nit[2] + "-" + idscheme[2];
+                        }
+                        else
+                        {
+                            cod = nit[2];
+                        }
+
                         rete[7] = CtaXCobrar.ToString();
                         string cadena = "select Cod_Cuenta,Tipo_Mov from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'";
                         SqlCommand comando = new SqlCommand(cadena, conexion);
                         SqlDataReader registro = comando.ExecuteReader();
+                        bool registros = registro.Read();
                         if (registro.Read())
                         {
                             conexion.Close();
@@ -683,7 +718,20 @@ namespace Facturacion_Electronica
 
                             conexion.Open();
                             string NombreEmpFact = "";
-                            string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + nit[1] + "-" + idscheme[1] + "'";
+                            //
+                            string NitEmpresaFact = "";
+                            if (idschemeName[1] == Nit)
+                            {
+                                NitEmpresaFact = nit[1] + "-" + idscheme[1];
+                            }
+                            else
+                            {
+                                NitEmpresaFact = nit[1];
+                            }
+                              
+                            string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + NitEmpresaFact + "'";
+
+                            //string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + nit[1] + "-" + idscheme[1] + "'";
                             SqlCommand comandNEF = new SqlCommand(NombreEmpresaFact, conexion);
                             SqlDataReader consultaNEF = comandNEF.ExecuteReader();
                             if (consultaNEF.Read())
@@ -705,6 +753,8 @@ namespace Facturacion_Electronica
                             {
                                 MessageBox.Show("Este documento ya fue cargado");
                                 conexion.Close();
+                                
+
                             }
                             else
                             {
@@ -712,15 +762,105 @@ namespace Facturacion_Electronica
                                 conexion.Open();
                                 string dataComprobante = "insert into dbo.fe_comprobantes values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @fechaEmision, @Ingreso, @Iva, @Rte_Fte, @Rte_Iva, @Rte_Ica, @Cta_Cobrar, @Nom_EmpFact, @Nom_Cliente, @Estado)";
                                 SqlCommand agregar = new SqlCommand(dataComprobante, conexion);
-                                string tipoId = "NI";
-                                string idEmpFactura = nit[1] + "-" + idscheme[1];
-                                string idCliente = nit[2] + "-" + idscheme[2];
+                                string tipoIdEmpresa = "";
+                                //string idEmpFactura = nit[1] + "-" + idscheme[1];
+                                //string idCliente = nit[2] + "-" + idscheme[2];
+
+                                string idEmpFactura ="";
+                               
+                                //string registroCivil = "11";
+                                string tarjetaIdentidad = "12";
+                                string cedulaCiudadania = "13";
+                                //string tarjetaExtranjeria = "21";
+                                string cedulaExtranjeria = "22";
+                                string pasaporte = "41";
+                                //string documentoIdentificacionExtranjero = "42";
+                                //string nitOtroPais = "50";
+                                string nuip = "91";
+                                if (idschemeName[1]==Nit)
+                                {
+                                    tipoIdEmpresa = "NI";
+                                    idEmpFactura = nit[1] + "-" + idscheme[1];
+                                }
+                           
+                                else if (idschemeName[1] == tarjetaIdentidad)
+                                {
+                                    tipoIdEmpresa = "TI";
+                                    idEmpFactura = nit[1];
+                                }
+                                else if (idschemeName[1] == cedulaCiudadania)
+                                {
+                                    tipoIdEmpresa = "CC";
+                                    idEmpFactura = nit[1];
+                                }
+                                else if (idschemeName[1] == cedulaExtranjeria)
+                                {
+                                    tipoIdEmpresa = "CE";
+                                    idEmpFactura = nit[1];
+                                }
+                                else if (idschemeName[1] == pasaporte)
+                                {
+                                    tipoIdEmpresa = "PA";
+                                    idEmpFactura = nit[1];
+                                }
+                                else if (idschemeName[1] == nuip)
+                                {
+                                    tipoIdEmpresa = "NP";
+                                    idEmpFactura = nit[1];
+                                }
+                                else
+                                {
+                                    tipoIdEmpresa = "OT";
+                                    idEmpFactura = nit[1];
+                                }
+
+                                string tipoIdCliente = "";
+                                string idCliente = "";
+
+                                if (idschemeName[2] == Nit)
+                                {
+                                    tipoIdCliente = "NI";
+                                    idCliente = nit[2] + "-" + idscheme[2];
+
+                                }
+
+                                else if (idschemeName[2] == tarjetaIdentidad)
+                                {
+                                    tipoIdCliente = "TI";
+                                    idCliente = nit[2];
+                                }
+                                else if (idschemeName[2] == cedulaCiudadania)
+                                {
+                                    tipoIdCliente = "CC";
+                                    idCliente = nit[2];
+                                }
+                                else if (idschemeName[2] == cedulaExtranjeria)
+                                {
+                                    tipoIdCliente = "CE";
+                                    idCliente = nit[2];
+                                }
+                                else if (idschemeName[2] == pasaporte)
+                                {
+                                    tipoIdCliente = "PA";
+                                    idCliente = nit[2];
+                                }
+                                else if (idschemeName[2] == nuip)
+                                {
+                                    tipoIdCliente = "NP";
+                                    idCliente = nit[2];
+                                }
+                                else
+                                {
+                                    tipoIdCliente = "OT";
+                                    idCliente = nit[2];
+                                }
+                                Console.WriteLine(tipoIdEmpresa);
 
                                 agregar.Parameters.AddWithValue("@Contabilidad", cont);
                                 agregar.Parameters.AddWithValue("@Id_Factura", id[0]);
-                                agregar.Parameters.AddWithValue("@TipoId_EmpFactura", tipoId);
+                                agregar.Parameters.AddWithValue("@TipoId_EmpFactura", tipoIdEmpresa);
                                 agregar.Parameters.AddWithValue("@No_idEmpFactura", idEmpFactura);
-                                agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId);
+                                agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoIdCliente);
                                 agregar.Parameters.AddWithValue("@No_idCLiente", idCliente);
                                 agregar.Parameters.AddWithValue("@fechaEmision", date);
                                 agregar.Parameters.AddWithValue("@Ingreso", Vtotal[0]);
@@ -738,16 +878,25 @@ namespace Facturacion_Electronica
                                 conexion.Close();
                             }
                         }
+                        
+                        else if  (registroCliente == false)
+                        {
+                              MessageBox.Show("El cliente no se encuentra registrado!");
+
+
+                            conexion.Close();
+                        }
                         else
                         {
-                            MessageBox.Show("El cliente no se encuentra Registrado!");
+                            MessageBox.Show("El cliente no tiene definido los parametros contables!");
                             conexion.Close();
+
                         }
                         cargaDg.cargaFC(dataGridView1);
                     }
                     else
                     {
-                        MessageBox.Show("ERROR : La contabilidad Seleccionada no Corresponde con esta factura");
+                        MessageBox.Show("ERROR : La contabilidad Seleccionada no corresponde con esta factura");
                     }
                 }
             }
@@ -794,7 +943,7 @@ namespace Facturacion_Electronica
             }
             else
             {
-                MessageBox.Show("La Factura que esta Buscando No Existe!!");
+                MessageBox.Show("La Factura que esta buscando no existe!!");
                 validar = false;
             }
             conexion.Close();
@@ -828,7 +977,7 @@ namespace Facturacion_Electronica
                 }
                 else
                 {
-                    MessageBox.Show("ERROR : La Contabilidad Seleccionada no Existe!");
+                    MessageBox.Show("ERROR : La contabilidad seleccionada no existe!");
                 }
                 conexion.Close();
                 string[] CodigoCuenta = new string[99];
@@ -922,7 +1071,7 @@ namespace Facturacion_Electronica
             }
             else
             {
-                MessageBox.Show("La Factura que esta Exportando No Existe!!");
+                MessageBox.Show("La factura que esta Exportando No Existe!!");
             }
             conexion.Close();
 
@@ -1116,7 +1265,7 @@ namespace Facturacion_Electronica
             }
             else
             {
-                MessageBox.Show("La Factura que esta Buscando No Existe!!");
+                MessageBox.Show("La factura que esta buscando no existe!!");
             }
             conexion.Close();
 
@@ -1222,7 +1371,7 @@ namespace Facturacion_Electronica
             }
             else
             {
-                MessageBox.Show("ERROR: La factura tiene Movimientos que Faltan en parametros contables");
+                MessageBox.Show("ERROR: La factura tiene movimientos que faltan en parametros contables");
             }
         }
 
@@ -1281,5 +1430,29 @@ namespace Facturacion_Electronica
             }
         }
 
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void dgv_ParametrosContables_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tb_CFNoId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_CFContabiliad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

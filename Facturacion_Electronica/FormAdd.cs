@@ -382,5 +382,10 @@ namespace grid
             txt_CxC.Text = "";
             txt_NoIdCliente.Text = "";*/
         }
+
+        private void cb_Contabilidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -25,8 +25,20 @@ namespace Facturacion_Electronica
 
             dg.Rows.Clear();
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from fe_ParametrosGenerales order by Contabilidad", con);
+            SqlCommand cmd = new SqlCommand("select fe_ParametrosGenerales.Contabilidad ,fe_ParametrosGenerales.Tipo_Comprobante , fe_ParametrosGenerales.TipoId ,fe_ParametrosGenerales.NoId, gn_arbol.des_arbo from fe_ParametrosGenerales LEFT JOIN gn_arbol ON fe_ParametrosGenerales.Contabilidad=gn_arbol.cod_arbo order by fe_ParametrosGenerales.Contabilidad ", con);
             SqlDataReader dr = cmd.ExecuteReader();
+            /* SqlCommand cmd = new SqlCommand("select xx,yy,zz from table1 inner join table2 on table1.XXX=table2.YYY", new SqlConnection("Your connection string here"));
+
+             cmd.Connection.Open();
+
+             SqlDataReader sr = cmd.ExecuteReader();*/
+            /*SELECT Customers.CustomerName, Customers.ContactName,Customers.Address, Orders.OrderID
+            FROM Customers
+            LEFT JOIN Orders
+            ON Customers.CustomerID = Orders.CustomerID
+            ORDER BY Customers.CustomerName;*/
+
+
             while (dr.Read())
             {
                 dg.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());

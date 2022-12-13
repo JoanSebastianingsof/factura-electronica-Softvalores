@@ -199,5 +199,15 @@ namespace Facturacion_Electronica
         {
             this.Close();
         }
+
+        private void txt_Ingreso_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PC_F2Agregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

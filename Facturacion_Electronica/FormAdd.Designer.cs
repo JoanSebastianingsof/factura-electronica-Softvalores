@@ -128,6 +128,7 @@ namespace grid
             this.cb_Contabilidad.Size = new System.Drawing.Size(173, 24);
             this.cb_Contabilidad.TabIndex = 110;
             this.cb_Contabilidad.Text = "Seleccione un Item...";
+            this.cb_Contabilidad.SelectedIndexChanged += new System.EventHandler(this.cb_Contabilidad_SelectedIndexChanged);
             // 
             // txt_NoIdCliente
             // 

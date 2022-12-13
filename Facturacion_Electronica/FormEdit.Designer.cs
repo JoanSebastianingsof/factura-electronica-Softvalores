@@ -193,6 +193,7 @@ namespace Facturacion_Electronica
             this.PC_F2Agregar.Text = "Agregar";
             this.PC_F2Agregar.UseVisualStyleBackColor = false;
             this.PC_F2Agregar.Visible = false;
+            this.PC_F2Agregar.Click += new System.EventHandler(this.PC_F2Agregar_Click);
             // 
             // btn_F2Guardar
             // 
@@ -357,6 +358,7 @@ namespace Facturacion_Electronica
             this.txt_Ingreso.Name = "txt_Ingreso";
             this.txt_Ingreso.Size = new System.Drawing.Size(105, 22);
             this.txt_Ingreso.TabIndex = 144;
+            this.txt_Ingreso.TextChanged += new System.EventHandler(this.txt_Ingreso_TextChanged);
             // 
             // lblTIdNoCliente
             // 
