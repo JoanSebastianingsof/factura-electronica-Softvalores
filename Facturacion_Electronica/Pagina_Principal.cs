@@ -1183,10 +1183,11 @@ namespace Facturacion_Electronica
 
                 conexion.Close();
                 //if
+                
                 conexion.Open();
                 string cadenaInsertarCmMoc = "insert into cm_movim values(@cod_arbo, @tip_comp, @num_comp, @fec_movi, @tot_movi,@est_movi ,@mov_gest, @est_guard, @Val_Girar, NULL,NULL, NULL,NULL)";
                 SqlCommand agregarCmMoc = new SqlCommand(cadenaInsertarCmMoc, conexion);
-
+                
                 agregarCmMoc.Parameters.AddWithValue("@cod_arbo", int.Parse(facturaInfo[1]));
                 agregarCmMoc.Parameters.AddWithValue("@tip_comp", facturaInfo[15]);
                 agregarCmMoc.Parameters.AddWithValue("@num_comp", int.Parse(facturaInfo[17]));
@@ -1196,10 +1197,12 @@ namespace Facturacion_Electronica
                 agregarCmMoc.Parameters.AddWithValue("@mov_gest", "CT");
                 agregarCmMoc.Parameters.AddWithValue("@est_guard", "S");
                 agregarCmMoc.Parameters.AddWithValue("@Val_Girar", 0);
-
+                
                 agregarCmMoc.ExecuteNonQuery();
-             //error
+                //error
                 conexion.Close();
+                
+
                 string[] NombreContabilidad = { "Ingreso", "IVA", "Rte.Fte", "Rte.Iva", "Rte.Ica", "Cta x Cobrar" };
                 int position = 1;
                 for (int x = 0; x < 6; x++)
@@ -1209,10 +1212,10 @@ namespace Facturacion_Electronica
                         //pruebas
                         if (TipoCuen[x] == "T    ")
                         {
-                            if (MovNo[x] == "") {
+                            /*if (MovNo[x] == "") {
                                 MessageBox.Show("Agregar cuenta"); 
                             }
-                            else {
+                            else {*/
                                 conexion.Open();
                                 string cadenaInsertarCwMoc = "insert into cw_movim values(@cod_arbo, @tip_comp, @num_comp, @cod_cuen, @rmt_cumo,@nit_clie,@tip_iden,NULL ,@des_deta,NULL ,@vlr_movi, @tip_movi, @bas_rete, NULL,@Cod_Usua)";
                                 SqlCommand agregarCwMoc = new SqlCommand(cadenaInsertarCwMoc, conexion);
@@ -1233,18 +1236,18 @@ namespace Facturacion_Electronica
 
                                 agregarCwMoc.ExecuteNonQuery();
                                 conexion.Close();
-                            }
+                            //}
                             
 
                         }
                         else
                         {
-                            if (MovNo[x] == "")
+                          /*  if (MovNo[x] == "")
                             {
                                 MessageBox.Show("Agregar cuenta");
 
-                            }
-                            else {
+                            }*/
+                            //else {
                                 conexion.Open();
                                 string cadenaInsertarCwMoc = "insert into cw_movim values(@cod_arbo, @tip_comp, @num_comp, @cod_cuen, @rmt_cumo,NULL ,NULL ,NULL ,@des_deta,NULL ,@vlr_movi, @tip_movi, @bas_rete, NULL,@Cod_Usua)";
                                 SqlCommand agregarCwMoc = new SqlCommand(cadenaInsertarCwMoc, conexion);
@@ -1262,13 +1265,14 @@ namespace Facturacion_Electronica
 
                                 agregarCwMoc.ExecuteNonQuery();
                                 conexion.Close();
-                            }
+                           // }
                            
                         }
                         position++;
                     }
                     else
                     {
+                        MessageBox.Show("Agregar cuenta");
 
                     }
                 }
