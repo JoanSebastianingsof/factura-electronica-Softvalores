@@ -158,3 +158,25 @@ C:\Users\BASES\Desktop\APP Facturacion\Facturacion\factura-electronica\Facturaci
 C:\Users\BASES\Desktop\APP Facturacion\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
 C:\Users\BASES\Desktop\APP Facturacion\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
 C:\Users\BASES\Desktop\APP Facturacion\Facturacion\factura-electronica\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.config
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.application
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.exe
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.AssemblyReference.cache
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Pagina_Principal.resources
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\grid.FormAdd.resources
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEdit.resources
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.Properties.Resources.resources
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.GenerateResource.cache
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CoreCompileInputs.cache
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+C:\Users\hp\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb

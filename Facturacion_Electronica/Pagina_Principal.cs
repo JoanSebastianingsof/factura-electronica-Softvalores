@@ -469,7 +469,7 @@ namespace Facturacion_Electronica
                 string cadenaConsultaEF = "select NoId,TipoId from fe_ParametrosGenerales where Contabilidad='" + cont + "'";
                 SqlCommand comandoCEF = new SqlCommand(cadenaConsultaEF, conexion);
                 SqlDataReader registroCEF = comandoCEF.ExecuteReader();
-                Console.WriteLine(NoEmpresaFactura);
+                //Console.WriteLine(NoEmpresaFactura);
                 if (registroCEF.Read())
                 {
                     NoEmpresaFactura = registroCEF["NoId"].ToString();
@@ -596,9 +596,9 @@ namespace Facturacion_Electronica
 
                     }
 
-                    Console.WriteLine(NoEmpresaFactura);
+                   /* Console.WriteLine(NoEmpresaFactura);
                     Console.WriteLine(id[0] + " " + id[1] +" "+ id[2]);
-                    Console.WriteLine(id[2] + " " + id[3] + " " + id[4]);
+                    Console.WriteLine(id[2] + " " + id[3] + " " + id[4]);*/
 
 
 
@@ -624,10 +624,18 @@ namespace Facturacion_Electronica
                                 rete[2] = (arreglo[i + 2]);
                                 reteDesc[2] = ("Rte.Iva");
                             }
-                            if (arreglo[i] == "ReteIca")
+                            if (arreglo[i] == "ReteIca" )
                             {
                                 rete[3] = (arreglo[i + 5]);
                                 reteDesc[3] = ("Rte.Ica");
+                                Console.WriteLine(rete[3]);
+                            }
+                            if (arreglo[i] == "9.66" || arreglo[i] == "14" || arreglo[i] == "6.9" || arreglo[i] == "10" || arreglo[i] == "11.44")
+                            {
+                                rete[3] = (arreglo[i + 4]);
+                                reteDesc[3] = ("Rte.Ica");
+                                Console.WriteLine(rete[3]);
+
                             }
                             if (arreglo[i] == "Pagar")
                             {
@@ -737,6 +745,8 @@ namespace Facturacion_Electronica
                             if (registroRica.Read() && rete[3] != " ")
                             {
                                 dgv_FacturaCargada.Rows.Add(registroRica["Cod_Cuenta"].ToString(), "Rte.Ica  Factura No. " + id[0] + "  " + clienteNombre[2], rete[3], registroRica["Tipo_Mov"].ToString());
+                                Console.WriteLine(rete[3]+"P");
+
                             }
                            
                             conexion.Close();
@@ -764,7 +774,7 @@ namespace Facturacion_Electronica
                             if (idschemeName[1] == Nit)
                             {
                                 NitEmpresaFact = nit[1] + "-" + idscheme[1];
-                                Console.WriteLine(NitEmpresaFact);
+                                //Console.WriteLine(NitEmpresaFact);
                             }
                             else
                             {
@@ -897,7 +907,7 @@ namespace Facturacion_Electronica
                                     tipoIdCliente = "OT";
                                     idCliente = nit[2];
                                 }
-                                Console.WriteLine(tipoIdEmpresa);
+                               // Console.WriteLine(tipoIdEmpresa);
 
                                 agregar.Parameters.AddWithValue("@Contabilidad", cont);
                                 agregar.Parameters.AddWithValue("@Id_Factura", id[0]);
@@ -1212,14 +1222,14 @@ namespace Facturacion_Electronica
                         //pruebas
                         if (TipoCuen[x] == "T    ")
                         {
-                            /*if (MovNo[x] == "") {
-                                MessageBox.Show("Agregar cuenta"); 
-                            }
-                            else {*/
+                            
                                 conexion.Open();
                                 string cadenaInsertarCwMoc = "insert into cw_movim values(@cod_arbo, @tip_comp, @num_comp, @cod_cuen, @rmt_cumo,@nit_clie,@tip_iden,NULL ,@des_deta,NULL ,@vlr_movi, @tip_movi, @bas_rete, NULL,@Cod_Usua)";
-                                SqlCommand agregarCwMoc = new SqlCommand(cadenaInsertarCwMoc, conexion);
+                              //  string codCuent="select cod_cuent from cw_movim";
 
+                                SqlCommand agregarCwMoc = new SqlCommand(cadenaInsertarCwMoc, conexion);
+                             /*   if(codCuent != null)
+                            {*/
                                 agregarCwMoc.Parameters.AddWithValue("@cod_arbo", int.Parse(facturaInfo[1]));
                                 agregarCwMoc.Parameters.AddWithValue("@tip_comp", facturaInfo[15]);
                                 agregarCwMoc.Parameters.AddWithValue("@num_comp", int.Parse(facturaInfo[17]));
@@ -1236,18 +1246,14 @@ namespace Facturacion_Electronica
 
                                 agregarCwMoc.ExecuteNonQuery();
                                 conexion.Close();
+
+
                             //}
-                            
 
                         }
                         else
                         {
-                          /*  if (MovNo[x] == "")
-                            {
-                                MessageBox.Show("Agregar cuenta");
-
-                            }*/
-                            //else {
+                          
                                 conexion.Open();
                                 string cadenaInsertarCwMoc = "insert into cw_movim values(@cod_arbo, @tip_comp, @num_comp, @cod_cuen, @rmt_cumo,NULL ,NULL ,NULL ,@des_deta,NULL ,@vlr_movi, @tip_movi, @bas_rete, NULL,@Cod_Usua)";
                                 SqlCommand agregarCwMoc = new SqlCommand(cadenaInsertarCwMoc, conexion);
@@ -1265,7 +1271,7 @@ namespace Facturacion_Electronica
 
                                 agregarCwMoc.ExecuteNonQuery();
                                 conexion.Close();
-                           // }
+                           
                            
                         }
                         position++;
