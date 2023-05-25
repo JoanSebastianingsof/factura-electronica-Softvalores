@@ -55,11 +55,16 @@ namespace Facturacion_Electronica
         {
             tabControl1.SelectedTab = tp_FacturasCargadas;
         }
+        private void btn_MenuTributos_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tp_Tributos;
 
+        }
         private void button14_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -1500,5 +1505,14 @@ namespace Facturacion_Electronica
             }
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
