@@ -30,7 +30,7 @@ namespace Facturacion_Electronica
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
-            //System.Windows.Forms.TabControl tabControl1;
+           // System.Windows.Forms.TabControl tabControl1;
             this.btn_CFBuscarDocumento = new System.Windows.Forms.Button();
             this.Lbl_Abrir = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -140,19 +140,16 @@ namespace Facturacion_Electronica
             this.btn_MenuCargarFactura = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
             this.tp_Tributos = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tbIdentificadorTrib = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.tbNombreTributo = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnGuardarTributo = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_FacturasCargadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).BeginInit();
@@ -166,8 +163,8 @@ namespace Facturacion_Electronica
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tp_Tributos.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_CFBuscarDocumento
@@ -1452,18 +1449,112 @@ namespace Facturacion_Electronica
             // 
             this.tp_Tributos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.tp_Tributos.Controls.Add(this.button2);
-            this.tp_Tributos.Controls.Add(this.textBox3);
+            this.tp_Tributos.Controls.Add(this.tbIdentificadorTrib);
             this.tp_Tributos.Controls.Add(this.label28);
-            this.tp_Tributos.Controls.Add(this.textBox2);
+            this.tp_Tributos.Controls.Add(this.tbNombreTributo);
             this.tp_Tributos.Controls.Add(this.label27);
             this.tp_Tributos.Controls.Add(this.dataGridView2);
-            this.tp_Tributos.Controls.Add(this.button1);
+            this.tp_Tributos.Controls.Add(this.btnGuardarTributo);
             this.tp_Tributos.Controls.Add(this.label23);
             this.tp_Tributos.Location = new System.Drawing.Point(4, 25);
             this.tp_Tributos.Name = "tp_Tributos";
             this.tp_Tributos.Size = new System.Drawing.Size(821, 608);
             this.tp_Tributos.TabIndex = 4;
             this.tp_Tributos.Text = "Tributos";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkGray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.button2.Location = new System.Drawing.Point(644, 189);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(149, 34);
+            this.button2.TabIndex = 123;
+            this.button2.Text = "Actualizar";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // tbIdentificadorTrib
+            // 
+            this.tbIdentificadorTrib.Location = new System.Drawing.Point(122, 153);
+            this.tbIdentificadorTrib.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbIdentificadorTrib.Name = "tbIdentificadorTrib";
+            this.tbIdentificadorTrib.Size = new System.Drawing.Size(179, 22);
+            this.tbIdentificadorTrib.TabIndex = 122;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label28.Location = new System.Drawing.Point(43, 153);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(60, 18);
+            this.label28.TabIndex = 121;
+            this.label28.Text = "Codigo:";
+            // 
+            // tbNombreTributo
+            // 
+            this.tbNombreTributo.Location = new System.Drawing.Point(122, 107);
+            this.tbNombreTributo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNombreTributo.Name = "tbNombreTributo";
+            this.tbNombreTributo.Size = new System.Drawing.Size(179, 22);
+            this.tbNombreTributo.TabIndex = 118;
+            this.tbNombreTributo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label27.Location = new System.Drawing.Point(43, 107);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(66, 18);
+            this.label27.TabIndex = 117;
+            this.label27.Text = "Nombre:";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 278);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(821, 330);
+            this.dataGridView2.TabIndex = 116;
+            // 
+            // btnGuardarTributo
+            // 
+            this.btnGuardarTributo.BackColor = System.Drawing.Color.DarkGray;
+            this.btnGuardarTributo.FlatAppearance.BorderSize = 0;
+            this.btnGuardarTributo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarTributo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnGuardarTributo.Location = new System.Drawing.Point(644, 149);
+            this.btnGuardarTributo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGuardarTributo.Name = "btnGuardarTributo";
+            this.btnGuardarTributo.Size = new System.Drawing.Size(149, 34);
+            this.btnGuardarTributo.TabIndex = 115;
+            this.btnGuardarTributo.Text = "Agregar";
+            this.btnGuardarTributo.UseVisualStyleBackColor = false;
+            this.btnGuardarTributo.Click += new System.EventHandler(this.btnGuardarTributo_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label23.Location = new System.Drawing.Point(25, 42);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(78, 24);
+            this.label23.TabIndex = 114;
+            this.label23.Text = "Tributos";
             // 
             // tabControl1
             // 
@@ -1480,129 +1571,17 @@ namespace Facturacion_Electronica
             this.tabControl1.Size = new System.Drawing.Size(829, 637);
             this.tabControl1.TabIndex = 11;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.button1.Location = new System.Drawing.Point(644, 149);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 34);
-            this.button1.TabIndex = 115;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label23.Location = new System.Drawing.Point(25, 42);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(78, 24);
-            this.label23.TabIndex = 114;
-            this.label23.Text = "Tributos";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 278);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(821, 330);
-            this.dataGridView2.TabIndex = 116;
-            // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Contabilidad";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Tributo";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 150;
+            this.dataGridViewTextBoxColumn7.Width = 390;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Tipo de Comprobante";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Identificador";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Tipo ID";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "No ID";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Empresa";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(122, 107);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 22);
-            this.textBox2.TabIndex = 118;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label27.Location = new System.Drawing.Point(43, 107);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(66, 18);
-            this.label27.TabIndex = 117;
-            this.label27.Text = "Nombre:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(122, 153);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(179, 22);
-            this.textBox3.TabIndex = 122;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label28.Location = new System.Drawing.Point(43, 153);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(60, 18);
-            this.label28.TabIndex = 121;
-            this.label28.Text = "Codigo:";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DarkGray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.button2.Location = new System.Drawing.Point(644, 189);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 34);
-            this.button2.TabIndex = 123;
-            this.button2.Text = "Actualizar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.dataGridViewTextBoxColumn8.Width = 390;
             // 
             // Pagina_Principal
             // 
@@ -1639,8 +1618,8 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tp_Tributos.ResumeLayout(false);
             this.tp_Tributos.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1757,19 +1736,16 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tp_Tributos;
         private System.Windows.Forms.Button btn_MenuTributos;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbNombreTributo;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardarTributo;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbIdentificadorTrib;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }
 

@@ -1514,5 +1514,41 @@ namespace Facturacion_Electronica
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        //Tributo
+        private void btnGuardarTributo_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            string nombre = tbNombreTributo.Text; string id = tbIdentificadorTrib.Text; string cont = " ";
+            string cadenaConsultaTributo = "select identificador from dbo.fe_Tributo where identificador='" + id + "'";
+            SqlCommand comandoTributo = new SqlCommand(cadenaConsultaTributo, conexion);
+            SqlDataReader registroTributo = comandoTributo.ExecuteReader();
+            if (registroTributo.Read())
+            {
+                MessageBox.Show("ERROR :El tributo ya se encuentra registrado!");
+                conexion.Close();
+             
+            }
+            else
+            {
+                conexion.Close();
+
+                conexion.Open();
+                string insertTri = "insert into fe_Tributo values (@Nom_Tributo,@identificador)";
+                SqlCommand agregar = new SqlCommand(insertTri, conexion);
+                agregar.Parameters.AddWithValue("@Nom_Tributo", nombre);
+                agregar.Parameters.AddWithValue("@identificador", id);
+                agregar.ExecuteNonQuery();
+                conexion.Close();
+                tbNombreTributo.Text = "";
+                tbIdentificadorTrib.Text = "";
+            }
+
+        }
     }
+
 }
