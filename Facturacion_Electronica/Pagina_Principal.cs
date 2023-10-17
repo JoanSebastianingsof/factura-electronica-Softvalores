@@ -32,9 +32,11 @@ namespace Facturacion_Electronica
             combo.seleccionar(cb_FCEmpresaFactura);
             cargaDg.cargaPG(dgv_ParametrosGenerales);
             cargaDg.cargaFC(dataGridView1);
+            cargaDg.cargaTri(dataGridTributo);
+
         }
-        
-        
+
+
         /* Menu */
         private void btn_MenuParametrosGenerales_Click(object sender, EventArgs e)
         {
@@ -1548,6 +1550,45 @@ namespace Facturacion_Electronica
                 tbIdentificadorTrib.Text = "";
             }
 
+        }
+
+        private void btnActualizarTributo_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            string nombre = tbNombreTributo.Text; string id = tbIdentificadorTrib.Text; string cont = " ";
+
+            string cadenaConsultaTributo = "select * from dbo.fe_Tributo where Nom_Tributo='"+nombre+"'";
+            SqlCommand comandoTributo = new SqlCommand(cadenaConsultaTributo, conexion);
+            SqlDataReader registroTributo = comandoTributo.ExecuteReader();
+            if (registroTributo.Read())
+            {
+                if ((registroTributo["Nom_Tributo"].ToString()) == nombre) {
+                    conexion.Close();
+
+                    conexion.Open();
+                    string update = "update fe_Tributo set identificador='" + id + "' where Nom_Tributo='" + nombre + "'";
+                    SqlCommand actualizar = new SqlCommand(update, conexion);
+                    actualizar.ExecuteNonQuery();
+                    conexion.Close();
+                    tbNombreTributo.Text = "";
+                    tbIdentificadorTrib.Text = "";
+                    MessageBox.Show("Registro actualizado");
+                }
+                else
+                {
+                    MessageBox.Show("ERROR :El tributo No existe!");
+
+                }
+
+
+            }
+            else
+            {
+               
+                MessageBox.Show("ERROR!");
+                conexion.Close();
+
+            }
         }
     }
 
