@@ -202,3 +202,4 @@ C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electron
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.application
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
+C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEditTribute.resources

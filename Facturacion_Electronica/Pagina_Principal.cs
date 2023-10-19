@@ -71,6 +71,7 @@ namespace Facturacion_Electronica
         private void Form1_Load(object sender, EventArgs e)
         {
             tb_FCIdFactura.Enabled = false;
+            cargaDg.cargaTri(dataGridTributo);
         }
 
         /* Parametros Generales */
@@ -723,9 +724,9 @@ namespace Facturacion_Electronica
                             {
                                 dgv_FacturaCargada.Rows.Add(registroIva["Cod_Cuenta"].ToString(), "Iva   Factura No. " + id[0] + "  " + clienteNombre[2], iva[1], registroIva["Tipo_Mov"].ToString());
 
-                                      
+
                             }
-                           
+
                             conexion.Close();
                             conexion.Open();
                             SqlCommand comandoRfte = new SqlCommand(cadenaRfte, conexion);
@@ -735,7 +736,7 @@ namespace Facturacion_Electronica
                             {
                                 dgv_FacturaCargada.Rows.Add(registroRfte["Cod_Cuenta"].ToString(), "Rte.Fte   Factura No. " + id[0] + "  " + clienteNombre[2], rete[1], registroRfte["Tipo_Mov"].ToString());
                             }
-                          
+
                             conexion.Close();
                             conexion.Open();
                             SqlCommand comandoRiva = new SqlCommand(cadenaRiva, conexion);
@@ -744,7 +745,7 @@ namespace Facturacion_Electronica
                             {
                                 dgv_FacturaCargada.Rows.Add(registroRiva["Cod_Cuenta"].ToString(), "Rte.Iva   Factura No. " + id[0] + "  " + clienteNombre[2], rete[2], registroRiva["Tipo_Mov"].ToString());
                             }
-                           
+
                             conexion.Close();
                             conexion.Open();
                             SqlCommand comandoRica = new SqlCommand(cadenaRica, conexion);
@@ -752,10 +753,10 @@ namespace Facturacion_Electronica
                             if (registroRica.Read() && rete[3] != " ")
                             {
                                 dgv_FacturaCargada.Rows.Add(registroRica["Cod_Cuenta"].ToString(), "Rte.Ica  Factura No. " + id[0] + "  " + clienteNombre[2], rete[3], registroRica["Tipo_Mov"].ToString());
-                                Console.WriteLine(rete[3]+"P");
+                                Console.WriteLine(rete[3] + "P");
 
                             }
-                           
+
                             conexion.Close();
                             conexion.Open();
                             SqlCommand comandoCxc = new SqlCommand(cadenaCxc, conexion);
@@ -764,7 +765,7 @@ namespace Facturacion_Electronica
                             {
                                 dgv_FacturaCargada.Rows.Add(registroCxc["Cod_Cuenta"].ToString(), "Cta x Cobrar   Factura No. " + id[0] + "  " + clienteNombre[2], CtaXCobrar.ToString(), registroCxc["Tipo_Mov"].ToString());
                             }
-                           
+
                             conexion.Close();
                             tb_CFNoFactura.Text = id[0];
                             cb_CFTipoId.Text = TipoIdEmpresaFactura;
@@ -788,7 +789,7 @@ namespace Facturacion_Electronica
                                 NitEmpresaFact = nit[1];
 
                             }
-                              
+
                             string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + NitEmpresaFact + "'";
 
                             //string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + nit[1] + "-" + idscheme[1] + "'";
@@ -804,7 +805,17 @@ namespace Facturacion_Electronica
                                 MessageBox.Show("!2!");
                                 conexion.Close();
                             }
-
+                            //Lectura de tributos
+                            conexion.Open();
+                            string tributo = "select identificacion from fe_Tributo";
+                            SqlCommand consultaTri = new SqlCommand(tributo, conexion);
+                            SqlDataReader consultaTributo = consultaTri.ExecuteReader();
+                            string[] tributos = new string[99];
+                            if (consultaTributo.Read()) { 
+                                
+                                
+                            }
+                            conexion.Close();
                             conexion.Open();
                             string dataValidaccion = "select Id_Factura from dbo.fe_comprobantes where Id_Factura='" + id[0] + "'";
                             SqlCommand consulta = new SqlCommand(dataValidaccion, conexion);
@@ -1554,41 +1565,15 @@ namespace Facturacion_Electronica
 
         private void btnActualizarTributo_Click(object sender, EventArgs e)
         {
-            conexion.Open();
-            string nombre = tbNombreTributo.Text; string id = tbIdentificadorTrib.Text; string cont = " ";
+            Form formulario1 = new FormEditTribute();
+            formulario1.Show();
+            dataGridTributo.Rows.Clear();
+          
+        }
 
-            string cadenaConsultaTributo = "select * from dbo.fe_Tributo where Nom_Tributo='"+nombre+"'";
-            SqlCommand comandoTributo = new SqlCommand(cadenaConsultaTributo, conexion);
-            SqlDataReader registroTributo = comandoTributo.ExecuteReader();
-            if (registroTributo.Read())
-            {
-                if ((registroTributo["Nom_Tributo"].ToString()) == nombre) {
-                    conexion.Close();
+        private void cb_FCEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-                    conexion.Open();
-                    string update = "update fe_Tributo set identificador='" + id + "' where Nom_Tributo='" + nombre + "'";
-                    SqlCommand actualizar = new SqlCommand(update, conexion);
-                    actualizar.ExecuteNonQuery();
-                    conexion.Close();
-                    tbNombreTributo.Text = "";
-                    tbIdentificadorTrib.Text = "";
-                    MessageBox.Show("Registro actualizado");
-                }
-                else
-                {
-                    MessageBox.Show("ERROR :El tributo No existe!");
-
-                }
-
-
-            }
-            else
-            {
-               
-                MessageBox.Show("ERROR!");
-                conexion.Close();
-
-            }
         }
     }
 

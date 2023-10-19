@@ -209,5 +209,10 @@ namespace Facturacion_Electronica
         {
 
         }
+
+        private void cb_Contabilidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

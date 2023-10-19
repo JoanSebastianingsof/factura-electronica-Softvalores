@@ -91,6 +91,12 @@
   <ItemGroup>
     <Compile Include="cargaDataGrid.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="FormEditTribute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditTribute.Designer.cs">
+      <DependentUpon>FormEditTribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagina_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="llenarcombobox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormEditTribute.resx">
+      <DependentUpon>FormEditTribute.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pagina_Principal.resx">
       <DependentUpon>Pagina_Principal.cs</DependentUpon>
     </EmbeddedResource>

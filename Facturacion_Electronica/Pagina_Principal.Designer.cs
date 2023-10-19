@@ -149,7 +149,8 @@ namespace Facturacion_Electronica
             this.btn_MenuFacturasCargadas = new System.Windows.Forms.Button();
             this.btn_MenuCargarFactura = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_Tributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTributo)).BeginInit();
             this.tp_ParametrosGenerales.SuspendLayout();
@@ -163,7 +164,7 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_CFBuscarDocumento
@@ -1254,6 +1255,7 @@ namespace Facturacion_Electronica
             this.cb_FCEstado.Size = new System.Drawing.Size(153, 24);
             this.cb_FCEstado.TabIndex = 125;
             this.cb_FCEstado.Text = "Seleccione un Item...";
+            this.cb_FCEstado.SelectedIndexChanged += new System.EventHandler(this.cb_FCEstado_SelectedIndexChanged);
             // 
             // btn_FCVolver
             // 
@@ -1568,20 +1570,30 @@ namespace Facturacion_Electronica
             this.btn_MenuParametrosContables.UseVisualStyleBackColor = true;
             this.btn_MenuParametrosContables.Click += new System.EventHandler(this.btn_MenuParametrosContables_Click);
             // 
-            // this.tabControl1
+            // tabPage1
             // 
-            this.tabControl1.Controls.Add(this.tp_Tributos);
-            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
-            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
-            this.tabControl1.Controls.Add(this.tp_CargarFactura);
-            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tabControl1.Location = new System.Drawing.Point(212, -23);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "this.tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(829, 637);
-            this.tabControl1.TabIndex = 11;
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(821, 608);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(this.tp_FacturasCargadas);
+            tabControl1.Controls.Add(this.tp_ParametrosContables);
+            tabControl1.Controls.Add(this.tp_ParametrosGenerales);
+            tabControl1.Controls.Add(this.tp_CargarFactura);
+            tabControl1.Controls.Add(this.tp_Tributos);
+            tabControl1.Controls.Add(this.tabPage1);
+            tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            tabControl1.Location = new System.Drawing.Point(212, -23);
+            tabControl1.Margin = new System.Windows.Forms.Padding(0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(829, 637);
+            tabControl1.TabIndex = 11;
             // 
             // Pagina_Principal
             // 
@@ -1590,7 +1602,7 @@ namespace Facturacion_Electronica
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1034, 611);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -1619,13 +1631,13 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btn_CFBuscarDocumento;
         private System.Windows.Forms.Label Lbl_Abrir;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -1745,8 +1757,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.Button btnActualizarTributo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.TabControl tabControl1;
-
+        private System.Windows.Forms.TabPage tabPage1;
 
     }
 }
