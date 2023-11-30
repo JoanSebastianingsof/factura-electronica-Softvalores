@@ -84,12 +84,13 @@ namespace Facturacion_Electronica
 
             }
             this.Close();
-           /* conexion.Open();
+          /* conexion.Open();
+
             SqlCommand cmd = new SqlCommand("select * from fe_Tributo", conexion);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dataGridTributo.Rows.Add(dr[1].ToString(), dr[2].ToString());
+                dg.Rows.Add(dr[1].ToString(), dr[2].ToString());
             }
             conexion.Close();*/
         }

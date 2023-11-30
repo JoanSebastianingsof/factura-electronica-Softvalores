@@ -195,7 +195,6 @@ C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electron
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\Facturacion_Electronica.pdb
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\DocumentFormat.OpenXml.dll
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\SpreadsheetLight.dll
-C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\System.Data.Common.dll
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\System.Data.SqlClient.dll
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\SpreadsheetLight.xml
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe.manifest
@@ -203,3 +202,5 @@ C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electron
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
 C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEditTribute.resources
+C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\System.ValueTuple.dll
+C:\Users\BASES\Source\Repos\factura-electronica-Softvalores\Facturacion_Electronica\bin\Debug\System.ValueTuple.xml

@@ -67,6 +67,27 @@ namespace Facturacion_Electronica
             con.Close();
         }
 
+        public void cargaIdentificacion(DataGridView dg)
+        {
+            TextReader LeerBaseDatos = new StreamReader("DataBase.txt");
+            string DBinfo = LeerBaseDatos.ReadToEnd();
+            LeerBaseDatos.Close();
+
+            char[] limitador = { '"' };
+            string[] arreglo = DBinfo.Split(limitador, StringSplitOptions.RemoveEmptyEntries);
+            string cadenaCon = "data source = " + arreglo[1] + "; initial catalog = " + arreglo[3] + "; user id = " + arreglo[5] + "; password = " + arreglo[7] + "";
+            SqlConnection con = new SqlConnection(cadenaCon);
+            dg.Rows.Clear();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from fe_TipoIden", con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dg.Rows.Add(dr[1].ToString(), dr[2].ToString());
+            }
+            con.Close();
+        }
+
 
         public void cargaFC(DataGridView dg)
         {

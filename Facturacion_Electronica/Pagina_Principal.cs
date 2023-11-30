@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using grid;
 using System.IO;
 using System.Globalization;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace Facturacion_Electronica
 {
@@ -33,6 +34,7 @@ namespace Facturacion_Electronica
             cargaDg.cargaPG(dgv_ParametrosGenerales);
             cargaDg.cargaFC(dataGridView1);
             cargaDg.cargaTri(dataGridTributo);
+            cargaDg.cargaIdentificacion(dataGridTipoIdentificación);
 
         }
 
@@ -60,6 +62,11 @@ namespace Facturacion_Electronica
         private void btn_MenuTributos_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tp_Tributos;
+
+        }
+        private void btn_TipoIdentificación_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tp_TipoIdentificacion;
 
         }
         private void button14_Click(object sender, EventArgs e)
@@ -604,10 +611,30 @@ namespace Facturacion_Electronica
 
                     }
 
-                   /* Console.WriteLine(NoEmpresaFactura);
-                    Console.WriteLine(id[0] + " " + id[1] +" "+ id[2]);
-                    Console.WriteLine(id[2] + " " + id[3] + " " + id[4]);*/
+                    /* Console.WriteLine(NoEmpresaFactura);
+                     Console.WriteLine(id[0] + " " + id[1] +" "+ id[2]);
+                     Console.WriteLine(id[2] + " " + id[3] + " " + id[4]);*/
 
+                    //Lectura de tributos
+                    conexion.Open();
+                    string tributo = "SELECT Nom_Tributo, identificador FROM fe_Tributo"; // Reemplaza con los nombres reales de tus columnas
+                    SqlCommand consultaTri = new SqlCommand(tributo, conexion);
+                    SqlDataReader consultaTributo = consultaTri.ExecuteReader();
+
+                    // Usaremos una lista de tuplas para almacenar los resultados
+                    List<(string, string)> tributos = new List<(string, string)>();
+
+                    while (consultaTributo.Read())
+                    {
+                        string columna1 = consultaTributo["Nom_Tributo"].ToString();
+                        string columna2 = consultaTributo["identificador"].ToString();
+                        tributos.Add((columna1, columna2));
+                    }
+                    conexion.Close();
+                    /* foreach (var tupla in tributos)
+                     {
+                         Console.WriteLine($"Columna1: {tupla.Item1}, Columna2: {tupla.Item2}");
+                     }*/
 
 
                     if (NoEmpresaFactura == FacturaEmpresaFactura || NoEmpresaFactura== FacturaEmpresaFactura2)
@@ -622,17 +649,18 @@ namespace Facturacion_Electronica
 
                         for (int i = 0; i < arreglo.Length; i++)
                         {
-                            if (arreglo[i] == "Retefuente")
+
+                            if (arreglo[i] == "Retefuente" || arreglo[i]==tributos[5].Item1)
                             {
                                 rete[1] = (arreglo[i + 2]);
                                 reteDesc[1] = ("Rte.Fte");
                             }
-                            if (arreglo[i] == "ReteIva")
+                            if (arreglo[i] == tributos[4].Item1)
                             {
                                 rete[2] = (arreglo[i + 2]);
                                 reteDesc[2] = ("Rte.Iva");
                             }
-                            if (arreglo[i] == "ReteIca" )
+                            if (arreglo[i] == "ReteIca" || arreglo[i] == tributos[6].Item1)
                             {
                                 rete[3] = (arreglo[i + 5]);
                                 reteDesc[3] = ("Rte.Ica");
@@ -758,6 +786,26 @@ namespace Facturacion_Electronica
                             }
 
                             conexion.Close();
+                           
+                            conexion.Open();
+                            //Tipo de identificación
+                            string ConsultaTipoIdentificacion = "select * from  fe_Tributo ";
+                            SqlCommand comandoTipoIdentificacion = new SqlCommand(ConsultaTipoIdentificacion, conexion);
+                            SqlDataReader registroTipoIdentificacion = comandoTipoIdentificacion.ExecuteReader();
+                            string[] arrTipoIdentificacion = new string[99];
+                            int a = -1;
+                            while (registroTipoIdentificacion.Read())
+                            {
+                                a++;
+                                arrTipoIdentificacion[a] = registroTipoIdentificacion["Tip_Iden"].ToString();
+                                a++;
+                                arrTipoIdentificacion[a] = registroTipoIdentificacion["Codigo_Dian"].ToString();
+
+
+                            }
+
+                            conexion.Close();
+
                             conexion.Open();
                             SqlCommand comandoCxc = new SqlCommand(cadenaCxc, conexion);
                             SqlDataReader registroCxc = comandoCxc.ExecuteReader();
@@ -805,17 +853,7 @@ namespace Facturacion_Electronica
                                 MessageBox.Show("!2!");
                                 conexion.Close();
                             }
-                            //Lectura de tributos
-                            conexion.Open();
-                            string tributo = "select identificacion from fe_Tributo";
-                            SqlCommand consultaTri = new SqlCommand(tributo, conexion);
-                            SqlDataReader consultaTributo = consultaTri.ExecuteReader();
-                            string[] tributos = new string[99];
-                            if (consultaTributo.Read()) { 
-                                
-                                
-                            }
-                            conexion.Close();
+                          
                             conexion.Open();
                             string dataValidaccion = "select Id_Factura from dbo.fe_comprobantes where Id_Factura='" + id[0] + "'";
                             SqlCommand consulta = new SqlCommand(dataValidaccion, conexion);
@@ -824,7 +862,7 @@ namespace Facturacion_Electronica
                             {
                                 MessageBox.Show("Este documento ya fue cargado");
                                 conexion.Close();
-                                
+
 
                             }
                             else
@@ -837,8 +875,8 @@ namespace Facturacion_Electronica
                                 //string idEmpFactura = nit[1] + "-" + idscheme[1];
                                 //string idCliente = nit[2] + "-" + idscheme[2];
 
-                                string idEmpFactura ="";
-                               
+                                string idEmpFactura = "";
+
                                 //string registroCivil = "11";
                                 string tarjetaIdentidad = "12";
                                 string cedulaCiudadania = "13";
@@ -848,6 +886,19 @@ namespace Facturacion_Electronica
                                 //string documentoIdentificacionExtranjero = "42";
                                 //string nitOtroPais = "50";
                                 string nuip = "91";
+
+                                int i = 0;
+                                while (i == arrTipoIdentificacion.Length)
+                                {
+                                    if (idschemeName[1] == arrTipoIdentificacion[i])
+                                    {
+                                        tipoIdEmpresa = arrTipoIdentificacion[i-1];
+                                        idEmpFactura = nit[1] + "-" + idscheme[1];
+                                    }
+                                    i++;
+                                }
+
+
                                 if (idschemeName[1]==Nit)
                                 {
                                     tipoIdEmpresa = "NI";
@@ -887,6 +938,16 @@ namespace Facturacion_Electronica
 
                                 string tipoIdCliente = "";
                                 string idCliente = "";
+
+                                while (i == arrTipoIdentificacion.Length)
+                                {
+                                    if (idschemeName[2] == arrTipoIdentificacion[i])
+                                    {
+                                        tipoIdCliente = arrTipoIdentificacion[i - 1];
+                                        idCliente = nit[2] + "-" + idscheme[2];
+                                    }
+                                    i++;
+                                }
 
                                 if (idschemeName[2] == Nit)
                                 {
@@ -1067,6 +1128,26 @@ namespace Facturacion_Electronica
                 }
                 conexion.Close();
                 dgv_FCFacturasCargadas.Rows.Clear();
+
+                conexion.Open();
+                string ConsultaTributo = "select * from  fe_Tributo ";
+                SqlCommand comandoTributo = new SqlCommand(ConsultaTributo, conexion);
+                SqlDataReader registroTributo = comandoTributo.ExecuteReader();
+                string[] arrTributo = new string[99];
+                int a = 0;
+                while (registroTributo.Read())
+                {
+                    arrTributo[a] = registroTributo["Nom_Tributo"].ToString();
+                    a++;
+
+                }
+                /*Console.WriteLine(arrTributo[1]);
+                Console.WriteLine(arrTributo[2]);
+                Console.WriteLine(arrTributo[3]);
+                Console.WriteLine(arrTributo[4]);*/
+
+                conexion.Close();
+
                 conexion.Open();
                 string cadenaConsT = "select Man_Trib from fe_parametrosContables where Contabilidad= '" + facturaInfo[1] + "' and TipoId_Cliente='" + facturaInfo[5] + "' and No_idCLiente='" + facturaInfo[6] + "'";
                 SqlCommand comandoConsT = new SqlCommand(cadenaConsT, conexion);
@@ -1093,7 +1174,7 @@ namespace Facturacion_Electronica
                             dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], "", CodigoCuenta[j], NombreContabilidad[j], facturaInfo[7 + j], facturaType[j]);
                         }
                     }
-                }
+                } 
 
                 btn_FCGenerarComprobante.Visible = true; label21.Visible = true;
             }
@@ -1230,7 +1311,26 @@ namespace Facturacion_Electronica
                 //error
                 conexion.Close();
                 
+                conexion.Open();
+                conexion.Open();
+                string ConsultaTributo = "select * from  fe_Tributo ";
+                SqlCommand comandoTributo = new SqlCommand(ConsultaTributo, conexion);
+                SqlDataReader registroTributo = comandoTributo.ExecuteReader();
+                string[] arrTributo = new string[99];
+                int a = 0;
+                while (registroTributo.Read())
+                {
+                    arrTributo[a] = registroTributo["Nom_Tributo"].ToString();
+                    a++;
 
+                }
+                /*Console.WriteLine(arrTributo[1]);
+                Console.WriteLine(arrTributo[2]);
+                Console.WriteLine(arrTributo[3]);
+                Console.WriteLine(arrTributo[4]);*/
+
+                conexion.Close();
+                conexion.Close();
                 string[] NombreContabilidad = { "Ingreso", "IVA", "Rte.Fte", "Rte.Iva", "Rte.Ica", "Cta x Cobrar" };
                 int position = 1;
                 for (int x = 0; x < 6; x++)
@@ -1253,7 +1353,7 @@ namespace Facturacion_Electronica
                                 agregarCwMoc.Parameters.AddWithValue("@num_comp", int.Parse(facturaInfo[17]));
                                 agregarCwMoc.Parameters.AddWithValue("@cod_cuen", MovNo[x]);
                                 agregarCwMoc.Parameters.AddWithValue("@rmt_cumo", position);
-                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + NombreContabilidad[x] + " De Cliente: " + facturaInfo[14]);
+                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + arrTributo[x] + " De Cliente: " + facturaInfo[14]);
                                 agregarCwMoc.Parameters.AddWithValue("@vlr_movi", double.Parse(facturaInfo[7 + x]));
                                 agregarCwMoc.Parameters.AddWithValue("@tip_movi", MovType[x]);
                                 agregarCwMoc.Parameters.AddWithValue("@bas_rete", 0);
@@ -1281,7 +1381,7 @@ namespace Facturacion_Electronica
                                 agregarCwMoc.Parameters.AddWithValue("@num_comp", int.Parse(facturaInfo[17]));
                                 agregarCwMoc.Parameters.AddWithValue("@cod_cuen", MovNo[x]);
                                 agregarCwMoc.Parameters.AddWithValue("@rmt_cumo", position);
-                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + NombreContabilidad[x] + " De Cliente: " + facturaInfo[14]);
+                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + arrTributo[x] + " De Cliente: " + facturaInfo[14]);
                                 agregarCwMoc.Parameters.AddWithValue("@vlr_movi", double.Parse(facturaInfo[7 + x]));
                                 agregarCwMoc.Parameters.AddWithValue("@tip_movi", MovType[x]);
                                 agregarCwMoc.Parameters.AddWithValue("@bas_rete", 0);
@@ -1559,6 +1659,11 @@ namespace Facturacion_Electronica
                 conexion.Close();
                 tbNombreTributo.Text = "";
                 tbIdentificadorTrib.Text = "";
+               
+                
+                dataGridTributo.Rows.Clear();
+                cargaDg.cargaTri(dataGridTributo);
+
             }
 
         }
@@ -1575,6 +1680,69 @@ namespace Facturacion_Electronica
         {
 
         }
+
+        private void tp_Tributos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridTipoIdentificación_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tp_TipoIdentificacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarIden_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            string Descripcion = tbTipoIdentificación.Text; string id = tbCodigoIdentificación.Text;
+            string cadenaConsultaTipIden= "select Codigo_Dian from dbo.fe_TipoIden where Codigo_Dian='" + id + "'";
+            SqlCommand comandoTributo = new SqlCommand(cadenaConsultaTipIden, conexion);
+            SqlDataReader registroTributo = comandoTributo.ExecuteReader();
+            if (registroTributo.Read())
+            {
+                MessageBox.Show("ERROR :El tipo de identificación ya se encuentra registrado!");
+                conexion.Close();
+
+            }
+            else
+            {
+                conexion.Close();
+
+                conexion.Open();
+                string insertTipIdent = "insert into fe_TipoIden values (@Tip_Iden,@Codigo_Dian)";
+                SqlCommand agregar = new SqlCommand(insertTipIdent, conexion);
+                agregar.Parameters.AddWithValue("@Tip_Iden", Descripcion);
+                agregar.Parameters.AddWithValue("@Codigo_Dian", id);
+                agregar.ExecuteNonQuery();
+                conexion.Close();
+                tbTipoIdentificación.Text = "";
+                tbCodigoIdentificación.Text = "";
+
+
+                dataGridTipoIdentificación.Rows.Clear();
+                cargaDg.cargaIdentificacion(dataGridTipoIdentificación);
+
+            }
+
+        }
+
+      
     }
+    
 
 }
