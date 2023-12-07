@@ -183,9 +183,9 @@ namespace Facturacion_Electronica
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
             this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
             this.tabControl1.Controls.Add(this.tp_Tributos);
-            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
             this.tabControl1.Controls.Add(this.tp_ParametrosContables);
             this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
             this.tabControl1.Controls.Add(this.tp_CargarFactura);
@@ -1789,7 +1789,6 @@ namespace Facturacion_Electronica
 
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
-
         private System.Windows.Forms.Button btn_CFBuscarDocumento;
         private System.Windows.Forms.Label Lbl_Abrir;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

@@ -871,21 +871,22 @@ namespace Facturacion_Electronica
                                 conexion.Open();
                                 string dataComprobante = "insert into dbo.fe_comprobantes values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @fechaEmision, @Ingreso, @Iva, @Rte_Fte, @Rte_Iva, @Rte_Ica, @Cta_Cobrar, @Nom_EmpFact, @Nom_Cliente, @Estado)";
                                 SqlCommand agregar = new SqlCommand(dataComprobante, conexion);
-                                string tipoIdEmpresa = "";
+                               string tipoIdEmpresa = "";
+                                string idEmpFactura = "";
+
                                 //string idEmpFactura = nit[1] + "-" + idscheme[1];
                                 //string idCliente = nit[2] + "-" + idscheme[2];
 
-                                string idEmpFactura = "";
 
-                                //string registroCivil = "11";
-                                string tarjetaIdentidad = "12";
-                                string cedulaCiudadania = "13";
-                                //string tarjetaExtranjeria = "21";
-                                string cedulaExtranjeria = "22";
-                                string pasaporte = "41";
-                                //string documentoIdentificacionExtranjero = "42";
-                                //string nitOtroPais = "50";
-                                string nuip = "91";
+                                /* //string registroCivil = "11";
+                                 string tarjetaIdentidad = "12";
+                                 string cedulaCiudadania = "13";
+                                 //string tarjetaExtranjeria = "21";
+                                 string cedulaExtranjeria = "22";
+                                 string pasaporte = "41";
+                                 //string documentoIdentificacionExtranjero = "42";
+                                 //string nitOtroPais = "50";
+                                 string nuip = "91";*/
 
                                 int i = 0;
                                 while (i < arrTipoIdentificacion.Length)
@@ -938,7 +939,7 @@ namespace Facturacion_Electronica
 
                                 string tipoIdCliente = "";
                                 string idCliente = "";
-
+                                i = 0;
                                 while (i < arrTipoIdentificacion.Length)
                                 {
                                     if (idschemeName[2] == arrTipoIdentificacion[i])
