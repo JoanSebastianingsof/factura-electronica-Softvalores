@@ -789,7 +789,7 @@ namespace Facturacion_Electronica
                            
                             conexion.Open();
                             //Tipo de identificación
-                            string ConsultaTipoIdentificacion = "select * from  fe_Tributo ";
+                            string ConsultaTipoIdentificacion = "select * from  fe_TipoIden ";
                             SqlCommand comandoTipoIdentificacion = new SqlCommand(ConsultaTipoIdentificacion, conexion);
                             SqlDataReader registroTipoIdentificacion = comandoTipoIdentificacion.ExecuteReader();
                             string[] arrTipoIdentificacion = new string[99];
@@ -888,7 +888,7 @@ namespace Facturacion_Electronica
                                 string nuip = "91";
 
                                 int i = 0;
-                                while (i == arrTipoIdentificacion.Length)
+                                while (i < arrTipoIdentificacion.Length)
                                 {
                                     if (idschemeName[1] == arrTipoIdentificacion[i])
                                     {
@@ -899,7 +899,7 @@ namespace Facturacion_Electronica
                                 }
 
 
-                                if (idschemeName[1]==Nit)
+                               /* if (idschemeName[1]==Nit)
                                 {
                                     tipoIdEmpresa = "NI";
                                     idEmpFactura = nit[1] + "-" + idscheme[1];
@@ -934,12 +934,12 @@ namespace Facturacion_Electronica
                                 {
                                     tipoIdEmpresa = "OT";
                                     idEmpFactura = nit[1];
-                                }
+                                }*/
 
                                 string tipoIdCliente = "";
                                 string idCliente = "";
 
-                                while (i == arrTipoIdentificacion.Length)
+                                while (i < arrTipoIdentificacion.Length)
                                 {
                                     if (idschemeName[2] == arrTipoIdentificacion[i])
                                     {
@@ -949,7 +949,7 @@ namespace Facturacion_Electronica
                                     i++;
                                 }
 
-                                if (idschemeName[2] == Nit)
+                              /*  if (idschemeName[2] == Nit)
                                 {
                                     tipoIdCliente = "NI";
                                     idCliente = nit[2] + "-" + idscheme[2];
@@ -985,7 +985,7 @@ namespace Facturacion_Electronica
                                 {
                                     tipoIdCliente = "OT";
                                     idCliente = nit[2];
-                                }
+                                }*/
                                // Console.WriteLine(tipoIdEmpresa);
 
                                 agregar.Parameters.AddWithValue("@Contabilidad", cont);
