@@ -1742,7 +1742,26 @@ namespace Facturacion_Electronica
 
         }
 
-      
+        private void btnActualizarIden_Click(object sender, EventArgs e)
+        {
+            Form formulario1 = new FormEditTipIden();
+            formulario1.Show();
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            dataGridTipoIdentificación.Rows.Clear();
+            cargaDg.cargaIdentificacion(dataGridTipoIdentificación);
+
+
+        }
+
+        private void pBActualizar_Click(object sender, EventArgs e)
+        {
+         dataGridTributo.Rows.Clear();
+                cargaDg.cargaTri(dataGridTributo);
+        }
     }
     
 

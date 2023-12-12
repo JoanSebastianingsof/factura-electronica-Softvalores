@@ -19,6 +19,8 @@ namespace Facturacion_Electronica
         public FormEditTipIden()
         {
             InitializeComponent();
+            combo.captarTipIden(cbTipoIdentificacion);
+
         }
 
         private void btnActualizarTributo_Click(object sender, EventArgs e)

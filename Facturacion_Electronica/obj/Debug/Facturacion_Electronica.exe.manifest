@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Facturacion_Electronica.exe" size="241664">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Facturacion_Electronica.exe" size="259584">
       <assemblyIdentity name="Facturacion_Electronica" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gPhX7jd3pLGmDP7ASpuP2F4CDDt7+ZtoO/B9PgK32oQ=</dsig:DigestValue>
+        <dsig:DigestValue>oglzJs4O2IpypHyDVWg7vamMM8tbUC5s/eSmmNxQvT4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -101,6 +101,15 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="asests\Actualizacion.png" size="12230">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>apLF2KNJvA45DgtA2nXGtQKgG/b8NYrQUPvYgHJxBOI=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="asests\Icon.png" size="25160">
     <hash>
       <dsig:Transforms>

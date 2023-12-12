@@ -71,6 +71,21 @@ namespace Facturacion_Electronica
             cb.Items.Insert(0, "Seleccione un Item...");
             cb.SelectedIndex = 0;
         }
+        public void captarTipIden(ComboBox cb)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select Tip_Iden from fe_TipoIden", con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            // string[] resultado = null;
+            while (dr.Read())
+            {
+                cb.Items.Add(dr[0].ToString());
+
+            }
+            con.Close();
+            cb.Items.Insert(0, "Seleccione un Item...");
+            cb.SelectedIndex = 0;
+        }
         public void cargar(ComboBox cb, int id)
         {
             cb.Items.Clear();

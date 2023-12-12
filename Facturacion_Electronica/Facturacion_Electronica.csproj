@@ -181,6 +181,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="asests\Actualizacion.png" />
     <Content Include="asests\Icon.png" />
     <None Include="Resources\pictureBox1.Image.png" />
   </ItemGroup>

@@ -31,18 +31,8 @@ namespace Facturacion_Electronica
         {
             System.Windows.Forms.TabControl tabControl1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
-            this.tp_TipoIdentificacion = new System.Windows.Forms.TabPage();
-            this.btnActualizarIden = new System.Windows.Forms.Button();
-            this.tbCodigoIdentificación = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.tbTipoIdentificación = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.dataGridTipoIdentificación = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregarIden = new System.Windows.Forms.Button();
-            this.label30 = new System.Windows.Forms.Label();
             this.tp_Tributos = new System.Windows.Forms.TabPage();
+            this.pBActualizar = new System.Windows.Forms.PictureBox();
             this.btnActualizarTributo = new System.Windows.Forms.Button();
             this.tbIdentificadorTrib = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -53,6 +43,18 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardarTributo = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
+            this.tp_TipoIdentificacion = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnActualizarIden = new System.Windows.Forms.Button();
+            this.tbCodigoIdentificación = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbTipoIdentificación = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.dataGridTipoIdentificación = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgregarIden = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
             this.tp_FacturasCargadas = new System.Windows.Forms.TabPage();
             this.label21 = new System.Windows.Forms.Label();
             this.btn_FCGenerarComprobante = new System.Windows.Forms.Button();
@@ -164,10 +166,12 @@ namespace Facturacion_Electronica
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabControl1.SuspendLayout();
-            this.tp_TipoIdentificacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).BeginInit();
             this.tp_Tributos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBActualizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTributo)).BeginInit();
+            this.tp_TipoIdentificacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).BeginInit();
             this.tp_FacturasCargadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -183,11 +187,11 @@ namespace Facturacion_Electronica
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
-            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
-            this.tabControl1.Controls.Add(this.tp_Tributos);
-            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
             this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
+            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
+            this.tabControl1.Controls.Add(this.tp_Tributos);
+            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
+            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
             this.tabControl1.Controls.Add(this.tp_CargarFactura);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.tabControl1.Location = new System.Drawing.Point(212, -23);
@@ -197,135 +201,10 @@ namespace Facturacion_Electronica
             this.tabControl1.Size = new System.Drawing.Size(829, 637);
             this.tabControl1.TabIndex = 11;
             // 
-            // tp_TipoIdentificacion
-            // 
-            this.tp_TipoIdentificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_TipoIdentificacion.Controls.Add(this.btnActualizarIden);
-            this.tp_TipoIdentificacion.Controls.Add(this.tbCodigoIdentificación);
-            this.tp_TipoIdentificacion.Controls.Add(this.label24);
-            this.tp_TipoIdentificacion.Controls.Add(this.tbTipoIdentificación);
-            this.tp_TipoIdentificacion.Controls.Add(this.label29);
-            this.tp_TipoIdentificacion.Controls.Add(this.dataGridTipoIdentificación);
-            this.tp_TipoIdentificacion.Controls.Add(this.btnAgregarIden);
-            this.tp_TipoIdentificacion.Controls.Add(this.label30);
-            this.tp_TipoIdentificacion.Location = new System.Drawing.Point(4, 25);
-            this.tp_TipoIdentificacion.Name = "tp_TipoIdentificacion";
-            this.tp_TipoIdentificacion.Size = new System.Drawing.Size(821, 608);
-            this.tp_TipoIdentificacion.TabIndex = 5;
-            this.tp_TipoIdentificacion.Text = "TipoIdenticacion";
-            this.tp_TipoIdentificacion.Click += new System.EventHandler(this.tp_TipoIdentificacion_Click);
-            // 
-            // btnActualizarIden
-            // 
-            this.btnActualizarIden.BackColor = System.Drawing.Color.DarkGray;
-            this.btnActualizarIden.FlatAppearance.BorderSize = 0;
-            this.btnActualizarIden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizarIden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnActualizarIden.Location = new System.Drawing.Point(644, 142);
-            this.btnActualizarIden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnActualizarIden.Name = "btnActualizarIden";
-            this.btnActualizarIden.Size = new System.Drawing.Size(149, 34);
-            this.btnActualizarIden.TabIndex = 131;
-            this.btnActualizarIden.Text = "Actualizar";
-            this.btnActualizarIden.UseVisualStyleBackColor = false;
-            // 
-            // tbCodigoIdentificación
-            // 
-            this.tbCodigoIdentificación.Location = new System.Drawing.Point(149, 142);
-            this.tbCodigoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbCodigoIdentificación.Name = "tbCodigoIdentificación";
-            this.tbCodigoIdentificación.Size = new System.Drawing.Size(179, 22);
-            this.tbCodigoIdentificación.TabIndex = 130;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label24.Location = new System.Drawing.Point(70, 142);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(60, 18);
-            this.label24.TabIndex = 129;
-            this.label24.Text = "Codigo:";
-            this.label24.Click += new System.EventHandler(this.label24_Click_1);
-            // 
-            // tbTipoIdentificación
-            // 
-            this.tbTipoIdentificación.Location = new System.Drawing.Point(149, 96);
-            this.tbTipoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbTipoIdentificación.Name = "tbTipoIdentificación";
-            this.tbTipoIdentificación.Size = new System.Drawing.Size(179, 22);
-            this.tbTipoIdentificación.TabIndex = 128;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label29.Location = new System.Drawing.Point(43, 96);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(91, 18);
-            this.label29.TabIndex = 127;
-            this.label29.Text = "Descripción:";
-            this.label29.Click += new System.EventHandler(this.label29_Click);
-            // 
-            // dataGridTipoIdentificación
-            // 
-            this.dataGridTipoIdentificación.AllowUserToAddRows = false;
-            this.dataGridTipoIdentificación.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTipoIdentificación.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.dataGridTipoIdentificación.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridTipoIdentificación.Location = new System.Drawing.Point(0, 219);
-            this.dataGridTipoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridTipoIdentificación.Name = "dataGridTipoIdentificación";
-            this.dataGridTipoIdentificación.RowTemplate.Height = 25;
-            this.dataGridTipoIdentificación.Size = new System.Drawing.Size(821, 389);
-            this.dataGridTipoIdentificación.TabIndex = 126;
-            this.dataGridTipoIdentificación.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTipoIdentificación_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 390;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Identificador";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 390;
-            // 
-            // btnAgregarIden
-            // 
-            this.btnAgregarIden.BackColor = System.Drawing.Color.DarkGray;
-            this.btnAgregarIden.FlatAppearance.BorderSize = 0;
-            this.btnAgregarIden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarIden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnAgregarIden.Location = new System.Drawing.Point(644, 96);
-            this.btnAgregarIden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAgregarIden.Name = "btnAgregarIden";
-            this.btnAgregarIden.Size = new System.Drawing.Size(149, 34);
-            this.btnAgregarIden.TabIndex = 125;
-            this.btnAgregarIden.Text = "Agregar";
-            this.btnAgregarIden.UseVisualStyleBackColor = false;
-            this.btnAgregarIden.Click += new System.EventHandler(this.btnAgregarIden_Click);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label30.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label30.Location = new System.Drawing.Point(52, 31);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(198, 24);
-            this.label30.TabIndex = 124;
-            this.label30.Text = "Tipos de Identificación";
-            // 
             // tp_Tributos
             // 
             this.tp_Tributos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tp_Tributos.Controls.Add(this.pBActualizar);
             this.tp_Tributos.Controls.Add(this.btnActualizarTributo);
             this.tp_Tributos.Controls.Add(this.tbIdentificadorTrib);
             this.tp_Tributos.Controls.Add(this.label28);
@@ -340,6 +219,19 @@ namespace Facturacion_Electronica
             this.tp_Tributos.TabIndex = 4;
             this.tp_Tributos.Text = "Tributos";
             this.tp_Tributos.Click += new System.EventHandler(this.tp_Tributos_Click);
+            // 
+            // pBActualizar
+            // 
+            this.pBActualizar.BackColor = System.Drawing.Color.DarkGray;
+            this.pBActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pBActualizar.Image = ((System.Drawing.Image)(resources.GetObject("pBActualizar.Image")));
+            this.pBActualizar.Location = new System.Drawing.Point(763, 188);
+            this.pBActualizar.Name = "pBActualizar";
+            this.pBActualizar.Size = new System.Drawing.Size(28, 18);
+            this.pBActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pBActualizar.TabIndex = 133;
+            this.pBActualizar.TabStop = false;
+            this.pBActualizar.Click += new System.EventHandler(this.pBActualizar_Click);
             // 
             // btnActualizarTributo
             // 
@@ -447,6 +339,147 @@ namespace Facturacion_Electronica
             this.label23.Size = new System.Drawing.Size(78, 24);
             this.label23.TabIndex = 114;
             this.label23.Text = "Tributos";
+            // 
+            // tp_TipoIdentificacion
+            // 
+            this.tp_TipoIdentificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tp_TipoIdentificacion.Controls.Add(this.pictureBox2);
+            this.tp_TipoIdentificacion.Controls.Add(this.btnActualizarIden);
+            this.tp_TipoIdentificacion.Controls.Add(this.tbCodigoIdentificación);
+            this.tp_TipoIdentificacion.Controls.Add(this.label24);
+            this.tp_TipoIdentificacion.Controls.Add(this.tbTipoIdentificación);
+            this.tp_TipoIdentificacion.Controls.Add(this.label29);
+            this.tp_TipoIdentificacion.Controls.Add(this.dataGridTipoIdentificación);
+            this.tp_TipoIdentificacion.Controls.Add(this.btnAgregarIden);
+            this.tp_TipoIdentificacion.Controls.Add(this.label30);
+            this.tp_TipoIdentificacion.Location = new System.Drawing.Point(4, 25);
+            this.tp_TipoIdentificacion.Name = "tp_TipoIdentificacion";
+            this.tp_TipoIdentificacion.Size = new System.Drawing.Size(821, 608);
+            this.tp_TipoIdentificacion.TabIndex = 5;
+            this.tp_TipoIdentificacion.Text = "TipoIdenticacion";
+            this.tp_TipoIdentificacion.Click += new System.EventHandler(this.tp_TipoIdentificacion_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.DarkGray;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(760, 189);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 18);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 132;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // btnActualizarIden
+            // 
+            this.btnActualizarIden.BackColor = System.Drawing.Color.DarkGray;
+            this.btnActualizarIden.FlatAppearance.BorderSize = 0;
+            this.btnActualizarIden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarIden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnActualizarIden.Location = new System.Drawing.Point(644, 142);
+            this.btnActualizarIden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnActualizarIden.Name = "btnActualizarIden";
+            this.btnActualizarIden.Size = new System.Drawing.Size(149, 34);
+            this.btnActualizarIden.TabIndex = 131;
+            this.btnActualizarIden.Text = "Actualizar";
+            this.btnActualizarIden.UseVisualStyleBackColor = false;
+            this.btnActualizarIden.Click += new System.EventHandler(this.btnActualizarIden_Click);
+            // 
+            // tbCodigoIdentificación
+            // 
+            this.tbCodigoIdentificación.Location = new System.Drawing.Point(149, 142);
+            this.tbCodigoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCodigoIdentificación.Name = "tbCodigoIdentificación";
+            this.tbCodigoIdentificación.Size = new System.Drawing.Size(179, 22);
+            this.tbCodigoIdentificación.TabIndex = 130;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label24.Location = new System.Drawing.Point(70, 142);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(60, 18);
+            this.label24.TabIndex = 129;
+            this.label24.Text = "Codigo:";
+            this.label24.Click += new System.EventHandler(this.label24_Click_1);
+            // 
+            // tbTipoIdentificación
+            // 
+            this.tbTipoIdentificación.Location = new System.Drawing.Point(149, 96);
+            this.tbTipoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTipoIdentificación.Name = "tbTipoIdentificación";
+            this.tbTipoIdentificación.Size = new System.Drawing.Size(179, 22);
+            this.tbTipoIdentificación.TabIndex = 128;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label29.Location = new System.Drawing.Point(43, 96);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(91, 18);
+            this.label29.TabIndex = 127;
+            this.label29.Text = "Descripción:";
+            this.label29.Click += new System.EventHandler(this.label29_Click);
+            // 
+            // dataGridTipoIdentificación
+            // 
+            this.dataGridTipoIdentificación.AllowUserToAddRows = false;
+            this.dataGridTipoIdentificación.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTipoIdentificación.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.dataGridTipoIdentificación.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridTipoIdentificación.Location = new System.Drawing.Point(0, 219);
+            this.dataGridTipoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridTipoIdentificación.Name = "dataGridTipoIdentificación";
+            this.dataGridTipoIdentificación.RowTemplate.Height = 25;
+            this.dataGridTipoIdentificación.Size = new System.Drawing.Size(821, 389);
+            this.dataGridTipoIdentificación.TabIndex = 126;
+            this.dataGridTipoIdentificación.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTipoIdentificación_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 390;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Identificador";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 390;
+            // 
+            // btnAgregarIden
+            // 
+            this.btnAgregarIden.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAgregarIden.FlatAppearance.BorderSize = 0;
+            this.btnAgregarIden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarIden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnAgregarIden.Location = new System.Drawing.Point(644, 96);
+            this.btnAgregarIden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregarIden.Name = "btnAgregarIden";
+            this.btnAgregarIden.Size = new System.Drawing.Size(149, 34);
+            this.btnAgregarIden.TabIndex = 125;
+            this.btnAgregarIden.Text = "Agregar";
+            this.btnAgregarIden.UseVisualStyleBackColor = false;
+            this.btnAgregarIden.Click += new System.EventHandler(this.btnAgregarIden_Click);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label30.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label30.Location = new System.Drawing.Point(52, 31);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(198, 24);
+            this.label30.TabIndex = 124;
+            this.label30.Text = "Tipos de Identificación";
             // 
             // tp_FacturasCargadas
             // 
@@ -1762,12 +1795,14 @@ namespace Facturacion_Electronica
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tp_TipoIdentificacion.ResumeLayout(false);
-            this.tp_TipoIdentificacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).EndInit();
             this.tp_Tributos.ResumeLayout(false);
             this.tp_Tributos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBActualizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTributo)).EndInit();
+            this.tp_TipoIdentificacion.ResumeLayout(false);
+            this.tp_TipoIdentificacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).EndInit();
             this.tp_FacturasCargadas.ResumeLayout(false);
             this.tp_FacturasCargadas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).EndInit();
@@ -1920,6 +1955,8 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pBActualizar;
     }
 }
 
