@@ -29,8 +29,30 @@ namespace Facturacion_Electronica
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TabControl tabControl1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
+            this.tp_ParametrosGenerales = new System.Windows.Forms.TabPage();
+            this.btn_PGVolver = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.btn_PGActualizar = new System.Windows.Forms.Button();
+            this.btn_PGAgregar = new System.Windows.Forms.Button();
+            this.btn_PGConsulta = new System.Windows.Forms.Button();
+            this.cb_TipoComp = new System.Windows.Forms.ComboBox();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.btn_PGGuardar = new System.Windows.Forms.Button();
+            this.dgv_ParametrosGenerales = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_id = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tp_Tributos = new System.Windows.Forms.TabPage();
             this.pBActualizar = new System.Windows.Forms.PictureBox();
             this.btnActualizarTributo = new System.Windows.Forms.Button();
@@ -43,6 +65,26 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardarTributo = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
+            this.tp_ParametrosContables = new System.Windows.Forms.TabPage();
+            this.lbl_IdCliente = new System.Windows.Forms.Label();
+            this.btn_PCEditarCliente = new System.Windows.Forms.Button();
+            this.btn_PCNombreCliente = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lbl_PCNombreCliente = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cb_PCTipoID = new System.Windows.Forms.ComboBox();
+            this.dgv_ParametrosContables = new System.Windows.Forms.DataGridView();
+            this.tipoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btn_PCAgregarCliente = new System.Windows.Forms.Button();
+            this.btn_PCBuscarCliente = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cb_PCContabilidad = new System.Windows.Forms.ComboBox();
+            this.label39 = new System.Windows.Forms.Label();
             this.tp_TipoIdentificacion = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnActualizarIden = new System.Windows.Forms.Button();
@@ -85,49 +127,6 @@ namespace Facturacion_Electronica
             this.FC_Grid_Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_FCConsultaFactura = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.tp_ParametrosContables = new System.Windows.Forms.TabPage();
-            this.lbl_IdCliente = new System.Windows.Forms.Label();
-            this.btn_PCEditarCliente = new System.Windows.Forms.Button();
-            this.btn_PCNombreCliente = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.lbl_PCNombreCliente = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cb_PCTipoID = new System.Windows.Forms.ComboBox();
-            this.dgv_ParametrosContables = new System.Windows.Forms.DataGridView();
-            this.tipoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.btn_PCAgregarCliente = new System.Windows.Forms.Button();
-            this.btn_PCBuscarCliente = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cb_PCContabilidad = new System.Windows.Forms.ComboBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.tp_ParametrosGenerales = new System.Windows.Forms.TabPage();
-            this.btn_PGVolver = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.btn_PGActualizar = new System.Windows.Forms.Button();
-            this.btn_PGAgregar = new System.Windows.Forms.Button();
-            this.btn_PGConsulta = new System.Windows.Forms.Button();
-            this.cb_TipoComp = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.btn_PGGuardar = new System.Windows.Forms.Button();
-            this.dgv_ParametrosGenerales = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_id = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.tp_CargarFactura = new System.Windows.Forms.TabPage();
             this.cb_CFTipoIdCliente = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -166,19 +165,19 @@ namespace Facturacion_Electronica
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabControl1.SuspendLayout();
+            this.tp_ParametrosGenerales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).BeginInit();
             this.tp_Tributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBActualizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTributo)).BeginInit();
+            this.tp_ParametrosContables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).BeginInit();
             this.tp_TipoIdentificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).BeginInit();
             this.tp_FacturasCargadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tp_ParametrosContables.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).BeginInit();
-            this.tp_ParametrosGenerales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).BeginInit();
             this.tp_CargarFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).BeginInit();
             this.panel1.SuspendLayout();
@@ -187,8 +186,8 @@ namespace Facturacion_Electronica
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
             this.tabControl1.Controls.Add(this.tp_ParametrosContables);
+            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
             this.tabControl1.Controls.Add(this.tp_Tributos);
             this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
             this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
@@ -200,6 +199,280 @@ namespace Facturacion_Electronica
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(829, 637);
             this.tabControl1.TabIndex = 11;
+            // 
+            // tp_ParametrosGenerales
+            // 
+            this.tp_ParametrosGenerales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGVolver);
+            this.tp_ParametrosGenerales.Controls.Add(this.button8);
+            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGActualizar);
+            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGAgregar);
+            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGConsulta);
+            this.tp_ParametrosGenerales.Controls.Add(this.cb_TipoComp);
+            this.tp_ParametrosGenerales.Controls.Add(this.comboBox9);
+            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGGuardar);
+            this.tp_ParametrosGenerales.Controls.Add(this.dgv_ParametrosGenerales);
+            this.tp_ParametrosGenerales.Controls.Add(this.comboBox8);
+            this.tp_ParametrosGenerales.Controls.Add(this.label7);
+            this.tp_ParametrosGenerales.Controls.Add(this.label6);
+            this.tp_ParametrosGenerales.Controls.Add(this.label5);
+            this.tp_ParametrosGenerales.Controls.Add(this.txt_id);
+            this.tp_ParametrosGenerales.Controls.Add(this.label2);
+            this.tp_ParametrosGenerales.Controls.Add(this.label3);
+            this.tp_ParametrosGenerales.Controls.Add(this.label4);
+            this.tp_ParametrosGenerales.Location = new System.Drawing.Point(4, 25);
+            this.tp_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_ParametrosGenerales.Name = "tp_ParametrosGenerales";
+            this.tp_ParametrosGenerales.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_ParametrosGenerales.Size = new System.Drawing.Size(821, 608);
+            this.tp_ParametrosGenerales.TabIndex = 0;
+            this.tp_ParametrosGenerales.Text = "Parametros Generales";
+            // 
+            // btn_PGVolver
+            // 
+            this.btn_PGVolver.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PGVolver.FlatAppearance.BorderSize = 0;
+            this.btn_PGVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PGVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btn_PGVolver.Location = new System.Drawing.Point(466, 206);
+            this.btn_PGVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PGVolver.Name = "btn_PGVolver";
+            this.btn_PGVolver.Size = new System.Drawing.Size(76, 34);
+            this.btn_PGVolver.TabIndex = 114;
+            this.btn_PGVolver.Text = "Volver";
+            this.btn_PGVolver.UseVisualStyleBackColor = false;
+            this.btn_PGVolver.Visible = false;
+            this.btn_PGVolver.Click += new System.EventHandler(this.btn_PGVolver_Click);
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.button8.Location = new System.Drawing.Point(466, 206);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(76, 34);
+            this.button8.TabIndex = 113;
+            this.button8.Text = "Volver";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Visible = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            // 
+            // btn_PGActualizar
+            // 
+            this.btn_PGActualizar.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PGActualizar.FlatAppearance.BorderSize = 0;
+            this.btn_PGActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PGActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btn_PGActualizar.Location = new System.Drawing.Point(311, 172);
+            this.btn_PGActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PGActualizar.Name = "btn_PGActualizar";
+            this.btn_PGActualizar.Size = new System.Drawing.Size(149, 34);
+            this.btn_PGActualizar.TabIndex = 112;
+            this.btn_PGActualizar.Text = "Guardar";
+            this.btn_PGActualizar.UseVisualStyleBackColor = false;
+            this.btn_PGActualizar.Visible = false;
+            this.btn_PGActualizar.Click += new System.EventHandler(this.btn_PGActualizar_Click);
+            // 
+            // btn_PGAgregar
+            // 
+            this.btn_PGAgregar.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PGAgregar.FlatAppearance.BorderSize = 0;
+            this.btn_PGAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PGAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btn_PGAgregar.Location = new System.Drawing.Point(642, 162);
+            this.btn_PGAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PGAgregar.Name = "btn_PGAgregar";
+            this.btn_PGAgregar.Size = new System.Drawing.Size(149, 34);
+            this.btn_PGAgregar.TabIndex = 111;
+            this.btn_PGAgregar.Text = "Agregar";
+            this.btn_PGAgregar.UseVisualStyleBackColor = false;
+            this.btn_PGAgregar.Click += new System.EventHandler(this.btn_PGAgregar_Click);
+            // 
+            // btn_PGConsulta
+            // 
+            this.btn_PGConsulta.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PGConsulta.FlatAppearance.BorderSize = 0;
+            this.btn_PGConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PGConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btn_PGConsulta.Location = new System.Drawing.Point(642, 207);
+            this.btn_PGConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PGConsulta.Name = "btn_PGConsulta";
+            this.btn_PGConsulta.Size = new System.Drawing.Size(149, 34);
+            this.btn_PGConsulta.TabIndex = 110;
+            this.btn_PGConsulta.Text = "Seleccionar";
+            this.btn_PGConsulta.UseVisualStyleBackColor = false;
+            this.btn_PGConsulta.Click += new System.EventHandler(this.btn_PGConsulta_Click);
+            // 
+            // cb_TipoComp
+            // 
+            this.cb_TipoComp.FormattingEnabled = true;
+            this.cb_TipoComp.Location = new System.Drawing.Point(203, 104);
+            this.cb_TipoComp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_TipoComp.Name = "cb_TipoComp";
+            this.cb_TipoComp.Size = new System.Drawing.Size(199, 24);
+            this.cb_TipoComp.TabIndex = 109;
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(104, 180);
+            this.comboBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(179, 24);
+            this.comboBox9.TabIndex = 108;
+            this.comboBox9.Text = "Seleccione un Item...";
+            // 
+            // btn_PGGuardar
+            // 
+            this.btn_PGGuardar.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PGGuardar.FlatAppearance.BorderSize = 0;
+            this.btn_PGGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PGGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btn_PGGuardar.Location = new System.Drawing.Point(311, 206);
+            this.btn_PGGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PGGuardar.Name = "btn_PGGuardar";
+            this.btn_PGGuardar.Size = new System.Drawing.Size(149, 34);
+            this.btn_PGGuardar.TabIndex = 107;
+            this.btn_PGGuardar.Text = "Guardar";
+            this.btn_PGGuardar.UseVisualStyleBackColor = false;
+            this.btn_PGGuardar.Visible = false;
+            this.btn_PGGuardar.Click += new System.EventHandler(this.btn_PGGuardar_Click);
+            // 
+            // dgv_ParametrosGenerales
+            // 
+            this.dgv_ParametrosGenerales.AllowUserToAddRows = false;
+            this.dgv_ParametrosGenerales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ParametrosGenerales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.TipoComprobante,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.Empresa});
+            this.dgv_ParametrosGenerales.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_ParametrosGenerales.Location = new System.Drawing.Point(3, 276);
+            this.dgv_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_ParametrosGenerales.Name = "dgv_ParametrosGenerales";
+            this.dgv_ParametrosGenerales.RowTemplate.Height = 25;
+            this.dgv_ParametrosGenerales.Size = new System.Drawing.Size(815, 330);
+            this.dgv_ParametrosGenerales.TabIndex = 106;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Contabilidad";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // TipoComprobante
+            // 
+            this.TipoComprobante.HeaderText = "Tipo de Comprobante";
+            this.TipoComprobante.Name = "TipoComprobante";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Tipo ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "No ID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 120;
+            // 
+            // Empresa
+            // 
+            this.Empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Empresa.HeaderText = "Empresa";
+            this.Empresa.Name = "Empresa";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox8.FormatString = "N0";
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(178, 77);
+            this.comboBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(225, 24);
+            this.comboBox8.TabIndex = 105;
+            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(15, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(197, 24);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Parametros Generales";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(15, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(197, 24);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Empresa que Factura ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(15, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(156, 18);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Tipo de Comprobante:";
+            // 
+            // txt_id
+            // 
+            this.txt_id.Location = new System.Drawing.Point(104, 207);
+            this.txt_id.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(179, 22);
+            this.txt_id.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(25, 207);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 18);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "No Id:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(15, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 18);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Contabilidad :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(22, 179);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 18);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Tipo id:";
             // 
             // tp_Tributos
             // 
@@ -339,6 +612,248 @@ namespace Facturacion_Electronica
             this.label23.Size = new System.Drawing.Size(78, 24);
             this.label23.TabIndex = 114;
             this.label23.Text = "Tributos";
+            // 
+            // tp_ParametrosContables
+            // 
+            this.tp_ParametrosContables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tp_ParametrosContables.Controls.Add(this.lbl_IdCliente);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCEditarCliente);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCNombreCliente);
+            this.tp_ParametrosContables.Controls.Add(this.textBox4);
+            this.tp_ParametrosContables.Controls.Add(this.label22);
+            this.tp_ParametrosContables.Controls.Add(this.lbl_PCNombreCliente);
+            this.tp_ParametrosContables.Controls.Add(this.label10);
+            this.tp_ParametrosContables.Controls.Add(this.cb_PCTipoID);
+            this.tp_ParametrosContables.Controls.Add(this.dgv_ParametrosContables);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCAgregarCliente);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCBuscarCliente);
+            this.tp_ParametrosContables.Controls.Add(this.label20);
+            this.tp_ParametrosContables.Controls.Add(this.cb_PCContabilidad);
+            this.tp_ParametrosContables.Controls.Add(this.label39);
+            this.tp_ParametrosContables.Location = new System.Drawing.Point(4, 25);
+            this.tp_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_ParametrosContables.Name = "tp_ParametrosContables";
+            this.tp_ParametrosContables.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 608);
+            this.tp_ParametrosContables.TabIndex = 1;
+            this.tp_ParametrosContables.Text = "Parametros Contables";
+            // 
+            // lbl_IdCliente
+            // 
+            this.lbl_IdCliente.AutoSize = true;
+            this.lbl_IdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_IdCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_IdCliente.Location = new System.Drawing.Point(33, 213);
+            this.lbl_IdCliente.Name = "lbl_IdCliente";
+            this.lbl_IdCliente.Size = new System.Drawing.Size(72, 16);
+            this.lbl_IdCliente.TabIndex = 125;
+            this.lbl_IdCliente.Text = "*Id Cliente*";
+            this.lbl_IdCliente.Visible = false;
+            // 
+            // btn_PCEditarCliente
+            // 
+            this.btn_PCEditarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_PCEditarCliente.FlatAppearance.BorderSize = 0;
+            this.btn_PCEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PCEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCEditarCliente.Location = new System.Drawing.Point(268, 78);
+            this.btn_PCEditarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCEditarCliente.Name = "btn_PCEditarCliente";
+            this.btn_PCEditarCliente.Size = new System.Drawing.Size(165, 57);
+            this.btn_PCEditarCliente.TabIndex = 124;
+            this.btn_PCEditarCliente.Text = "Editar Info Cliente";
+            this.btn_PCEditarCliente.UseVisualStyleBackColor = false;
+            this.btn_PCEditarCliente.Visible = false;
+            this.btn_PCEditarCliente.Click += new System.EventHandler(this.btn_PCEditarCliente_Click);
+            // 
+            // btn_PCNombreCliente
+            // 
+            this.btn_PCNombreCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.btn_PCNombreCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.btn_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCNombreCliente.FormatString = "N0";
+            this.btn_PCNombreCliente.FormattingEnabled = true;
+            this.btn_PCNombreCliente.Location = new System.Drawing.Point(33, 177);
+            this.btn_PCNombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCNombreCliente.Name = "btn_PCNombreCliente";
+            this.btn_PCNombreCliente.Size = new System.Drawing.Size(268, 24);
+            this.btn_PCNombreCliente.TabIndex = 123;
+            this.btn_PCNombreCliente.Text = "Seleccione Contabilidad...";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.textBox4.Location = new System.Drawing.Point(35, 177);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox4.MaxLength = 11;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(227, 22);
+            this.textBox4.TabIndex = 122;
+            this.textBox4.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.Location = new System.Drawing.Point(31, 157);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(119, 16);
+            this.label22.TabIndex = 121;
+            this.label22.Text = "Nombre de Cliente";
+            // 
+            // lbl_PCNombreCliente
+            // 
+            this.lbl_PCNombreCliente.AutoSize = true;
+            this.lbl_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PCNombreCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_PCNombreCliente.Location = new System.Drawing.Point(32, 229);
+            this.lbl_PCNombreCliente.Name = "lbl_PCNombreCliente";
+            this.lbl_PCNombreCliente.Size = new System.Drawing.Size(146, 20);
+            this.lbl_PCNombreCliente.TabIndex = 118;
+            this.lbl_PCNombreCliente.Text = "*Nombre Cliente*";
+            this.lbl_PCNombreCliente.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(30, 110);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 16);
+            this.label10.TabIndex = 114;
+            this.label10.Text = "Tipo Id cliente";
+            // 
+            // cb_PCTipoID
+            // 
+            this.cb_PCTipoID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_PCTipoID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_PCTipoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cb_PCTipoID.FormatString = "N0";
+            this.cb_PCTipoID.FormattingEnabled = true;
+            this.cb_PCTipoID.Location = new System.Drawing.Point(32, 129);
+            this.cb_PCTipoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_PCTipoID.Name = "cb_PCTipoID";
+            this.cb_PCTipoID.Size = new System.Drawing.Size(229, 24);
+            this.cb_PCTipoID.TabIndex = 115;
+            this.cb_PCTipoID.Text = "Seleccione un Item...";
+            this.cb_PCTipoID.SelectedIndexChanged += new System.EventHandler(this.cb_PCTipoID_SelectedIndexChanged);
+            // 
+            // dgv_ParametrosContables
+            // 
+            this.dgv_ParametrosContables.AllowUserToAddRows = false;
+            this.dgv_ParametrosContables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ParametrosContables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tipoIdCliente,
+            this.NoIdCliente,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgv_ParametrosContables.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 276);
+            this.dgv_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_ParametrosContables.Name = "dgv_ParametrosContables";
+            this.dgv_ParametrosContables.RowTemplate.Height = 25;
+            this.dgv_ParametrosContables.Size = new System.Drawing.Size(815, 330);
+            this.dgv_ParametrosContables.TabIndex = 113;
+            // 
+            // tipoIdCliente
+            // 
+            this.tipoIdCliente.HeaderText = "Tipo Id Cliente";
+            this.tipoIdCliente.Name = "tipoIdCliente";
+            // 
+            // NoIdCliente
+            // 
+            this.NoIdCliente.HeaderText = "No Id Cliente";
+            this.NoIdCliente.Name = "NoIdCliente";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Cod Cuenta";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Tipo Cuenta";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tipo Mov";
+            this.Column4.Items.AddRange(new object[] {
+            "C",
+            "D"});
+            this.Column4.Name = "Column4";
+            // 
+            // btn_PCAgregarCliente
+            // 
+            this.btn_PCAgregarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_PCAgregarCliente.FlatAppearance.BorderSize = 0;
+            this.btn_PCAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PCAgregarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCAgregarCliente.Location = new System.Drawing.Point(598, 182);
+            this.btn_PCAgregarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCAgregarCliente.Name = "btn_PCAgregarCliente";
+            this.btn_PCAgregarCliente.Size = new System.Drawing.Size(195, 63);
+            this.btn_PCAgregarCliente.TabIndex = 112;
+            this.btn_PCAgregarCliente.Text = "Agregar Cliente";
+            this.btn_PCAgregarCliente.UseVisualStyleBackColor = false;
+            this.btn_PCAgregarCliente.Click += new System.EventHandler(this.btn_PCAgregarCliente_Click);
+            // 
+            // btn_PCBuscarCliente
+            // 
+            this.btn_PCBuscarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_PCBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btn_PCBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PCBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCBuscarCliente.Location = new System.Drawing.Point(307, 171);
+            this.btn_PCBuscarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCBuscarCliente.Name = "btn_PCBuscarCliente";
+            this.btn_PCBuscarCliente.Size = new System.Drawing.Size(133, 34);
+            this.btn_PCBuscarCliente.TabIndex = 111;
+            this.btn_PCBuscarCliente.Text = "Buscar Cliente";
+            this.btn_PCBuscarCliente.UseVisualStyleBackColor = false;
+            this.btn_PCBuscarCliente.Click += new System.EventHandler(this.btn_PCBuscarCliente_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(30, 62);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 16);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "Contabilidad :";
+            // 
+            // cb_PCContabilidad
+            // 
+            this.cb_PCContabilidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_PCContabilidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_PCContabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cb_PCContabilidad.FormatString = "N0";
+            this.cb_PCContabilidad.FormattingEnabled = true;
+            this.cb_PCContabilidad.Location = new System.Drawing.Point(32, 81);
+            this.cb_PCContabilidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_PCContabilidad.Name = "cb_PCContabilidad";
+            this.cb_PCContabilidad.Size = new System.Drawing.Size(230, 24);
+            this.cb_PCContabilidad.TabIndex = 104;
+            this.cb_PCContabilidad.Text = "Seleccione un Item...";
+            this.cb_PCContabilidad.SelectedIndexChanged += new System.EventHandler(this.cb_PCContabilidad_SelectedIndexChanged);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label39.Location = new System.Drawing.Point(28, 18);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(194, 24);
+            this.label39.TabIndex = 97;
+            this.label39.Text = "Parametros Contables";
             // 
             // tp_TipoIdentificacion
             // 
@@ -817,540 +1332,6 @@ namespace Facturacion_Electronica
             this.label15.TabIndex = 112;
             this.label15.Text = "Facturas cargadas";
             // 
-            // tp_ParametrosContables
-            // 
-            this.tp_ParametrosContables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_ParametrosContables.Controls.Add(this.lbl_IdCliente);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCEditarCliente);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCNombreCliente);
-            this.tp_ParametrosContables.Controls.Add(this.textBox4);
-            this.tp_ParametrosContables.Controls.Add(this.label22);
-            this.tp_ParametrosContables.Controls.Add(this.lbl_PCNombreCliente);
-            this.tp_ParametrosContables.Controls.Add(this.label10);
-            this.tp_ParametrosContables.Controls.Add(this.cb_PCTipoID);
-            this.tp_ParametrosContables.Controls.Add(this.dgv_ParametrosContables);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCAgregarCliente);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCBuscarCliente);
-            this.tp_ParametrosContables.Controls.Add(this.label20);
-            this.tp_ParametrosContables.Controls.Add(this.cb_PCContabilidad);
-            this.tp_ParametrosContables.Controls.Add(this.label39);
-            this.tp_ParametrosContables.Location = new System.Drawing.Point(4, 25);
-            this.tp_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosContables.Name = "tp_ParametrosContables";
-            this.tp_ParametrosContables.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 608);
-            this.tp_ParametrosContables.TabIndex = 1;
-            this.tp_ParametrosContables.Text = "Parametros Contables";
-            // 
-            // lbl_IdCliente
-            // 
-            this.lbl_IdCliente.AutoSize = true;
-            this.lbl_IdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_IdCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_IdCliente.Location = new System.Drawing.Point(33, 213);
-            this.lbl_IdCliente.Name = "lbl_IdCliente";
-            this.lbl_IdCliente.Size = new System.Drawing.Size(72, 16);
-            this.lbl_IdCliente.TabIndex = 125;
-            this.lbl_IdCliente.Text = "*Id Cliente*";
-            this.lbl_IdCliente.Visible = false;
-            // 
-            // btn_PCEditarCliente
-            // 
-            this.btn_PCEditarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_PCEditarCliente.FlatAppearance.BorderSize = 0;
-            this.btn_PCEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PCEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCEditarCliente.Location = new System.Drawing.Point(268, 78);
-            this.btn_PCEditarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCEditarCliente.Name = "btn_PCEditarCliente";
-            this.btn_PCEditarCliente.Size = new System.Drawing.Size(165, 57);
-            this.btn_PCEditarCliente.TabIndex = 124;
-            this.btn_PCEditarCliente.Text = "Editar Info Cliente";
-            this.btn_PCEditarCliente.UseVisualStyleBackColor = false;
-            this.btn_PCEditarCliente.Visible = false;
-            this.btn_PCEditarCliente.Click += new System.EventHandler(this.btn_PCEditarCliente_Click);
-            // 
-            // btn_PCNombreCliente
-            // 
-            this.btn_PCNombreCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.btn_PCNombreCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.btn_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCNombreCliente.FormatString = "N0";
-            this.btn_PCNombreCliente.FormattingEnabled = true;
-            this.btn_PCNombreCliente.Location = new System.Drawing.Point(33, 177);
-            this.btn_PCNombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCNombreCliente.Name = "btn_PCNombreCliente";
-            this.btn_PCNombreCliente.Size = new System.Drawing.Size(268, 24);
-            this.btn_PCNombreCliente.TabIndex = 123;
-            this.btn_PCNombreCliente.Text = "Seleccione Contabilidad...";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox4.Location = new System.Drawing.Point(35, 177);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.MaxLength = 11;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 22);
-            this.textBox4.TabIndex = 122;
-            this.textBox4.Visible = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(31, 157);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(119, 16);
-            this.label22.TabIndex = 121;
-            this.label22.Text = "Nombre de Cliente";
-            // 
-            // lbl_PCNombreCliente
-            // 
-            this.lbl_PCNombreCliente.AutoSize = true;
-            this.lbl_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_PCNombreCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_PCNombreCliente.Location = new System.Drawing.Point(32, 229);
-            this.lbl_PCNombreCliente.Name = "lbl_PCNombreCliente";
-            this.lbl_PCNombreCliente.Size = new System.Drawing.Size(146, 20);
-            this.lbl_PCNombreCliente.TabIndex = 118;
-            this.lbl_PCNombreCliente.Text = "*Nombre Cliente*";
-            this.lbl_PCNombreCliente.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(30, 110);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 16);
-            this.label10.TabIndex = 114;
-            this.label10.Text = "Tipo Id cliente";
-            // 
-            // cb_PCTipoID
-            // 
-            this.cb_PCTipoID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cb_PCTipoID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_PCTipoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.cb_PCTipoID.FormatString = "N0";
-            this.cb_PCTipoID.FormattingEnabled = true;
-            this.cb_PCTipoID.Items.AddRange(new object[] {
-            "Seleccione un Item...",
-            "CC",
-            "CE",
-            "NI",
-            "NP",
-            "OT",
-            "PA",
-            "TI"});
-            this.cb_PCTipoID.Location = new System.Drawing.Point(32, 129);
-            this.cb_PCTipoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_PCTipoID.Name = "cb_PCTipoID";
-            this.cb_PCTipoID.Size = new System.Drawing.Size(229, 24);
-            this.cb_PCTipoID.TabIndex = 115;
-            this.cb_PCTipoID.Text = "Seleccione un Item...";
-            this.cb_PCTipoID.SelectedIndexChanged += new System.EventHandler(this.cb_PCTipoID_SelectedIndexChanged);
-            // 
-            // dgv_ParametrosContables
-            // 
-            this.dgv_ParametrosContables.AllowUserToAddRows = false;
-            this.dgv_ParametrosContables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ParametrosContables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tipoIdCliente,
-            this.NoIdCliente,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dgv_ParametrosContables.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 276);
-            this.dgv_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_ParametrosContables.Name = "dgv_ParametrosContables";
-            this.dgv_ParametrosContables.RowTemplate.Height = 25;
-            this.dgv_ParametrosContables.Size = new System.Drawing.Size(815, 330);
-            this.dgv_ParametrosContables.TabIndex = 113;
-            // 
-            // tipoIdCliente
-            // 
-            this.tipoIdCliente.HeaderText = "Tipo Id Cliente";
-            this.tipoIdCliente.Name = "tipoIdCliente";
-            // 
-            // NoIdCliente
-            // 
-            this.NoIdCliente.HeaderText = "No Id Cliente";
-            this.NoIdCliente.Name = "NoIdCliente";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cod Cuenta";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Tipo Cuenta";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tipo Mov";
-            this.Column4.Items.AddRange(new object[] {
-            "C",
-            "D"});
-            this.Column4.Name = "Column4";
-            // 
-            // btn_PCAgregarCliente
-            // 
-            this.btn_PCAgregarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_PCAgregarCliente.FlatAppearance.BorderSize = 0;
-            this.btn_PCAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PCAgregarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCAgregarCliente.Location = new System.Drawing.Point(598, 182);
-            this.btn_PCAgregarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCAgregarCliente.Name = "btn_PCAgregarCliente";
-            this.btn_PCAgregarCliente.Size = new System.Drawing.Size(195, 63);
-            this.btn_PCAgregarCliente.TabIndex = 112;
-            this.btn_PCAgregarCliente.Text = "Agregar Cliente";
-            this.btn_PCAgregarCliente.UseVisualStyleBackColor = false;
-            this.btn_PCAgregarCliente.Click += new System.EventHandler(this.btn_PCAgregarCliente_Click);
-            // 
-            // btn_PCBuscarCliente
-            // 
-            this.btn_PCBuscarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_PCBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btn_PCBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PCBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCBuscarCliente.Location = new System.Drawing.Point(307, 171);
-            this.btn_PCBuscarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCBuscarCliente.Name = "btn_PCBuscarCliente";
-            this.btn_PCBuscarCliente.Size = new System.Drawing.Size(133, 34);
-            this.btn_PCBuscarCliente.TabIndex = 111;
-            this.btn_PCBuscarCliente.Text = "Buscar Cliente";
-            this.btn_PCBuscarCliente.UseVisualStyleBackColor = false;
-            this.btn_PCBuscarCliente.Click += new System.EventHandler(this.btn_PCBuscarCliente_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.Location = new System.Drawing.Point(30, 62);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 16);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "Contabilidad :";
-            // 
-            // cb_PCContabilidad
-            // 
-            this.cb_PCContabilidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cb_PCContabilidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_PCContabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.cb_PCContabilidad.FormatString = "N0";
-            this.cb_PCContabilidad.FormattingEnabled = true;
-            this.cb_PCContabilidad.Location = new System.Drawing.Point(32, 81);
-            this.cb_PCContabilidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_PCContabilidad.Name = "cb_PCContabilidad";
-            this.cb_PCContabilidad.Size = new System.Drawing.Size(230, 24);
-            this.cb_PCContabilidad.TabIndex = 104;
-            this.cb_PCContabilidad.Text = "Seleccione un Item...";
-            this.cb_PCContabilidad.SelectedIndexChanged += new System.EventHandler(this.cb_PCContabilidad_SelectedIndexChanged);
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label39.Location = new System.Drawing.Point(28, 18);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(194, 24);
-            this.label39.TabIndex = 97;
-            this.label39.Text = "Parametros Contables";
-            // 
-            // tp_ParametrosGenerales
-            // 
-            this.tp_ParametrosGenerales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGVolver);
-            this.tp_ParametrosGenerales.Controls.Add(this.button8);
-            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGActualizar);
-            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGAgregar);
-            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGConsulta);
-            this.tp_ParametrosGenerales.Controls.Add(this.cb_TipoComp);
-            this.tp_ParametrosGenerales.Controls.Add(this.comboBox9);
-            this.tp_ParametrosGenerales.Controls.Add(this.btn_PGGuardar);
-            this.tp_ParametrosGenerales.Controls.Add(this.dgv_ParametrosGenerales);
-            this.tp_ParametrosGenerales.Controls.Add(this.comboBox8);
-            this.tp_ParametrosGenerales.Controls.Add(this.label7);
-            this.tp_ParametrosGenerales.Controls.Add(this.label6);
-            this.tp_ParametrosGenerales.Controls.Add(this.label5);
-            this.tp_ParametrosGenerales.Controls.Add(this.txt_id);
-            this.tp_ParametrosGenerales.Controls.Add(this.label2);
-            this.tp_ParametrosGenerales.Controls.Add(this.label3);
-            this.tp_ParametrosGenerales.Controls.Add(this.label4);
-            this.tp_ParametrosGenerales.Location = new System.Drawing.Point(4, 25);
-            this.tp_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosGenerales.Name = "tp_ParametrosGenerales";
-            this.tp_ParametrosGenerales.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosGenerales.Size = new System.Drawing.Size(821, 608);
-            this.tp_ParametrosGenerales.TabIndex = 0;
-            this.tp_ParametrosGenerales.Text = "Parametros Generales";
-            // 
-            // btn_PGVolver
-            // 
-            this.btn_PGVolver.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_PGVolver.FlatAppearance.BorderSize = 0;
-            this.btn_PGVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PGVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btn_PGVolver.Location = new System.Drawing.Point(466, 206);
-            this.btn_PGVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PGVolver.Name = "btn_PGVolver";
-            this.btn_PGVolver.Size = new System.Drawing.Size(76, 34);
-            this.btn_PGVolver.TabIndex = 114;
-            this.btn_PGVolver.Text = "Volver";
-            this.btn_PGVolver.UseVisualStyleBackColor = false;
-            this.btn_PGVolver.Visible = false;
-            this.btn_PGVolver.Click += new System.EventHandler(this.btn_PGVolver_Click);
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.button8.Location = new System.Drawing.Point(466, 206);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(76, 34);
-            this.button8.TabIndex = 113;
-            this.button8.Text = "Volver";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Visible = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click_1);
-            // 
-            // btn_PGActualizar
-            // 
-            this.btn_PGActualizar.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_PGActualizar.FlatAppearance.BorderSize = 0;
-            this.btn_PGActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PGActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btn_PGActualizar.Location = new System.Drawing.Point(311, 172);
-            this.btn_PGActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PGActualizar.Name = "btn_PGActualizar";
-            this.btn_PGActualizar.Size = new System.Drawing.Size(149, 34);
-            this.btn_PGActualizar.TabIndex = 112;
-            this.btn_PGActualizar.Text = "Guardar";
-            this.btn_PGActualizar.UseVisualStyleBackColor = false;
-            this.btn_PGActualizar.Visible = false;
-            this.btn_PGActualizar.Click += new System.EventHandler(this.btn_PGActualizar_Click);
-            // 
-            // btn_PGAgregar
-            // 
-            this.btn_PGAgregar.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_PGAgregar.FlatAppearance.BorderSize = 0;
-            this.btn_PGAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PGAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btn_PGAgregar.Location = new System.Drawing.Point(642, 162);
-            this.btn_PGAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PGAgregar.Name = "btn_PGAgregar";
-            this.btn_PGAgregar.Size = new System.Drawing.Size(149, 34);
-            this.btn_PGAgregar.TabIndex = 111;
-            this.btn_PGAgregar.Text = "Agregar";
-            this.btn_PGAgregar.UseVisualStyleBackColor = false;
-            this.btn_PGAgregar.Click += new System.EventHandler(this.btn_PGAgregar_Click);
-            // 
-            // btn_PGConsulta
-            // 
-            this.btn_PGConsulta.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_PGConsulta.FlatAppearance.BorderSize = 0;
-            this.btn_PGConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PGConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btn_PGConsulta.Location = new System.Drawing.Point(642, 207);
-            this.btn_PGConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PGConsulta.Name = "btn_PGConsulta";
-            this.btn_PGConsulta.Size = new System.Drawing.Size(149, 34);
-            this.btn_PGConsulta.TabIndex = 110;
-            this.btn_PGConsulta.Text = "Seleccionar";
-            this.btn_PGConsulta.UseVisualStyleBackColor = false;
-            this.btn_PGConsulta.Click += new System.EventHandler(this.btn_PGConsulta_Click);
-            // 
-            // cb_TipoComp
-            // 
-            this.cb_TipoComp.FormattingEnabled = true;
-            this.cb_TipoComp.Location = new System.Drawing.Point(203, 104);
-            this.cb_TipoComp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_TipoComp.Name = "cb_TipoComp";
-            this.cb_TipoComp.Size = new System.Drawing.Size(199, 24);
-            this.cb_TipoComp.TabIndex = 109;
-            // 
-            // comboBox9
-            // 
-            this.comboBox9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
-            "Seleccione un Item...",
-            "CC",
-            "CE",
-            "NI",
-            "NP",
-            "OT",
-            "PA",
-            "TI"});
-            this.comboBox9.Location = new System.Drawing.Point(104, 180);
-            this.comboBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(179, 24);
-            this.comboBox9.TabIndex = 108;
-            this.comboBox9.Text = "Seleccione un Item...";
-            // 
-            // btn_PGGuardar
-            // 
-            this.btn_PGGuardar.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_PGGuardar.FlatAppearance.BorderSize = 0;
-            this.btn_PGGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PGGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btn_PGGuardar.Location = new System.Drawing.Point(311, 206);
-            this.btn_PGGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PGGuardar.Name = "btn_PGGuardar";
-            this.btn_PGGuardar.Size = new System.Drawing.Size(149, 34);
-            this.btn_PGGuardar.TabIndex = 107;
-            this.btn_PGGuardar.Text = "Guardar";
-            this.btn_PGGuardar.UseVisualStyleBackColor = false;
-            this.btn_PGGuardar.Visible = false;
-            this.btn_PGGuardar.Click += new System.EventHandler(this.btn_PGGuardar_Click);
-            // 
-            // dgv_ParametrosGenerales
-            // 
-            this.dgv_ParametrosGenerales.AllowUserToAddRows = false;
-            this.dgv_ParametrosGenerales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ParametrosGenerales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.TipoComprobante,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.Empresa});
-            this.dgv_ParametrosGenerales.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_ParametrosGenerales.Location = new System.Drawing.Point(3, 276);
-            this.dgv_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_ParametrosGenerales.Name = "dgv_ParametrosGenerales";
-            this.dgv_ParametrosGenerales.RowTemplate.Height = 25;
-            this.dgv_ParametrosGenerales.Size = new System.Drawing.Size(815, 330);
-            this.dgv_ParametrosGenerales.TabIndex = 106;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Contabilidad";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // TipoComprobante
-            // 
-            this.TipoComprobante.HeaderText = "Tipo de Comprobante";
-            this.TipoComprobante.Name = "TipoComprobante";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Tipo ID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "No ID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 120;
-            // 
-            // Empresa
-            // 
-            this.Empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.Name = "Empresa";
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox8.FormatString = "N0";
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(178, 77);
-            this.comboBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(225, 24);
-            this.comboBox8.TabIndex = 105;
-            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(15, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(197, 24);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Parametros Generales";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(15, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(197, 24);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Empresa que Factura ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(15, 104);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 18);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Tipo de Comprobante:";
-            // 
-            // txt_id
-            // 
-            this.txt_id.Location = new System.Drawing.Point(104, 207);
-            this.txt_id.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(179, 22);
-            this.txt_id.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(25, 207);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 18);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "No Id:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(15, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 18);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Contabilidad :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(22, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 18);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Tipo id:";
-            // 
             // tp_CargarFactura
             // 
             this.tp_CargarFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -1795,10 +1776,16 @@ namespace Facturacion_Electronica
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tp_ParametrosGenerales.ResumeLayout(false);
+            this.tp_ParametrosGenerales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).EndInit();
             this.tp_Tributos.ResumeLayout(false);
             this.tp_Tributos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBActualizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTributo)).EndInit();
+            this.tp_ParametrosContables.ResumeLayout(false);
+            this.tp_ParametrosContables.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).EndInit();
             this.tp_TipoIdentificacion.ResumeLayout(false);
             this.tp_TipoIdentificacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1807,12 +1794,6 @@ namespace Facturacion_Electronica
             this.tp_FacturasCargadas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tp_ParametrosContables.ResumeLayout(false);
-            this.tp_ParametrosContables.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).EndInit();
-            this.tp_ParametrosGenerales.ResumeLayout(false);
-            this.tp_ParametrosGenerales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).EndInit();
             this.tp_CargarFactura.ResumeLayout(false);
             this.tp_CargarFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).EndInit();

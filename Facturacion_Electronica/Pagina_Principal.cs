@@ -28,9 +28,11 @@ namespace Facturacion_Electronica
         {
             InitializeComponent();
             combo.seleccionar(comboBox8);
+            combo.captarTipIden(comboBox9);
             combo.seleccionar(cb_PCContabilidad);
             combo.seleccionar(cb_CFContabiliad);
             combo.seleccionar(cb_FCEmpresaFactura);
+            combo.captarTipIden(cb_PCTipoID);
             cargaDg.cargaPG(dgv_ParametrosGenerales);
             cargaDg.cargaFC(dataGridView1);
             cargaDg.cargaTri(dataGridTributo);
@@ -893,49 +895,20 @@ namespace Facturacion_Electronica
                                 {
                                     if (idschemeName[1] == arrTipoIdentificacion[i])
                                     {
-                                        tipoIdEmpresa = arrTipoIdentificacion[i-1];
+                                        tipoIdEmpresa = arrTipoIdentificacion[i - 1];
                                         idEmpFactura = nit[1] + "-" + idscheme[1];
                                     }
+                                    if (tipoIdEmpresa == "")
+                                    {
+                                        tipoIdEmpresa = "OT";
+                                        idEmpFactura = nit[1];
+                                    }
+
                                     i++;
                                 }
+                            
 
-
-                               /* if (idschemeName[1]==Nit)
-                                {
-                                    tipoIdEmpresa = "NI";
-                                    idEmpFactura = nit[1] + "-" + idscheme[1];
-                                }
-                           
-                                else if (idschemeName[1] == tarjetaIdentidad)
-                                {
-                                    tipoIdEmpresa = "TI";
-                                    idEmpFactura = nit[1];
-                                }
-                                else if (idschemeName[1] == cedulaCiudadania)
-                                {
-                                    tipoIdEmpresa = "CC";
-                                    idEmpFactura = nit[1];
-                                }
-                                else if (idschemeName[1] == cedulaExtranjeria)
-                                {
-                                    tipoIdEmpresa = "CE";
-                                    idEmpFactura = nit[1];
-                                }
-                                else if (idschemeName[1] == pasaporte)
-                                {
-                                    tipoIdEmpresa = "PA";
-                                    idEmpFactura = nit[1];
-                                }
-                                else if (idschemeName[1] == nuip)
-                                {
-                                    tipoIdEmpresa = "NP";
-                                    idEmpFactura = nit[1];
-                                }
-                                else
-                                {
-                                    tipoIdEmpresa = "OT";
-                                    idEmpFactura = nit[1];
-                                }*/
+                            
 
                                 string tipoIdCliente = "";
                                 string idCliente = "";
@@ -947,47 +920,16 @@ namespace Facturacion_Electronica
                                         tipoIdCliente = arrTipoIdentificacion[i - 1];
                                         idCliente = nit[2] + "-" + idscheme[2];
                                     }
+                                    if (tipoIdCliente == "")
+                                    {
+                                        tipoIdCliente = "OT";
+                                        idCliente = nit[1];
+                                    }
                                     i++;
                                 }
+                            
 
-                              /*  if (idschemeName[2] == Nit)
-                                {
-                                    tipoIdCliente = "NI";
-                                    idCliente = nit[2] + "-" + idscheme[2];
-
-                                }
-
-                                else if (idschemeName[2] == tarjetaIdentidad)
-                                {
-                                    tipoIdCliente = "TI";
-                                    idCliente = nit[2];
-                                }
-                                else if (idschemeName[2] == cedulaCiudadania)
-                                {
-                                    tipoIdCliente = "CC";
-                                    idCliente = nit[2];
-                                }
-                                else if (idschemeName[2] == cedulaExtranjeria)
-                                {
-                                    tipoIdCliente = "CE";
-                                    idCliente = nit[2];
-                                }
-                                else if (idschemeName[2] == pasaporte)
-                                {
-                                    tipoIdCliente = "PA";
-                                    idCliente = nit[2];
-                                }
-                                else if (idschemeName[2] == nuip)
-                                {
-                                    tipoIdCliente = "NP";
-                                    idCliente = nit[2];
-                                }
-                                else
-                                {
-                                    tipoIdCliente = "OT";
-                                    idCliente = nit[2];
-                                }*/
-                               // Console.WriteLine(tipoIdEmpresa);
+                                // Console.WriteLine(tipoIdEmpresa);
 
                                 agregar.Parameters.AddWithValue("@Contabilidad", cont);
                                 agregar.Parameters.AddWithValue("@Id_Factura", id[0]);
