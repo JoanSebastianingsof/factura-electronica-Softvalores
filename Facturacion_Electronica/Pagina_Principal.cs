@@ -14,6 +14,7 @@ using grid;
 using System.IO;
 using System.Globalization;
 using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml.Vml;
 
 namespace Facturacion_Electronica
 {
@@ -652,7 +653,7 @@ namespace Facturacion_Electronica
                         for (int i = 0; i < arreglo.Length; i++)
                         {
 
-                            if (arreglo[i] == "Retefuente" || arreglo[i]==tributos[5].Item1)
+                            if (arreglo[i] == "Retefuente" || arreglo[i] == tributos[5].Item1)
                             {
                                 rete[1] = (arreglo[i + 2]);
                                 reteDesc[1] = ("Rte.Fte");
@@ -680,6 +681,13 @@ namespace Facturacion_Electronica
                                 rete[4] = (arreglo[i + 1]);
                                 reteDesc[4] = ("Cta x Cobrar");
                             }
+
+                            /*if (rete[2] == null)
+                            {
+                                rete[2] = (arreglo[i + 2]);
+                                reteDesc[2] = ("Rte.Iva");
+
+                            }*/
                         }
 
                         double res = Convert.ToDouble(iva[1], System.Globalization.CultureInfo.InvariantCulture);
@@ -857,7 +865,7 @@ namespace Facturacion_Electronica
                             }
                           
                             conexion.Open();
-                            string dataValidaccion = "select Id_Factura from dbo.fe_comprobantes where Id_Factura='" + id[0] + "'";
+                            string dataValidaccion = "select Id_Factura from dbo.fe_ComprobantesV2 where Id_Factura='" + id[0] + "'";
                             SqlCommand consulta = new SqlCommand(dataValidaccion, conexion);
                             SqlDataReader consultaArc = consulta.ExecuteReader();
                             if (consultaArc.Read())
@@ -871,10 +879,23 @@ namespace Facturacion_Electronica
                             {
                                 conexion.Close();
                                 conexion.Open();
-                                string dataComprobante = "insert into dbo.fe_comprobantes values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @fechaEmision, @Ingreso, @Iva, @Rte_Fte, @Rte_Iva, @Rte_Ica, @Cta_Cobrar, @Nom_EmpFact, @Nom_Cliente, @Estado)";
+                                //AA
+                                // string dataComprobante = "insert into dbo.fe_ComprobantesV2 values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @fechaEmision, @Ingreso, @Iva, @Rte_Fte, @Rte_Iva, @Rte_Ica, @Cta_Cobrar, @Nom_EmpFact, @Nom_Cliente, @Estado)";
+                                 string dataComprobante = "insert into dbo.fe_ComprobantesV2 values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @FechaEmision,@Id_Tributo,@Valor, @Estado)";
+
                                 SqlCommand agregar = new SqlCommand(dataComprobante, conexion);
                                string tipoIdEmpresa = "";
                                 string idEmpFactura = "";
+
+
+                                //Nuevas tablas
+                                string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Factura, @Id_Tributos, @Valor)";
+
+                                SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
+
+                                string dataComprobanteTotales = "insert into dbo.fe_ComprobantesTotales values(@FechaComprobante,@Total)";
+
+                                SqlCommand agregarTotal = new SqlCommand(dataComprobanteTotales, conexion);
 
                                 //string idEmpFactura = nit[1] + "-" + idscheme[1];
                                 //string idCliente = nit[2] + "-" + idscheme[2];
@@ -949,6 +970,16 @@ namespace Facturacion_Electronica
                                 agregar.Parameters.AddWithValue("@Estado", "Cargado");
 
                                 agregar.ExecuteNonQuery();
+
+                                agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
+                                agregarTri.Parameters.AddWithValue("@Id_Tributos", id[0]);
+                                agregarTri.Parameters.AddWithValue("@Valor", id[0]);
+                                agregarTri.ExecuteNonQuery();
+
+                                agregarTotal.Parameters.AddWithValue("@FechaComprobante", date);
+                                agregarTotal.Parameters.AddWithValue("@Total", id);
+                                agregarTotal.ExecuteNonQuery();
+
                                 MessageBox.Show("Factura cargada con exito!");
                                 conexion.Close();
                             }
