@@ -625,13 +625,17 @@ namespace Facturacion_Electronica
                     SqlDataReader consultaTributo = consultaTri.ExecuteReader();
 
                     // Usaremos una lista de tuplas para almacenar los resultados
-                    List<(string, string)> tributos = new List<(string, string)>();
+                    //List<(string, string)> tributos = new List<(string, string)>();
+                    string[] tributos = new string[99];
+                    int i = -1;
 
                     while (consultaTributo.Read())
                     {
-                        string columna1 = consultaTributo["Nom_Tributo"].ToString();
+                        i++;
+                        /*string columna1 = consultaTributo["Nom_Tributo"].ToString();
                         string columna2 = consultaTributo["identificador"].ToString();
-                        tributos.Add((columna1, columna2));
+                         tributos.Add((columna1, columna2));*/
+                        tributos[i] = consultaTributo["Nom_Tributo"].ToString();
                     }
                     conexion.Close();
                     /* foreach (var tupla in tributos)
@@ -649,45 +653,52 @@ namespace Facturacion_Electronica
                         string[] arreglo = separator.Split(limitador, StringSplitOptions.RemoveEmptyEntries);
                         string[] rete = new string[15]; rete[1] = "0"; rete[2] = "0"; rete[3] = "0"; rete[4] = "0";
                         string[] reteDesc = new string[15];
-
-                        for (int i = 0; i < arreglo.Length; i++)
+                        int retenciones = 0;
+                        for (i = 0; i < arreglo.Length; i++)
                         {
 
-                            if (arreglo[i] == "Retefuente" || arreglo[i] == tributos[5].Item1)
+                            /*if (arreglo[i] == "Retefuente" || arreglo[i] == tributos[5])
                             {
                                 rete[1] = (arreglo[i + 2]);
                                 reteDesc[1] = ("Rte.Fte");
                             }
-                            if (arreglo[i] == tributos[4].Item1)
+                            if (arreglo[i] == tributos[4])
                             {
                                 rete[2] = (arreglo[i + 2]);
                                 reteDesc[2] = ("Rte.Iva");
-                            }
-                            if (arreglo[i] == "ReteIca" || arreglo[i] == tributos[6].Item1)
+                            }*/
+
+
+
+                            if (rete[i] == tributos[i])
                             {
-                                rete[3] = (arreglo[i + 5]);
-                                reteDesc[3] = ("Rte.Ica");
+                                rete[retenciones] = (arreglo[i + 2]);
+                                reteDesc[retenciones] = tributos[i];
+                                retenciones++;
+
+                            }
+
+                            if (arreglo[i] == "ReteIca" || arreglo[i] == tributos[6])
+                            {
+                                rete[retenciones] = (arreglo[i + 5]);
+                                reteDesc[retenciones] = tributos[i]    /* ("Rte.Ica")*/;
                                 Console.WriteLine(rete[3]);
+                                retenciones++;
                             }
                             if (arreglo[i] == "9.66" || arreglo[i] == "14" || arreglo[i] == "6.9" || arreglo[i] == "10" || arreglo[i] == "11.44")
                             {
-                                rete[3] = (arreglo[i + 4]);
-                                reteDesc[3] = ("Rte.Ica");
+                                rete[retenciones] = (arreglo[i + 4]);
+                                reteDesc[retenciones] = tributos[i] /*("Rte.Ica")*/;
                                 Console.WriteLine(rete[3]);
-
+                                retenciones++;
                             }
                             if (arreglo[i] == "Pagar")
                             {
-                                rete[4] = (arreglo[i + 1]);
-                                reteDesc[4] = ("Cta x Cobrar");
+                                rete[retenciones] = (arreglo[i + 1]);
+                                reteDesc[retenciones] = ("Cta x Cobrar");
+                                retenciones++;
                             }
 
-                            /*if (rete[2] == null)
-                            {
-                                rete[2] = (arreglo[i + 2]);
-                                reteDesc[2] = ("Rte.Iva");
-
-                            }*/
                         }
 
                         double res = Convert.ToDouble(iva[1], System.Globalization.CultureInfo.InvariantCulture);
@@ -971,13 +982,30 @@ namespace Facturacion_Electronica
 
                                 agregar.ExecuteNonQuery();
 
-                                agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
-                                agregarTri.Parameters.AddWithValue("@Id_Tributos", id[0]);
+                                double total = 0;
+                                for(i=0; i<= tributos.Length; i++)
+                                {
+                                    if (tributos[i] != null)
+                                    {
+                                        agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
+                                        agregarTri.Parameters.AddWithValue("@Id_Tributos", rete[i]);
+                                        agregarTri.Parameters.AddWithValue("@Valor", reteDesc[i]);
+                                        total = total + double.Parse(reteDesc[i]);
+                                        agregarTri.ExecuteNonQuery();
+                                    }
+
+                                }
+
+                                /*agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
+                                agregarTri.Parameters.AddWithValue("@Id_Tributos", rete[0]);
                                 agregarTri.Parameters.AddWithValue("@Valor", id[0]);
-                                agregarTri.ExecuteNonQuery();
+                                agregarTri.ExecuteNonQuery();*/
+
+
+
 
                                 agregarTotal.Parameters.AddWithValue("@FechaComprobante", date);
-                                agregarTotal.Parameters.AddWithValue("@Total", id);
+                                agregarTotal.Parameters.AddWithValue("@Total", total);
                                 agregarTotal.ExecuteNonQuery();
 
                                 MessageBox.Show("Factura cargada con exito!");
