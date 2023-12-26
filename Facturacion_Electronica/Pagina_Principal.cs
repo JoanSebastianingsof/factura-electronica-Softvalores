@@ -678,7 +678,7 @@ namespace Facturacion_Electronica
 
                             }
 
-                            if (arreglo[i] == "ReteIca" || arreglo[i] == tributos[6])
+                            if (arreglo[i] == "ReteIca" && rete[i] == tributos[6])
                             {
                                 rete[retenciones] = (arreglo[i + 5]);
                                 reteDesc[retenciones] = tributos[i]    /* ("Rte.Ica")*/;
@@ -900,7 +900,7 @@ namespace Facturacion_Electronica
 
 
                                 //Nuevas tablas
-                                string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Factura, @Id_Tributos, @Valor)";
+                                string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Facturas, @Id_Tributos, @Valor)";
 
                                 SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
 
@@ -922,7 +922,7 @@ namespace Facturacion_Electronica
                                  //string nitOtroPais = "50";
                                  string nuip = "91";*/
 
-                                int i = 0;
+                                i = 0;
                                 while (i < arrTipoIdentificacion.Length)
                                 {
                                     if (idschemeName[1] == arrTipoIdentificacion[i])
@@ -959,7 +959,33 @@ namespace Facturacion_Electronica
                                     }
                                     i++;
                                 }
+
+                                //i = 0;
                             
+                                double total = 0;
+                                for(i=0; i< reteDesc.Length; i++)
+                                {
+                                    if (reteDesc[i] != null)
+                                   {
+                                        agregarTri.Parameters.Clear();
+
+                                        agregarTri.Parameters.Add(new SqlParameter("@Id_Facturas", id[0]));
+                                        agregarTri.Parameters.Add(new SqlParameter("@Id_Tributos", reteDesc[i]));
+                                        agregarTri.Parameters.Add(new SqlParameter("@Valor", rete[i]));
+                                        total = total + double.Parse(rete[i]);
+                                        Console.WriteLine(total);
+                                        agregarTri.ExecuteNonQuery();
+
+                                    }
+
+                                }
+                               // agregarTri.ExecuteNonQuery();
+
+                                agregarTotal.Parameters.AddWithValue("@FechaComprobante", date);
+                                agregarTotal.Parameters.AddWithValue("@Total", total);
+                                agregarTotal.ExecuteNonQuery();
+
+
 
                                 // Console.WriteLine(tipoIdEmpresa);
 
@@ -969,44 +995,25 @@ namespace Facturacion_Electronica
                                 agregar.Parameters.AddWithValue("@No_idEmpFactura", idEmpFactura);
                                 agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoIdCliente);
                                 agregar.Parameters.AddWithValue("@No_idCLiente", idCliente);
-                                agregar.Parameters.AddWithValue("@fechaEmision", date);
-                                agregar.Parameters.AddWithValue("@Ingreso", Vtotal[0]);
-                                agregar.Parameters.AddWithValue("@Iva", iva[1]); //I + IVA - RETESTOTALES 
-                                agregar.Parameters.AddWithValue("@Rte_Fte", rete[1]);
-                                agregar.Parameters.AddWithValue("@Rte_Iva", rete[2]);
-                                agregar.Parameters.AddWithValue("@Rte_Ica", rete[3]);
-                                agregar.Parameters.AddWithValue("@Cta_Cobrar", rete[7]);
-                                agregar.Parameters.AddWithValue("@Nom_EmpFact", NombreEmpFact);
-                                agregar.Parameters.AddWithValue("@Nom_Cliente", clienteNombre[2]);
+                                agregar.Parameters.AddWithValue("@FechaEmision", date);
+                                /*agregar.Parameters.AddWithValue("@Ingreso", Vtotal[0]);
+                                  agregar.Parameters.AddWithValue("@Iva", iva[1]); //I + IVA - RETESTOTALES 
+                                  agregar.Parameters.AddWithValue("@Rte_Fte", rete[1]);
+                                  agregar.Parameters.AddWithValue("@Rte_Iva", rete[2]);
+                                  agregar.Parameters.AddWithValue("@Rte_Ica", rete[3]);
+                                  agregar.Parameters.AddWithValue("@Cta_Cobrar", rete[7]);*/
+
+                                //agregar.Parameters.AddWithValue("@Id_Tributo", id[0]);
+                                agregar.Parameters.AddWithValue("@Valor", total);
+
+
+                               /* agregar.Parameters.AddWithValue("@Nom_EmpFact", NombreEmpFact);
+                                agregar.Parameters.AddWithValue("@Nom_Cliente", clienteNombre[2]);*/
                                 agregar.Parameters.AddWithValue("@Estado", "Cargado");
 
                                 agregar.ExecuteNonQuery();
 
-                                double total = 0;
-                                for(i=0; i<= tributos.Length; i++)
-                                {
-                                    if (tributos[i] != null)
-                                    {
-                                        agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
-                                        agregarTri.Parameters.AddWithValue("@Id_Tributos", rete[i]);
-                                        agregarTri.Parameters.AddWithValue("@Valor", reteDesc[i]);
-                                        total = total + double.Parse(reteDesc[i]);
-                                        agregarTri.ExecuteNonQuery();
-                                    }
 
-                                }
-
-                                /*agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
-                                agregarTri.Parameters.AddWithValue("@Id_Tributos", rete[0]);
-                                agregarTri.Parameters.AddWithValue("@Valor", id[0]);
-                                agregarTri.ExecuteNonQuery();*/
-
-
-
-
-                                agregarTotal.Parameters.AddWithValue("@FechaComprobante", date);
-                                agregarTotal.Parameters.AddWithValue("@Total", total);
-                                agregarTotal.ExecuteNonQuery();
 
                                 MessageBox.Show("Factura cargada con exito!");
                                 conexion.Close();
