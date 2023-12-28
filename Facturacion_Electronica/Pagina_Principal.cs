@@ -667,18 +667,21 @@ namespace Facturacion_Electronica
                                 rete[2] = (arreglo[i + 2]);
                                 reteDesc[2] = ("Rte.Iva");
                             }*/
-
-
-
-                            if (rete[i] == tributos[i])
+                            for(int z =0; z < tributos.Length; z++)
                             {
-                                rete[retenciones] = (arreglo[i + 2]);
-                                reteDesc[retenciones] = tributos[i];
-                                retenciones++;
 
+                                if (arreglo[i] == tributos[z])
+                                {
+                                    rete[retenciones] = (arreglo[i + 2]);
+                                    reteDesc[retenciones] = tributos[z];
+                                    retenciones++;
+
+                                }
                             }
+                            
 
-                            if (arreglo[i] == "ReteIca" && rete[i] == tributos[6])
+
+                            if (arreglo[i] == "ReteIca" /*&& rete[i] == tributos[6]*/)
                             {
                                 rete[retenciones] = (arreglo[i + 5]);
                                 reteDesc[retenciones] = tributos[i]    /* ("Rte.Ica")*/;
@@ -965,7 +968,7 @@ namespace Facturacion_Electronica
                                 double total = 0;
                                 for(i=0; i< reteDesc.Length; i++)
                                 {
-                                    if (reteDesc[i] != null)
+                                    if (reteDesc[i] != "")
                                    {
                                         agregarTri.Parameters.Clear();
 
@@ -973,7 +976,12 @@ namespace Facturacion_Electronica
                                         agregarTri.Parameters.Add(new SqlParameter("@Id_Tributos", reteDesc[i]));
                                         agregarTri.Parameters.Add(new SqlParameter("@Valor", rete[i]));
                                         total = total + double.Parse(rete[i]);
+
+                                        Console.WriteLine(id[0]);
+                                        Console.WriteLine(reteDesc[i]);
+                                        Console.WriteLine(rete[i]);
                                         Console.WriteLine(total);
+
                                         agregarTri.ExecuteNonQuery();
 
                                     }
