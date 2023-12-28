@@ -644,9 +644,9 @@ namespace Facturacion_Electronica
                      }*/
 
 
-                    if (NoEmpresaFactura == FacturaEmpresaFactura || NoEmpresaFactura== FacturaEmpresaFactura2)
-                   //if (respuesta == true)
-                        {
+                    if (NoEmpresaFactura == FacturaEmpresaFactura || NoEmpresaFactura == FacturaEmpresaFactura2)
+                    //if (respuesta == true)
+                    {
                         String separator = note[0];
 
                         char[] limitador = { ' ', '$', '*' };
@@ -654,6 +654,10 @@ namespace Facturacion_Electronica
                         string[] rete = new string[15]; rete[1] = "0"; rete[2] = "0"; rete[3] = "0"; rete[4] = "0";
                         string[] reteDesc = new string[15];
                         int retenciones = 0;
+                        string total = "";
+
+
+
                         for (i = 0; i < arreglo.Length; i++)
                         {
 
@@ -669,41 +673,64 @@ namespace Facturacion_Electronica
                             }*/
                             for(int z =0; z < tributos.Length; z++)
                             {
-
+                               // Console.WriteLine(tributos[z]+" completa");
                                 if (arreglo[i] == tributos[z])
                                 {
                                     rete[retenciones] = (arreglo[i + 2]);
                                     reteDesc[retenciones] = tributos[z];
-                                    retenciones++;
+                                    if(tributos[z]!= "ReteIca")
+                                    {
+                                        retenciones++;
 
+                                    }
+                                   // Console.WriteLine(tributos[z] + " if");
+                                   /* Console.WriteLine(rete[retenciones] + " if rete");
+                                    Console.WriteLine(reteDesc[retenciones] + " if reteDesc");
+                                    Console.WriteLine(retenciones + " if retenc");*/
                                 }
                             }
                             
 
 
-                            if (arreglo[i] == "ReteIca" /*&& rete[i] == tributos[6]*/)
-                            {
-                                rete[retenciones] = (arreglo[i + 5]);
-                                reteDesc[retenciones] = tributos[i]    /* ("Rte.Ica")*/;
-                                Console.WriteLine(rete[3]);
-                                retenciones++;
-                            }
                             if (arreglo[i] == "9.66" || arreglo[i] == "14" || arreglo[i] == "6.9" || arreglo[i] == "10" || arreglo[i] == "11.44")
                             {
-                                rete[retenciones] = (arreglo[i + 4]);
-                                reteDesc[retenciones] = tributos[i] /*("Rte.Ica")*/;
-                                Console.WriteLine(rete[3]);
-                                retenciones++;
+
+                                if (arreglo[i-1] == "ReteIca" /*&& rete[i] == tributos[6]*/)
+                                {
+                                    rete[retenciones] = (arreglo[i + 5]);
+                                    reteDesc[retenciones] =  ("ReteIca") ;
+                                    //Console.WriteLine(tributos[i] + "ICA");
+                                    retenciones++;
+                                }
+                                else
+                                {
+                                    rete[retenciones] = (arreglo[i + 4]);
+                                    reteDesc[retenciones] =("ReteIca") ;
+                                  //  Console.WriteLine(tributos[i] + "ica");
+                                    retenciones++;
+                                }
+                               
                             }
                             if (arreglo[i] == "Pagar")
                             {
                                 rete[retenciones] = (arreglo[i + 1]);
+                                total = (arreglo[i + 1]);
                                 reteDesc[retenciones] = ("Cta x Cobrar");
+                                /*Console.WriteLine(rete[retenciones] + "neto");*/
+
                                 retenciones++;
                             }
-
+                            
                         }
-
+                        for (i=0;i<rete.Length;i++)
+                        {
+                            Console.WriteLine(rete[i] + "Retenciones");
+                        }
+                        for (i = 0; i < reteDesc.Length; i++)
+                        {
+                            Console.WriteLine(reteDesc[i] + "RetencionesDesc");
+                        }
+                       double totals= Convert.ToDouble(total, System.Globalization.CultureInfo.InvariantCulture);
                         double res = Convert.ToDouble(iva[1], System.Globalization.CultureInfo.InvariantCulture);
                         iva[1] = string.Format("{0:f2}", res);
                         for (int x = 1; x <= 5; x++)
@@ -805,7 +832,7 @@ namespace Facturacion_Electronica
                             if (registroRica.Read() && rete[3] != " ")
                             {
                                 dgv_FacturaCargada.Rows.Add(registroRica["Cod_Cuenta"].ToString(), "Rte.Ica  Factura No. " + id[0] + "  " + clienteNombre[2], rete[3], registroRica["Tipo_Mov"].ToString());
-                                Console.WriteLine(rete[3] + "P");
+                               // Console.WriteLine(rete[3] + "P");
 
                             }
 
@@ -903,9 +930,7 @@ namespace Facturacion_Electronica
 
 
                                 //Nuevas tablas
-                                string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Facturas, @Id_Tributos, @Valor)";
 
-                                SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
 
                                 string dataComprobanteTotales = "insert into dbo.fe_ComprobantesTotales values(@FechaComprobante,@Total)";
 
@@ -924,7 +949,7 @@ namespace Facturacion_Electronica
                                  //string documentoIdentificacionExtranjero = "42";
                                  //string nitOtroPais = "50";
                                  string nuip = "91";*/
-
+                               
                                 i = 0;
                                 while (i < arrTipoIdentificacion.Length)
                                 {
@@ -964,33 +989,36 @@ namespace Facturacion_Electronica
                                 }
 
                                 //i = 0;
-                            
-                                double total = 0;
-                                for(i=0; i< reteDesc.Length; i++)
+
+
+                                Console.WriteLine(reteDesc.Length);
+
+                                for (i=0; i< reteDesc.Length; i++)
                                 {
+                                    string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Factura, @Id_Tributos, @Valor)";
+                                    SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
+
                                     if (reteDesc[i] != "")
                                    {
                                         agregarTri.Parameters.Clear();
 
-                                        agregarTri.Parameters.Add(new SqlParameter("@Id_Facturas", id[0]));
-                                        agregarTri.Parameters.Add(new SqlParameter("@Id_Tributos", reteDesc[i]));
-                                        agregarTri.Parameters.Add(new SqlParameter("@Valor", rete[i]));
-                                        total = total + double.Parse(rete[i]);
+                                        agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
+                                        agregarTri.Parameters.AddWithValue("@Id_Tributos", reteDesc[i]);
+                                        agregarTri.Parameters.AddWithValue("@Valor", rete[i]);
 
                                         Console.WriteLine(id[0]);
                                         Console.WriteLine(reteDesc[i]);
                                         Console.WriteLine(rete[i]);
-                                        Console.WriteLine(total);
-
+                                        
                                         agregarTri.ExecuteNonQuery();
 
-                                    }
+                                   }
 
                                 }
-                               // agregarTri.ExecuteNonQuery();
 
+                                Console.WriteLine(i);
                                 agregarTotal.Parameters.AddWithValue("@FechaComprobante", date);
-                                agregarTotal.Parameters.AddWithValue("@Total", total);
+                                agregarTotal.Parameters.AddWithValue("@Total", rete[i]);
                                 agregarTotal.ExecuteNonQuery();
 
 
@@ -1012,7 +1040,7 @@ namespace Facturacion_Electronica
                                   agregar.Parameters.AddWithValue("@Cta_Cobrar", rete[7]);*/
 
                                 //agregar.Parameters.AddWithValue("@Id_Tributo", id[0]);
-                                agregar.Parameters.AddWithValue("@Valor", total);
+                                agregar.Parameters.AddWithValue("@Valor", rete[i]);
 
 
                                /* agregar.Parameters.AddWithValue("@Nom_EmpFact", NombreEmpFact);
