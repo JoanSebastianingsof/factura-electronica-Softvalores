@@ -653,29 +653,29 @@ namespace Facturacion_Electronica
                         string[] arreglo = separator.Split(limitador, StringSplitOptions.RemoveEmptyEntries);
                         string[] rete = new string[15]; rete[1] = "0"; rete[2] = "0"; rete[3] = "0"; rete[4] = "0";
                         string[] reteDesc = new string[15];
-                        int retenciones = 6;
+                        int retenciones = 1;
                         for (i = 0; i < arreglo.Length; i++)
                         {
 
                             if (arreglo[i] == "Retefuente" )
                             {
-                                rete[1] = (arreglo[i + 2]);
+                                rete[retenciones] = (arreglo[i + 2]);
                                 //reteDesc[1] = ("Rte.Fte");
-                                reteDesc[1] = ("Retefuente");
-
+                                reteDesc[retenciones] = ("Retefuente");
+                                retenciones++;
                             }
                             if (arreglo[i] == "ReteIva")
                             {
-                                rete[2] = (arreglo[i + 2]);
+                                rete[retenciones] = (arreglo[i + 2]);
                                 //reteDesc[2] = ("Rte.Iva");
-                                reteDesc[2] = ("ReteIva");
+                                reteDesc[retenciones] = ("ReteIva");
 
                             }
 
                             if (arreglo[i] == "ReteIca" )
                             {
-                                rete[3] = (arreglo[i + 5]);
-                                reteDesc[3] = ("ReteIca");
+                                rete[retenciones] = (arreglo[i + 5]);
+                                reteDesc[retenciones] = ("ReteIca");
                                // reteDesc[3] = ("Rte.Ica");
 
                                 Console.WriteLine(rete[3] + "ICA1");
@@ -683,8 +683,8 @@ namespace Facturacion_Electronica
                             }
                             if (arreglo[i] == "9.66" || arreglo[i] == "14" || arreglo[i] == "6.9" || arreglo[i] == "10" || arreglo[i] == "11.44")
                             {
-                                rete[3] = (arreglo[i + 4]);
-                                reteDesc[3] =("ReteIca") ;
+                                rete[retenciones] = (arreglo[i + 4]);
+                                reteDesc[retenciones] =("ReteIca") ;
                                 //reteDesc[3] = ("Rte.Ica");
                                 Console.WriteLine(rete[3] + "ICA2");
                                 retenciones++;
@@ -692,9 +692,9 @@ namespace Facturacion_Electronica
                             }
                             if (arreglo[i] == "Pagar")
                             {
-                                rete[4] = (arreglo[i + 1]);
+                                rete[retenciones] = (arreglo[i + 1]);
                                // total = (arreglo[i + 1]);
-                                reteDesc[4] = ("Cta x Cobrar");
+                                reteDesc[retenciones] = ("Cta x Cobrar");
                                 /*Console.WriteLine(rete[retenciones] + "neto");*/
                             }
                             for (int z = 0; z < tributos.Length; z++)
@@ -926,8 +926,10 @@ namespace Facturacion_Electronica
                                 {
                                     string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Factura, @Id_Tributos, @Valor)";
                                     SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
-                                    
-                                    if (reteDesc[i] != "" && !string.IsNullOrEmpty(rete[i]) && rete[i] != "" && rete[i]!="0" && rete[i] != "")
+
+                                    // if (reteDesc[i] != "" && !string.IsNullOrEmpty(rete[i]) && double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0 /*rete[i] != "" && rete[i]!="0" && rete[i] != ""*/ || reteDesc[i] == tributos[i])
+                                    if (!string.IsNullOrEmpty(reteDesc[i]) && (double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0) || reteDesc[i] == tributos[i])
+
                                     {
                                         agregarTri.Parameters.Clear();
                                         Console.WriteLine(reteDesc[i] + "reten ");
@@ -949,7 +951,7 @@ namespace Facturacion_Electronica
                                 }
                                 conexion.Close();
 
-
+                                Console.WriteLine("Paso");
                                 conexion.Open();
 
 
