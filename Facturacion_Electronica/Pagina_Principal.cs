@@ -645,7 +645,8 @@ namespace Facturacion_Electronica
                         int retenciones = 6;
                         for (i = 0; i < arreglo.Length; i++)
                         {
-
+                            rete[0] = Vtotal[0];
+                            reteDesc[0] = ("Ingreso");
                             if (arreglo[i] == "Retefuente")
                             {
                                 rete[1] = (arreglo[i + 2]);
@@ -923,7 +924,6 @@ namespace Facturacion_Electronica
                                     string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Factura, @Id_Tributos, @Valor)";
                                     SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
 
-                                    // if (reteDesc[i] != "" && !string.IsNullOrEmpty(rete[i]) && double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0 /*rete[i] != "" && rete[i]!="0" && rete[i] != ""*/ || reteDesc[i] == tributos[i])
                                     if (!string.IsNullOrEmpty(reteDesc[i]) && (double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0) || reteDesc[i] == tributos[i])
 
                                     {
@@ -1101,8 +1101,8 @@ namespace Facturacion_Electronica
             string[] facturaData = new string[99]; string[] facturaType = new string[99]; string[] facturaInfo = new string[99];
             conexion.Open();
 
-            String cadeaInfoFactura = "Select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente,fechaEmision from fe_comprobantesV2 where Id_Factura = '" + idFactura + "'";
-            SqlCommand comandoInfo = new SqlCommand(cadeaInfoFactura, conexion);
+            String cadenaInfoFactura = "Select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente from fe_comprobantesV2 where Id_Factura = '" + idFactura + "'";
+            SqlCommand comandoInfo = new SqlCommand(cadenaInfoFactura, conexion);
             SqlDataReader registroInfo = comandoInfo.ExecuteReader();
             if (registroInfo.Read())
             {
@@ -1112,29 +1112,56 @@ namespace Facturacion_Electronica
                 facturaInfo[4] = registroInfo["No_idEmpFactura"].ToString();
                 facturaInfo[5] = registroInfo["TipoId_Cliente"].ToString();
                 facturaInfo[6] = registroInfo["No_idCLiente"].ToString();
+                //validar = true;
+            }
+            else
+            {
+                MessageBox.Show("La Factura que esta buscando no existe!!");
+                //validar = false;
+            }
+
+            String Count = "select COUNT (*) from few_ComprobantesTributos";
+            SqlCommand comandoCount = new SqlCommand(Count, conexion);
+            Int32 totalDatos = (Int32)comandoCount.ExecuteScalar();
+            Console.WriteLine();
+            conexion.Close();
+
+
+            conexion.Open();
+
+            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from few_ComprobantesTributos where Id_Factura = '" + idFactura + "'";
+            SqlCommand comandoInfoReten2 = new SqlCommand(cadenaInfoFacturaReten2, conexion);
+            SqlDataReader registroInfoReten2 = comandoInfoReten2.ExecuteReader();
+            int contadorInfo = 0;
+            int arregloInfo = 7;
+
+
+           
+          
+            if (registroInfoReten2.Read())
+            {
+
+                while (contadorInfo<totalDatos)
+                {
+                    facturaInfo[arregloInfo] = registroInfoReten2["Valor"].ToString();
+                    Console.WriteLine(facturaInfo[arregloInfo]);
+                    arregloInfo++;
+                    contadorInfo++;
+                }
+                facturaInfo[arregloInfo] = registroInfoReten2["Nom_EmpFact"].ToString();
+                arregloInfo++;
+                facturaInfo[arregloInfo] = registroInfoReten2["Nom_Cliente"].ToString();
+                arregloInfo++;
+                facturaInfo[arregloInfo] = registroInfoReten2["fechaEmision"].ToString();
                 validar = true;
+
             }
             else
             {
                 MessageBox.Show("La Factura que esta buscando no existe!!");
                 validar = false;
             }
-
-            String cadeaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from fe_comprobantes where Id_Factura = '" + idFactura + "'";
-            SqlCommand comandoInfoReten2 = new SqlCommand(cadeaInfoFactura, conexion);
-            SqlDataReader registroInfoReten2 = comandoInfoReten2.ExecuteReader();
-            int contadorInfo = 0;
-            
-            /*if (registroInfoReten2.Read())
-            {
-                
-            }
-
-            while ()
-            {
-
-            }*/
-
+            conexion.Close();
             /*string cadenaInfoFactira = "select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente,fechaEmision,Ingreso,Iva,Rte_Fte,Rte_Iva,Rte_Ica,Cta_Cobrar,Nom_EmpFact,Nom_Cliente from fe_comprobantes where Id_Factura = '" + idFactura + "'";
             SqlCommand comandoIF = new SqlCommand(cadenaInfoFactira, conexion);
             SqlDataReader registroIF = comandoIF.ExecuteReader();
