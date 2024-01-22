@@ -30,6 +30,7 @@ namespace Facturacion_Electronica
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
+            System.Windows.Forms.TabControl tabControl1;
             this.tp_ParametrosGenerales = new System.Windows.Forms.TabPage();
             this.btn_PGVolver = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -164,7 +165,6 @@ namespace Facturacion_Electronica
             this.btn_MenuCargarFactura = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabControl1.SuspendLayout();
             this.tp_ParametrosGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).BeginInit();
             this.tp_Tributos.SuspendLayout();
@@ -182,23 +182,8 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
-            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
-            this.tabControl1.Controls.Add(this.tp_Tributos);
-            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
-            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
-            this.tabControl1.Controls.Add(this.tp_CargarFactura);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tabControl1.Location = new System.Drawing.Point(212, -23);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(829, 637);
-            this.tabControl1.TabIndex = 11;
             // 
             // tp_ParametrosGenerales
             // 
@@ -1757,6 +1742,22 @@ namespace Facturacion_Electronica
             this.btn_MenuParametrosContables.UseVisualStyleBackColor = true;
             this.btn_MenuParametrosContables.Click += new System.EventHandler(this.btn_MenuParametrosContables_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
+            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
+            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
+            this.tabControl1.Controls.Add(this.tp_Tributos);
+            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
+            this.tabControl1.Controls.Add(this.tp_CargarFactura);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tabControl1.Location = new System.Drawing.Point(212, -23);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(829, 637);
+            this.tabControl1.TabIndex = 11;
+            // 
             // Pagina_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1775,7 +1776,6 @@ namespace Facturacion_Electronica
             this.Name = "Pagina_Principal";
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
             this.tp_ParametrosGenerales.ResumeLayout(false);
             this.tp_ParametrosGenerales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).EndInit();
@@ -1799,6 +1799,7 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

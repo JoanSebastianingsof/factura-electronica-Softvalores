@@ -1101,7 +1101,7 @@ namespace Facturacion_Electronica
             string[] facturaData = new string[99]; string[] facturaType = new string[99]; string[] facturaInfo = new string[99];
             conexion.Open();
 
-            String cadenaInfoFactura = "Select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente from fe_comprobantesV2 where Id_Factura = '" + idFactura + "'";
+            String cadenaInfoFactura = "Select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente,FechaEmision from fe_comprobantesV2 where Id_Factura = '" + idFactura + "'";
             SqlCommand comandoInfo = new SqlCommand(cadenaInfoFactura, conexion);
             SqlDataReader registroInfo = comandoInfo.ExecuteReader();
             if (registroInfo.Read())
@@ -1112,6 +1112,7 @@ namespace Facturacion_Electronica
                 facturaInfo[4] = registroInfo["No_idEmpFactura"].ToString();
                 facturaInfo[5] = registroInfo["TipoId_Cliente"].ToString();
                 facturaInfo[6] = registroInfo["No_idCLiente"].ToString();
+                facturaInfo[7] = registroInfo["FechaEmision"].ToString();
                 //validar = true;
             }
             else
@@ -1119,11 +1120,12 @@ namespace Facturacion_Electronica
                 MessageBox.Show("La Factura que esta buscando no existe!!");
                 //validar = false;
             }
+            registroInfo.Close();
 
             String Count = "select COUNT (*) from few_ComprobantesTributos";
             SqlCommand comandoCount = new SqlCommand(Count, conexion);
             Int32 totalDatos = (Int32)comandoCount.ExecuteScalar();
-            Console.WriteLine();
+            Console.WriteLine("Count");
             conexion.Close();
 
 
@@ -1133,7 +1135,7 @@ namespace Facturacion_Electronica
             SqlCommand comandoInfoReten2 = new SqlCommand(cadenaInfoFacturaReten2, conexion);
             SqlDataReader registroInfoReten2 = comandoInfoReten2.ExecuteReader();
             int contadorInfo = 0;
-            int arregloInfo = 7;
+            int arregloInfo = 8;
 
 
            
@@ -1148,11 +1150,8 @@ namespace Facturacion_Electronica
                     arregloInfo++;
                     contadorInfo++;
                 }
-                facturaInfo[arregloInfo] = registroInfoReten2["Nom_EmpFact"].ToString();
-                arregloInfo++;
-                facturaInfo[arregloInfo] = registroInfoReten2["Nom_Cliente"].ToString();
-                arregloInfo++;
-                facturaInfo[arregloInfo] = registroInfoReten2["fechaEmision"].ToString();
+             
+                
                 validar = true;
 
             }
@@ -1161,7 +1160,6 @@ namespace Facturacion_Electronica
                 MessageBox.Show("La Factura que esta buscando no existe!!");
                 validar = false;
             }
-            conexion.Close();
             /*string cadenaInfoFactira = "select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente,fechaEmision,Ingreso,Iva,Rte_Fte,Rte_Iva,Rte_Ica,Cta_Cobrar,Nom_EmpFact,Nom_Cliente from fe_comprobantes where Id_Factura = '" + idFactura + "'";
             SqlCommand comandoIF = new SqlCommand(cadenaInfoFactira, conexion);
             SqlDataReader registroIF = comandoIF.ExecuteReader();
@@ -1192,7 +1190,8 @@ namespace Facturacion_Electronica
                 validar = false;
             }*/
             conexion.Close();
-            String separator = facturaInfo[16];
+            //String separator = facturaInfo[16];
+            String separator = facturaInfo[7];
             char[] limitador = { ' ' };
             string[] arreglo = separator.Split(limitador, StringSplitOptions.RemoveEmptyEntries);
             label21.Text = "Fecha Emision: " + arreglo[0];
@@ -1276,14 +1275,16 @@ namespace Facturacion_Electronica
                 {
                     if (CodigoCuenta[j] != "")
                     {
-                        if (parContVal[j] == "T    ")
+                        dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], facturaInfo[6], CodigoCuenta[j], NombreContabilidad[j], facturaInfo[8 + j], facturaType[j]);
+
+                       /* if (parContVal[j] == "T    ")
                         {
-                            dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], facturaInfo[6], CodigoCuenta[j], NombreContabilidad[j], facturaInfo[7 + j], facturaType[j]);
+                            dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], facturaInfo[6], CodigoCuenta[j], NombreContabilidad[j], facturaInfo[8 + j], facturaType[j]);
                         }
                         else
                         {
-                            dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], "", CodigoCuenta[j], NombreContabilidad[j], facturaInfo[7 + j], facturaType[j]);
-                        }
+                            dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], "", CodigoCuenta[j], NombreContabilidad[j], facturaInfo[8 + j], facturaType[j]);
+                        }*/
                     }
                 }
 
