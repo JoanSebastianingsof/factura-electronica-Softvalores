@@ -29,8 +29,58 @@ namespace Facturacion_Electronica
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
             System.Windows.Forms.TabControl tabControl1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
+            this.tp_FacturasCargadas = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btn_FCGenerarComprobante = new System.Windows.Forms.Button();
+            this.btn_FCGuardarExcel = new System.Windows.Forms.Button();
+            this.btn_FCFiltro = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cb_FCEmpresaFactura = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cb_FCEstado = new System.Windows.Forms.ComboBox();
+            this.btn_FCVolver = new System.Windows.Forms.Button();
+            this.dgv_FCFacturasCargadas = new System.Windows.Forms.DataGridView();
+            this.FC_Grid_Contabilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FC_Grid_NoIdEmpFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FC_Grid_NoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FC_Grid_FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FC_Grid_VContable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FC_Grid_Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FC_Grid_TMov = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tb_FCIdFactura = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FC_Grid_Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_FCConsultaFactura = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tp_ParametrosContables = new System.Windows.Forms.TabPage();
+            this.lbl_IdCliente = new System.Windows.Forms.Label();
+            this.btn_PCEditarCliente = new System.Windows.Forms.Button();
+            this.btn_PCNombreCliente = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lbl_PCNombreCliente = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cb_PCTipoID = new System.Windows.Forms.ComboBox();
+            this.dgv_ParametrosContables = new System.Windows.Forms.DataGridView();
+            this.tipoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btn_PCAgregarCliente = new System.Windows.Forms.Button();
+            this.btn_PCBuscarCliente = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cb_PCContabilidad = new System.Windows.Forms.ComboBox();
+            this.label39 = new System.Windows.Forms.Label();
             this.tp_ParametrosGenerales = new System.Windows.Forms.TabPage();
             this.btn_PGVolver = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -66,26 +116,6 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardarTributo = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
-            this.tp_ParametrosContables = new System.Windows.Forms.TabPage();
-            this.lbl_IdCliente = new System.Windows.Forms.Label();
-            this.btn_PCEditarCliente = new System.Windows.Forms.Button();
-            this.btn_PCNombreCliente = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.lbl_PCNombreCliente = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cb_PCTipoID = new System.Windows.Forms.ComboBox();
-            this.dgv_ParametrosContables = new System.Windows.Forms.DataGridView();
-            this.tipoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.btn_PCAgregarCliente = new System.Windows.Forms.Button();
-            this.btn_PCBuscarCliente = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cb_PCContabilidad = new System.Windows.Forms.ComboBox();
-            this.label39 = new System.Windows.Forms.Label();
             this.tp_TipoIdentificacion = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnActualizarIden = new System.Windows.Forms.Button();
@@ -98,36 +128,6 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregarIden = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
-            this.tp_FacturasCargadas = new System.Windows.Forms.TabPage();
-            this.label21 = new System.Windows.Forms.Label();
-            this.btn_FCGenerarComprobante = new System.Windows.Forms.Button();
-            this.btn_FCGuardarExcel = new System.Windows.Forms.Button();
-            this.btn_FCFiltro = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cb_FCEmpresaFactura = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cb_FCEstado = new System.Windows.Forms.ComboBox();
-            this.btn_FCVolver = new System.Windows.Forms.Button();
-            this.dgv_FCFacturasCargadas = new System.Windows.Forms.DataGridView();
-            this.FC_Grid_Contabilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FC_Grid_NoIdEmpFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FC_Grid_NoIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FC_Grid_FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FC_Grid_VContable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FC_Grid_Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FC_Grid_TMov = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tb_FCIdFactura = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FC_Grid_Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_FCConsultaFactura = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.tp_CargarFactura = new System.Windows.Forms.TabPage();
             this.cb_CFTipoIdCliente = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -165,25 +165,620 @@ namespace Facturacion_Electronica
             this.btn_MenuCargarFactura = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl1.SuspendLayout();
+            this.tp_FacturasCargadas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tp_ParametrosContables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).BeginInit();
             this.tp_ParametrosGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).BeginInit();
             this.tp_Tributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBActualizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTributo)).BeginInit();
-            this.tp_ParametrosContables.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).BeginInit();
             this.tp_TipoIdentificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).BeginInit();
-            this.tp_FacturasCargadas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tp_CargarFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
+            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
+            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
+            this.tabControl1.Controls.Add(this.tp_Tributos);
+            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
+            this.tabControl1.Controls.Add(this.tp_CargarFactura);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tabControl1.Location = new System.Drawing.Point(212, -23);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(829, 637);
+            this.tabControl1.TabIndex = 11;
+            // 
+            // tp_FacturasCargadas
+            // 
+            this.tp_FacturasCargadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tp_FacturasCargadas.Controls.Add(this.label21);
+            this.tp_FacturasCargadas.Controls.Add(this.btn_FCGenerarComprobante);
+            this.tp_FacturasCargadas.Controls.Add(this.btn_FCGuardarExcel);
+            this.tp_FacturasCargadas.Controls.Add(this.btn_FCFiltro);
+            this.tp_FacturasCargadas.Controls.Add(this.label14);
+            this.tp_FacturasCargadas.Controls.Add(this.cb_FCEmpresaFactura);
+            this.tp_FacturasCargadas.Controls.Add(this.label13);
+            this.tp_FacturasCargadas.Controls.Add(this.label11);
+            this.tp_FacturasCargadas.Controls.Add(this.cb_FCEstado);
+            this.tp_FacturasCargadas.Controls.Add(this.btn_FCVolver);
+            this.tp_FacturasCargadas.Controls.Add(this.dgv_FCFacturasCargadas);
+            this.tp_FacturasCargadas.Controls.Add(this.label12);
+            this.tp_FacturasCargadas.Controls.Add(this.tb_FCIdFactura);
+            this.tp_FacturasCargadas.Controls.Add(this.dataGridView1);
+            this.tp_FacturasCargadas.Controls.Add(this.btn_FCConsultaFactura);
+            this.tp_FacturasCargadas.Controls.Add(this.label15);
+            this.tp_FacturasCargadas.Location = new System.Drawing.Point(4, 25);
+            this.tp_FacturasCargadas.Margin = new System.Windows.Forms.Padding(0);
+            this.tp_FacturasCargadas.Name = "tp_FacturasCargadas";
+            this.tp_FacturasCargadas.Size = new System.Drawing.Size(821, 608);
+            this.tp_FacturasCargadas.TabIndex = 3;
+            this.tp_FacturasCargadas.Text = "Facturas Cargadas";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label21.Location = new System.Drawing.Point(102, 61);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 16);
+            this.label21.TabIndex = 133;
+            this.label21.Text = "Fecha :";
+            this.label21.Visible = false;
+            // 
+            // btn_FCGenerarComprobante
+            // 
+            this.btn_FCGenerarComprobante.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_FCGenerarComprobante.FlatAppearance.BorderSize = 0;
+            this.btn_FCGenerarComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_FCGenerarComprobante.Location = new System.Drawing.Point(297, 49);
+            this.btn_FCGenerarComprobante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_FCGenerarComprobante.Name = "btn_FCGenerarComprobante";
+            this.btn_FCGenerarComprobante.Size = new System.Drawing.Size(158, 36);
+            this.btn_FCGenerarComprobante.TabIndex = 132;
+            this.btn_FCGenerarComprobante.Text = "Generar Comprobante";
+            this.btn_FCGenerarComprobante.UseVisualStyleBackColor = false;
+            this.btn_FCGenerarComprobante.Visible = false;
+            this.btn_FCGenerarComprobante.Click += new System.EventHandler(this.btn_FCGenerarComprobante_Click);
+            // 
+            // btn_FCGuardarExcel
+            // 
+            this.btn_FCGuardarExcel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_FCGuardarExcel.FlatAppearance.BorderSize = 0;
+            this.btn_FCGuardarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_FCGuardarExcel.Location = new System.Drawing.Point(297, 89);
+            this.btn_FCGuardarExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_FCGuardarExcel.Name = "btn_FCGuardarExcel";
+            this.btn_FCGuardarExcel.Size = new System.Drawing.Size(158, 36);
+            this.btn_FCGuardarExcel.TabIndex = 131;
+            this.btn_FCGuardarExcel.Text = "Guardar en Excel";
+            this.btn_FCGuardarExcel.UseVisualStyleBackColor = false;
+            this.btn_FCGuardarExcel.Visible = false;
+            this.btn_FCGuardarExcel.Click += new System.EventHandler(this.btn_FCGuardarExcel_Click);
+            // 
+            // btn_FCFiltro
+            // 
+            this.btn_FCFiltro.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_FCFiltro.FlatAppearance.BorderSize = 0;
+            this.btn_FCFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_FCFiltro.Location = new System.Drawing.Point(530, 89);
+            this.btn_FCFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_FCFiltro.Name = "btn_FCFiltro";
+            this.btn_FCFiltro.Size = new System.Drawing.Size(158, 36);
+            this.btn_FCFiltro.TabIndex = 130;
+            this.btn_FCFiltro.Text = "Aplicar Filtro";
+            this.btn_FCFiltro.UseVisualStyleBackColor = false;
+            this.btn_FCFiltro.Click += new System.EventHandler(this.btn_FCFiltro_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(462, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(116, 16);
+            this.label14.TabIndex = 129;
+            this.label14.Text = "Empresa Factura :";
+            // 
+            // cb_FCEmpresaFactura
+            // 
+            this.cb_FCEmpresaFactura.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_FCEmpresaFactura.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_FCEmpresaFactura.FormatString = "N0";
+            this.cb_FCEmpresaFactura.FormattingEnabled = true;
+            this.cb_FCEmpresaFactura.Location = new System.Drawing.Point(465, 58);
+            this.cb_FCEmpresaFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_FCEmpresaFactura.Name = "cb_FCEmpresaFactura";
+            this.cb_FCEmpresaFactura.Size = new System.Drawing.Size(156, 24);
+            this.cb_FCEmpresaFactura.TabIndex = 128;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(626, 38);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.TabIndex = 127;
+            this.label13.Text = "Estado :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.Location = new System.Drawing.Point(595, 6);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(174, 25);
+            this.label11.TabIndex = 126;
+            this.label11.Text = "Filtros Busqueda";
+            // 
+            // cb_FCEstado
+            // 
+            this.cb_FCEstado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_FCEstado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_FCEstado.FormatString = "N0";
+            this.cb_FCEstado.FormattingEnabled = true;
+            this.cb_FCEstado.Items.AddRange(new object[] {
+            "Seleccione un Item...",
+            "Cargado",
+            "Exportado"});
+            this.cb_FCEstado.Location = new System.Drawing.Point(627, 58);
+            this.cb_FCEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_FCEstado.Name = "cb_FCEstado";
+            this.cb_FCEstado.Size = new System.Drawing.Size(153, 24);
+            this.cb_FCEstado.TabIndex = 125;
+            this.cb_FCEstado.Text = "Seleccione un Item...";
+            this.cb_FCEstado.SelectedIndexChanged += new System.EventHandler(this.cb_FCEstado_SelectedIndexChanged);
+            // 
+            // btn_FCVolver
+            // 
+            this.btn_FCVolver.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_FCVolver.FlatAppearance.BorderSize = 0;
+            this.btn_FCVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_FCVolver.Location = new System.Drawing.Point(188, 94);
+            this.btn_FCVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_FCVolver.Name = "btn_FCVolver";
+            this.btn_FCVolver.Size = new System.Drawing.Size(87, 36);
+            this.btn_FCVolver.TabIndex = 124;
+            this.btn_FCVolver.Text = "Volver";
+            this.btn_FCVolver.UseVisualStyleBackColor = false;
+            this.btn_FCVolver.Visible = false;
+            this.btn_FCVolver.Click += new System.EventHandler(this.btn_FCVolver_Click);
+            // 
+            // dgv_FCFacturasCargadas
+            // 
+            this.dgv_FCFacturasCargadas.AllowUserToAddRows = false;
+            this.dgv_FCFacturasCargadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_FCFacturasCargadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FC_Grid_Contabilidad,
+            this.FC_Grid_NoIdEmpFactura,
+            this.FC_Grid_NoIdCliente,
+            this.FC_Grid_FechaEmision,
+            this.FC_Grid_VContable,
+            this.FC_Grid_Valor,
+            this.FC_Grid_TMov});
+            this.dgv_FCFacturasCargadas.Location = new System.Drawing.Point(0, 180);
+            this.dgv_FCFacturasCargadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_FCFacturasCargadas.MultiSelect = false;
+            this.dgv_FCFacturasCargadas.Name = "dgv_FCFacturasCargadas";
+            this.dgv_FCFacturasCargadas.ReadOnly = true;
+            this.dgv_FCFacturasCargadas.RowTemplate.Height = 25;
+            this.dgv_FCFacturasCargadas.Size = new System.Drawing.Size(830, 423);
+            this.dgv_FCFacturasCargadas.TabIndex = 123;
+            this.dgv_FCFacturasCargadas.Visible = false;
+            this.dgv_FCFacturasCargadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_FCFacturasCargadas_CellContentClick);
+            // 
+            // FC_Grid_Contabilidad
+            // 
+            this.FC_Grid_Contabilidad.HeaderText = "Contabilidad";
+            this.FC_Grid_Contabilidad.Name = "FC_Grid_Contabilidad";
+            this.FC_Grid_Contabilidad.ReadOnly = true;
+            this.FC_Grid_Contabilidad.Width = 120;
+            // 
+            // FC_Grid_NoIdEmpFactura
+            // 
+            this.FC_Grid_NoIdEmpFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FC_Grid_NoIdEmpFactura.HeaderText = "Id Empresa Factura";
+            this.FC_Grid_NoIdEmpFactura.Name = "FC_Grid_NoIdEmpFactura";
+            this.FC_Grid_NoIdEmpFactura.ReadOnly = true;
+            // 
+            // FC_Grid_NoIdCliente
+            // 
+            this.FC_Grid_NoIdCliente.HeaderText = "Id Cliente";
+            this.FC_Grid_NoIdCliente.Name = "FC_Grid_NoIdCliente";
+            this.FC_Grid_NoIdCliente.ReadOnly = true;
+            // 
+            // FC_Grid_FechaEmision
+            // 
+            this.FC_Grid_FechaEmision.HeaderText = "Cod Cuenta";
+            this.FC_Grid_FechaEmision.Name = "FC_Grid_FechaEmision";
+            this.FC_Grid_FechaEmision.ReadOnly = true;
+            // 
+            // FC_Grid_VContable
+            // 
+            this.FC_Grid_VContable.HeaderText = "Cuenta";
+            this.FC_Grid_VContable.Name = "FC_Grid_VContable";
+            this.FC_Grid_VContable.ReadOnly = true;
+            // 
+            // FC_Grid_Valor
+            // 
+            this.FC_Grid_Valor.HeaderText = "Valor";
+            this.FC_Grid_Valor.Name = "FC_Grid_Valor";
+            this.FC_Grid_Valor.ReadOnly = true;
+            // 
+            // FC_Grid_TMov
+            // 
+            this.FC_Grid_TMov.FillWeight = 80F;
+            this.FC_Grid_TMov.HeaderText = "Tipo Mov";
+            this.FC_Grid_TMov.Items.AddRange(new object[] {
+            "C",
+            "D"});
+            this.FC_Grid_TMov.Name = "FC_Grid_TMov";
+            this.FC_Grid_TMov.ReadOnly = true;
+            this.FC_Grid_TMov.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FC_Grid_TMov.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.FC_Grid_TMov.Width = 80;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Location = new System.Drawing.Point(21, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(74, 16);
+            this.label12.TabIndex = 120;
+            this.label12.Text = "ID Factura :";
+            // 
+            // tb_FCIdFactura
+            // 
+            this.tb_FCIdFactura.Location = new System.Drawing.Point(23, 63);
+            this.tb_FCIdFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_FCIdFactura.Name = "tb_FCIdFactura";
+            this.tb_FCIdFactura.Size = new System.Drawing.Size(76, 22);
+            this.tb_FCIdFactura.TabIndex = 116;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.Column6,
+            this.Column7,
+            this.FC_Grid_Estado});
+            this.dataGridView1.Location = new System.Drawing.Point(4, 180);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(830, 423);
+            this.dataGridView1.TabIndex = 113;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id Factura";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 85;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Contabilidad";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Empresa que factura";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "Cliente";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Fecha";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // FC_Grid_Estado
+            // 
+            this.FC_Grid_Estado.HeaderText = "Estado";
+            this.FC_Grid_Estado.Name = "FC_Grid_Estado";
+            this.FC_Grid_Estado.ReadOnly = true;
+            // 
+            // btn_FCConsultaFactura
+            // 
+            this.btn_FCConsultaFactura.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_FCConsultaFactura.FlatAppearance.BorderSize = 0;
+            this.btn_FCConsultaFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_FCConsultaFactura.Location = new System.Drawing.Point(24, 94);
+            this.btn_FCConsultaFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_FCConsultaFactura.Name = "btn_FCConsultaFactura";
+            this.btn_FCConsultaFactura.Size = new System.Drawing.Size(158, 36);
+            this.btn_FCConsultaFactura.TabIndex = 114;
+            this.btn_FCConsultaFactura.Text = "Cosultar Factura";
+            this.btn_FCConsultaFactura.UseVisualStyleBackColor = false;
+            this.btn_FCConsultaFactura.Click += new System.EventHandler(this.btn_FCConsultaFactura_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(20, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(191, 25);
+            this.label15.TabIndex = 112;
+            this.label15.Text = "Facturas cargadas";
+            // 
+            // tp_ParametrosContables
+            // 
+            this.tp_ParametrosContables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tp_ParametrosContables.Controls.Add(this.lbl_IdCliente);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCEditarCliente);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCNombreCliente);
+            this.tp_ParametrosContables.Controls.Add(this.textBox4);
+            this.tp_ParametrosContables.Controls.Add(this.label22);
+            this.tp_ParametrosContables.Controls.Add(this.lbl_PCNombreCliente);
+            this.tp_ParametrosContables.Controls.Add(this.label10);
+            this.tp_ParametrosContables.Controls.Add(this.cb_PCTipoID);
+            this.tp_ParametrosContables.Controls.Add(this.dgv_ParametrosContables);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCAgregarCliente);
+            this.tp_ParametrosContables.Controls.Add(this.btn_PCBuscarCliente);
+            this.tp_ParametrosContables.Controls.Add(this.label20);
+            this.tp_ParametrosContables.Controls.Add(this.cb_PCContabilidad);
+            this.tp_ParametrosContables.Controls.Add(this.label39);
+            this.tp_ParametrosContables.Location = new System.Drawing.Point(4, 25);
+            this.tp_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_ParametrosContables.Name = "tp_ParametrosContables";
+            this.tp_ParametrosContables.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 608);
+            this.tp_ParametrosContables.TabIndex = 1;
+            this.tp_ParametrosContables.Text = "Parametros Contables";
+            // 
+            // lbl_IdCliente
+            // 
+            this.lbl_IdCliente.AutoSize = true;
+            this.lbl_IdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_IdCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_IdCliente.Location = new System.Drawing.Point(33, 213);
+            this.lbl_IdCliente.Name = "lbl_IdCliente";
+            this.lbl_IdCliente.Size = new System.Drawing.Size(72, 16);
+            this.lbl_IdCliente.TabIndex = 125;
+            this.lbl_IdCliente.Text = "*Id Cliente*";
+            this.lbl_IdCliente.Visible = false;
+            // 
+            // btn_PCEditarCliente
+            // 
+            this.btn_PCEditarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_PCEditarCliente.FlatAppearance.BorderSize = 0;
+            this.btn_PCEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PCEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCEditarCliente.Location = new System.Drawing.Point(268, 78);
+            this.btn_PCEditarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCEditarCliente.Name = "btn_PCEditarCliente";
+            this.btn_PCEditarCliente.Size = new System.Drawing.Size(165, 57);
+            this.btn_PCEditarCliente.TabIndex = 124;
+            this.btn_PCEditarCliente.Text = "Editar Info Cliente";
+            this.btn_PCEditarCliente.UseVisualStyleBackColor = false;
+            this.btn_PCEditarCliente.Visible = false;
+            this.btn_PCEditarCliente.Click += new System.EventHandler(this.btn_PCEditarCliente_Click);
+            // 
+            // btn_PCNombreCliente
+            // 
+            this.btn_PCNombreCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.btn_PCNombreCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.btn_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCNombreCliente.FormatString = "N0";
+            this.btn_PCNombreCliente.FormattingEnabled = true;
+            this.btn_PCNombreCliente.Location = new System.Drawing.Point(33, 177);
+            this.btn_PCNombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCNombreCliente.Name = "btn_PCNombreCliente";
+            this.btn_PCNombreCliente.Size = new System.Drawing.Size(268, 24);
+            this.btn_PCNombreCliente.TabIndex = 123;
+            this.btn_PCNombreCliente.Text = "Seleccione Contabilidad...";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.textBox4.Location = new System.Drawing.Point(35, 177);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox4.MaxLength = 11;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(227, 22);
+            this.textBox4.TabIndex = 122;
+            this.textBox4.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.Location = new System.Drawing.Point(31, 157);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(119, 16);
+            this.label22.TabIndex = 121;
+            this.label22.Text = "Nombre de Cliente";
+            // 
+            // lbl_PCNombreCliente
+            // 
+            this.lbl_PCNombreCliente.AutoSize = true;
+            this.lbl_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PCNombreCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_PCNombreCliente.Location = new System.Drawing.Point(32, 229);
+            this.lbl_PCNombreCliente.Name = "lbl_PCNombreCliente";
+            this.lbl_PCNombreCliente.Size = new System.Drawing.Size(146, 20);
+            this.lbl_PCNombreCliente.TabIndex = 118;
+            this.lbl_PCNombreCliente.Text = "*Nombre Cliente*";
+            this.lbl_PCNombreCliente.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(30, 110);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 16);
+            this.label10.TabIndex = 114;
+            this.label10.Text = "Tipo Id cliente";
+            // 
+            // cb_PCTipoID
+            // 
+            this.cb_PCTipoID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_PCTipoID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_PCTipoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cb_PCTipoID.FormatString = "N0";
+            this.cb_PCTipoID.FormattingEnabled = true;
+            this.cb_PCTipoID.Location = new System.Drawing.Point(32, 129);
+            this.cb_PCTipoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_PCTipoID.Name = "cb_PCTipoID";
+            this.cb_PCTipoID.Size = new System.Drawing.Size(229, 24);
+            this.cb_PCTipoID.TabIndex = 115;
+            this.cb_PCTipoID.Text = "Seleccione un Item...";
+            this.cb_PCTipoID.SelectedIndexChanged += new System.EventHandler(this.cb_PCTipoID_SelectedIndexChanged);
+            // 
+            // dgv_ParametrosContables
+            // 
+            this.dgv_ParametrosContables.AllowUserToAddRows = false;
+            this.dgv_ParametrosContables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ParametrosContables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tipoIdCliente,
+            this.NoIdCliente,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgv_ParametrosContables.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 276);
+            this.dgv_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_ParametrosContables.Name = "dgv_ParametrosContables";
+            this.dgv_ParametrosContables.RowTemplate.Height = 25;
+            this.dgv_ParametrosContables.Size = new System.Drawing.Size(815, 330);
+            this.dgv_ParametrosContables.TabIndex = 113;
+            // 
+            // tipoIdCliente
+            // 
+            this.tipoIdCliente.HeaderText = "Tipo Id Cliente";
+            this.tipoIdCliente.Name = "tipoIdCliente";
+            // 
+            // NoIdCliente
+            // 
+            this.NoIdCliente.HeaderText = "No Id Cliente";
+            this.NoIdCliente.Name = "NoIdCliente";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Cod Cuenta";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Tipo Cuenta";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tipo Mov";
+            this.Column4.Items.AddRange(new object[] {
+            "C",
+            "D"});
+            this.Column4.Name = "Column4";
+            // 
+            // btn_PCAgregarCliente
+            // 
+            this.btn_PCAgregarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_PCAgregarCliente.FlatAppearance.BorderSize = 0;
+            this.btn_PCAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PCAgregarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCAgregarCliente.Location = new System.Drawing.Point(598, 182);
+            this.btn_PCAgregarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCAgregarCliente.Name = "btn_PCAgregarCliente";
+            this.btn_PCAgregarCliente.Size = new System.Drawing.Size(195, 63);
+            this.btn_PCAgregarCliente.TabIndex = 112;
+            this.btn_PCAgregarCliente.Text = "Agregar Cliente";
+            this.btn_PCAgregarCliente.UseVisualStyleBackColor = false;
+            this.btn_PCAgregarCliente.Click += new System.EventHandler(this.btn_PCAgregarCliente_Click);
+            // 
+            // btn_PCBuscarCliente
+            // 
+            this.btn_PCBuscarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_PCBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btn_PCBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PCBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_PCBuscarCliente.Location = new System.Drawing.Point(307, 171);
+            this.btn_PCBuscarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PCBuscarCliente.Name = "btn_PCBuscarCliente";
+            this.btn_PCBuscarCliente.Size = new System.Drawing.Size(133, 34);
+            this.btn_PCBuscarCliente.TabIndex = 111;
+            this.btn_PCBuscarCliente.Text = "Buscar Cliente";
+            this.btn_PCBuscarCliente.UseVisualStyleBackColor = false;
+            this.btn_PCBuscarCliente.Click += new System.EventHandler(this.btn_PCBuscarCliente_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(30, 62);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 16);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "Contabilidad :";
+            // 
+            // cb_PCContabilidad
+            // 
+            this.cb_PCContabilidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_PCContabilidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_PCContabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cb_PCContabilidad.FormatString = "N0";
+            this.cb_PCContabilidad.FormattingEnabled = true;
+            this.cb_PCContabilidad.Location = new System.Drawing.Point(32, 81);
+            this.cb_PCContabilidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_PCContabilidad.Name = "cb_PCContabilidad";
+            this.cb_PCContabilidad.Size = new System.Drawing.Size(230, 24);
+            this.cb_PCContabilidad.TabIndex = 104;
+            this.cb_PCContabilidad.Text = "Seleccione un Item...";
+            this.cb_PCContabilidad.SelectedIndexChanged += new System.EventHandler(this.cb_PCContabilidad_SelectedIndexChanged);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label39.Location = new System.Drawing.Point(28, 18);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(194, 24);
+            this.label39.TabIndex = 97;
+            this.label39.Text = "Parametros Contables";
             // 
             // tp_ParametrosGenerales
             // 
@@ -598,248 +1193,6 @@ namespace Facturacion_Electronica
             this.label23.TabIndex = 114;
             this.label23.Text = "Tributos";
             // 
-            // tp_ParametrosContables
-            // 
-            this.tp_ParametrosContables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_ParametrosContables.Controls.Add(this.lbl_IdCliente);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCEditarCliente);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCNombreCliente);
-            this.tp_ParametrosContables.Controls.Add(this.textBox4);
-            this.tp_ParametrosContables.Controls.Add(this.label22);
-            this.tp_ParametrosContables.Controls.Add(this.lbl_PCNombreCliente);
-            this.tp_ParametrosContables.Controls.Add(this.label10);
-            this.tp_ParametrosContables.Controls.Add(this.cb_PCTipoID);
-            this.tp_ParametrosContables.Controls.Add(this.dgv_ParametrosContables);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCAgregarCliente);
-            this.tp_ParametrosContables.Controls.Add(this.btn_PCBuscarCliente);
-            this.tp_ParametrosContables.Controls.Add(this.label20);
-            this.tp_ParametrosContables.Controls.Add(this.cb_PCContabilidad);
-            this.tp_ParametrosContables.Controls.Add(this.label39);
-            this.tp_ParametrosContables.Location = new System.Drawing.Point(4, 25);
-            this.tp_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosContables.Name = "tp_ParametrosContables";
-            this.tp_ParametrosContables.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 608);
-            this.tp_ParametrosContables.TabIndex = 1;
-            this.tp_ParametrosContables.Text = "Parametros Contables";
-            // 
-            // lbl_IdCliente
-            // 
-            this.lbl_IdCliente.AutoSize = true;
-            this.lbl_IdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_IdCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_IdCliente.Location = new System.Drawing.Point(33, 213);
-            this.lbl_IdCliente.Name = "lbl_IdCliente";
-            this.lbl_IdCliente.Size = new System.Drawing.Size(72, 16);
-            this.lbl_IdCliente.TabIndex = 125;
-            this.lbl_IdCliente.Text = "*Id Cliente*";
-            this.lbl_IdCliente.Visible = false;
-            // 
-            // btn_PCEditarCliente
-            // 
-            this.btn_PCEditarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_PCEditarCliente.FlatAppearance.BorderSize = 0;
-            this.btn_PCEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PCEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCEditarCliente.Location = new System.Drawing.Point(268, 78);
-            this.btn_PCEditarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCEditarCliente.Name = "btn_PCEditarCliente";
-            this.btn_PCEditarCliente.Size = new System.Drawing.Size(165, 57);
-            this.btn_PCEditarCliente.TabIndex = 124;
-            this.btn_PCEditarCliente.Text = "Editar Info Cliente";
-            this.btn_PCEditarCliente.UseVisualStyleBackColor = false;
-            this.btn_PCEditarCliente.Visible = false;
-            this.btn_PCEditarCliente.Click += new System.EventHandler(this.btn_PCEditarCliente_Click);
-            // 
-            // btn_PCNombreCliente
-            // 
-            this.btn_PCNombreCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.btn_PCNombreCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.btn_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCNombreCliente.FormatString = "N0";
-            this.btn_PCNombreCliente.FormattingEnabled = true;
-            this.btn_PCNombreCliente.Location = new System.Drawing.Point(33, 177);
-            this.btn_PCNombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCNombreCliente.Name = "btn_PCNombreCliente";
-            this.btn_PCNombreCliente.Size = new System.Drawing.Size(268, 24);
-            this.btn_PCNombreCliente.TabIndex = 123;
-            this.btn_PCNombreCliente.Text = "Seleccione Contabilidad...";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox4.Location = new System.Drawing.Point(35, 177);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.MaxLength = 11;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 22);
-            this.textBox4.TabIndex = 122;
-            this.textBox4.Visible = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(31, 157);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(119, 16);
-            this.label22.TabIndex = 121;
-            this.label22.Text = "Nombre de Cliente";
-            // 
-            // lbl_PCNombreCliente
-            // 
-            this.lbl_PCNombreCliente.AutoSize = true;
-            this.lbl_PCNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_PCNombreCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_PCNombreCliente.Location = new System.Drawing.Point(32, 229);
-            this.lbl_PCNombreCliente.Name = "lbl_PCNombreCliente";
-            this.lbl_PCNombreCliente.Size = new System.Drawing.Size(146, 20);
-            this.lbl_PCNombreCliente.TabIndex = 118;
-            this.lbl_PCNombreCliente.Text = "*Nombre Cliente*";
-            this.lbl_PCNombreCliente.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(30, 110);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 16);
-            this.label10.TabIndex = 114;
-            this.label10.Text = "Tipo Id cliente";
-            // 
-            // cb_PCTipoID
-            // 
-            this.cb_PCTipoID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cb_PCTipoID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_PCTipoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.cb_PCTipoID.FormatString = "N0";
-            this.cb_PCTipoID.FormattingEnabled = true;
-            this.cb_PCTipoID.Location = new System.Drawing.Point(32, 129);
-            this.cb_PCTipoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_PCTipoID.Name = "cb_PCTipoID";
-            this.cb_PCTipoID.Size = new System.Drawing.Size(229, 24);
-            this.cb_PCTipoID.TabIndex = 115;
-            this.cb_PCTipoID.Text = "Seleccione un Item...";
-            this.cb_PCTipoID.SelectedIndexChanged += new System.EventHandler(this.cb_PCTipoID_SelectedIndexChanged);
-            // 
-            // dgv_ParametrosContables
-            // 
-            this.dgv_ParametrosContables.AllowUserToAddRows = false;
-            this.dgv_ParametrosContables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ParametrosContables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tipoIdCliente,
-            this.NoIdCliente,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dgv_ParametrosContables.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 276);
-            this.dgv_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_ParametrosContables.Name = "dgv_ParametrosContables";
-            this.dgv_ParametrosContables.RowTemplate.Height = 25;
-            this.dgv_ParametrosContables.Size = new System.Drawing.Size(815, 330);
-            this.dgv_ParametrosContables.TabIndex = 113;
-            // 
-            // tipoIdCliente
-            // 
-            this.tipoIdCliente.HeaderText = "Tipo Id Cliente";
-            this.tipoIdCliente.Name = "tipoIdCliente";
-            // 
-            // NoIdCliente
-            // 
-            this.NoIdCliente.HeaderText = "No Id Cliente";
-            this.NoIdCliente.Name = "NoIdCliente";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cod Cuenta";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Tipo Cuenta";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tipo Mov";
-            this.Column4.Items.AddRange(new object[] {
-            "C",
-            "D"});
-            this.Column4.Name = "Column4";
-            // 
-            // btn_PCAgregarCliente
-            // 
-            this.btn_PCAgregarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_PCAgregarCliente.FlatAppearance.BorderSize = 0;
-            this.btn_PCAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PCAgregarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCAgregarCliente.Location = new System.Drawing.Point(598, 182);
-            this.btn_PCAgregarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCAgregarCliente.Name = "btn_PCAgregarCliente";
-            this.btn_PCAgregarCliente.Size = new System.Drawing.Size(195, 63);
-            this.btn_PCAgregarCliente.TabIndex = 112;
-            this.btn_PCAgregarCliente.Text = "Agregar Cliente";
-            this.btn_PCAgregarCliente.UseVisualStyleBackColor = false;
-            this.btn_PCAgregarCliente.Click += new System.EventHandler(this.btn_PCAgregarCliente_Click);
-            // 
-            // btn_PCBuscarCliente
-            // 
-            this.btn_PCBuscarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_PCBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btn_PCBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PCBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCBuscarCliente.Location = new System.Drawing.Point(307, 171);
-            this.btn_PCBuscarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PCBuscarCliente.Name = "btn_PCBuscarCliente";
-            this.btn_PCBuscarCliente.Size = new System.Drawing.Size(133, 34);
-            this.btn_PCBuscarCliente.TabIndex = 111;
-            this.btn_PCBuscarCliente.Text = "Buscar Cliente";
-            this.btn_PCBuscarCliente.UseVisualStyleBackColor = false;
-            this.btn_PCBuscarCliente.Click += new System.EventHandler(this.btn_PCBuscarCliente_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.Location = new System.Drawing.Point(30, 62);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 16);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "Contabilidad :";
-            // 
-            // cb_PCContabilidad
-            // 
-            this.cb_PCContabilidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cb_PCContabilidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_PCContabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.cb_PCContabilidad.FormatString = "N0";
-            this.cb_PCContabilidad.FormattingEnabled = true;
-            this.cb_PCContabilidad.Location = new System.Drawing.Point(32, 81);
-            this.cb_PCContabilidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_PCContabilidad.Name = "cb_PCContabilidad";
-            this.cb_PCContabilidad.Size = new System.Drawing.Size(230, 24);
-            this.cb_PCContabilidad.TabIndex = 104;
-            this.cb_PCContabilidad.Text = "Seleccione un Item...";
-            this.cb_PCContabilidad.SelectedIndexChanged += new System.EventHandler(this.cb_PCContabilidad_SelectedIndexChanged);
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label39.Location = new System.Drawing.Point(28, 18);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(194, 24);
-            this.label39.TabIndex = 97;
-            this.label39.Text = "Parametros Contables";
-            // 
             // tp_TipoIdentificacion
             // 
             this.tp_TipoIdentificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -980,342 +1333,6 @@ namespace Facturacion_Electronica
             this.label30.Size = new System.Drawing.Size(198, 24);
             this.label30.TabIndex = 124;
             this.label30.Text = "Tipos de Identificación";
-            // 
-            // tp_FacturasCargadas
-            // 
-            this.tp_FacturasCargadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_FacturasCargadas.Controls.Add(this.label21);
-            this.tp_FacturasCargadas.Controls.Add(this.btn_FCGenerarComprobante);
-            this.tp_FacturasCargadas.Controls.Add(this.btn_FCGuardarExcel);
-            this.tp_FacturasCargadas.Controls.Add(this.btn_FCFiltro);
-            this.tp_FacturasCargadas.Controls.Add(this.label14);
-            this.tp_FacturasCargadas.Controls.Add(this.cb_FCEmpresaFactura);
-            this.tp_FacturasCargadas.Controls.Add(this.label13);
-            this.tp_FacturasCargadas.Controls.Add(this.label11);
-            this.tp_FacturasCargadas.Controls.Add(this.cb_FCEstado);
-            this.tp_FacturasCargadas.Controls.Add(this.btn_FCVolver);
-            this.tp_FacturasCargadas.Controls.Add(this.dgv_FCFacturasCargadas);
-            this.tp_FacturasCargadas.Controls.Add(this.label12);
-            this.tp_FacturasCargadas.Controls.Add(this.tb_FCIdFactura);
-            this.tp_FacturasCargadas.Controls.Add(this.dataGridView1);
-            this.tp_FacturasCargadas.Controls.Add(this.btn_FCConsultaFactura);
-            this.tp_FacturasCargadas.Controls.Add(this.label15);
-            this.tp_FacturasCargadas.Location = new System.Drawing.Point(4, 25);
-            this.tp_FacturasCargadas.Margin = new System.Windows.Forms.Padding(0);
-            this.tp_FacturasCargadas.Name = "tp_FacturasCargadas";
-            this.tp_FacturasCargadas.Size = new System.Drawing.Size(821, 608);
-            this.tp_FacturasCargadas.TabIndex = 3;
-            this.tp_FacturasCargadas.Text = "Facturas Cargadas";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label21.Location = new System.Drawing.Point(102, 61);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 16);
-            this.label21.TabIndex = 133;
-            this.label21.Text = "Fecha :";
-            this.label21.Visible = false;
-            // 
-            // btn_FCGenerarComprobante
-            // 
-            this.btn_FCGenerarComprobante.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_FCGenerarComprobante.FlatAppearance.BorderSize = 0;
-            this.btn_FCGenerarComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FCGenerarComprobante.Location = new System.Drawing.Point(297, 49);
-            this.btn_FCGenerarComprobante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_FCGenerarComprobante.Name = "btn_FCGenerarComprobante";
-            this.btn_FCGenerarComprobante.Size = new System.Drawing.Size(158, 36);
-            this.btn_FCGenerarComprobante.TabIndex = 132;
-            this.btn_FCGenerarComprobante.Text = "Generar Comprobante";
-            this.btn_FCGenerarComprobante.UseVisualStyleBackColor = false;
-            this.btn_FCGenerarComprobante.Visible = false;
-            this.btn_FCGenerarComprobante.Click += new System.EventHandler(this.btn_FCGenerarComprobante_Click);
-            // 
-            // btn_FCGuardarExcel
-            // 
-            this.btn_FCGuardarExcel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_FCGuardarExcel.FlatAppearance.BorderSize = 0;
-            this.btn_FCGuardarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FCGuardarExcel.Location = new System.Drawing.Point(297, 89);
-            this.btn_FCGuardarExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_FCGuardarExcel.Name = "btn_FCGuardarExcel";
-            this.btn_FCGuardarExcel.Size = new System.Drawing.Size(158, 36);
-            this.btn_FCGuardarExcel.TabIndex = 131;
-            this.btn_FCGuardarExcel.Text = "Guardar en Excel";
-            this.btn_FCGuardarExcel.UseVisualStyleBackColor = false;
-            this.btn_FCGuardarExcel.Visible = false;
-            this.btn_FCGuardarExcel.Click += new System.EventHandler(this.btn_FCGuardarExcel_Click);
-            // 
-            // btn_FCFiltro
-            // 
-            this.btn_FCFiltro.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_FCFiltro.FlatAppearance.BorderSize = 0;
-            this.btn_FCFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FCFiltro.Location = new System.Drawing.Point(530, 89);
-            this.btn_FCFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_FCFiltro.Name = "btn_FCFiltro";
-            this.btn_FCFiltro.Size = new System.Drawing.Size(158, 36);
-            this.btn_FCFiltro.TabIndex = 130;
-            this.btn_FCFiltro.Text = "Aplicar Filtro";
-            this.btn_FCFiltro.UseVisualStyleBackColor = false;
-            this.btn_FCFiltro.Click += new System.EventHandler(this.btn_FCFiltro_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(462, 38);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(116, 16);
-            this.label14.TabIndex = 129;
-            this.label14.Text = "Empresa Factura :";
-            // 
-            // cb_FCEmpresaFactura
-            // 
-            this.cb_FCEmpresaFactura.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cb_FCEmpresaFactura.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_FCEmpresaFactura.FormatString = "N0";
-            this.cb_FCEmpresaFactura.FormattingEnabled = true;
-            this.cb_FCEmpresaFactura.Location = new System.Drawing.Point(465, 58);
-            this.cb_FCEmpresaFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_FCEmpresaFactura.Name = "cb_FCEmpresaFactura";
-            this.cb_FCEmpresaFactura.Size = new System.Drawing.Size(156, 24);
-            this.cb_FCEmpresaFactura.TabIndex = 128;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(626, 38);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 16);
-            this.label13.TabIndex = 127;
-            this.label13.Text = "Estado :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(595, 6);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(174, 25);
-            this.label11.TabIndex = 126;
-            this.label11.Text = "Filtros Busqueda";
-            // 
-            // cb_FCEstado
-            // 
-            this.cb_FCEstado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cb_FCEstado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_FCEstado.FormatString = "N0";
-            this.cb_FCEstado.FormattingEnabled = true;
-            this.cb_FCEstado.Items.AddRange(new object[] {
-            "Seleccione un Item...",
-            "Cargado",
-            "Exportado"});
-            this.cb_FCEstado.Location = new System.Drawing.Point(627, 58);
-            this.cb_FCEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_FCEstado.Name = "cb_FCEstado";
-            this.cb_FCEstado.Size = new System.Drawing.Size(153, 24);
-            this.cb_FCEstado.TabIndex = 125;
-            this.cb_FCEstado.Text = "Seleccione un Item...";
-            this.cb_FCEstado.SelectedIndexChanged += new System.EventHandler(this.cb_FCEstado_SelectedIndexChanged);
-            // 
-            // btn_FCVolver
-            // 
-            this.btn_FCVolver.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_FCVolver.FlatAppearance.BorderSize = 0;
-            this.btn_FCVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FCVolver.Location = new System.Drawing.Point(188, 94);
-            this.btn_FCVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_FCVolver.Name = "btn_FCVolver";
-            this.btn_FCVolver.Size = new System.Drawing.Size(87, 36);
-            this.btn_FCVolver.TabIndex = 124;
-            this.btn_FCVolver.Text = "Volver";
-            this.btn_FCVolver.UseVisualStyleBackColor = false;
-            this.btn_FCVolver.Visible = false;
-            this.btn_FCVolver.Click += new System.EventHandler(this.btn_FCVolver_Click);
-            // 
-            // dgv_FCFacturasCargadas
-            // 
-            this.dgv_FCFacturasCargadas.AllowUserToAddRows = false;
-            this.dgv_FCFacturasCargadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_FCFacturasCargadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FC_Grid_Contabilidad,
-            this.FC_Grid_NoIdEmpFactura,
-            this.FC_Grid_NoIdCliente,
-            this.FC_Grid_FechaEmision,
-            this.FC_Grid_VContable,
-            this.FC_Grid_Valor,
-            this.FC_Grid_TMov});
-            this.dgv_FCFacturasCargadas.Location = new System.Drawing.Point(0, 180);
-            this.dgv_FCFacturasCargadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_FCFacturasCargadas.MultiSelect = false;
-            this.dgv_FCFacturasCargadas.Name = "dgv_FCFacturasCargadas";
-            this.dgv_FCFacturasCargadas.ReadOnly = true;
-            this.dgv_FCFacturasCargadas.RowTemplate.Height = 25;
-            this.dgv_FCFacturasCargadas.Size = new System.Drawing.Size(830, 423);
-            this.dgv_FCFacturasCargadas.TabIndex = 123;
-            this.dgv_FCFacturasCargadas.Visible = false;
-            // 
-            // FC_Grid_Contabilidad
-            // 
-            this.FC_Grid_Contabilidad.HeaderText = "Contabilidad";
-            this.FC_Grid_Contabilidad.Name = "FC_Grid_Contabilidad";
-            this.FC_Grid_Contabilidad.ReadOnly = true;
-            this.FC_Grid_Contabilidad.Width = 120;
-            // 
-            // FC_Grid_NoIdEmpFactura
-            // 
-            this.FC_Grid_NoIdEmpFactura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FC_Grid_NoIdEmpFactura.HeaderText = "Id Empresa Factura";
-            this.FC_Grid_NoIdEmpFactura.Name = "FC_Grid_NoIdEmpFactura";
-            this.FC_Grid_NoIdEmpFactura.ReadOnly = true;
-            // 
-            // FC_Grid_NoIdCliente
-            // 
-            this.FC_Grid_NoIdCliente.HeaderText = "Id Cliente";
-            this.FC_Grid_NoIdCliente.Name = "FC_Grid_NoIdCliente";
-            this.FC_Grid_NoIdCliente.ReadOnly = true;
-            // 
-            // FC_Grid_FechaEmision
-            // 
-            this.FC_Grid_FechaEmision.HeaderText = "Cod Cuenta";
-            this.FC_Grid_FechaEmision.Name = "FC_Grid_FechaEmision";
-            this.FC_Grid_FechaEmision.ReadOnly = true;
-            // 
-            // FC_Grid_VContable
-            // 
-            this.FC_Grid_VContable.HeaderText = "Cuenta";
-            this.FC_Grid_VContable.Name = "FC_Grid_VContable";
-            this.FC_Grid_VContable.ReadOnly = true;
-            // 
-            // FC_Grid_Valor
-            // 
-            this.FC_Grid_Valor.HeaderText = "Valor";
-            this.FC_Grid_Valor.Name = "FC_Grid_Valor";
-            this.FC_Grid_Valor.ReadOnly = true;
-            // 
-            // FC_Grid_TMov
-            // 
-            this.FC_Grid_TMov.FillWeight = 80F;
-            this.FC_Grid_TMov.HeaderText = "Tipo Mov";
-            this.FC_Grid_TMov.Items.AddRange(new object[] {
-            "C",
-            "D"});
-            this.FC_Grid_TMov.Name = "FC_Grid_TMov";
-            this.FC_Grid_TMov.ReadOnly = true;
-            this.FC_Grid_TMov.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FC_Grid_TMov.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.FC_Grid_TMov.Width = 80;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(21, 43);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 16);
-            this.label12.TabIndex = 120;
-            this.label12.Text = "ID Factura :";
-            // 
-            // tb_FCIdFactura
-            // 
-            this.tb_FCIdFactura.Location = new System.Drawing.Point(23, 63);
-            this.tb_FCIdFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_FCIdFactura.Name = "tb_FCIdFactura";
-            this.tb_FCIdFactura.Size = new System.Drawing.Size(76, 22);
-            this.tb_FCIdFactura.TabIndex = 116;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.Column6,
-            this.Column7,
-            this.FC_Grid_Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 180);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(830, 423);
-            this.dataGridView1.TabIndex = 113;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id Factura";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Contabilidad";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Empresa que factura";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.HeaderText = "Cliente";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Fecha";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // FC_Grid_Estado
-            // 
-            this.FC_Grid_Estado.HeaderText = "Estado";
-            this.FC_Grid_Estado.Name = "FC_Grid_Estado";
-            this.FC_Grid_Estado.ReadOnly = true;
-            // 
-            // btn_FCConsultaFactura
-            // 
-            this.btn_FCConsultaFactura.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_FCConsultaFactura.FlatAppearance.BorderSize = 0;
-            this.btn_FCConsultaFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FCConsultaFactura.Location = new System.Drawing.Point(24, 94);
-            this.btn_FCConsultaFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_FCConsultaFactura.Name = "btn_FCConsultaFactura";
-            this.btn_FCConsultaFactura.Size = new System.Drawing.Size(158, 36);
-            this.btn_FCConsultaFactura.TabIndex = 114;
-            this.btn_FCConsultaFactura.Text = "Cosultar Factura";
-            this.btn_FCConsultaFactura.UseVisualStyleBackColor = false;
-            this.btn_FCConsultaFactura.Click += new System.EventHandler(this.btn_FCConsultaFactura_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(20, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(191, 25);
-            this.label15.TabIndex = 112;
-            this.label15.Text = "Facturas cargadas";
             // 
             // tp_CargarFactura
             // 
@@ -1742,22 +1759,6 @@ namespace Facturacion_Electronica
             this.btn_MenuParametrosContables.UseVisualStyleBackColor = true;
             this.btn_MenuParametrosContables.Click += new System.EventHandler(this.btn_MenuParametrosContables_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
-            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
-            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
-            this.tabControl1.Controls.Add(this.tp_Tributos);
-            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
-            this.tabControl1.Controls.Add(this.tp_CargarFactura);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tabControl1.Location = new System.Drawing.Point(212, -23);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(829, 637);
-            this.tabControl1.TabIndex = 11;
-            // 
             // Pagina_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1776,6 +1777,14 @@ namespace Facturacion_Electronica
             this.Name = "Pagina_Principal";
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tp_FacturasCargadas.ResumeLayout(false);
+            this.tp_FacturasCargadas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tp_ParametrosContables.ResumeLayout(false);
+            this.tp_ParametrosContables.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).EndInit();
             this.tp_ParametrosGenerales.ResumeLayout(false);
             this.tp_ParametrosGenerales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosGenerales)).EndInit();
@@ -1783,23 +1792,15 @@ namespace Facturacion_Electronica
             this.tp_Tributos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBActualizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTributo)).EndInit();
-            this.tp_ParametrosContables.ResumeLayout(false);
-            this.tp_ParametrosContables.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ParametrosContables)).EndInit();
             this.tp_TipoIdentificacion.ResumeLayout(false);
             this.tp_TipoIdentificacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).EndInit();
-            this.tp_FacturasCargadas.ResumeLayout(false);
-            this.tp_FacturasCargadas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_FCFacturasCargadas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tp_CargarFactura.ResumeLayout(false);
             this.tp_CargarFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

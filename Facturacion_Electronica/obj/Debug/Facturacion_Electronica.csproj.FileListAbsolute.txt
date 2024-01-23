@@ -255,3 +255,4 @@ C:\Users\Sebas\source\repos\factura-electronica-Softvalores\Facturacion_Electron
 C:\Users\Sebas\source\repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.csproj.CopyComplete
 C:\Users\Sebas\source\repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.exe
 C:\Users\Sebas\source\repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.pdb
+C:\Users\BASES\source\repos\factura-electronica-Softvalores\Facturacion_Electronica\obj\Debug\Facturacion_Electronica.FormEditTipIden.resources
