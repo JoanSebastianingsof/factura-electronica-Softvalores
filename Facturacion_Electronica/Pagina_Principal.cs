@@ -1532,7 +1532,7 @@ namespace Facturacion_Electronica
                             agregarCwMoc.Parameters.AddWithValue("@num_comp", int.Parse(facturaInfo[9]));
                             agregarCwMoc.Parameters.AddWithValue("@cod_cuen", MovNo[x]);
                             agregarCwMoc.Parameters.AddWithValue("@rmt_cumo", position);
-                            agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + arrTributo[x] + " De Cliente: " + facturaInfo[14]);
+                            agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + arrTributo[x] + " De Cliente: " + facturaInfo[6]);
                             agregarCwMoc.Parameters.AddWithValue("@vlr_movi", double.Parse(facturaInfo[10 + x]));
                             agregarCwMoc.Parameters.AddWithValue("@tip_movi", MovType[x]);
                             agregarCwMoc.Parameters.AddWithValue("@bas_rete", 0);
@@ -1560,7 +1560,7 @@ namespace Facturacion_Electronica
                             agregarCwMoc.Parameters.AddWithValue("@num_comp", int.Parse(facturaInfo[9]));
                             agregarCwMoc.Parameters.AddWithValue("@cod_cuen", MovNo[x]);
                             agregarCwMoc.Parameters.AddWithValue("@rmt_cumo", position);
-                            agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + arrTributo[x] + " De Cliente: " + facturaInfo[14]);
+                            agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + arrTributo[x] + " De Cliente: " + facturaInfo[6]);
                             agregarCwMoc.Parameters.AddWithValue("@vlr_movi", double.Parse(facturaInfo[10 + x]));
                             agregarCwMoc.Parameters.AddWithValue("@tip_movi", MovType[x]);
                             agregarCwMoc.Parameters.AddWithValue("@bas_rete", 0);
@@ -1718,7 +1718,7 @@ namespace Facturacion_Electronica
                             sl.SetCellValue("E" + positionDataExcel, facturaInfo[6]);
                             sl.SetCellValue("F" + positionDataExcel, facturaInfo[5]);
                         }
-                        sl.SetCellValue("H" + positionDataExcel, NombreContabilidad[i + 1] + " FACTURA No. " + facturaInfo[2] + " " + facturaInfo[14]);
+                        sl.SetCellValue("H" + positionDataExcel, NombreContabilidad[i + 1] + " FACTURA No. " + facturaInfo[2] + " " + facturaInfo[6]);
                         sl.SetCellValue("J" + positionDataExcel, double.Parse(facturaInfo[7 + i]));
                         sl.SetCellValue("K" + positionDataExcel, facturaType[0 + i]);
                         CargarDataExcel++; positionDataExcel++;
