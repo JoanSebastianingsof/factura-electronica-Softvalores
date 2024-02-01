@@ -109,7 +109,7 @@ namespace Facturacion_Electronica
             while (dr.Read())
             {
                 //                dg.Rows.Add(dr[1].ToString(), dr[0].ToString(), dr[13].ToString(), dr[14].ToString(), dr[6].ToString(), dr[15].ToString());
-                dg.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[10].ToString());
+                dg.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
 
             }
             con.Close();
