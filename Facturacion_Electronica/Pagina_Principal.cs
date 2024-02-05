@@ -1453,22 +1453,43 @@ namespace Facturacion_Electronica
                 double TotalCreditos = 0; double TotalDebitos = 0;
 
 
-               
-                    for (int j = 0; j < MovType.Length; j++)
+                int a = -1;
+                    for (int j = 0; j <12; j++)
                     {
-                        //string valorFactura = facturaInfo[10 + j];
-                        if (MovType[j] == "C" )
+
+                    string valorFactura = facturaInfo[10 + j]; 
+                    Console.WriteLine(facturaInfo[11 + j]);
+                    if (double.TryParse(valorFactura, out double credito))
+                    {
+                        a = a + 1;
+                        if (MovType[a] == "C")
                         {
+
                             Console.WriteLine(TotalCreditos + "Creditos");
-                            TotalCreditos = TotalCreditos + double.Parse(facturaInfo[11 + j]);
+                            TotalCreditos = TotalCreditos + credito;
+
+                            // TotalCreditos = TotalCreditos + double.Parse(valorFactura);
+                            Console.WriteLine(TotalCreditos + "Creditos");
+
                         }
-                        else if (MovType[j] == "D" )
+                        else if (MovType[a] == "D" )
                         {
                             Console.WriteLine(TotalDebitos + "Debitos");
-                            TotalDebitos = TotalDebitos + double.Parse(facturaInfo[11 + j]);
+                            //TotalDebitos = TotalDebitos + double.Parse(valorFactura);
+                            TotalDebitos = TotalDebitos + credito;
+
+                            Console.WriteLine(TotalDebitos + "Debitos");
                         }
-                        Console.WriteLine(double.Parse(facturaInfo[10 + j]));
+
+                        else
+                        {
+                            Console.WriteLine(double.Parse(facturaInfo[10 + j]));
+
+                        }
                     }
+                    
+                        
+                }
                 
                 
 
@@ -1535,7 +1556,7 @@ namespace Facturacion_Electronica
                 SqlCommand comandoTributo = new SqlCommand(ConsultaTributo, conexion);
                 SqlDataReader registroTributo = comandoTributo.ExecuteReader();
                 string[] arrTributo = new string[99];
-                int a = 0;
+                a = 0;
                 while (registroTributo.Read())
                 {
                     arrTributo[a] = registroTributo["Nom_Tributo"].ToString();
