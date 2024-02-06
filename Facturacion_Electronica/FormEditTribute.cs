@@ -48,19 +48,19 @@ namespace Facturacion_Electronica
         private void btnActualizarTributo_Click(object sender, EventArgs e)
         {
             conexion.Open();
-            string nombre = comboBox1.Text; string id = tbIdentificadorTrib.Text; string cont = " ";
+            string codigo = comboBox1.Text; string id = tbIdentificadorTrib.Text; string cont = " ";
 
-            string cadenaConsultaTributo = "select * from dbo.fe_Tributo where Nom_Tributo='" + nombre + "'";
+            string cadenaConsultaTributo = "select * from dbo.fe_Tributo where identificador='" + codigo + "'";
             SqlCommand comandoTributo = new SqlCommand(cadenaConsultaTributo, conexion);
             SqlDataReader registroTributo = comandoTributo.ExecuteReader();
             if (registroTributo.Read())
             {
-                if ((registroTributo["Nom_Tributo"].ToString()) == nombre)
+                if ((registroTributo["identificador"].ToString()) == codigo)
                 {
                     conexion.Close();
 
                     conexion.Open();
-                    string update = "update fe_Tributo set identificador='" + id + "' where Nom_Tributo='" + nombre + "'";
+                    string update = "update fe_Tributo set Nom_Tributo='" + id + "' where identificador='" + codigo + "'";
                     SqlCommand actualizar = new SqlCommand(update, conexion);
                     actualizar.ExecuteNonQuery();
                     conexion.Close();

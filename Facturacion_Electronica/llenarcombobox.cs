@@ -59,7 +59,7 @@ namespace Facturacion_Electronica
         public void captarTributo(ComboBox cb )
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select Nom_Tributo from fe_Tributo", con);
+            SqlCommand cmd = new SqlCommand("select identificador from fe_Tributo", con);
             SqlDataReader dr = cmd.ExecuteReader();
            // string[] resultado = null;
             while (dr.Read())
