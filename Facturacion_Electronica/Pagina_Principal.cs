@@ -647,8 +647,12 @@ namespace Facturacion_Electronica
                         {
                             rete[0] = Vtotal[0];
                             reteDesc[0] = ("Ingreso");
+                            Console.WriteLine(rete[0] + "Ingreos");
+
                             rete[1] = iva[1];
                             reteDesc[1] = ("IVA");
+                            Console.WriteLine(rete[1] + "Iva");
+
                             if (arreglo[i] == "Retefuente")
                             {
                                 rete[2] = (arreglo[i + 2]);
@@ -669,7 +673,7 @@ namespace Facturacion_Electronica
                                 //reteDesc[3] = ("ReteIca");
                                 reteDesc[4] = ("Rte.Ica");
 
-                                Console.WriteLine(rete[3] + "ICA1");
+                                //Console.WriteLine(rete[3] + "ICA1");
 
                             }
                             if (arreglo[i] == "9.66" || arreglo[i] == "14" || arreglo[i] == "6.9" || arreglo[i] == "10" || arreglo[i] == "11.44")
@@ -677,7 +681,7 @@ namespace Facturacion_Electronica
                                 rete[4] = (arreglo[i + 4]);
                                 //reteDesc[3] = ("ReteIca");
                                 reteDesc[4] = ("Rte.Ica");
-                                Console.WriteLine(rete[3] + "ICA2");
+                                //Console.WriteLine(rete[3] + "ICA2");
                                 retenciones++;
 
                             }
@@ -704,17 +708,17 @@ namespace Facturacion_Electronica
 
                         }
 
-                         for (i = 0; i < rete.Length; i++)
+                         /*for (i = 0; i < rete.Length; i++)
                          {
                              Console.WriteLine(rete[i]);
                          }
                          for (i = 0; i < reteDesc.Length; i++)
                          {
                              Console.WriteLine(reteDesc[i] + "R");
-                         }
+                         }*/
                         //double totals= Convert.ToDouble(total, System.Globalization.CultureInfo.InvariantCulture);
-                        double res = Convert.ToDouble(iva[1], System.Globalization.CultureInfo.InvariantCulture);
-                        iva[1] = string.Format("{0:f2}", res);
+                        /*double res = Convert.ToDouble(iva[1], System.Globalization.CultureInfo.InvariantCulture);
+                        iva[1] = string.Format("{0:f2}", res);*/
                         for (int x = 1; x <= 5; x++)
                         {
                             double CorreccRes = Convert.ToDouble(rete[x], System.Globalization.CultureInfo.InvariantCulture);
@@ -723,10 +727,20 @@ namespace Facturacion_Electronica
 
                         double CxCcorreccion = Convert.ToDouble(Vtotal[0], System.Globalization.CultureInfo.InvariantCulture);
                         // Vtotal[0] = string.Format("{0:f2}", CxCcorreccion);
+                        decimal ingresos = decimal.Parse(Vtotal[0])/100;
+                        decimal ivaD = decimal.Parse(iva[1])/100;
 
-                        double TCreditos = (double.Parse(Vtotal[0]) + double.Parse(iva[1]));
-                        double TDebitos = (double.Parse(rete[1]) + double.Parse(rete[2]) + double.Parse(rete[3]));
-                        double CtaXCobrar = TCreditos - TDebitos;
+                        decimal TCreditos = ingresos + ivaD;
+                        //decimal TCreditos = decimal.Parse(Vtotal[0])) + (decimal.Parse(iva[1]);
+                        //decimal TCreditos = decimal.Parse(Vtotal[0])) + (decimal.Parse(iva[1]);
+                        //decimal TCreditos = Math.Round(decimal.Parse(Vtotal[0]) + decimal.Parse(iva[1]), 2);
+
+                        /*String TCreditosStr = string.Format("{0:f2}", TCredito);
+                        decimal TCreditos = decimal.Parse(TCreditosStr);*/
+                        decimal TDebitos = decimal.Parse(rete[2])/100 + decimal.Parse(rete[3])/100 + decimal.Parse(rete[4])/100;
+                        decimal CtaXCobrar = TCreditos - TDebitos;
+                        Console.WriteLine(ingresos + "..Creditos...." + ivaD);
+
                         Console.WriteLine(TCreditos + "..Creditos");
 
                         Console.WriteLine(TDebitos + "..Debitos");
@@ -805,7 +819,7 @@ namespace Facturacion_Electronica
 
                             if (registroRfte.Read() && rete[1] != " ")
                             {
-                                dgv_FacturaCargada.Rows.Add(registroRfte["Cod_Cuenta"].ToString(), "Rte.Fte   Factura No. " + id[0] + "  " + clienteNombre[2], rete[1], registroRfte["Tipo_Mov"].ToString());
+                                dgv_FacturaCargada.Rows.Add(registroRfte["Cod_Cuenta"].ToString(), "Rte.Fte   Factura No. " + id[0] + "  " + clienteNombre[2], rete[2], registroRfte["Tipo_Mov"].ToString());
                             }
 
                             conexion.Close();
@@ -814,7 +828,7 @@ namespace Facturacion_Electronica
                             SqlDataReader registroRiva = comandoRiva.ExecuteReader();
                             if (registroRiva.Read() && rete[2] != " ")
                             {
-                                dgv_FacturaCargada.Rows.Add(registroRiva["Cod_Cuenta"].ToString(), "Rte.Iva   Factura No. " + id[0] + "  " + clienteNombre[2], rete[2], registroRiva["Tipo_Mov"].ToString());
+                                dgv_FacturaCargada.Rows.Add(registroRiva["Cod_Cuenta"].ToString(), "Rte.Iva   Factura No. " + id[0] + "  " + clienteNombre[2], rete[3], registroRiva["Tipo_Mov"].ToString());
                             }
 
                             conexion.Close();
@@ -823,11 +837,10 @@ namespace Facturacion_Electronica
                             SqlDataReader registroRica = comandoRica.ExecuteReader();
                             if (registroRica.Read() && rete[3] != " ")
                             {
-                                dgv_FacturaCargada.Rows.Add(registroRica["Cod_Cuenta"].ToString(), "Rte.Ica  Factura No. " + id[0] + "  " + clienteNombre[2], rete[3], registroRica["Tipo_Mov"].ToString());
+                                dgv_FacturaCargada.Rows.Add(registroRica["Cod_Cuenta"].ToString(), "Rte.Ica  Factura No. " + id[0] + "  " + clienteNombre[2], rete[4], registroRica["Tipo_Mov"].ToString());
                                 Console.WriteLine(rete[3] + "P");
 
                             }
-
                             conexion.Close();
 
                             conexion.Open();
@@ -1045,7 +1058,7 @@ namespace Facturacion_Electronica
                                   agregar.Parameters.AddWithValue("@Cta_Cobrar", rete[7]);*/
 
                                 //agregar.Parameters.AddWithValue("@IdTributo", rete[3]);
-                                agregar.Parameters.AddWithValue("@Valor", rete[5]);
+                                agregar.Parameters.AddWithValue("@Valor", TCreditos);
 
 
                                 /* agregar.Parameters.AddWithValue("@Nom_EmpFact", NombreEmpFact);
