@@ -932,27 +932,24 @@ namespace Facturacion_Electronica
                             {
                                 conexion.Close();
                                 conexion.Open();
-
+                                int posicion=1;
                                 for (i = 0; i < reteDesc.Length; i++)
                                 {
-                                    string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Id_Factura, @Id_Tributos, @Valor)";
+                                    string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Cod_arbo,@Id_Factura, @Id_Tributos, @Valor,@Consecutivo)";
                                     SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
 
                                     if (!string.IsNullOrEmpty(reteDesc[i]) && (double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0) || reteDesc[i] == tributos[i])
 
                                     {
                                         agregarTri.Parameters.Clear();
-/*                                        Console.WriteLine(reteDesc[i] + "reten ");
-
-                                        Console.WriteLine(id[0] + "primero");
-                                        Console.WriteLine(reteDesc[i] + "Segundo");
-                                        Console.WriteLine(rete[i] + "tercero");
-*/
+                                                                           
+                                        agregarTri.Parameters.AddWithValue("@Cod_arbo", cont);
                                         agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
                                         agregarTri.Parameters.AddWithValue("@Id_Tributos", reteDesc[i]);
                                         agregarTri.Parameters.AddWithValue("@Valor", rete[i]);
+                                        agregarTri.Parameters.AddWithValue("@Consecutivo", posicion);
 
-
+                                        posicion++;
 
                                         agregarTri.ExecuteNonQuery();
 
@@ -961,16 +958,11 @@ namespace Facturacion_Electronica
                                 }
                                 conexion.Close();
 
-                                // Console.WriteLine("Paso");
                                 conexion.Open();
-
-
-                                // Console.WriteLine(reteDesc.Length);
                                 string dataComprobanteTotales = "insert into dbo.fe_ComprobantesTotales values(@FechaComprobante,@Total,@Id_Factura)";
 
                                 SqlCommand agregarTotal = new SqlCommand(dataComprobanteTotales, conexion);
-                                /*Console.WriteLine(id[0] + "primero");
-                                Console.WriteLine(rete[4]);*/
+                               
 
                                 agregarTotal.Parameters.AddWithValue("@FechaComprobante", date);
                                 agregarTotal.Parameters.AddWithValue("@Total", rete[5]);
@@ -989,18 +981,6 @@ namespace Facturacion_Electronica
                                 string idEmpFactura = "";
                                 //string idEmpFactura = nit[1] + "-" + idscheme[1];
                                 //string idCliente = nit[2] + "-" + idscheme[2];
-
-
-                                /* //string registroCivil = "11";
-                                 string tarjetaIdentidad = "12";
-                                 string cedulaCiudadania = "13";
-                                 //string tarjetaExtranjeria = "21";
-                                 string cedulaExtranjeria = "22";
-                                 string pasaporte = "41";
-                                 //string documentoIdentificacionExtranjero = "42";
-                                 //string nitOtroPais = "50";
-                                 string nuip = "91";*/
-
                                 i = 0;
                                 while (i < arrTipoIdentificacion.Length)
                                 {
