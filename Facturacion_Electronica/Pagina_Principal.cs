@@ -627,11 +627,7 @@ namespace Facturacion_Electronica
                         tributos[i] = consultaTributo["Nom_Tributo"].ToString();
                     }
                     conexion.Close();
-                    /* foreach (var tupla in tributos)
-                     {
-                         Console.WriteLine($"Columna1: {tupla.Item1}, Columna2: {tupla.Item2}");
-                     }*/
-
+               
 
                     if (NoEmpresaFactura == FacturaEmpresaFactura || NoEmpresaFactura == FacturaEmpresaFactura2)
                     //if (respuesta == true)
@@ -708,14 +704,14 @@ namespace Facturacion_Electronica
 
                         }
 
-                         /*for (i = 0; i < rete.Length; i++)
+                         for (i = 0; i < rete.Length; i++)
                          {
                              Console.WriteLine(rete[i]);
                          }
                          for (i = 0; i < reteDesc.Length; i++)
                          {
                              Console.WriteLine(reteDesc[i] + "R");
-                         }*/
+                         }
                         //double totals= Convert.ToDouble(total, System.Globalization.CultureInfo.InvariantCulture);
                         /*double res = Convert.ToDouble(iva[1], System.Globalization.CultureInfo.InvariantCulture);
                         iva[1] = string.Format("{0:f2}", res);*/
@@ -935,7 +931,7 @@ namespace Facturacion_Electronica
                                 int posicion=1;
                                 for (i = 0; i < reteDesc.Length; i++)
                                 {
-                                    string dataComprobanteTributo = "insert into dbo.few_ComprobantesTributos values(@Cod_arbo,@Id_Factura, @Id_Tributos, @Valor,@Consecutivo)";
+                                    string dataComprobanteTributo = "insert into dbo.fe_ComprobantesTributos values(@Cod_arbo,@Id_Factura, @Consecutivo,@Id_Tributos, @Valor)";
                                     SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
 
                                     if (!string.IsNullOrEmpty(reteDesc[i]) && (double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0) || reteDesc[i] == tributos[i])
@@ -945,9 +941,10 @@ namespace Facturacion_Electronica
                                                                            
                                         agregarTri.Parameters.AddWithValue("@Cod_arbo", cont);
                                         agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
+                                        agregarTri.Parameters.AddWithValue("@Consecutivo", posicion);
                                         agregarTri.Parameters.AddWithValue("@Id_Tributos", reteDesc[i]);
                                         agregarTri.Parameters.AddWithValue("@Valor", rete[i]);
-                                        agregarTri.Parameters.AddWithValue("@Consecutivo", posicion);
+                                       
 
                                         posicion++;
 
@@ -958,20 +955,7 @@ namespace Facturacion_Electronica
                                 }
                                 conexion.Close();
 
-                                conexion.Open();
-                                string dataComprobanteTotales = "insert into dbo.fe_ComprobantesTotales values(@FechaComprobante,@Total,@Id_Factura)";
-
-                                SqlCommand agregarTotal = new SqlCommand(dataComprobanteTotales, conexion);
-                               
-
-                                agregarTotal.Parameters.AddWithValue("@FechaComprobante", date);
-                                agregarTotal.Parameters.AddWithValue("@Total", rete[5]);
-                                agregarTotal.Parameters.AddWithValue("@Id_Factura", id[0]);
-
-                                agregarTotal.ExecuteNonQuery();
-
-                                conexion.Close();
-
+                              
                                 conexion.Open();
                                 // string dataComprobante = "insert into dbo.fe_ComprobantesV2 values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @fechaEmision, @Ingreso, @Iva, @Rte_Fte, @Rte_Iva, @Rte_Ica, @Cta_Cobrar, @Nom_EmpFact, @Nom_Cliente, @Estado)";
                                 string dataComprobante = "insert into dbo.fe_ComprobantesV2 values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @FechaEmision,@Valor, @Estado)";
@@ -1116,7 +1100,7 @@ namespace Facturacion_Electronica
             }
             registroInfo.Close();
 
-            String Count = "select COUNT (*) from few_ComprobantesTributos  where Id_Factura = '" + idFactura + "'";
+            String Count = "select COUNT (*) from fe_ComprobantesTributos  where Id_Factura = '" + idFactura + "'";
             SqlCommand comandoCount = new SqlCommand(Count, conexion);
             Int32 totalDatos = (Int32)comandoCount.ExecuteScalar();
             // Console.WriteLine("Count");
@@ -1125,7 +1109,7 @@ namespace Facturacion_Electronica
 
             conexion.Open();
 
-            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from few_ComprobantesTributos where Id_Factura = '" + idFactura + "'";
+            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from fe_ComprobantesTributos where Id_Factura = '" + idFactura + "'";
             SqlCommand comandoInfoReten2 = new SqlCommand(cadenaInfoFacturaReten2, conexion);
             SqlDataReader registroInfoReten2 = comandoInfoReten2.ExecuteReader();
             int contadorInfo = 0;
@@ -1269,26 +1253,32 @@ namespace Facturacion_Electronica
                     parContVal[l] = registroConsT["Man_Trib"].ToString();
                     l++;
                 }
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < NombreContabilidad.Length; j++)
                 {
                     if (CodigoCuenta[j] != "")
                     {
-                        for (int grd = 0; grd < facturaInfo.Length; grd++)
-                        {
-                            /*Console.WriteLine(facturaInfo[grd] + "...mov");
-                            Console.WriteLine(NombreContabilidad[j] + "...est");*/
-                            if (NombreContabilidad[j] == facturaInfo[grd])
+                            for (int grd = 0; grd < facturaInfo.Length; grd++)
                             {
-                                //Console.WriteLine("Paso al if");
-                                dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], facturaInfo[6], CodigoCuenta[j], NombreContabilidad[j], facturaInfo[grd + 1], facturaType[j]);
-                            }
-                            else
-                            {
-                                //Console.WriteLine("No paso");
+                                if (/*!string.IsNullOrEmpty(facturaInfo[grd]) && */NombreContabilidad[j] == facturaInfo[grd])
+                                {
+                                    Console.WriteLine(arrTributo[j] + "...Grd...." + facturaInfo[grd+1]);
+
+                                    dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], facturaInfo[6], CodigoCuenta[j], NombreContabilidad[j], facturaInfo[grd +1], facturaType[j]);
+                                }
+                                /*if (arrTributo[j] == facturaInfo[grd])
+                                {
+                                    //Console.WriteLine("Paso al if");
+                                    dgv_FCFacturasCargadas.Rows.Add(cont, facturaInfo[4], facturaInfo[6], CodigoCuenta[j], NombreContabilidad[j], facturaInfo[grd + 1], facturaType[j]);
+                                }*/
+                                else
+                                {
+                                    //Console.WriteLine("No paso");
+
+                                }
 
                             }
 
-                        }
+                        
 
                         /* if (parContVal[j] == "T    ")
                          {
@@ -1321,7 +1311,7 @@ namespace Facturacion_Electronica
         private void btn_FCGenerarComprobante_Click(object sender, EventArgs e)
         {
             string[] MovNo = new string[99]; string[] MovType = new string[99]; string[] facturaInfo = new string[99];
-            string[] TipoCuen = new string[99]; string estadoFactura = "";
+            string[] TipoCuen = new string[99]; string estadoFactura = ""; string[] TipoCuenta = new string[99];
 
             //Busca la Informacion de la Factura en la Base de datos usando el ID de la Factura
             conexion.Open();
@@ -1350,7 +1340,7 @@ namespace Facturacion_Electronica
             registroInfo.Close();
 
 
-            String Count = "select COUNT (*) from few_ComprobantesTributos  where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+            String Count = "select COUNT (*) from fe_ComprobantesTributos  where Id_Factura = '" + tb_FCIdFactura.Text + "'";
             SqlCommand comandoCount = new SqlCommand(Count, conexion);
             Int32 totalDatos = (Int32)comandoCount.ExecuteScalar();
             Console.WriteLine("Count");
@@ -1359,15 +1349,11 @@ namespace Facturacion_Electronica
 
             conexion.Open();
 
-            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from few_ComprobantesTributos where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from fe_ComprobantesTributos where Id_Factura = '" + tb_FCIdFactura.Text + "'";
             SqlCommand comandoInfoReten2 = new SqlCommand(cadenaInfoFacturaReten2, conexion);
             SqlDataReader registroInfoReten2 = comandoInfoReten2.ExecuteReader();
             int contadorInfo = 0;
             int arregloInfo = 10;
-
-
-
-
 
             while (registroInfoReten2.Read() && contadorInfo < totalDatos)
             {
@@ -1423,7 +1409,7 @@ namespace Facturacion_Electronica
 
                 // Consulta a PC "Parametros Contables" Para encontrar el Tipo de Movimiento de las cuentas Contables
                 conexion.Open();
-                string cadenaConsultaPC = "select Tipo_Mov,Cod_Cuenta,Man_Trib from fe_ParametrosContables where Contabilidad = '" + facturaInfo[1] + "' and No_idCLiente ='" + facturaInfo[6] + "'";
+                string cadenaConsultaPC = "select Tipo_Mov,Cod_Cuenta,Man_Trib,Tipo_Cuenta from fe_ParametrosContables where Contabilidad = '" + facturaInfo[1] + "' and No_idCLiente ='" + facturaInfo[6] + "'";
                 SqlCommand comandoConsultaPC = new SqlCommand(cadenaConsultaPC, conexion);
                 SqlDataReader registroConsultaPC = comandoConsultaPC.ExecuteReader();
                 Console.WriteLine(facturaInfo[1]);
@@ -1434,9 +1420,11 @@ namespace Facturacion_Electronica
                     MovType[i] = (registroConsultaPC[0].ToString());
                     MovNo[i] = (registroConsultaPC[1].ToString());
                     TipoCuen[i] = (registroConsultaPC[2].ToString());
+                    TipoCuenta[i]= (registroConsultaPC[3].ToString());
                     Console.WriteLine(MovType[i] + "MovType");
                     Console.WriteLine(MovNo[i] + "MovNo");
-                    Console.WriteLine(TipoCuen[i] + "TipoCuen");
+                    Console.WriteLine(TipoCuenta[i] + "TipoCuen");
+
                     i++;
 
                 }
@@ -1486,7 +1474,6 @@ namespace Facturacion_Electronica
                 
                 
 
-                Console.WriteLine("Antes de conexion");
 
                 //Consulta a PG "Parametros Generales" Para encontrar el Tipo de Comprobante
                 conexion.Open();
@@ -1564,14 +1551,14 @@ namespace Facturacion_Electronica
                 conexion.Close();
                 string[] NombreContabilidad = { "Ingreso", "IVA", "Rte.Fte", "Rte.Iva", "Rte.Ica", "Cta x Cobrar" };
                 int position = 1;
-                for (int x = 0; x < NombreContabilidad.Length; x++)
+                for (int x = 0; x < TipoCuenta.Length; x++)
                 {
                     if (/*double.Parse(facturaInfo[10 + x]) != 0 &&*/ MovType[x] != "")
                     {
                         for (i = 0; i < facturaInfo.Length; i++)
                         {
                          
-                            if (TipoCuen[x] == "T    " && NombreContabilidad[x] == facturaInfo[i])
+                            if (TipoCuen[x] == "T    " && TipoCuenta[x] == facturaInfo[i])
                             {
 
                                 conexion.Open();
@@ -1593,8 +1580,8 @@ namespace Facturacion_Electronica
                                 Console.WriteLine(position);
                                 agregarCwMoc.Parameters.AddWithValue("@rmt_cumo", position);
 
-                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + NombreContabilidad[x] + " De Cliente: " + facturaInfo[6]);
-                                Console.WriteLine("@des_deta", "Fra. " + facturaInfo[2] + " " + NombreContabilidad[x] + " De Cliente: " + facturaInfo[6]);
+                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + facturaInfo[i] + " De Cliente: " + facturaInfo[6]);
+                                Console.WriteLine("@des_deta", "Fra. " + facturaInfo[2] + " " + facturaInfo[i] + " De Cliente: " + facturaInfo[6]);
                                 agregarCwMoc.Parameters.AddWithValue("@vlr_movi", double.Parse(facturaInfo[i+1]));
                                 Console.WriteLine(double.Parse(facturaInfo[11 + x]));
                                 agregarCwMoc.Parameters.AddWithValue("@tip_movi", MovType[x]);
@@ -1615,7 +1602,7 @@ namespace Facturacion_Electronica
                                 
 
                             }
-                            else if (NombreContabilidad[x] == facturaInfo[i])
+                            else if (TipoCuenta[x] == facturaInfo[i])
                             {
 
                                 conexion.Open();
@@ -1632,7 +1619,7 @@ namespace Facturacion_Electronica
                                 agregarCwMoc.Parameters.AddWithValue("@cod_cuen", MovNo[x]);
                                 Console.WriteLine(position);
                                 agregarCwMoc.Parameters.AddWithValue("@rmt_cumo", position);
-                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + NombreContabilidad[x] + " De Cliente: " + facturaInfo[6]);
+                                agregarCwMoc.Parameters.AddWithValue("@des_deta", "Fra. " + facturaInfo[2] + " " + facturaInfo[i] + " De Cliente: " + facturaInfo[6]);
                                 agregarCwMoc.Parameters.AddWithValue("@vlr_movi", double.Parse(facturaInfo[i+1]));
                                 agregarCwMoc.Parameters.AddWithValue("@tip_movi", MovType[x]);
                                 agregarCwMoc.Parameters.AddWithValue("@bas_rete", 0);
@@ -1709,7 +1696,7 @@ namespace Facturacion_Electronica
             }
             registroInfo.Close();
 
-            String Count = "select COUNT (*) from few_ComprobantesTributos  where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+            String Count = "select COUNT (*) from fe_ComprobantesTributos  where Id_Factura = '" + tb_FCIdFactura.Text + "'";
             SqlCommand comandoCount = new SqlCommand(Count, conexion);
             Int32 totalDatos = (Int32)comandoCount.ExecuteScalar();
             Console.WriteLine("1");
@@ -1718,7 +1705,7 @@ namespace Facturacion_Electronica
 
             conexion.Open();
 
-            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from few_ComprobantesTributos where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from fe_ComprobantesTributos where Id_Factura = '" + tb_FCIdFactura.Text + "'";
             SqlCommand comandoInfoReten2 = new SqlCommand(cadenaInfoFacturaReten2, conexion);
             SqlDataReader registroInfoReten2 = comandoInfoReten2.ExecuteReader();
             int contadorInfo = 0;
