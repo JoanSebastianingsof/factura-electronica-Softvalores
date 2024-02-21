@@ -68,7 +68,7 @@ namespace grid
             this.lblTIdNoCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTIdNoCliente.Location = new System.Drawing.Point(12, 98);
             this.lblTIdNoCliente.Name = "lblTIdNoCliente";
-            this.lblTIdNoCliente.Size = new System.Drawing.Size(95, 16);
+            this.lblTIdNoCliente.Size = new System.Drawing.Size(94, 16);
             this.lblTIdNoCliente.TabIndex = 113;
             this.lblTIdNoCliente.Text = "No. ID Cliente :";
             // 
@@ -79,7 +79,7 @@ namespace grid
             this.lblTIdCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTIdCliente.Location = new System.Drawing.Point(10, 56);
             this.lblTIdCliente.Name = "lblTIdCliente";
-            this.lblTIdCliente.Size = new System.Drawing.Size(102, 16);
+            this.lblTIdCliente.Size = new System.Drawing.Size(101, 16);
             this.lblTIdCliente.TabIndex = 112;
             this.lblTIdCliente.Text = "Tipo ID Cliente :";
             // 
@@ -90,7 +90,7 @@ namespace grid
             this.lblTContabilidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTContabilidad.Location = new System.Drawing.Point(10, 12);
             this.lblTContabilidad.Name = "lblTContabilidad";
-            this.lblTContabilidad.Size = new System.Drawing.Size(90, 16);
+            this.lblTContabilidad.Size = new System.Drawing.Size(89, 16);
             this.lblTContabilidad.TabIndex = 108;
             this.lblTContabilidad.Text = "Contabilidad :";
             // 
@@ -146,7 +146,7 @@ namespace grid
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(225, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 115;
             this.label1.Text = "Ingreso :";
             this.label1.Visible = false;
@@ -168,7 +168,7 @@ namespace grid
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label2.Location = new System.Drawing.Point(252, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 16);
+            this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 117;
             this.label2.Text = "IVA :";
             this.label2.Visible = false;
@@ -190,7 +190,7 @@ namespace grid
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(207, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 16);
+            this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 119;
             this.label3.Text = "Rte Fuente :";
             this.label3.Visible = false;
@@ -212,7 +212,7 @@ namespace grid
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(195, 245);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 16);
+            this.label4.Size = new System.Drawing.Size(86, 16);
             this.label4.TabIndex = 125;
             this.label4.Text = "Cta x Cobrar :";
             this.label4.Visible = false;
@@ -234,7 +234,7 @@ namespace grid
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(230, 203);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 16);
+            this.label5.Size = new System.Drawing.Size(55, 16);
             this.label5.TabIndex = 123;
             this.label5.Text = "Rte Ica :";
             this.label5.Visible = false;
@@ -257,7 +257,7 @@ namespace grid
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(230, 159);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.Size = new System.Drawing.Size(55, 16);
             this.label6.TabIndex = 121;
             this.label6.Text = "Rte Iva :";
             this.label6.Visible = false;
@@ -279,7 +279,7 @@ namespace grid
             this.lbl_TCodCuen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_TCodCuen.Location = new System.Drawing.Point(324, 11);
             this.lbl_TCodCuen.Name = "lbl_TCodCuen";
-            this.lbl_TCodCuen.Size = new System.Drawing.Size(82, 16);
+            this.lbl_TCodCuen.Size = new System.Drawing.Size(81, 16);
             this.lbl_TCodCuen.TabIndex = 126;
             this.lbl_TCodCuen.Text = "COD Cuenta";
             this.lbl_TCodCuen.Visible = false;
