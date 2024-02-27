@@ -1998,6 +1998,11 @@ namespace Facturacion_Electronica
         {
 
         }
+
+        private void label41_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
