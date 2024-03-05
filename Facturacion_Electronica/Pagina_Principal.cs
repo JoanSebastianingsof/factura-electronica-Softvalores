@@ -43,11 +43,6 @@ namespace Facturacion_Electronica
             tabControl1.SelectedTab = tp_ParametrosContables;
         }
 
-        private void mn_Cargar_Factura_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedTab = tp_CargarFactura;
-        }
-
         private void mn_Facturas_Cargadas_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tp_FacturasCargadas;
@@ -76,10 +71,47 @@ namespace Facturacion_Electronica
         {
             tabControl1.SelectedTab = tp_NotasDebitoCargadas;
         }
+        private void btn_MenuCargarFactura_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tp_CargarFactura;
 
+        }
         private void btn_NCCargadas_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tp_NotasCreditoCargadas;
+        }
+        private void btn_MenuFacturasCargadas_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tp_FacturasCargadas;
+        }
+        private void btn_DocsCargados_Click(object sender, EventArgs e)
+        {
+            if (!p_DocsCargados.Visible)
+            {
+                p_DocsCargados.Visible = true;
+                p_DocsCargados.BringToFront();
+
+            }
+            else
+            {
+                p_DocsCargados.Visible = false;
+            }
+
+        }
+
+        private void btn_CargueDocs_Click(object sender, EventArgs e)
+        {
+            if (!p_CargueDocs.Visible)
+            {
+                p_CargueDocs.Visible = true;
+                p_CargueDocs.BringToFront();
+
+            }
+            else
+            {
+                p_CargueDocs.Visible = false;
+            }
+
         }
         private void button14_Click(object sender, EventArgs e)
         {
@@ -2528,22 +2560,13 @@ namespace Facturacion_Electronica
 
         }
 
-        private void btn_DocsCargados_Click(object sender, EventArgs e)
+        private void tp_CargarFactura_Click(object sender, EventArgs e)
         {
-            if (!p_DocsCargados.Visible)
-            {
-                p_DocsCargados.Visible = true;
-                p_DocsCargados.BringToFront();
-                btn_MenuFacturasCargadas.BringToFront();
-            }
-            else
-            {
-                p_DocsCargados.Visible = false;
-            }
 
         }
 
        
+
     }
 }
 
