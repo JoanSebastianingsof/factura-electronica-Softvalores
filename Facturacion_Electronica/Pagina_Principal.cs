@@ -1,4 +1,5 @@
-﻿using grid;
+﻿using DocumentFormat.OpenXml;
+using grid;
 using SpreadsheetLight;
 using System;
 using System.Data.SqlClient;
@@ -28,7 +29,6 @@ namespace Facturacion_Electronica
             cargaDg.cargaFC(dataGridView1);
             cargaDg.cargaTri(dataGridTributo);
             cargaDg.cargaIdentificacion(dataGridTipoIdentificación);
-
         }
 
 
@@ -72,6 +72,15 @@ namespace Facturacion_Electronica
         {
             tabControl1.SelectedTab = tp_NotaDebito;
         }
+        private void btn_NDCargadas_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tp_NotasDebitoCargadas;
+        }
+
+        private void btn_NCCargadas_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tp_NotasCreditoCargadas;
+        }
         private void button14_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,6 +91,7 @@ namespace Facturacion_Electronica
         {
             tb_FCIdFactura.Enabled = false;
             cargaDg.cargaTri(dataGridTributo);
+
         }
 
         /* Parametros Generales */
@@ -2518,6 +2528,22 @@ namespace Facturacion_Electronica
 
         }
 
+        private void btn_DocsCargados_Click(object sender, EventArgs e)
+        {
+            if (!p_DocsCargados.Visible)
+            {
+                p_DocsCargados.Visible = true;
+                p_DocsCargados.BringToFront();
+                btn_MenuFacturasCargadas.BringToFront();
+            }
+            else
+            {
+                p_DocsCargados.Visible = false;
+            }
+
+        }
+
+       
     }
 }
 
