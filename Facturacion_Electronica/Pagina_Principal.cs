@@ -1,8 +1,10 @@
 ﻿using DocumentFormat.OpenXml;
+using Facturacion_Electronica;
 using grid;
 using SpreadsheetLight;
 using System;
 using System.Data.SqlClient;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -24,6 +26,7 @@ namespace Facturacion_Electronica
             combo.seleccionar(cb_CFContabiliad);
             combo.seleccionar(cb_FCEmpresaFactura);
             combo.seleccionar(cb_ContabilidadNC);
+            combo.seleccionar(cb_ContabilidadND);
             combo.captarTipIden(cb_PCTipoID);
             cargaDg.cargaPG(dgv_ParametrosGenerales);
             cargaDg.cargaFC(dataGridView1);
@@ -2026,538 +2029,8 @@ namespace Facturacion_Electronica
         /*Nota Credito*/
         private void btn_BuscarDocumentoNC_Click(object sender, EventArgs e)
         {
-            if (cb_ContabilidadNC.Text != "Seleccione un Item...")
-            {
-                conexion.Open();
-                string cont = " ";
-
-                string cadenaConsultaArbol = "select cod_arbo from dbo.gn_arbol where des_arbo='" + cb_ContabilidadNC.Text + "'";
-                SqlCommand comandoCARBOL = new SqlCommand(cadenaConsultaArbol, conexion);
-                SqlDataReader registroCArbol = comandoCARBOL.ExecuteReader();
-                if (registroCArbol.Read())
-                {
-                    cont = registroCArbol["cod_arbo"].ToString();
-                }
-                else
-                {
-                    MessageBox.Show("ERROR : La contabilidad seleccionada no existe!");
-                }
-                conexion.Close();
-                conexion.Open();
-                string NoEmpresaFactura = ""; string TipoIdEmpresaFactura = "";
-                string cadenaConsultaEF = "select NoId,TipoId from fe_ParametrosGenerales where Contabilidad='" + cont + "'";
-                SqlCommand comandoCEF = new SqlCommand(cadenaConsultaEF, conexion);
-                SqlDataReader registroCEF = comandoCEF.ExecuteReader();
-                if (registroCEF.Read())
-                {
-                    NoEmpresaFactura = registroCEF["NoId"].ToString();
-                    TipoIdEmpresaFactura = registroCEF["TipoId"].ToString();
-                    Console.WriteLine(NoEmpresaFactura + ",,,,,,," + TipoIdEmpresaFactura);
-                }
-                else
-                {
-                    MessageBox.Show("ERROR 2: La contabilidad seleccionada no existe!");
-                }
-                conexion.Close();
-                // openFileDialog1.Filter = "archivos xml (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
-                openFileDialog1.Filter = "archivos xml (*.xml)|*.xml";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    Lbl_Abrir.Text = openFileDialog1.FileName;
-                }
-                String path = Lbl_Abrir.Text;
-
-                if (path != "0")
-                {
-                    int cantId = 0; int cantNote = 0; int cantIva = 0; int cantVtotal = 0; int cantNit = 0; int idschemes = 0;
-                    int clientePosition = 0; int cantSubT = 0; int idschemesName = 0;
-
-                    String date = " "; string[] subTotal = new string[50];
-
-                    string[] id = new string[50]; string[] note = new string[10]; string[] iva = new string[50];
-                    string[] Vtotal = new string[50]; string[] nit = new string[50]; string[] idschemeName = new string[50]; string[] idscheme = new string[50];
-                    string[] clienteNombre = new string[50];
-
-                    XmlReader xmlReader = XmlReader.Create(path);
-
-                    while (xmlReader.Read())
-                    {
-                        if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:IssueDate"))
-                        {
-                            date = xmlReader.ReadInnerXml();
-                        }
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:ID"))
-                        {
-                            id[cantId] = (xmlReader.ReadInnerXml());
-                            cantId = cantId + 1;
-                        }
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:CompanyID"))
-                        {
-                            if (xmlReader.HasAttributes)
-                            {
-                                idscheme[idschemes] = xmlReader.GetAttribute("schemeID");
-                                idschemes++;
-                                idschemeName[idschemesName] = xmlReader.GetAttribute("schemeName");
-                                idschemesName++;
-                                nit[cantNit] = (xmlReader.ReadInnerXml());
-                                cantNit = cantNit + 1;
-                            }
-                        }
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:Note"))
-                        {
-                            note[cantNote] = (xmlReader.ReadInnerXml());
-                            cantNote = cantNote + 1;
-                        }
-
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:LineExtensionAmount"))
-                        {
-                            Vtotal[cantVtotal] = (xmlReader.ReadInnerXml());
-                            cantVtotal = cantVtotal + 1;
-                        }
-
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:CompanyID"))
-                        {
-                            nit[cantNit] = (xmlReader.ReadInnerXml());
-                            cantNit = cantNit + 1;
-                        }
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:TaxableAmount"))
-                        {
-                            subTotal[cantSubT] = (xmlReader.ReadInnerXml());
-                            cantSubT = cantSubT + 1;
-                        }
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:RegistrationName"))
-                        {
-                            clienteNombre[clientePosition] = (xmlReader.ReadInnerXml());
-                            clientePosition = clientePosition + 1;
-                        }
-                        else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:TaxAmount"))
-                        {
-                            iva[cantIva] = (xmlReader.ReadInnerXml());
-                            cantIva = cantIva + 1;
-                        }
-                    }
-                    String Nit = "31";
-                    String FacturaEmpresa = "";
-                    String FacturaEmpresa2 = "";
-
-                    if (idschemeName[1] == Nit)
-                    {
-                        if (idscheme[1] != null)
-                        {
-                            FacturaEmpresa = id[2] + "-" + idscheme[1] + "   ";
-                            FacturaEmpresa2 = id[3] + "-" + idscheme[2] + "   ";
-
-
-                        }
-                    }
-                    else
-                    {
-                        FacturaEmpresa = id[2] + "   ";
-                        FacturaEmpresa2 = id[2] + "   ";
-
-                    }
-
-                    Console.WriteLine(FacturaEmpresa);
-                    Console.WriteLine(FacturaEmpresa2);
-
-                    //Lectura de tributos
-                    conexion.Open();
-                    string tributo = "SELECT Nom_Tributo, identificador FROM fe_Tributo";
-                    SqlCommand consultaTri = new SqlCommand(tributo, conexion);
-                    SqlDataReader consultaTributo = consultaTri.ExecuteReader();
-
-
-                    string[] tributos = new string[99];
-                    int i = -1;
-
-                    while (consultaTributo.Read())
-                    {
-                        i++;
-                        tributos[i] = consultaTributo["Nom_Tributo"].ToString();
-                    }
-                    conexion.Close();
-
-
-                    if (NoEmpresaFactura == FacturaEmpresa|| NoEmpresaFactura == FacturaEmpresa2)
-                    //if (respuesta == true)
-                    {
-                        String separator = note[0];
-
-                        char[] limitador = { ' ', '$', '*' };
-                        string[] arreglo = separator.Split(limitador, StringSplitOptions.RemoveEmptyEntries);
-                        string[] rete = new string[15]; rete[1] = "0"; rete[2] = "0"; rete[3] = "0"; rete[4] = "0";
-                        string[] reteDesc = new string[15];
-                        int retenciones = 7;
-                        for (i = 0; i < arreglo.Length; i++)
-                        {
-                            rete[0] = Vtotal[0];
-                            reteDesc[0] = ("Ingreso");
-                            Console.WriteLine(rete[0] + "Ingreos");
-
-                            rete[1] = iva[1];
-                            reteDesc[1] = ("IVA");
-                            Console.WriteLine(rete[1] + "Iva");
-
-                            if (arreglo[i] == "Retefuente")
-                            {
-                                rete[2] = (arreglo[i + 2]);
-                                reteDesc[2] = ("Rte.Fte");
-                                //reteDesc[1] = ("Retefuente");
-                            }
-                            if (arreglo[i] == "ReteIva")
-                            {
-                                rete[3] = (arreglo[i + 2]);
-                                reteDesc[3] = ("Rte.Iva");
-                                //reteDesc[2] = ("ReteIva");
-
-                            }
-
-                            if (arreglo[i] == "ReteIca")
-                            {
-                                rete[4] = (arreglo[i + 5]);
-                                //reteDesc[3] = ("ReteIca");
-                                reteDesc[4] = ("Rte.Ica");
-
-                                //Console.WriteLine(rete[3] + "ICA1");
-
-                            }
-                            if (arreglo[i] == "9.66" || arreglo[i] == "14" || arreglo[i] == "6.9" || arreglo[i] == "10" || arreglo[i] == "11.44")
-                            {
-                                rete[4] = (arreglo[i + 4]);
-                                //reteDesc[3] = ("ReteIca");
-                                reteDesc[4] = ("Rte.Ica");
-                                //Console.WriteLine(rete[3] + "ICA2");
-                                retenciones++;
-
-                            }
-                            if (arreglo[i] == "Pagar")
-                            {
-                                rete[5] = (arreglo[i + 1]);
-                                // total = (arreglo[i + 1]);
-                                reteDesc[5] = ("Cta x Cobrar");
-                            }
-                            for (int z = 0; z < tributos.Length; z++)
-                            {
-                                if (arreglo[i] == tributos[z] && tributos[z] != "ReteIca" && tributos[z] != "Retefuente" && tributos[z] != "ReteIva" && tributos[z] != "Pagar")
-                                {
-                                    rete[retenciones] = (arreglo[i + 2]);
-                                    reteDesc[retenciones] = tributos[z];
-                                    retenciones++;
-
-                                }
-                            }
-
-                        }
-
-
-                        for (int x = 1; x <= 5; x++)
-                        {
-                            double CorreccRes = Convert.ToDouble(rete[x], System.Globalization.CultureInfo.InvariantCulture);
-                        }
-
-                        double CxCcorreccion = Convert.ToDouble(Vtotal[0], System.Globalization.CultureInfo.InvariantCulture);
-                        decimal ingresos = decimal.Parse(Vtotal[0]) / 100;
-                        decimal ivaD = decimal.Parse(iva[1]) / 100;
-
-                        decimal TCreditos = ingresos + ivaD;
-                
-                        decimal TDebitos = decimal.Parse(rete[2]) / 100 + decimal.Parse(rete[3]) / 100 + decimal.Parse(rete[4]) / 100;
-                        decimal CtaXCobrar = TCreditos - TDebitos;
-
-                        dgv_FacturaCargada.Rows.Clear();
-                        conexion.Open();
-                        string NitCliente = "";
-                        if (idschemeName[2] == Nit)
-                            NitCliente = nit[2] + "-" + idscheme[2];
-                        else
-                            NitCliente = nit[2];
-                        string cadenaCliente = "select nom_terc from dbo.cm_terce where nit_clie='" + NitCliente + "'";
-                        SqlCommand comandoCliente = new SqlCommand(cadenaCliente, conexion);
-                        SqlDataReader registrosClientes = comandoCliente.ExecuteReader();
-                        bool registroCliente = registrosClientes.Read();
-                        conexion.Close();
-
-                        conexion.Open();
-                        string cod = "";
-                        if (idschemeName[2] == Nit)
-                        {
-                            cod = nit[2] + "-" + idscheme[2];
-                        }
-                        else
-                        {
-                            cod = nit[2];
-                        }
-                        rete[6] = CtaXCobrar.ToString();
-                        string cadena = "select Cod_Cuenta,Tipo_Mov from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'";
-                        SqlCommand comando = new SqlCommand(cadena, conexion);
-                        SqlDataReader registro = comando.ExecuteReader();
-                        bool registros = registro.Read();
-                        if (registro.Read())
-                        {
-                            conexion.Close();
-                            conexion.Open();
-                            string cadenaIngreso = "select Cod_Cuenta,Tipo_Mov,Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Ingreso'";
-                            string cadenaIva = "select Cod_Cuenta,Tipo_Mov,Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='IVA'";
-                            string cadenaRfte = "select Cod_Cuenta,Tipo_Mov,Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Rte.Fte'";
-                            string cadenaRiva = "select Cod_Cuenta,Tipo_Mov,Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Rte.Iva'";
-                            string cadenaRica = "select Cod_Cuenta,Tipo_Mov,Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Rte.Ica'";
-                            string cadenaCxc = "select Cod_Cuenta,Tipo_Mov,Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Cta x Cobrar'";
-                            SqlCommand comandoIngreso = new SqlCommand(cadenaIngreso, conexion);
-                            SqlDataReader registroIngreso = comandoIngreso.ExecuteReader();
-                            if (registroIngreso.Read() && rete[4] != " ")
-                            {
-                                dgv_NotaCreditoCargada.Rows.Add(registroIngreso["Cod_Cuenta"].ToString(), "Ingreso   Factura No. " + id[0] + "  " + clienteNombre[2], Vtotal[0], registroIngreso["Tipo_Mov"].ToString());
-                            }
-                            else
-                            {
-                                MessageBox.Show("El ingreso no tiene asignada una cuenta");
-                            }
-                            conexion.Close();
-                            conexion.Open();
-                            SqlCommand comandoIva = new SqlCommand(cadenaIva, conexion);
-                            SqlDataReader registroIva = comandoIva.ExecuteReader();
-                            if (registroIva.Read() && iva[1] != " ")
-                            {
-                                dgv_NotaCreditoCargada.Rows.Add(registroIva["Cod_Cuenta"].ToString(), "Iva   Factura No. " + id[0] + "  " + clienteNombre[2], iva[1], registroIva["Tipo_Mov"].ToString());
-
-
-                            }
-
-                            conexion.Close();
-                            conexion.Open();
-                            SqlCommand comandoRfte = new SqlCommand(cadenaRfte, conexion);
-                            SqlDataReader registroRfte = comandoRfte.ExecuteReader();
-
-                            if (registroRfte.Read() && rete[1] != " ")
-                            {
-                                dgv_NotaCreditoCargada.Rows.Add(registroRfte["Cod_Cuenta"].ToString(), "Rte.Fte   Factura No. " + id[0] + "  " + clienteNombre[2], rete[2], registroRfte["Tipo_Mov"].ToString());
-                            }
-
-                            conexion.Close();
-                            conexion.Open();
-                            SqlCommand comandoRiva = new SqlCommand(cadenaRiva, conexion);
-                            SqlDataReader registroRiva = comandoRiva.ExecuteReader();
-                            if (registroRiva.Read() && rete[2] != " ")
-                            {
-                                dgv_NotaCreditoCargada.Rows.Add(registroRiva["Cod_Cuenta"].ToString(), "Rte.Iva   Factura No. " + id[0] + "  " + clienteNombre[2], rete[3], registroRiva["Tipo_Mov"].ToString());
-                            }
-
-                            conexion.Close();
-                            conexion.Open();
-                            SqlCommand comandoRica = new SqlCommand(cadenaRica, conexion);
-                            SqlDataReader registroRica = comandoRica.ExecuteReader();
-                            if (registroRica.Read() && rete[3] != " ")
-                            {
-                                dgv_NotaCreditoCargada.Rows.Add(registroRica["Cod_Cuenta"].ToString(), "Rte.Ica  Factura No. " + id[0] + "  " + clienteNombre[2], rete[4], registroRica["Tipo_Mov"].ToString());
-                                Console.WriteLine(rete[3] + "P");
-
-                            }
-                            conexion.Close();
-
-                            conexion.Open();
-                            //Tipo de identificación
-                            string ConsultaTipoIdentificacion = "select * from  fe_TipoIden ";
-                            SqlCommand comandoTipoIdentificacion = new SqlCommand(ConsultaTipoIdentificacion, conexion);
-                            SqlDataReader registroTipoIdentificacion = comandoTipoIdentificacion.ExecuteReader();
-                            string[] arrTipoIdentificacion = new string[99];
-                            int a = -1;
-                            while (registroTipoIdentificacion.Read())
-                            {
-                                a++;
-                                arrTipoIdentificacion[a] = registroTipoIdentificacion["Tip_Iden"].ToString();
-                                a++;
-                                arrTipoIdentificacion[a] = registroTipoIdentificacion["Codigo_Dian"].ToString();
-
-
-                            }
-                      
-
-                            conexion.Close();
-
-                            conexion.Open();
-                            SqlCommand comandoCxc = new SqlCommand(cadenaCxc, conexion);
-                            SqlDataReader registroCxc = comandoCxc.ExecuteReader();
-                            if (registroCxc.Read())
-                            {
-                                dgv_FacturaCargada.Rows.Add(registroCxc["Cod_Cuenta"].ToString(), "Cta x Cobrar   Factura No. " + id[0] + "  " + clienteNombre[2], CtaXCobrar.ToString(), registroCxc["Tipo_Mov"].ToString());
-                            }
-
-                            conexion.Close();
-                            tb_CFNoFactura.Text = id[0];
-                            cb_CFTipoId.Text = TipoIdEmpresaFactura;
-                            tb_CFNoId.Text = nit[1] + "-" + idscheme[1];
-                            tb_CFFechaEmision.Text = date;
-                            tb_CFNoIdClente.Text = nit[2] + "-" + idscheme[2];
-                            cb_CFTipoIdCliente.Text = "NI";
-                            label17.Text = "Info Factura para : " + clienteNombre[2];
-
-                            conexion.Open();
-                            string NombreEmpFact = "";
-                            //
-                            string NitEmpresaFact = "";
-                            if (idschemeName[1] == Nit)
-                            {
-                                NitEmpresaFact = nit[1] + "-" + idscheme[1];
-                            }
-                            else
-                            {
-                                NitEmpresaFact = nit[1];
-
-                            }
-
-                            string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + NitEmpresaFact + "'";
-
-                            //string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + nit[1] + "-" + idscheme[1] + "'";
-                            SqlCommand comandNEF = new SqlCommand(NombreEmpresaFact, conexion);
-                            SqlDataReader consultaNEF = comandNEF.ExecuteReader();
-                            if (consultaNEF.Read())
-                            {
-                                NombreEmpFact = consultaNEF["nom_terc"].ToString();
-                                conexion.Close();
-                            }
-                            else
-                            {
-                                MessageBox.Show("!2!");
-                                conexion.Close();
-                            }
-
-                            conexion.Open();
-                            string dataValidaccion = "select Id_Factura from dbo.fe_ComprobantesV2 where Id_Factura='" + id[0] + "'";
-                            SqlCommand consulta = new SqlCommand(dataValidaccion, conexion);
-                            SqlDataReader consultaArc = consulta.ExecuteReader();
-                            if (consultaArc.Read())
-                            {
-                                MessageBox.Show("Este documento ya fue cargado");
-                                conexion.Close();
-
-
-                            }
-                            else
-                            {
-                                conexion.Close();
-                                conexion.Open();
-                                int posicion = 1;
-                                for (i = 0; i < reteDesc.Length; i++)
-                                {
-                                    string dataComprobanteTributo = "insert into dbo.fe_ComprobantesTributos values(@Cod_arbo,@Id_Factura, @Consecutivo,@Id_Tributos, @Valor)";
-                                    SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
-
-                                    if (!string.IsNullOrEmpty(reteDesc[i]) && (double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0) || reteDesc[i] == tributos[i])
-
-                                    {
-                                        agregarTri.Parameters.Clear();
-
-                                        agregarTri.Parameters.AddWithValue("@Cod_arbo", cont);
-                                        agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
-                                        agregarTri.Parameters.AddWithValue("@Consecutivo", posicion);
-                                        agregarTri.Parameters.AddWithValue("@Id_Tributos", reteDesc[i]);
-                                        agregarTri.Parameters.AddWithValue("@Valor", rete[i]);
-
-
-                                        posicion++;
-
-                                        agregarTri.ExecuteNonQuery();
-
-                                    }
-
-                                }
-                                conexion.Close();
-
-
-                                conexion.Open();
-                                string dataComprobante = "insert into dbo.fe_ComprobantesV2 values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @FechaEmision,@Valor, @Estado)";
-
-                                SqlCommand agregar = new SqlCommand(dataComprobante, conexion);
-                                string tipoIdEmpresa = "";
-                                string idEmpFactura = "";
-                              
-                                i = 0;
-                                while (i < arrTipoIdentificacion.Length)
-                                {
-                                    if (idschemeName[1] == arrTipoIdentificacion[i])
-                                    {
-                                        tipoIdEmpresa = arrTipoIdentificacion[i - 1];
-                                        idEmpFactura = nit[1] + "-" + idscheme[1];
-                                    }
-                                    if (tipoIdEmpresa == "")
-                                    {
-                                        tipoIdEmpresa = "OT";
-                                        idEmpFactura = nit[1];
-                                    }
-
-                                    i++;
-                                }
-
-                                string tipoIdCliente = "";
-                                string idCliente = "";
-                                i = 0;
-                                while (i < arrTipoIdentificacion.Length)
-                                {
-                                    if (idschemeName[2] == arrTipoIdentificacion[i])
-                                    {
-                                        tipoIdCliente = arrTipoIdentificacion[i - 1];
-                                        idCliente = nit[2] + "-" + idscheme[2];
-                                    }
-                                    if (tipoIdCliente == "")
-                                    {
-                                        tipoIdCliente = "OT";
-                                        idCliente = nit[1];
-                                    }
-                                    i++;
-                                }
-
-                                //i = 0;
-
-
-
-
-
-                                agregar.Parameters.AddWithValue("@Contabilidad", cont);
-                                agregar.Parameters.AddWithValue("@Id_Factura", id[0]);
-                                agregar.Parameters.AddWithValue("@TipoId_EmpFactura", tipoIdEmpresa);
-                                agregar.Parameters.AddWithValue("@No_idEmpFactura", idEmpFactura);
-                                agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoIdCliente);
-                                agregar.Parameters.AddWithValue("@No_idCLiente", idCliente);
-                                agregar.Parameters.AddWithValue("@FechaEmision", date);
-                                agregar.Parameters.AddWithValue("@Valor", TCreditos);
-                                                               
-                                agregar.Parameters.AddWithValue("@Estado", "Cargado");
-
-                                agregar.ExecuteNonQuery();
-
-                                MessageBox.Show("Nota Credito cargada con exito!");
-                                conexion.Close();
-                            }
-                        }
-
-                        else if (registroCliente == false)
-                        {
-                            MessageBox.Show("El cliente no se encuentra registrado!");
-
-
-                            conexion.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El cliente no tiene definido los parametros contables!");
-                            conexion.Close();
-
-                        }
-                        cargaDg.cargaFC(dataGridView1);
-                    }
-                    else
-                    {
-                        MessageBox.Show("ERROR : La contabilidad Seleccionada no corresponde con esta factura");
-
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una contabilidad!");
-            }
-
+            string consultas = "Tipo_MovNC";
+            CargarDocumentos(cb_ContabilidadND.Text, consultas, dgv_NotaCreditoCargada);
         }
 
         private void tp_CargarFactura_Click(object sender, EventArgs e)
@@ -2565,8 +2038,535 @@ namespace Facturacion_Electronica
 
         }
 
-       
+        private void btn_BuscarDocumentoND_Click(object sender, EventArgs e)
+        {
+            string consultas = "Tipo_MovND";
+            CargarDocumentos(cb_ContabilidadND.Text, consultas, dgv_NotaDebitoCargada);
+           
+        }
+    private void CargarDocumentos(string cb,string ConTipoMov, DataGridView dgv)
+        {
+        
+           if (cb != "Seleccione un Item...")
+           {
+              conexion.Open();
+              string cont = " ";
+          
+           string cadenaConsultaArbol = "select cod_arbo from dbo.gn_arbol where des_arbo='" + cb + "'";
+           SqlCommand comandoCARBOL = new SqlCommand(cadenaConsultaArbol, conexion);
+           SqlDataReader registroCArbol = comandoCARBOL.ExecuteReader();
+              if (registroCArbol.Read())
+              {
+                  cont = registroCArbol["cod_arbo"].ToString();
+              }
+              else
+              {
+                   MessageBox.Show("ERROR : La contabilidad seleccionada no existe!");
+              }
+           conexion.Close();
+           conexion.Open();
+           string NoEmpresaFactura = ""; string TipoIdEmpresaFactura = "";
+           string cadenaConsultaEF = "select NoId,TipoId from fe_ParametrosGenerales where Contabilidad='" + cont + "'";
+           SqlCommand comandoCEF = new SqlCommand(cadenaConsultaEF, conexion);
+           SqlDataReader registroCEF = comandoCEF.ExecuteReader();
+           if (registroCEF.Read())
+           {
+               NoEmpresaFactura = registroCEF["NoId"].ToString();
+           TipoIdEmpresaFactura = registroCEF["TipoId"].ToString();
+           Console.WriteLine(NoEmpresaFactura + ",,,,,,," + TipoIdEmpresaFactura);
+           }
+           else
+           {
+           MessageBox.Show("ERROR 2: La contabilidad seleccionada no existe!");
+           }
+           conexion.Close();
+           openFileDialog1.Filter = "archivos xml (*.xml)|*.xml";
+           if (openFileDialog1.ShowDialog() == DialogResult.OK)
+           {
+               Lbl_Abrir.Text = openFileDialog1.FileName;
+           }
+           String path = Lbl_Abrir.Text;
 
+           if (path != "0")
+           {
+               int cantId = 0; int cantNote = 0; int cantIva = 0; int cantVtotal = 0; int cantNit = 0; int idschemes = 0;
+               int clientePosition = 0; int cantSubT = 0; int idschemesName = 0;
+
+               String date = " "; string[] subTotal = new string[50];
+
+               string[] id = new string[50]; string[] note = new string[10]; string[] iva = new string[50];
+               string[] Vtotal = new string[50]; string[] nit = new string[50]; string[] idschemeName = new string[50]; string[] idscheme = new string[50];
+               string[] clienteNombre = new string[50];
+
+               XmlReader xmlReader = XmlReader.Create(path);
+
+               while (xmlReader.Read())
+               {
+                   if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:IssueDate"))
+                   {
+                       date = xmlReader.ReadInnerXml();
+                   }
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:ID"))
+                   {
+                       id[cantId] = (xmlReader.ReadInnerXml());
+                       cantId = cantId + 1;
+                   }
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:CompanyID"))
+                   {
+                       if (xmlReader.HasAttributes)
+                       {
+                           idscheme[idschemes] = xmlReader.GetAttribute("schemeID");
+                           idschemes++;
+                           idschemeName[idschemesName] = xmlReader.GetAttribute("schemeName");
+                           idschemesName++;
+                           nit[cantNit] = (xmlReader.ReadInnerXml());
+                           cantNit = cantNit + 1;
+                       }
+                   }
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:Note"))
+                   {
+                       note[cantNote] = (xmlReader.ReadInnerXml());
+                       cantNote = cantNote + 1;
+                   }
+
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:LineExtensionAmount"))
+                   {
+                       Vtotal[cantVtotal] = (xmlReader.ReadInnerXml());
+                       cantVtotal = cantVtotal + 1;
+                   }
+
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:CompanyID"))
+                   {
+                       nit[cantNit] = (xmlReader.ReadInnerXml());
+                       cantNit = cantNit + 1;
+                   }
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:TaxableAmount"))
+                   {
+                       subTotal[cantSubT] = (xmlReader.ReadInnerXml());
+                       cantSubT = cantSubT + 1;
+                   }
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:RegistrationName"))
+                   {
+                       clienteNombre[clientePosition] = (xmlReader.ReadInnerXml());
+                       clientePosition = clientePosition + 1;
+                   }
+                   else if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "cbc:TaxAmount"))
+                   {
+                       iva[cantIva] = (xmlReader.ReadInnerXml());
+                       cantIva = cantIva + 1;
+                   }
+               }
+               String Nit = "31";
+               String FacturaEmpresa = "";
+               String FacturaEmpresa2 = "";
+
+               if (idschemeName[1] == Nit)
+               {
+                   if (idscheme[1] != null)
+                   {
+                       FacturaEmpresa = id[2] + "-" + idscheme[1] + "   ";
+                       FacturaEmpresa2 = id[3] + "-" + idscheme[2] + "   ";
+
+
+                   }
+               }
+               else
+               {
+                   FacturaEmpresa = id[2] + "   ";
+                   FacturaEmpresa2 = id[2] + "   ";
+
+               }
+
+               Console.WriteLine(FacturaEmpresa);
+               Console.WriteLine(FacturaEmpresa2);
+
+               //Lectura de tributos
+               conexion.Open();
+               string tributo = "SELECT Nom_Tributo, identificador FROM fe_Tributo";
+               SqlCommand consultaTri = new SqlCommand(tributo, conexion);
+               SqlDataReader consultaTributo = consultaTri.ExecuteReader();
+
+
+               string[] tributos = new string[99];
+               int i = -1;
+
+               while (consultaTributo.Read())
+               {
+                   i++;
+                   tributos[i] = consultaTributo["Nom_Tributo"].ToString();
+               }
+               conexion.Close();
+
+
+               if (NoEmpresaFactura == FacturaEmpresa || NoEmpresaFactura == FacturaEmpresa2)
+               //if (respuesta == true)
+               {
+                   String separator = note[0];
+
+                   char[] limitador = { ' ', '$', '*' };
+                   string[] arreglo = separator.Split(limitador, StringSplitOptions.RemoveEmptyEntries);
+                   string[] rete = new string[15]; rete[1] = "0"; rete[2] = "0"; rete[3] = "0"; rete[4] = "0";
+                   string[] reteDesc = new string[15];
+                   int retenciones = 7;
+                   for (i = 0; i < arreglo.Length; i++)
+                   {
+                    rete[0] = Vtotal[0];
+                    reteDesc[0] = ("Ingreso");
+                    Console.WriteLine(rete[0] + "Ingreos");
+
+                    rete[1] = iva[1];
+                    reteDesc[1] = ("IVA");
+                    Console.WriteLine(rete[1] + "Iva");
+
+                    if (arreglo[i] == "Retefuente")
+                    {
+                        rete[2] = (arreglo[i + 2]);
+                        reteDesc[2] = ("Rte.Fte");
+                        //reteDesc[1] = ("Retefuente");
+                    }
+                    if (arreglo[i] == "ReteIva")
+                    {
+                        rete[3] = (arreglo[i + 2]);
+                        reteDesc[3] = ("Rte.Iva");
+                        //reteDesc[2] = ("ReteIva");
+
+                    }
+
+                    if (arreglo[i] == "ReteIca")
+                    {
+                        rete[4] = (arreglo[i + 5]);
+                        //reteDesc[3] = ("ReteIca");
+                        reteDesc[4] = ("Rte.Ica");
+
+                        //Console.WriteLine(rete[3] + "ICA1");
+
+                    }
+                    if (arreglo[i] == "9.66" || arreglo[i] == "14" || arreglo[i] == "6.9" || arreglo[i] == "10" || arreglo[i] == "11.44")
+                    {
+                        rete[4] = (arreglo[i + 4]);
+                        //reteDesc[3] = ("ReteIca");
+                        reteDesc[4] = ("Rte.Ica");
+                        //Console.WriteLine(rete[3] + "ICA2");
+                        retenciones++;
+
+                    }
+                    if (arreglo[i] == "Pagar")
+                    {
+                        rete[5] = (arreglo[i + 1]);
+                        // total = (arreglo[i + 1]);
+                        reteDesc[5] = ("Cta x Cobrar");
+                    }
+                    for (int z = 0; z < tributos.Length; z++)
+                    {
+                        if (arreglo[i] == tributos[z] && tributos[z] != "ReteIca" && tributos[z] != "Retefuente" && tributos[z] != "ReteIva" && tributos[z] != "Pagar")
+                        {
+                            rete[retenciones] = (arreglo[i + 2]);
+                            reteDesc[retenciones] = tributos[z];
+                            retenciones++;
+
+                        }
+                    }
+
+                }
+
+
+                for (int x = 1; x <= 5; x++)
+                {
+                    double CorreccRes = Convert.ToDouble(rete[x], System.Globalization.CultureInfo.InvariantCulture);
+                }
+
+                double CxCcorreccion = Convert.ToDouble(Vtotal[0], System.Globalization.CultureInfo.InvariantCulture);
+                decimal ingresos = decimal.Parse(Vtotal[0]) / 100;
+                decimal ivaD = decimal.Parse(iva[1]) / 100;
+
+                decimal TCreditos = ingresos + ivaD;
+
+                decimal TDebitos = decimal.Parse(rete[2]) / 100 + decimal.Parse(rete[3]) / 100 + decimal.Parse(rete[4]) / 100;
+                decimal CtaXCobrar = TCreditos - TDebitos;
+
+                dgv_FacturaCargada.Rows.Clear();
+                Console.WriteLine(ConTipoMov);
+                conexion.Open();
+                string NitCliente = "";
+                if (idschemeName[2] == Nit)
+                    NitCliente = nit[2] + "-" + idscheme[2];
+                else
+                    NitCliente = nit[2];
+                string cadenaCliente = "select nom_terc from dbo.cm_terce where nit_clie='" + NitCliente + "'";
+                SqlCommand comandoCliente = new SqlCommand(cadenaCliente, conexion);
+                SqlDataReader registrosClientes = comandoCliente.ExecuteReader();
+                bool registroCliente = registrosClientes.Read();
+                conexion.Close();
+
+                conexion.Open();
+                string cod = "";
+                if (idschemeName[2] == Nit)
+                {
+                    cod = nit[2] + "-" + idscheme[2];
+                }
+                else
+                {
+                    cod = nit[2];
+                }
+                rete[6] = CtaXCobrar.ToString();
+                string cadena = "select Cod_Cuenta,Tipo_Mov from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'";
+                SqlCommand comando = new SqlCommand(cadena, conexion);
+                SqlDataReader registro = comando.ExecuteReader();
+                bool registros = registro.Read();
+                if (registro.Read())
+                {
+                    conexion.Close();
+                    conexion.Open();
+                    string cadenaIngreso = "select Cod_Cuenta,'"+ ConTipoMov + "'"+",Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Ingreso'";
+                    string cadenaIva = "select Cod_Cuenta,'"+ ConTipoMov + "'"+",Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='IVA'";
+                    string cadenaRfte = "select Cod_Cuenta,'"+ ConTipoMov + "'"+",Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Rte.Fte'";
+                    string cadenaRiva = "select Cod_Cuenta,'"+ ConTipoMov + "'"+",Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Rte.Iva'";
+                    string cadenaRica = "select Cod_Cuenta,'"+ ConTipoMov + "'"+",Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Rte.Ica'";
+                    string cadenaCxc = "select Cod_Cuenta,'"+ ConTipoMov + "'"+",Tipo_Cuenta from dbo.fe_parametrosContables where No_idCLiente='" + cod + "'" + "and Tipo_Cuenta ='Cta x Cobrar'";
+                    SqlCommand comandoIngreso = new SqlCommand(cadenaIngreso, conexion);
+                    SqlDataReader registroIngreso = comandoIngreso.ExecuteReader();
+
+                    if (registroIngreso.Read() && rete[4] != " ")
+                    {
+                        dgv.Rows.Add(registroIngreso["Cod_Cuenta"].ToString(), "Ingreso   Factura No. " + id[0] + "  " + clienteNombre[2], Vtotal[0], registroIngreso[ConTipoMov].ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("El ingreso no tiene asignada una cuenta");
+                    }
+                    conexion.Close();
+                    conexion.Open();
+                    SqlCommand comandoIva = new SqlCommand(cadenaIva, conexion);
+                    SqlDataReader registroIva = comandoIva.ExecuteReader();
+                    if (registroIva.Read() && iva[1] != " ")
+                    {
+                       dgv.Rows.Add(registroIva["Cod_Cuenta"].ToString(), "Iva   Factura No. " + id[0] + "  " + clienteNombre[2], iva[1], registroIva[ConTipoMov].ToString());
+                    }
+
+                    conexion.Close();
+                    conexion.Open();
+                    SqlCommand comandoRfte = new SqlCommand(cadenaRfte, conexion);
+                    SqlDataReader registroRfte = comandoRfte.ExecuteReader();
+
+                    if (registroRfte.Read() && rete[1] != " ")
+                    {
+                       dgv.Rows.Add(registroRfte["Cod_Cuenta"].ToString(), "Rte.Fte   Factura No. " + id[0] + "  " + clienteNombre[2], rete[2], registroRfte[ConTipoMov].ToString());
+                    }
+
+                    conexion.Close();
+                    conexion.Open();
+                    SqlCommand comandoRiva = new SqlCommand(cadenaRiva, conexion);
+                    SqlDataReader registroRiva = comandoRiva.ExecuteReader();
+                    if (registroRiva.Read() && rete[2] != " ")
+                    {
+                        dgv.Rows.Add(registroRiva["Cod_Cuenta"].ToString(), "Rte.Iva   Factura No. " + id[0] + "  " + clienteNombre[2], rete[3], registroRiva[ConTipoMov].ToString());
+                    }
+
+                    conexion.Close();
+                    conexion.Open();
+                    SqlCommand comandoRica = new SqlCommand(cadenaRica, conexion);
+                    SqlDataReader registroRica = comandoRica.ExecuteReader();
+                    if (registroRica.Read() && rete[3] != " ")
+                    {
+                        dgv.Rows.Add(registroRica["Cod_Cuenta"].ToString(), "Rte.Ica  Factura No. " + id[0] + "  " + clienteNombre[2], rete[4], registroRica[ConTipoMov].ToString());
+                        Console.WriteLine(rete[3] + "P");
+
+                    }
+                    conexion.Close();
+
+                    conexion.Open();
+                    //Tipo de identificación
+                    string ConsultaTipoIdentificacion = "select * from  fe_TipoIden ";
+                    SqlCommand comandoTipoIdentificacion = new SqlCommand(ConsultaTipoIdentificacion, conexion);
+                    SqlDataReader registroTipoIdentificacion = comandoTipoIdentificacion.ExecuteReader();
+                    string[] arrTipoIdentificacion = new string[99];
+                    int a = -1;
+                    while (registroTipoIdentificacion.Read())
+                    {
+                        a++;
+                        arrTipoIdentificacion[a] = registroTipoIdentificacion["Tip_Iden"].ToString();
+                        a++;
+                        arrTipoIdentificacion[a] = registroTipoIdentificacion["Codigo_Dian"].ToString();
+                    }
+                    conexion.Close();
+
+                    conexion.Open();
+                    SqlCommand comandoCxc = new SqlCommand(cadenaCxc, conexion);
+                    SqlDataReader registroCxc = comandoCxc.ExecuteReader();
+                    if (registroCxc.Read())
+                    {
+                        dgv_FacturaCargada.Rows.Add(registroCxc["Cod_Cuenta"].ToString(), "Cta x Cobrar   Factura No. " + id[0] + "  " + clienteNombre[2], CtaXCobrar.ToString(), registroCxc[ConTipoMov].ToString());
+                    }
+
+                    conexion.Close();
+                    tb_CFNoFactura.Text = id[0];
+                    cb_CFTipoId.Text = TipoIdEmpresaFactura;
+                    tb_CFNoId.Text = nit[1] + "-" + idscheme[1];
+                    tb_CFFechaEmision.Text = date;
+                    tb_CFNoIdClente.Text = nit[2] + "-" + idscheme[2];
+                    cb_CFTipoIdCliente.Text = "NI";
+                    label17.Text = "Info Factura para : " + clienteNombre[2];
+
+                    conexion.Open();
+                    string NombreEmpFact = "";
+                    //
+                    string NitEmpresaFact = "";
+                    if (idschemeName[1] == Nit)
+                    {
+                        NitEmpresaFact = nit[1] + "-" + idscheme[1];
+                    }
+                    else
+                    {
+                        NitEmpresaFact = nit[1];
+
+                    }
+
+                    string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + NitEmpresaFact + "'";
+
+                    //string NombreEmpresaFact = "select nom_terc from dbo.cm_terce where nit_clie='" + nit[1] + "-" + idscheme[1] + "'";
+                    SqlCommand comandNEF = new SqlCommand(NombreEmpresaFact, conexion);
+                    SqlDataReader consultaNEF = comandNEF.ExecuteReader();
+                    if (consultaNEF.Read())
+                    {
+                        NombreEmpFact = consultaNEF["nom_terc"].ToString();
+                        conexion.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("!2!");
+                        conexion.Close();
+                    }
+
+                    conexion.Open();
+                    string dataValidaccion = "select Id_Factura from dbo.fe_ComprobantesV2 where Id_Factura='" + id[0] + "'";
+                    SqlCommand consulta = new SqlCommand(dataValidaccion, conexion);
+                    SqlDataReader consultaArc = consulta.ExecuteReader();
+                    if (consultaArc.Read())
+                    {
+                        MessageBox.Show("Este documento ya fue cargado");
+                        conexion.Close();
+
+
+                    }
+                    else
+                    {
+                        conexion.Close();
+                        conexion.Open();
+                        int posicion = 1;
+                        for (i = 0; i < reteDesc.Length; i++)
+                        {
+                            string dataComprobanteTributo = "insert into dbo.fe_ComprobantesTributos values(@Cod_arbo,@Id_Factura, @Consecutivo,@Id_Tributos, @Valor)";
+                            SqlCommand agregarTri = new SqlCommand(dataComprobanteTributo, conexion);
+
+                            if (!string.IsNullOrEmpty(reteDesc[i]) && (double.TryParse(rete[i], out double valorNumerico) && valorNumerico != 0) || reteDesc[i] == tributos[i])
+
+                            {
+                                agregarTri.Parameters.Clear();
+
+                                agregarTri.Parameters.AddWithValue("@Cod_arbo", cont);
+                                agregarTri.Parameters.AddWithValue("@Id_Factura", id[0]);
+                                agregarTri.Parameters.AddWithValue("@Consecutivo", posicion);
+                                agregarTri.Parameters.AddWithValue("@Id_Tributos", reteDesc[i]);
+                                agregarTri.Parameters.AddWithValue("@Valor", rete[i]);
+
+
+                                posicion++;
+
+                                agregarTri.ExecuteNonQuery();
+                            }
+
+                        }
+                        conexion.Close();
+
+
+                        conexion.Open();
+                        string dataComprobante = "insert into dbo.fe_ComprobantesV2 values(@Contabilidad, @Id_Factura, @TipoId_EmpFactura, @No_idEmpFactura, @TipoId_Cliente, @No_idCLiente, @FechaEmision,@Valor, @Estado)";
+
+                        SqlCommand agregar = new SqlCommand(dataComprobante, conexion);
+                        string tipoIdEmpresa = "";
+                        string idEmpFactura = "";
+
+                        i = 0;
+                        while (i < arrTipoIdentificacion.Length)
+                        {
+                            if (idschemeName[1] == arrTipoIdentificacion[i])
+                            {
+                                tipoIdEmpresa = arrTipoIdentificacion[i - 1];
+                                idEmpFactura = nit[1] + "-" + idscheme[1];
+                            }
+                            if (tipoIdEmpresa == "")
+                            {
+                                tipoIdEmpresa = "OT";
+                                idEmpFactura = nit[1];
+                            }
+
+                            i++;
+                        }
+
+                        string tipoIdCliente = "";
+                        string idCliente = "";
+                        i = 0;
+                        while (i < arrTipoIdentificacion.Length)
+                        {
+                            if (idschemeName[2] == arrTipoIdentificacion[i])
+                            {
+                                tipoIdCliente = arrTipoIdentificacion[i - 1];
+                                idCliente = nit[2] + "-" + idscheme[2];
+                            }
+                            if (tipoIdCliente == "")
+                            {
+                                tipoIdCliente = "OT";
+                                idCliente = nit[1];
+                            }
+                            i++;
+                        }
+                        agregar.Parameters.AddWithValue("@Contabilidad", cont);
+                        agregar.Parameters.AddWithValue("@Id_Factura", id[0]);
+                        agregar.Parameters.AddWithValue("@TipoId_EmpFactura", tipoIdEmpresa);
+                        agregar.Parameters.AddWithValue("@No_idEmpFactura", idEmpFactura);
+                        agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoIdCliente);
+                        agregar.Parameters.AddWithValue("@No_idCLiente", idCliente);
+                        agregar.Parameters.AddWithValue("@FechaEmision", date);
+                        agregar.Parameters.AddWithValue("@Valor", TCreditos);
+
+                        agregar.Parameters.AddWithValue("@Estado", "Cargado");
+
+                        agregar.ExecuteNonQuery();
+
+                        MessageBox.Show("Nota Credito cargada con exito!");
+                        conexion.Close();
+                    }
+                }
+
+                else if (registroCliente == false)
+                {
+                    MessageBox.Show("El cliente no se encuentra registrado!");
+
+
+                    conexion.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El cliente no tiene definido los parametros contables!");
+                    conexion.Close();
+
+                }
+                cargaDg.cargaFC(dataGridView1);
+            }
+            else
+            {
+                MessageBox.Show("ERROR : La contabilidad Seleccionada no corresponde con esta factura");
+
+
+            }
+        }
+                    }
+                    else
+        {
+            MessageBox.Show("Seleccione una contabilidad!");
+        }
+
+        }
     }
 }
 

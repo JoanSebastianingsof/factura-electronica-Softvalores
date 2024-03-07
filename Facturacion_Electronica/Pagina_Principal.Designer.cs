@@ -31,10 +31,6 @@ namespace Facturacion_Electronica
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
             this.tp_CargarFactura = new System.Windows.Forms.TabPage();
-            this.p_CargueDocs = new System.Windows.Forms.Panel();
-            this.btn_MenuCargarFactura = new System.Windows.Forms.Button();
-            this.btn_NotaDebito = new System.Windows.Forms.Button();
-            this.btn_NotaCredito = new System.Windows.Forms.Button();
             this.cb_CFTipoIdCliente = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.tb_CFNoIdClente = new System.Windows.Forms.TextBox();
@@ -58,6 +54,10 @@ namespace Facturacion_Electronica
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label18 = new System.Windows.Forms.Label();
+            this.p_CargueDocs = new System.Windows.Forms.Panel();
+            this.btn_MenuCargarFactura = new System.Windows.Forms.Button();
+            this.btn_NotaDebito = new System.Windows.Forms.Button();
+            this.btn_NotaCredito = new System.Windows.Forms.Button();
             this.tp_NotaCredito = new System.Windows.Forms.TabPage();
             this.cb_TipoIdCliente = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -197,7 +197,7 @@ namespace Facturacion_Electronica
             this.cb_TipoIdEmpresaND = new System.Windows.Forms.ComboBox();
             this.cb_ContabilidadND = new System.Windows.Forms.ComboBox();
             this.tb_NoIdEmpresasND = new System.Windows.Forms.TextBox();
-            this.dgv_NotaDebito = new System.Windows.Forms.DataGridView();
+            this.dgv_NotaDebitoCargada = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -280,10 +280,9 @@ namespace Facturacion_Electronica
             this.btn_MenuSalir = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabControl1.SuspendLayout();
             this.tp_CargarFactura.SuspendLayout();
-            this.p_CargueDocs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).BeginInit();
+            this.p_CargueDocs.SuspendLayout();
             this.tp_NotaCredito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaCreditoCargada)).BeginInit();
             this.tp_FacturasCargadas.SuspendLayout();
@@ -300,7 +299,7 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).BeginInit();
             this.tp_NotaDebito.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaDebito)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaDebitoCargada)).BeginInit();
             this.tp_NotasCreditoCargadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -310,33 +309,12 @@ namespace Facturacion_Electronica
             this.p_DocsCargados.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tp_CargarFactura);
-            this.tabControl1.Controls.Add(this.tp_NotaCredito);
-            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
-            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
-            this.tabControl1.Controls.Add(this.tp_Tributos);
-            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
-            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
-            this.tabControl1.Controls.Add(this.tp_NotaDebito);
-            this.tabControl1.Controls.Add(this.tp_NotasCreditoCargadas);
-            this.tabControl1.Controls.Add(this.tp_NotasDebitoCargadas);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabControl1.Location = new System.Drawing.Point(209, -26);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(829, 614);
-            this.tabControl1.TabIndex = 11;
             // 
             // tp_CargarFactura
             // 
             this.tp_CargarFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_CargarFactura.Controls.Add(this.p_CargueDocs);
             this.tp_CargarFactura.Controls.Add(this.cb_CFTipoIdCliente);
             this.tp_CargarFactura.Controls.Add(this.label26);
             this.tp_CargarFactura.Controls.Add(this.tb_CFNoIdClente);
@@ -365,65 +343,6 @@ namespace Facturacion_Electronica
             this.tp_CargarFactura.TabIndex = 2;
             this.tp_CargarFactura.Text = "Cargar Factura XML";
             this.tp_CargarFactura.Click += new System.EventHandler(this.tp_CargarFactura_Click);
-            // 
-            // p_CargueDocs
-            // 
-            this.p_CargueDocs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.p_CargueDocs.Controls.Add(this.btn_MenuCargarFactura);
-            this.p_CargueDocs.Controls.Add(this.btn_NotaDebito);
-            this.p_CargueDocs.Controls.Add(this.btn_NotaCredito);
-            this.p_CargueDocs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.p_CargueDocs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.p_CargueDocs.Location = new System.Drawing.Point(2, 218);
-            this.p_CargueDocs.Name = "p_CargueDocs";
-            this.p_CargueDocs.Size = new System.Drawing.Size(233, 102);
-            this.p_CargueDocs.TabIndex = 146;
-            this.p_CargueDocs.Visible = false;
-            // 
-            // btn_MenuCargarFactura
-            // 
-            this.btn_MenuCargarFactura.FlatAppearance.BorderSize = 0;
-            this.btn_MenuCargarFactura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_MenuCargarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_MenuCargarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_MenuCargarFactura.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_MenuCargarFactura.Location = new System.Drawing.Point(5, 5);
-            this.btn_MenuCargarFactura.Name = "btn_MenuCargarFactura";
-            this.btn_MenuCargarFactura.Size = new System.Drawing.Size(218, 30);
-            this.btn_MenuCargarFactura.TabIndex = 117;
-            this.btn_MenuCargarFactura.Text = "Cargar Factura";
-            this.btn_MenuCargarFactura.UseVisualStyleBackColor = true;
-            this.btn_MenuCargarFactura.Click += new System.EventHandler(this.btn_MenuCargarFactura_Click);
-            // 
-            // btn_NotaDebito
-            // 
-            this.btn_NotaDebito.FlatAppearance.BorderSize = 0;
-            this.btn_NotaDebito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_NotaDebito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_NotaDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_NotaDebito.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_NotaDebito.Location = new System.Drawing.Point(2, 69);
-            this.btn_NotaDebito.Name = "btn_NotaDebito";
-            this.btn_NotaDebito.Size = new System.Drawing.Size(221, 30);
-            this.btn_NotaDebito.TabIndex = 124;
-            this.btn_NotaDebito.Text = "Nota Debito";
-            this.btn_NotaDebito.UseVisualStyleBackColor = true;
-            this.btn_NotaDebito.Click += new System.EventHandler(this.btn_NotaDebito_Click);
-            // 
-            // btn_NotaCredito
-            // 
-            this.btn_NotaCredito.FlatAppearance.BorderSize = 0;
-            this.btn_NotaCredito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_NotaCredito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_NotaCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_NotaCredito.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_NotaCredito.Location = new System.Drawing.Point(5, 39);
-            this.btn_NotaCredito.Name = "btn_NotaCredito";
-            this.btn_NotaCredito.Size = new System.Drawing.Size(218, 30);
-            this.btn_NotaCredito.TabIndex = 123;
-            this.btn_NotaCredito.Text = "Nota Credito";
-            this.btn_NotaCredito.UseVisualStyleBackColor = true;
-            this.btn_NotaCredito.Click += new System.EventHandler(this.btn_NotaCredito_Click);
             // 
             // cb_CFTipoIdCliente
             // 
@@ -676,6 +595,65 @@ namespace Facturacion_Electronica
             this.label18.Size = new System.Drawing.Size(229, 25);
             this.label18.TabIndex = 49;
             this.label18.Text = "Carga de Factura XML";
+            // 
+            // p_CargueDocs
+            // 
+            this.p_CargueDocs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.p_CargueDocs.Controls.Add(this.btn_MenuCargarFactura);
+            this.p_CargueDocs.Controls.Add(this.btn_NotaDebito);
+            this.p_CargueDocs.Controls.Add(this.btn_NotaCredito);
+            this.p_CargueDocs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.p_CargueDocs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.p_CargueDocs.Location = new System.Drawing.Point(214, 223);
+            this.p_CargueDocs.Name = "p_CargueDocs";
+            this.p_CargueDocs.Size = new System.Drawing.Size(238, 102);
+            this.p_CargueDocs.TabIndex = 146;
+            this.p_CargueDocs.Visible = false;
+            // 
+            // btn_MenuCargarFactura
+            // 
+            this.btn_MenuCargarFactura.FlatAppearance.BorderSize = 0;
+            this.btn_MenuCargarFactura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_MenuCargarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_MenuCargarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_MenuCargarFactura.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_MenuCargarFactura.Location = new System.Drawing.Point(5, 5);
+            this.btn_MenuCargarFactura.Name = "btn_MenuCargarFactura";
+            this.btn_MenuCargarFactura.Size = new System.Drawing.Size(218, 30);
+            this.btn_MenuCargarFactura.TabIndex = 117;
+            this.btn_MenuCargarFactura.Text = "Cargar Factura";
+            this.btn_MenuCargarFactura.UseVisualStyleBackColor = true;
+            this.btn_MenuCargarFactura.Click += new System.EventHandler(this.btn_MenuCargarFactura_Click);
+            // 
+            // btn_NotaDebito
+            // 
+            this.btn_NotaDebito.FlatAppearance.BorderSize = 0;
+            this.btn_NotaDebito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_NotaDebito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_NotaDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_NotaDebito.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_NotaDebito.Location = new System.Drawing.Point(2, 69);
+            this.btn_NotaDebito.Name = "btn_NotaDebito";
+            this.btn_NotaDebito.Size = new System.Drawing.Size(221, 30);
+            this.btn_NotaDebito.TabIndex = 124;
+            this.btn_NotaDebito.Text = "Nota Debito";
+            this.btn_NotaDebito.UseVisualStyleBackColor = true;
+            this.btn_NotaDebito.Click += new System.EventHandler(this.btn_NotaDebito_Click);
+            // 
+            // btn_NotaCredito
+            // 
+            this.btn_NotaCredito.FlatAppearance.BorderSize = 0;
+            this.btn_NotaCredito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_NotaCredito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_NotaCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_NotaCredito.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_NotaCredito.Location = new System.Drawing.Point(5, 39);
+            this.btn_NotaCredito.Name = "btn_NotaCredito";
+            this.btn_NotaCredito.Size = new System.Drawing.Size(218, 30);
+            this.btn_NotaCredito.TabIndex = 123;
+            this.btn_NotaCredito.Text = "Nota Credito";
+            this.btn_NotaCredito.UseVisualStyleBackColor = true;
+            this.btn_NotaCredito.Click += new System.EventHandler(this.btn_NotaCredito_Click);
             // 
             // tp_NotaCredito
             // 
@@ -2109,7 +2087,7 @@ namespace Facturacion_Electronica
             this.tp_NotaDebito.Controls.Add(this.cb_TipoIdEmpresaND);
             this.tp_NotaDebito.Controls.Add(this.cb_ContabilidadND);
             this.tp_NotaDebito.Controls.Add(this.tb_NoIdEmpresasND);
-            this.tp_NotaDebito.Controls.Add(this.dgv_NotaDebito);
+            this.tp_NotaDebito.Controls.Add(this.dgv_NotaDebitoCargada);
             this.tp_NotaDebito.Controls.Add(this.label84);
             this.tp_NotaDebito.Location = new System.Drawing.Point(4, 25);
             this.tp_NotaDebito.Name = "tp_NotaDebito";
@@ -2265,6 +2243,7 @@ namespace Facturacion_Electronica
             this.btn_BuscarDocumentoND.TabIndex = 124;
             this.btn_BuscarDocumentoND.Text = "Buscar Documento";
             this.btn_BuscarDocumentoND.UseVisualStyleBackColor = false;
+            this.btn_BuscarDocumentoND.Click += new System.EventHandler(this.btn_BuscarDocumentoND_Click);
             // 
             // label83
             // 
@@ -2318,22 +2297,22 @@ namespace Facturacion_Electronica
             this.tb_NoIdEmpresasND.Size = new System.Drawing.Size(169, 22);
             this.tb_NoIdEmpresasND.TabIndex = 129;
             // 
-            // dgv_NotaDebito
+            // dgv_NotaDebitoCargada
             // 
-            this.dgv_NotaDebito.AllowUserToAddRows = false;
-            this.dgv_NotaDebito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_NotaDebito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_NotaDebitoCargada.AllowUserToAddRows = false;
+            this.dgv_NotaDebitoCargada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_NotaDebitoCargada.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn44,
             this.dataGridViewTextBoxColumn45,
             this.dataGridViewTextBoxColumn46,
             this.dataGridViewTextBoxColumn47});
-            this.dgv_NotaDebito.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_NotaDebito.Location = new System.Drawing.Point(0, 255);
-            this.dgv_NotaDebito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_NotaDebito.Name = "dgv_NotaDebito";
-            this.dgv_NotaDebito.RowTemplate.Height = 25;
-            this.dgv_NotaDebito.Size = new System.Drawing.Size(821, 330);
-            this.dgv_NotaDebito.TabIndex = 127;
+            this.dgv_NotaDebitoCargada.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_NotaDebitoCargada.Location = new System.Drawing.Point(0, 255);
+            this.dgv_NotaDebitoCargada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_NotaDebitoCargada.Name = "dgv_NotaDebitoCargada";
+            this.dgv_NotaDebitoCargada.RowTemplate.Height = 25;
+            this.dgv_NotaDebitoCargada.Size = new System.Drawing.Size(821, 330);
+            this.dgv_NotaDebitoCargada.TabIndex = 127;
             // 
             // dataGridViewTextBoxColumn44
             // 
@@ -3225,12 +3204,34 @@ namespace Facturacion_Electronica
             this.btn_MenuParametrosContables.UseVisualStyleBackColor = true;
             this.btn_MenuParametrosContables.Click += new System.EventHandler(this.btn_MenuParametrosContables_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tp_NotaDebito);
+            this.tabControl1.Controls.Add(this.tp_NotaCredito);
+            this.tabControl1.Controls.Add(this.tp_CargarFactura);
+            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
+            this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
+            this.tabControl1.Controls.Add(this.tp_Tributos);
+            this.tabControl1.Controls.Add(this.tp_ParametrosContables);
+            this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
+            this.tabControl1.Controls.Add(this.tp_NotasCreditoCargadas);
+            this.tabControl1.Controls.Add(this.tp_NotasDebitoCargadas);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tabControl1.Location = new System.Drawing.Point(212, -26);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(829, 614);
+            this.tabControl1.TabIndex = 11;
+            // 
             // Pagina_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1034, 611);
+            this.Controls.Add(this.p_CargueDocs);
             this.Controls.Add(this.p_DocsCargados);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
@@ -3244,11 +3245,10 @@ namespace Facturacion_Electronica
             this.Name = "Pagina_Principal";
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
             this.tp_CargarFactura.ResumeLayout(false);
             this.tp_CargarFactura.PerformLayout();
-            this.p_CargueDocs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).EndInit();
+            this.p_CargueDocs.ResumeLayout(false);
             this.tp_NotaCredito.ResumeLayout(false);
             this.tp_NotaCredito.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaCreditoCargada)).EndInit();
@@ -3272,7 +3272,7 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoIdentificación)).EndInit();
             this.tp_NotaDebito.ResumeLayout(false);
             this.tp_NotaDebito.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaDebito)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaDebitoCargada)).EndInit();
             this.tp_NotasCreditoCargadas.ResumeLayout(false);
             this.tp_NotasCreditoCargadas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -3284,6 +3284,7 @@ namespace Facturacion_Electronica
             this.p_DocsCargados.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3443,7 +3444,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.ComboBox cb_TipoIdEmpresaND;
         private System.Windows.Forms.ComboBox cb_ContabilidadND;
         private System.Windows.Forms.TextBox tb_NoIdEmpresasND;
-        private System.Windows.Forms.DataGridView dgv_NotaDebito;
+        private System.Windows.Forms.DataGridView dgv_NotaDebitoCargada;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;

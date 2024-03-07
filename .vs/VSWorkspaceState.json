@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Facturacion_Electronica"
   ],
-  "SelectedNode": "\\Facturacion_Electronica.sln",
+  "SelectedNode": "\\Facturacion_Electronica\\Pagina_Principal.cs",
   "PreviewInSolutionExplorer": false
 }
