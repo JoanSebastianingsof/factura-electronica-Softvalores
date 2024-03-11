@@ -3206,16 +3206,16 @@ namespace Facturacion_Electronica
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
+            this.tabControl1.Controls.Add(this.tp_NotasCreditoCargadas);
+            this.tabControl1.Controls.Add(this.tp_NotasDebitoCargadas);
             this.tabControl1.Controls.Add(this.tp_NotaDebito);
             this.tabControl1.Controls.Add(this.tp_NotaCredito);
             this.tabControl1.Controls.Add(this.tp_CargarFactura);
-            this.tabControl1.Controls.Add(this.tp_FacturasCargadas);
             this.tabControl1.Controls.Add(this.tp_ParametrosGenerales);
             this.tabControl1.Controls.Add(this.tp_Tributos);
             this.tabControl1.Controls.Add(this.tp_ParametrosContables);
             this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
-            this.tabControl1.Controls.Add(this.tp_NotasCreditoCargadas);
-            this.tabControl1.Controls.Add(this.tp_NotasDebitoCargadas);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(212, -26);
