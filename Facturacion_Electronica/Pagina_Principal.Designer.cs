@@ -214,7 +214,7 @@ namespace Facturacion_Electronica
             this.label51 = new System.Windows.Forms.Label();
             this.cb_EstadoNC = new System.Windows.Forms.ComboBox();
             this.btn_VolverNC = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dgv_NcCargadas = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -224,7 +224,7 @@ namespace Facturacion_Electronica
             this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.lbl_NC = new System.Windows.Forms.Label();
             this.tb_IdNC = new System.Windows.Forms.TextBox();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dgv_FondoNC = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -244,7 +244,7 @@ namespace Facturacion_Electronica
             this.label45 = new System.Windows.Forms.Label();
             this.cb_EstadoND = new System.Windows.Forms.ComboBox();
             this.btn_VolverND = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_NdCargadas = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -254,7 +254,7 @@ namespace Facturacion_Electronica
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label46 = new System.Windows.Forms.Label();
             this.tb_IdND = new System.Windows.Forms.TextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgv_FondoND = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -301,11 +301,11 @@ namespace Facturacion_Electronica
             this.tp_NotaDebito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaDebitoCargada)).BeginInit();
             this.tp_NotasCreditoCargadas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NcCargadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FondoNC)).BeginInit();
             this.tp_NotasDebitoCargadas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NdCargadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FondoND)).BeginInit();
             this.p_DocsCargados.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -339,7 +339,7 @@ namespace Facturacion_Electronica
             this.tp_CargarFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tp_CargarFactura.Name = "tp_CargarFactura";
             this.tp_CargarFactura.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_CargarFactura.Size = new System.Drawing.Size(821, 585);
+            this.tp_CargarFactura.Size = new System.Drawing.Size(821, 559);
             this.tp_CargarFactura.TabIndex = 2;
             this.tp_CargarFactura.Text = "Cargar Factura XML";
             this.tp_CargarFactura.Click += new System.EventHandler(this.tp_CargarFactura_Click);
@@ -556,7 +556,7 @@ namespace Facturacion_Electronica
             this.Valor,
             this.Column5});
             this.dgv_FacturaCargada.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_FacturaCargada.Location = new System.Drawing.Point(3, 253);
+            this.dgv_FacturaCargada.Location = new System.Drawing.Point(3, 227);
             this.dgv_FacturaCargada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_FacturaCargada.Name = "dgv_FacturaCargada";
             this.dgv_FacturaCargada.RowTemplate.Height = 25;
@@ -679,7 +679,7 @@ namespace Facturacion_Electronica
             this.tp_NotaCredito.Controls.Add(this.label41);
             this.tp_NotaCredito.Location = new System.Drawing.Point(4, 25);
             this.tp_NotaCredito.Name = "tp_NotaCredito";
-            this.tp_NotaCredito.Size = new System.Drawing.Size(821, 585);
+            this.tp_NotaCredito.Size = new System.Drawing.Size(821, 559);
             this.tp_NotaCredito.TabIndex = 6;
             this.tp_NotaCredito.Text = "Nota Credito XML";
             // 
@@ -895,7 +895,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.dgv_NotaCreditoCargada.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_NotaCreditoCargada.Location = new System.Drawing.Point(0, 255);
+            this.dgv_NotaCreditoCargada.Location = new System.Drawing.Point(0, 229);
             this.dgv_NotaCreditoCargada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_NotaCreditoCargada.Name = "dgv_NotaCreditoCargada";
             this.dgv_NotaCreditoCargada.RowTemplate.Height = 25;
@@ -957,7 +957,7 @@ namespace Facturacion_Electronica
             this.tp_FacturasCargadas.Location = new System.Drawing.Point(4, 25);
             this.tp_FacturasCargadas.Margin = new System.Windows.Forms.Padding(0);
             this.tp_FacturasCargadas.Name = "tp_FacturasCargadas";
-            this.tp_FacturasCargadas.Size = new System.Drawing.Size(821, 585);
+            this.tp_FacturasCargadas.Size = new System.Drawing.Size(821, 559);
             this.tp_FacturasCargadas.TabIndex = 3;
             this.tp_FacturasCargadas.Text = "Facturas Cargadas";
             // 
@@ -1295,7 +1295,7 @@ namespace Facturacion_Electronica
             this.tp_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tp_ParametrosGenerales.Name = "tp_ParametrosGenerales";
             this.tp_ParametrosGenerales.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosGenerales.Size = new System.Drawing.Size(821, 585);
+            this.tp_ParametrosGenerales.Size = new System.Drawing.Size(821, 559);
             this.tp_ParametrosGenerales.TabIndex = 0;
             this.tp_ParametrosGenerales.Text = "Parametros Generales";
             // 
@@ -1422,7 +1422,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn6,
             this.Empresa});
             this.dgv_ParametrosGenerales.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_ParametrosGenerales.Location = new System.Drawing.Point(3, 253);
+            this.dgv_ParametrosGenerales.Location = new System.Drawing.Point(3, 227);
             this.dgv_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_ParametrosGenerales.Name = "dgv_ParametrosGenerales";
             this.dgv_ParametrosGenerales.RowTemplate.Height = 25;
@@ -1559,7 +1559,7 @@ namespace Facturacion_Electronica
             this.tp_Tributos.Controls.Add(this.label23);
             this.tp_Tributos.Location = new System.Drawing.Point(4, 25);
             this.tp_Tributos.Name = "tp_Tributos";
-            this.tp_Tributos.Size = new System.Drawing.Size(821, 585);
+            this.tp_Tributos.Size = new System.Drawing.Size(821, 559);
             this.tp_Tributos.TabIndex = 4;
             this.tp_Tributos.Text = "Tributos";
             this.tp_Tributos.Click += new System.EventHandler(this.tp_Tributos_Click);
@@ -1639,7 +1639,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.dataGridTributo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridTributo.Location = new System.Drawing.Point(0, 196);
+            this.dataGridTributo.Location = new System.Drawing.Point(0, 170);
             this.dataGridTributo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridTributo.Name = "dataGridTributo";
             this.dataGridTributo.RowTemplate.Height = 25;
@@ -1705,7 +1705,7 @@ namespace Facturacion_Electronica
             this.tp_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tp_ParametrosContables.Name = "tp_ParametrosContables";
             this.tp_ParametrosContables.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 585);
+            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 559);
             this.tp_ParametrosContables.TabIndex = 1;
             this.tp_ParametrosContables.Text = "Parametros Contables";
             // 
@@ -1822,7 +1822,7 @@ namespace Facturacion_Electronica
             this.Column3,
             this.Column4});
             this.dgv_ParametrosContables.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 253);
+            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 227);
             this.dgv_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_ParametrosContables.Name = "dgv_ParametrosContables";
             this.dgv_ParametrosContables.RowTemplate.Height = 25;
@@ -1940,7 +1940,7 @@ namespace Facturacion_Electronica
             this.tp_TipoIdentificacion.Controls.Add(this.label30);
             this.tp_TipoIdentificacion.Location = new System.Drawing.Point(4, 25);
             this.tp_TipoIdentificacion.Name = "tp_TipoIdentificacion";
-            this.tp_TipoIdentificacion.Size = new System.Drawing.Size(821, 585);
+            this.tp_TipoIdentificacion.Size = new System.Drawing.Size(821, 559);
             this.tp_TipoIdentificacion.TabIndex = 5;
             this.tp_TipoIdentificacion.Text = "TipoIdenticacion";
             this.tp_TipoIdentificacion.Click += new System.EventHandler(this.tp_TipoIdentificacion_Click);
@@ -2021,7 +2021,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
             this.dataGridTipoIdentificación.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridTipoIdentificación.Location = new System.Drawing.Point(0, 196);
+            this.dataGridTipoIdentificación.Location = new System.Drawing.Point(0, 170);
             this.dataGridTipoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridTipoIdentificación.Name = "dataGridTipoIdentificación";
             this.dataGridTipoIdentificación.RowTemplate.Height = 25;
@@ -2091,7 +2091,7 @@ namespace Facturacion_Electronica
             this.tp_NotaDebito.Controls.Add(this.label84);
             this.tp_NotaDebito.Location = new System.Drawing.Point(4, 25);
             this.tp_NotaDebito.Name = "tp_NotaDebito";
-            this.tp_NotaDebito.Size = new System.Drawing.Size(821, 585);
+            this.tp_NotaDebito.Size = new System.Drawing.Size(821, 559);
             this.tp_NotaDebito.TabIndex = 7;
             this.tp_NotaDebito.Text = "Nota Debito XML";
             // 
@@ -2307,7 +2307,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn46,
             this.dataGridViewTextBoxColumn47});
             this.dgv_NotaDebitoCargada.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_NotaDebitoCargada.Location = new System.Drawing.Point(0, 255);
+            this.dgv_NotaDebitoCargada.Location = new System.Drawing.Point(0, 229);
             this.dgv_NotaDebitoCargada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_NotaDebitoCargada.Name = "dgv_NotaDebitoCargada";
             this.dgv_NotaDebitoCargada.RowTemplate.Height = 25;
@@ -2360,15 +2360,15 @@ namespace Facturacion_Electronica
             this.tp_NotasCreditoCargadas.Controls.Add(this.label51);
             this.tp_NotasCreditoCargadas.Controls.Add(this.cb_EstadoNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.btn_VolverNC);
-            this.tp_NotasCreditoCargadas.Controls.Add(this.dataGridView4);
+            this.tp_NotasCreditoCargadas.Controls.Add(this.dgv_NcCargadas);
             this.tp_NotasCreditoCargadas.Controls.Add(this.lbl_NC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.tb_IdNC);
-            this.tp_NotasCreditoCargadas.Controls.Add(this.dataGridView5);
+            this.tp_NotasCreditoCargadas.Controls.Add(this.dgv_FondoNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.btn_ConsultaNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.label53);
             this.tp_NotasCreditoCargadas.Location = new System.Drawing.Point(4, 25);
             this.tp_NotasCreditoCargadas.Name = "tp_NotasCreditoCargadas";
-            this.tp_NotasCreditoCargadas.Size = new System.Drawing.Size(821, 585);
+            this.tp_NotasCreditoCargadas.Size = new System.Drawing.Size(821, 559);
             this.tp_NotasCreditoCargadas.TabIndex = 8;
             this.tp_NotasCreditoCargadas.Text = "Cargar Nota Credito";
             // 
@@ -2501,11 +2501,11 @@ namespace Facturacion_Electronica
             this.btn_VolverNC.UseVisualStyleBackColor = false;
             this.btn_VolverNC.Visible = false;
             // 
-            // dataGridView4
+            // dgv_NcCargadas
             // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_NcCargadas.AllowUserToAddRows = false;
+            this.dgv_NcCargadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_NcCargadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn27,
             this.dataGridViewTextBoxColumn28,
             this.dataGridViewTextBoxColumn29,
@@ -2513,15 +2513,15 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn31,
             this.dataGridViewTextBoxColumn32,
             this.dataGridViewComboBoxColumn2});
-            this.dataGridView4.Location = new System.Drawing.Point(-7, 182);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView4.MultiSelect = false;
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.Size = new System.Drawing.Size(830, 423);
-            this.dataGridView4.TabIndex = 139;
-            this.dataGridView4.Visible = false;
+            this.dgv_NcCargadas.Location = new System.Drawing.Point(-7, 182);
+            this.dgv_NcCargadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_NcCargadas.MultiSelect = false;
+            this.dgv_NcCargadas.Name = "dgv_NcCargadas";
+            this.dgv_NcCargadas.ReadOnly = true;
+            this.dgv_NcCargadas.RowTemplate.Height = 25;
+            this.dgv_NcCargadas.Size = new System.Drawing.Size(830, 423);
+            this.dgv_NcCargadas.TabIndex = 139;
+            this.dgv_NcCargadas.Visible = false;
             // 
             // dataGridViewTextBoxColumn27
             // 
@@ -2593,25 +2593,25 @@ namespace Facturacion_Electronica
             this.tb_IdNC.Size = new System.Drawing.Size(76, 22);
             this.tb_IdNC.TabIndex = 137;
             // 
-            // dataGridView5
+            // dgv_FondoNC
             // 
-            this.dataGridView5.AllowUserToAddRows = false;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_FondoNC.AllowUserToAddRows = false;
+            this.dgv_FondoNC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_FondoNC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn33,
             this.dataGridViewTextBoxColumn34,
             this.dataGridViewTextBoxColumn35,
             this.dataGridViewTextBoxColumn36,
             this.dataGridViewTextBoxColumn37,
             this.dataGridViewTextBoxColumn38});
-            this.dataGridView5.Location = new System.Drawing.Point(-3, 182);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView5.MultiSelect = false;
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.ReadOnly = true;
-            this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(830, 423);
-            this.dataGridView5.TabIndex = 135;
+            this.dgv_FondoNC.Location = new System.Drawing.Point(-3, 182);
+            this.dgv_FondoNC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_FondoNC.MultiSelect = false;
+            this.dgv_FondoNC.Name = "dgv_FondoNC";
+            this.dgv_FondoNC.ReadOnly = true;
+            this.dgv_FondoNC.RowTemplate.Height = 25;
+            this.dgv_FondoNC.Size = new System.Drawing.Size(830, 423);
+            this.dgv_FondoNC.TabIndex = 135;
             // 
             // dataGridViewTextBoxColumn33
             // 
@@ -2664,6 +2664,7 @@ namespace Facturacion_Electronica
             this.btn_ConsultaNC.TabIndex = 136;
             this.btn_ConsultaNC.Text = "Cosultar Nota Credito";
             this.btn_ConsultaNC.UseVisualStyleBackColor = false;
+            this.btn_ConsultaNC.Click += new System.EventHandler(this.btn_ConsultaNC_Click);
             // 
             // label53
             // 
@@ -2689,15 +2690,15 @@ namespace Facturacion_Electronica
             this.tp_NotasDebitoCargadas.Controls.Add(this.label45);
             this.tp_NotasDebitoCargadas.Controls.Add(this.cb_EstadoND);
             this.tp_NotasDebitoCargadas.Controls.Add(this.btn_VolverND);
-            this.tp_NotasDebitoCargadas.Controls.Add(this.dataGridView2);
+            this.tp_NotasDebitoCargadas.Controls.Add(this.dgv_NdCargadas);
             this.tp_NotasDebitoCargadas.Controls.Add(this.label46);
             this.tp_NotasDebitoCargadas.Controls.Add(this.tb_IdND);
-            this.tp_NotasDebitoCargadas.Controls.Add(this.dataGridView3);
+            this.tp_NotasDebitoCargadas.Controls.Add(this.dgv_FondoND);
             this.tp_NotasDebitoCargadas.Controls.Add(this.btn_ConsultaND);
             this.tp_NotasDebitoCargadas.Controls.Add(this.label47);
             this.tp_NotasDebitoCargadas.Location = new System.Drawing.Point(4, 25);
             this.tp_NotasDebitoCargadas.Name = "tp_NotasDebitoCargadas";
-            this.tp_NotasDebitoCargadas.Size = new System.Drawing.Size(821, 585);
+            this.tp_NotasDebitoCargadas.Size = new System.Drawing.Size(821, 559);
             this.tp_NotasDebitoCargadas.TabIndex = 9;
             this.tp_NotasDebitoCargadas.Text = "Cargar Nota Dedito";
             // 
@@ -2830,11 +2831,11 @@ namespace Facturacion_Electronica
             this.btn_VolverND.UseVisualStyleBackColor = false;
             this.btn_VolverND.Visible = false;
             // 
-            // dataGridView2
+            // dgv_NdCargadas
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_NdCargadas.AllowUserToAddRows = false;
+            this.dgv_NdCargadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_NdCargadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
@@ -2842,15 +2843,15 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewComboBoxColumn1});
-            this.dataGridView2.Location = new System.Drawing.Point(-7, 182);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(830, 423);
-            this.dataGridView2.TabIndex = 139;
-            this.dataGridView2.Visible = false;
+            this.dgv_NdCargadas.Location = new System.Drawing.Point(-7, 182);
+            this.dgv_NdCargadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_NdCargadas.MultiSelect = false;
+            this.dgv_NdCargadas.Name = "dgv_NdCargadas";
+            this.dgv_NdCargadas.ReadOnly = true;
+            this.dgv_NdCargadas.RowTemplate.Height = 25;
+            this.dgv_NdCargadas.Size = new System.Drawing.Size(830, 423);
+            this.dgv_NdCargadas.TabIndex = 139;
+            this.dgv_NdCargadas.Visible = false;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -2922,25 +2923,25 @@ namespace Facturacion_Electronica
             this.tb_IdND.Size = new System.Drawing.Size(76, 22);
             this.tb_IdND.TabIndex = 137;
             // 
-            // dataGridView3
+            // dgv_FondoND
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_FondoND.AllowUserToAddRows = false;
+            this.dgv_FondoND.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_FondoND.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn21,
             this.dataGridViewTextBoxColumn22,
             this.dataGridViewTextBoxColumn23,
             this.dataGridViewTextBoxColumn24,
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26});
-            this.dataGridView3.Location = new System.Drawing.Point(-3, 182);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(830, 423);
-            this.dataGridView3.TabIndex = 135;
+            this.dgv_FondoND.Location = new System.Drawing.Point(-3, 182);
+            this.dgv_FondoND.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_FondoND.MultiSelect = false;
+            this.dgv_FondoND.Name = "dgv_FondoND";
+            this.dgv_FondoND.ReadOnly = true;
+            this.dgv_FondoND.RowTemplate.Height = 25;
+            this.dgv_FondoND.Size = new System.Drawing.Size(830, 423);
+            this.dgv_FondoND.TabIndex = 135;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -2993,6 +2994,7 @@ namespace Facturacion_Electronica
             this.btn_ConsultaND.TabIndex = 136;
             this.btn_ConsultaND.Text = "Cosultar Nota Debito";
             this.btn_ConsultaND.UseVisualStyleBackColor = false;
+            this.btn_ConsultaND.Click += new System.EventHandler(this.btn_ConsultaND_Click);
             // 
             // label47
             // 
@@ -3218,11 +3220,11 @@ namespace Facturacion_Electronica
             this.tabControl1.Controls.Add(this.tp_TipoIdentificacion);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabControl1.Location = new System.Drawing.Point(212, -26);
+            this.tabControl1.Location = new System.Drawing.Point(212, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(829, 614);
+            this.tabControl1.Size = new System.Drawing.Size(829, 588);
             this.tabControl1.TabIndex = 11;
             // 
             // Pagina_Principal
@@ -3275,12 +3277,12 @@ namespace Facturacion_Electronica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NotaDebitoCargada)).EndInit();
             this.tp_NotasCreditoCargadas.ResumeLayout(false);
             this.tp_NotasCreditoCargadas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NcCargadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FondoNC)).EndInit();
             this.tp_NotasDebitoCargadas.ResumeLayout(false);
             this.tp_NotasDebitoCargadas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NdCargadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FondoND)).EndInit();
             this.p_DocsCargados.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -3484,7 +3486,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.ComboBox cb_EstadoNC;
         private System.Windows.Forms.Button btn_VolverNC;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dgv_NcCargadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
@@ -3494,7 +3496,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
         private System.Windows.Forms.Label lbl_NC;
         private System.Windows.Forms.TextBox tb_IdNC;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView dgv_FondoNC;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
@@ -3514,7 +3516,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.ComboBox cb_EstadoND;
         private System.Windows.Forms.Button btn_VolverND;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgv_NdCargadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
@@ -3524,7 +3526,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox tb_IdND;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgv_FondoND;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
