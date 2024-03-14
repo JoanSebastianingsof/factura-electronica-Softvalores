@@ -279,7 +279,7 @@ namespace Facturacion_Electronica
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_MenuSalir = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_CargarFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).BeginInit();
             this.p_CargueDocs.SuspendLayout();
@@ -339,7 +339,7 @@ namespace Facturacion_Electronica
             this.tp_CargarFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tp_CargarFactura.Name = "tp_CargarFactura";
             this.tp_CargarFactura.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_CargarFactura.Size = new System.Drawing.Size(821, 559);
+            this.tp_CargarFactura.Size = new System.Drawing.Size(821, 582);
             this.tp_CargarFactura.TabIndex = 2;
             this.tp_CargarFactura.Text = "Cargar Factura XML";
             this.tp_CargarFactura.Click += new System.EventHandler(this.tp_CargarFactura_Click);
@@ -556,7 +556,7 @@ namespace Facturacion_Electronica
             this.Valor,
             this.Column5});
             this.dgv_FacturaCargada.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_FacturaCargada.Location = new System.Drawing.Point(3, 227);
+            this.dgv_FacturaCargada.Location = new System.Drawing.Point(3, 250);
             this.dgv_FacturaCargada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_FacturaCargada.Name = "dgv_FacturaCargada";
             this.dgv_FacturaCargada.RowTemplate.Height = 25;
@@ -679,7 +679,7 @@ namespace Facturacion_Electronica
             this.tp_NotaCredito.Controls.Add(this.label41);
             this.tp_NotaCredito.Location = new System.Drawing.Point(4, 25);
             this.tp_NotaCredito.Name = "tp_NotaCredito";
-            this.tp_NotaCredito.Size = new System.Drawing.Size(821, 559);
+            this.tp_NotaCredito.Size = new System.Drawing.Size(821, 582);
             this.tp_NotaCredito.TabIndex = 6;
             this.tp_NotaCredito.Text = "Nota Credito XML";
             // 
@@ -895,7 +895,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.dgv_NotaCreditoCargada.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_NotaCreditoCargada.Location = new System.Drawing.Point(0, 229);
+            this.dgv_NotaCreditoCargada.Location = new System.Drawing.Point(0, 252);
             this.dgv_NotaCreditoCargada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_NotaCreditoCargada.Name = "dgv_NotaCreditoCargada";
             this.dgv_NotaCreditoCargada.RowTemplate.Height = 25;
@@ -957,7 +957,7 @@ namespace Facturacion_Electronica
             this.tp_FacturasCargadas.Location = new System.Drawing.Point(4, 25);
             this.tp_FacturasCargadas.Margin = new System.Windows.Forms.Padding(0);
             this.tp_FacturasCargadas.Name = "tp_FacturasCargadas";
-            this.tp_FacturasCargadas.Size = new System.Drawing.Size(821, 559);
+            this.tp_FacturasCargadas.Size = new System.Drawing.Size(821, 582);
             this.tp_FacturasCargadas.TabIndex = 3;
             this.tp_FacturasCargadas.Text = "Facturas Cargadas";
             // 
@@ -1039,6 +1039,7 @@ namespace Facturacion_Electronica
             this.cb_FCEmpresaFactura.Name = "cb_FCEmpresaFactura";
             this.cb_FCEmpresaFactura.Size = new System.Drawing.Size(156, 24);
             this.cb_FCEmpresaFactura.TabIndex = 128;
+            this.cb_FCEmpresaFactura.SelectedIndexChanged += new System.EventHandler(this.cb_FCEmpresaFactura_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -1295,7 +1296,7 @@ namespace Facturacion_Electronica
             this.tp_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tp_ParametrosGenerales.Name = "tp_ParametrosGenerales";
             this.tp_ParametrosGenerales.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosGenerales.Size = new System.Drawing.Size(821, 559);
+            this.tp_ParametrosGenerales.Size = new System.Drawing.Size(821, 582);
             this.tp_ParametrosGenerales.TabIndex = 0;
             this.tp_ParametrosGenerales.Text = "Parametros Generales";
             // 
@@ -1422,7 +1423,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn6,
             this.Empresa});
             this.dgv_ParametrosGenerales.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_ParametrosGenerales.Location = new System.Drawing.Point(3, 227);
+            this.dgv_ParametrosGenerales.Location = new System.Drawing.Point(3, 250);
             this.dgv_ParametrosGenerales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_ParametrosGenerales.Name = "dgv_ParametrosGenerales";
             this.dgv_ParametrosGenerales.RowTemplate.Height = 25;
@@ -1559,7 +1560,7 @@ namespace Facturacion_Electronica
             this.tp_Tributos.Controls.Add(this.label23);
             this.tp_Tributos.Location = new System.Drawing.Point(4, 25);
             this.tp_Tributos.Name = "tp_Tributos";
-            this.tp_Tributos.Size = new System.Drawing.Size(821, 559);
+            this.tp_Tributos.Size = new System.Drawing.Size(821, 582);
             this.tp_Tributos.TabIndex = 4;
             this.tp_Tributos.Text = "Tributos";
             this.tp_Tributos.Click += new System.EventHandler(this.tp_Tributos_Click);
@@ -1639,7 +1640,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.dataGridTributo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridTributo.Location = new System.Drawing.Point(0, 170);
+            this.dataGridTributo.Location = new System.Drawing.Point(0, 193);
             this.dataGridTributo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridTributo.Name = "dataGridTributo";
             this.dataGridTributo.RowTemplate.Height = 25;
@@ -2091,7 +2092,7 @@ namespace Facturacion_Electronica
             this.tp_NotaDebito.Controls.Add(this.label84);
             this.tp_NotaDebito.Location = new System.Drawing.Point(4, 25);
             this.tp_NotaDebito.Name = "tp_NotaDebito";
-            this.tp_NotaDebito.Size = new System.Drawing.Size(821, 559);
+            this.tp_NotaDebito.Size = new System.Drawing.Size(821, 582);
             this.tp_NotaDebito.TabIndex = 7;
             this.tp_NotaDebito.Text = "Nota Debito XML";
             // 
@@ -2307,7 +2308,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn46,
             this.dataGridViewTextBoxColumn47});
             this.dgv_NotaDebitoCargada.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_NotaDebitoCargada.Location = new System.Drawing.Point(0, 229);
+            this.dgv_NotaDebitoCargada.Location = new System.Drawing.Point(0, 252);
             this.dgv_NotaDebitoCargada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_NotaDebitoCargada.Name = "dgv_NotaDebitoCargada";
             this.dgv_NotaDebitoCargada.RowTemplate.Height = 25;
@@ -2368,7 +2369,7 @@ namespace Facturacion_Electronica
             this.tp_NotasCreditoCargadas.Controls.Add(this.label53);
             this.tp_NotasCreditoCargadas.Location = new System.Drawing.Point(4, 25);
             this.tp_NotasCreditoCargadas.Name = "tp_NotasCreditoCargadas";
-            this.tp_NotasCreditoCargadas.Size = new System.Drawing.Size(821, 559);
+            this.tp_NotasCreditoCargadas.Size = new System.Drawing.Size(821, 582);
             this.tp_NotasCreditoCargadas.TabIndex = 8;
             this.tp_NotasCreditoCargadas.Text = "Cargar Nota Credito";
             // 
@@ -2397,6 +2398,7 @@ namespace Facturacion_Electronica
             this.btn_ComprobanteNC.Text = "Generar Comprobante";
             this.btn_ComprobanteNC.UseVisualStyleBackColor = false;
             this.btn_ComprobanteNC.Visible = false;
+            this.btn_ComprobanteNC.Click += new System.EventHandler(this.btn_ComprobanteNC_Click);
             // 
             // btn_ExcelNC
             // 
@@ -2698,7 +2700,7 @@ namespace Facturacion_Electronica
             this.tp_NotasDebitoCargadas.Controls.Add(this.label47);
             this.tp_NotasDebitoCargadas.Location = new System.Drawing.Point(4, 25);
             this.tp_NotasDebitoCargadas.Name = "tp_NotasDebitoCargadas";
-            this.tp_NotasDebitoCargadas.Size = new System.Drawing.Size(821, 559);
+            this.tp_NotasDebitoCargadas.Size = new System.Drawing.Size(821, 582);
             this.tp_NotasDebitoCargadas.TabIndex = 9;
             this.tp_NotasDebitoCargadas.Text = "Cargar Nota Dedito";
             // 
@@ -2727,6 +2729,7 @@ namespace Facturacion_Electronica
             this.btn_GenerarComprobanteND.Text = "Generar Comprobante";
             this.btn_GenerarComprobanteND.UseVisualStyleBackColor = false;
             this.btn_GenerarComprobanteND.Visible = false;
+            this.btn_GenerarComprobanteND.Click += new System.EventHandler(this.btn_GenerarComprobanteND_Click);
             // 
             // button2
             // 
@@ -3224,7 +3227,7 @@ namespace Facturacion_Electronica
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(829, 588);
+            this.tabControl1.Size = new System.Drawing.Size(829, 611);
             this.tabControl1.TabIndex = 11;
             // 
             // Pagina_Principal
