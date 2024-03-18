@@ -89,7 +89,7 @@ namespace Facturacion_Electronica
         }
 
 
-        public void cargaFC(DataGridView dg)
+        public void cargaFC(DataGridView dg, string CampoTabla)
         {
             TextReader LeerBaseDatos = new StreamReader("DataBase.txt");
             string DBinfo = LeerBaseDatos.ReadToEnd();
@@ -104,15 +104,40 @@ namespace Facturacion_Electronica
 
             dg.Rows.Clear();
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2", con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            string[] facturas = new string[99];
+            int i = 0;
+            SqlCommand cmds = new SqlCommand("select "+CampoTabla+" from fe_parametrosgenerales", con);
+            SqlDataReader drs = cmds.ExecuteReader();
+            while (drs.Read())
             {
-                //                dg.Rows.Add(dr[1].ToString(), dr[0].ToString(), dr[13].ToString(), dr[14].ToString(), dr[6].ToString(), dr[15].ToString());
-                dg.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
-
+                facturas[i] = drs[CampoTabla].ToString();
+                i++;
             }
             con.Close();
+
+            con.Open();
+
+            foreach (string factura in facturas)
+            {
+                SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where LEFT(id_factura, 2)=@IdFactura", con);
+                cmd.Parameters.AddWithValue("@IdFactura", factura);
+
+                if (!string.IsNullOrEmpty(factura))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            dg.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
+                        }
+                    }
+                }
+
+                   
+            }
+            con.Close();
+
+
         }
 
         public void cargaPC(DataGridView dg)

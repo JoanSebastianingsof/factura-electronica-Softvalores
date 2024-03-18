@@ -31,7 +31,9 @@ namespace Facturacion_Electronica
             combo.seleccionar(cb_ContabilidadND);
             combo.captarTipIden(cb_PCTipoID);
             cargaDg.cargaPG(dgv_ParametrosGenerales);
-            cargaDg.cargaFC(dataGridView1);
+            cargaDg.cargaFC(dataGridView1, "Facturas");
+            cargaDg.cargaFC(dgv_FondoND, "Nota_Debito");
+            cargaDg.cargaFC(dgv_FondoNC, "Nota_Credito");
             cargaDg.cargaTri(dataGridTributo);
             cargaDg.cargaIdentificacion(dataGridTipoIdentificación);
         }
@@ -1065,7 +1067,7 @@ namespace Facturacion_Electronica
                             conexion.Close();
 
                         }
-                        cargaDg.cargaFC(dataGridView1);
+                        cargaDg.cargaFC(dataGridView1, "Facturas");
                     }
                     else
                     {
@@ -1315,7 +1317,7 @@ namespace Facturacion_Electronica
             dataGridView1.Visible = true; dgv_FCFacturasCargadas.Visible = false; btn_FCVolver.Visible = false; btn_FCGuardarExcel.Visible = false;
             btn_FCGenerarComprobante.Visible = false; tb_FCIdFactura.Text = ""; label21.Visible = false;
             dataGridView1.Rows.Clear();
-            cargaDg.cargaFC(dataGridView1);
+            cargaDg.cargaFC(dataGridView1, "Facturas");
         }
         //Generar comprobante
         private void btn_FCGenerarComprobante_Click(object sender, EventArgs e)
@@ -1850,7 +1852,7 @@ namespace Facturacion_Electronica
 
             if (cb_FCEstado.Text == "Seleccione un Item..." && cb_FCEmpresaFactura.Text == "Seleccione un Item...")
             {
-                cargaDg.cargaFC(dataGridView1);
+                cargaDg.cargaFC(dataGridView1, "Facturas");
             }
             if (cb_FCEstado.Text != "Seleccione un Item..." && cb_FCEmpresaFactura.Text == "Seleccione un Item...")
             {
@@ -2585,7 +2587,7 @@ namespace Facturacion_Electronica
                     conexion.Close();
 
                 }
-                cargaDg.cargaFC(dataGridView1);
+                cargaDg.cargaFC(dataGridView1,"Facturas");
             }
             else
             {
@@ -2892,7 +2894,7 @@ namespace Facturacion_Electronica
                 conexion.Close();
 
                 dataGridView1.Rows.Clear();
-                cargaDg.cargaFC(dataGridView1);
+                cargaDg.cargaFC(dataGridView1, "Facturas");
 
             }
             

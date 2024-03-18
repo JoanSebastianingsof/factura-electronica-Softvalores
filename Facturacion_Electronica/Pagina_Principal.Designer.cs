@@ -279,7 +279,7 @@ namespace Facturacion_Electronica
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_MenuSalir = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
-            tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_CargarFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).BeginInit();
             this.p_CargueDocs.SuspendLayout();
@@ -1706,7 +1706,7 @@ namespace Facturacion_Electronica
             this.tp_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tp_ParametrosContables.Name = "tp_ParametrosContables";
             this.tp_ParametrosContables.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 559);
+            this.tp_ParametrosContables.Size = new System.Drawing.Size(821, 582);
             this.tp_ParametrosContables.TabIndex = 1;
             this.tp_ParametrosContables.Text = "Parametros Contables";
             // 
@@ -1823,7 +1823,7 @@ namespace Facturacion_Electronica
             this.Column3,
             this.Column4});
             this.dgv_ParametrosContables.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 227);
+            this.dgv_ParametrosContables.Location = new System.Drawing.Point(3, 250);
             this.dgv_ParametrosContables.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_ParametrosContables.Name = "dgv_ParametrosContables";
             this.dgv_ParametrosContables.RowTemplate.Height = 25;
@@ -1941,7 +1941,7 @@ namespace Facturacion_Electronica
             this.tp_TipoIdentificacion.Controls.Add(this.label30);
             this.tp_TipoIdentificacion.Location = new System.Drawing.Point(4, 25);
             this.tp_TipoIdentificacion.Name = "tp_TipoIdentificacion";
-            this.tp_TipoIdentificacion.Size = new System.Drawing.Size(821, 559);
+            this.tp_TipoIdentificacion.Size = new System.Drawing.Size(821, 582);
             this.tp_TipoIdentificacion.TabIndex = 5;
             this.tp_TipoIdentificacion.Text = "TipoIdenticacion";
             this.tp_TipoIdentificacion.Click += new System.EventHandler(this.tp_TipoIdentificacion_Click);
@@ -2022,7 +2022,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
             this.dataGridTipoIdentificación.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridTipoIdentificación.Location = new System.Drawing.Point(0, 170);
+            this.dataGridTipoIdentificación.Location = new System.Drawing.Point(0, 193);
             this.dataGridTipoIdentificación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridTipoIdentificación.Name = "dataGridTipoIdentificación";
             this.dataGridTipoIdentificación.RowTemplate.Height = 25;
