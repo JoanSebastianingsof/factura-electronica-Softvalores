@@ -105,25 +105,28 @@ namespace Facturacion_Electronica
             dg.Rows.Clear();
             con.Open();
             string[] facturas = new string[99];
+            string[] Empresaid = new string[99];
+
             int i = 0;
-            SqlCommand cmds = new SqlCommand("select "+CampoTabla+" from fe_parametrosgenerales", con);
+            SqlCommand cmds = new SqlCommand("select "+CampoTabla+",NoId from fe_parametrosgenerales", con);
             SqlDataReader drs = cmds.ExecuteReader();
             while (drs.Read())
             {
                 facturas[i] = drs[CampoTabla].ToString();
+                Empresaid[i] = drs["NoId"].ToString();
                 i++;
             }
             con.Close();
 
             con.Open();
 
-            foreach (string factura in facturas)
+            for (int a =0; a <Empresaid.Length;a++)
             {
-                SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where LEFT(id_factura, 2)=@IdFactura", con);
-                cmd.Parameters.AddWithValue("@IdFactura", factura);
-
-                if (!string.IsNullOrEmpty(factura))
+                if (!string.IsNullOrEmpty(facturas[a]))
                 {
+                    SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where LEFT(id_factura, 2)=@IdFactura and No_IdEmpFactura=@IdEmpresa", con);
+                    cmd.Parameters.AddWithValue("@IdFactura", facturas[a]);
+                    cmd.Parameters.AddWithValue("@IdEmpresa", Empresaid[a]);
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
@@ -131,9 +134,7 @@ namespace Facturacion_Electronica
                             dg.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
                         }
                     }
-                }
-
-                   
+                }                                   
             }
             con.Close();
 

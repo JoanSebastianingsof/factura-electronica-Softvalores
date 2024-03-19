@@ -204,7 +204,7 @@ namespace Facturacion_Electronica
             this.dataGridViewTextBoxColumn47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label84 = new System.Windows.Forms.Label();
             this.tp_NotasCreditoCargadas = new System.Windows.Forms.TabPage();
-            this.label48 = new System.Windows.Forms.Label();
+            this.lbl_FechaNC = new System.Windows.Forms.Label();
             this.btn_ComprobanteNC = new System.Windows.Forms.Button();
             this.btn_ExcelNC = new System.Windows.Forms.Button();
             this.btn_FiltroNC = new System.Windows.Forms.Button();
@@ -234,9 +234,9 @@ namespace Facturacion_Electronica
             this.btn_ConsultaNC = new System.Windows.Forms.Button();
             this.label53 = new System.Windows.Forms.Label();
             this.tp_NotasDebitoCargadas = new System.Windows.Forms.TabPage();
-            this.label42 = new System.Windows.Forms.Label();
+            this.lbl_FechaND = new System.Windows.Forms.Label();
             this.btn_GenerarComprobanteND = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_GuardarExcelND = new System.Windows.Forms.Button();
             this.btn_FiltroND = new System.Windows.Forms.Button();
             this.label43 = new System.Windows.Forms.Label();
             this.cb_EmpresaND = new System.Windows.Forms.ComboBox();
@@ -2351,7 +2351,7 @@ namespace Facturacion_Electronica
             // tp_NotasCreditoCargadas
             // 
             this.tp_NotasCreditoCargadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_NotasCreditoCargadas.Controls.Add(this.label48);
+            this.tp_NotasCreditoCargadas.Controls.Add(this.lbl_FechaNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.btn_ComprobanteNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.btn_ExcelNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.btn_FiltroNC);
@@ -2373,17 +2373,17 @@ namespace Facturacion_Electronica
             this.tp_NotasCreditoCargadas.TabIndex = 8;
             this.tp_NotasCreditoCargadas.Text = "Cargar Nota Credito";
             // 
-            // label48
+            // lbl_FechaNC
             // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label48.Location = new System.Drawing.Point(95, 63);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(51, 16);
-            this.label48.TabIndex = 149;
-            this.label48.Text = "Fecha :";
-            this.label48.Visible = false;
+            this.lbl_FechaNC.AutoSize = true;
+            this.lbl_FechaNC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_FechaNC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_FechaNC.Location = new System.Drawing.Point(95, 63);
+            this.lbl_FechaNC.Name = "lbl_FechaNC";
+            this.lbl_FechaNC.Size = new System.Drawing.Size(51, 16);
+            this.lbl_FechaNC.TabIndex = 149;
+            this.lbl_FechaNC.Text = "Fecha :";
+            this.lbl_FechaNC.Visible = false;
             // 
             // btn_ComprobanteNC
             // 
@@ -2413,6 +2413,7 @@ namespace Facturacion_Electronica
             this.btn_ExcelNC.Text = "Guardar en Excel";
             this.btn_ExcelNC.UseVisualStyleBackColor = false;
             this.btn_ExcelNC.Visible = false;
+            this.btn_ExcelNC.Click += new System.EventHandler(this.btn_ExcelNC_Click);
             // 
             // btn_FiltroNC
             // 
@@ -2502,6 +2503,7 @@ namespace Facturacion_Electronica
             this.btn_VolverNC.Text = "Volver";
             this.btn_VolverNC.UseVisualStyleBackColor = false;
             this.btn_VolverNC.Visible = false;
+            this.btn_VolverNC.Click += new System.EventHandler(this.btn_VolverNC_Click);
             // 
             // dgv_NcCargadas
             // 
@@ -2682,9 +2684,9 @@ namespace Facturacion_Electronica
             // tp_NotasDebitoCargadas
             // 
             this.tp_NotasDebitoCargadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.tp_NotasDebitoCargadas.Controls.Add(this.label42);
+            this.tp_NotasDebitoCargadas.Controls.Add(this.lbl_FechaND);
             this.tp_NotasDebitoCargadas.Controls.Add(this.btn_GenerarComprobanteND);
-            this.tp_NotasDebitoCargadas.Controls.Add(this.button2);
+            this.tp_NotasDebitoCargadas.Controls.Add(this.btn_GuardarExcelND);
             this.tp_NotasDebitoCargadas.Controls.Add(this.btn_FiltroND);
             this.tp_NotasDebitoCargadas.Controls.Add(this.label43);
             this.tp_NotasDebitoCargadas.Controls.Add(this.cb_EmpresaND);
@@ -2704,17 +2706,17 @@ namespace Facturacion_Electronica
             this.tp_NotasDebitoCargadas.TabIndex = 9;
             this.tp_NotasDebitoCargadas.Text = "Cargar Nota Dedito";
             // 
-            // label42
+            // lbl_FechaND
             // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label42.Location = new System.Drawing.Point(95, 63);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(51, 16);
-            this.label42.TabIndex = 149;
-            this.label42.Text = "Fecha :";
-            this.label42.Visible = false;
+            this.lbl_FechaND.AutoSize = true;
+            this.lbl_FechaND.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_FechaND.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_FechaND.Location = new System.Drawing.Point(95, 63);
+            this.lbl_FechaND.Name = "lbl_FechaND";
+            this.lbl_FechaND.Size = new System.Drawing.Size(51, 16);
+            this.lbl_FechaND.TabIndex = 149;
+            this.lbl_FechaND.Text = "Fecha :";
+            this.lbl_FechaND.Visible = false;
             // 
             // btn_GenerarComprobanteND
             // 
@@ -2731,19 +2733,20 @@ namespace Facturacion_Electronica
             this.btn_GenerarComprobanteND.Visible = false;
             this.btn_GenerarComprobanteND.Click += new System.EventHandler(this.btn_GenerarComprobanteND_Click);
             // 
-            // button2
+            // btn_GuardarExcelND
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(290, 91);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 36);
-            this.button2.TabIndex = 147;
-            this.button2.Text = "Guardar en Excel";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Visible = false;
+            this.btn_GuardarExcelND.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_GuardarExcelND.FlatAppearance.BorderSize = 0;
+            this.btn_GuardarExcelND.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_GuardarExcelND.Location = new System.Drawing.Point(290, 91);
+            this.btn_GuardarExcelND.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_GuardarExcelND.Name = "btn_GuardarExcelND";
+            this.btn_GuardarExcelND.Size = new System.Drawing.Size(158, 36);
+            this.btn_GuardarExcelND.TabIndex = 147;
+            this.btn_GuardarExcelND.Text = "Guardar en Excel";
+            this.btn_GuardarExcelND.UseVisualStyleBackColor = false;
+            this.btn_GuardarExcelND.Visible = false;
+            this.btn_GuardarExcelND.Click += new System.EventHandler(this.btn_GuardarExcelND_Click);
             // 
             // btn_FiltroND
             // 
@@ -2833,6 +2836,7 @@ namespace Facturacion_Electronica
             this.btn_VolverND.Text = "Volver";
             this.btn_VolverND.UseVisualStyleBackColor = false;
             this.btn_VolverND.Visible = false;
+            this.btn_VolverND.Click += new System.EventHandler(this.btn_VolverND_Click);
             // 
             // dgv_NdCargadas
             // 
@@ -3479,7 +3483,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TabPage tp_NotasCreditoCargadas;
-        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label lbl_FechaNC;
         private System.Windows.Forms.Button btn_ComprobanteNC;
         private System.Windows.Forms.Button btn_ExcelNC;
         private System.Windows.Forms.Button btn_FiltroNC;
@@ -3509,9 +3513,9 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.Button btn_ConsultaNC;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.TabPage tp_NotasDebitoCargadas;
-        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label lbl_FechaND;
         private System.Windows.Forms.Button btn_GenerarComprobanteND;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_GuardarExcelND;
         private System.Windows.Forms.Button btn_FiltroND;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.ComboBox cb_EmpresaND;

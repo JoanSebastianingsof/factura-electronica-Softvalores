@@ -1314,10 +1314,8 @@ namespace Facturacion_Electronica
       
         private void btn_FCVolver_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = true; dgv_FCFacturasCargadas.Visible = false; btn_FCVolver.Visible = false; btn_FCGuardarExcel.Visible = false;
-            btn_FCGenerarComprobante.Visible = false; tb_FCIdFactura.Text = ""; label21.Visible = false;
-            dataGridView1.Rows.Clear();
-            cargaDg.cargaFC(dataGridView1, "Facturas");
+            btnVolver(dataGridView1, dgv_FCFacturasCargadas, btn_FCVolver, btn_FCGuardarExcel, btn_FCGenerarComprobante, tb_FCIdFactura, label21,"Facturas");
+                       
         }
         //Generar comprobante
         private void btn_FCGenerarComprobante_Click(object sender, EventArgs e)
@@ -2056,6 +2054,12 @@ namespace Facturacion_Electronica
         {
             ConsultarDocumentos(dgv_FondoNC, dgv_NcCargadas);
         }
+        private void btn_VolverNC_Click(object sender, EventArgs e)
+        {
+            btnVolver(dgv_FondoNC, dgv_NcCargadas, btn_VolverNC, btn_ExcelNC, btn_ComprobanteNC, tb_IdNC, lbl_FechaNC, "Nota_Credito");
+
+        }
+
         private void tp_CargarFactura_Click(object sender, EventArgs e)
         {
 
@@ -2069,7 +2073,6 @@ namespace Facturacion_Electronica
         }
 
 
-        //Nota Debito
         private void btn_GenerarComprobanteND_Click(object sender, EventArgs e)
         {
             string columna = "Nota_Debito";
@@ -2079,6 +2082,10 @@ namespace Facturacion_Electronica
         private void btn_ConsultaND_Click(object sender, EventArgs e)
         {
             ConsultarDocumentos(dgv_FondoND, dgv_NdCargadas);
+        }
+        private void btn_VolverND_Click(object sender, EventArgs e)
+        {
+            btnVolver(dgv_FondoND, dgv_NdCargadas, btn_VolverND, btn_GuardarExcelND, btn_GenerarComprobanteND, tb_IdND, lbl_FechaND, "Nota_Dedito");
         }
 
         //Clases
@@ -3069,6 +3076,221 @@ namespace Facturacion_Electronica
         }
 
         private void cb_FCEmpresaFactura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }       
+      
+        public void btnVolver(DataGridView dgvolver, DataGridView dgComprobantes, Control btnVolver, Control btnExcel, Control btnComprobante,TextBox tbId, Control lbl,string tbl)
+        {
+            dgvolver.Visible = true; dgComprobantes.Visible = false; btnVolver.Visible = false; btnExcel.Visible = false;
+            btnComprobante.Visible = false; tbId.Text = ""; lbl.Visible = false;
+            dgvolver.Rows.Clear();
+            cargaDg.cargaFC(dgvolver, tbl);         
+        }
+        public void guardarExcel()
+        {
+            string[] facturaData = new string[99]; string[] facturaType = new string[99]; string[] facturaInfo = new string[99];
+            conexion.Open();
+            String cadenaInfoFactura = "Select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente,FechaEmision from fe_comprobantesV2 where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+            SqlCommand comandoInfo = new SqlCommand(cadenaInfoFactura, conexion);
+            SqlDataReader registroInfo = comandoInfo.ExecuteReader();
+            if (registroInfo.Read())
+            {
+                facturaInfo[1] = registroInfo["Contabilidad"].ToString();
+                facturaInfo[2] = registroInfo["Id_Factura"].ToString();
+                facturaInfo[3] = registroInfo["TipoId_EmpFactura"].ToString();
+                facturaInfo[4] = registroInfo["No_idEmpFactura"].ToString();
+                facturaInfo[5] = registroInfo["TipoId_Cliente"].ToString();
+                facturaInfo[6] = registroInfo["No_idCLiente"].ToString();
+                facturaInfo[7] = registroInfo["FechaEmision"].ToString();
+                //validar = true;
+            }
+            else
+            {
+                MessageBox.Show("La factura que esta Exportando No Existe!!");
+                //validar = false;
+            }
+            registroInfo.Close();
+
+            String Count = "select COUNT (*) from fe_ComprobantesTributos  where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+            SqlCommand comandoCount = new SqlCommand(Count, conexion);
+            Int32 totalDatos = (Int32)comandoCount.ExecuteScalar();
+            conexion.Close();
+
+
+            conexion.Open();
+
+            String cadenaInfoFacturaReten2 = "Select Id_Factura,Id_Tributos,Valor from fe_ComprobantesTributos where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+            SqlCommand comandoInfoReten2 = new SqlCommand(cadenaInfoFacturaReten2, conexion);
+            SqlDataReader registroInfoReten2 = comandoInfoReten2.ExecuteReader();
+            int contadorInfo = 0;
+            int arregloInfo = 10;
+
+
+
+
+
+            while (registroInfoReten2.Read() && contadorInfo < totalDatos)
+            {
+
+                facturaInfo[arregloInfo] = registroInfoReten2["Id_Tributos"].ToString();
+
+                arregloInfo++;
+
+                facturaInfo[arregloInfo] = registroInfoReten2["Valor"].ToString();
+                arregloInfo++;
+                contadorInfo++;
+
+            }
+
+            /* string cadenaInfoFactira = "select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente,fechaEmision,Ingreso,Iva,Rte_Fte,Rte_Iva,Rte_Ica,Cta_Cobrar,Nom_EmpFact,Nom_Cliente from fe_comprobantes where Id_Factura = '" + tb_FCIdFactura.Text + "'";
+             SqlCommand comandoIF = new SqlCommand(cadenaInfoFactira, conexion);
+             SqlDataReader registroIF = comandoIF.ExecuteReader();
+             if (registroIF.Read())
+             {
+                 facturaInfo[1] = registroIF["Contabilidad"].ToString();
+                 facturaInfo[2] = registroIF["Id_Factura"].ToString();
+                 facturaInfo[3] = registroIF["TipoId_EmpFactura"].ToString();
+                 facturaInfo[4] = registroIF["No_idEmpFactura"].ToString();
+                 facturaInfo[5] = registroIF["TipoId_Cliente"].ToString();
+                 facturaInfo[6] = registroIF["No_idCLiente"].ToString();
+
+                 facturaInfo[7] = registroIF["Ingreso"].ToString();
+                 facturaInfo[8] = registroIF["Iva"].ToString();
+                 facturaInfo[9] = registroIF["Rte_Fte"].ToString();
+                 facturaInfo[10] = registroIF["Rte_Iva"].ToString();
+                 facturaInfo[11] = registroIF["Rte_Ica"].ToString();
+                 facturaInfo[12] = registroIF["Cta_Cobrar"].ToString();
+                 facturaInfo[13] = registroIF["Nom_EmpFact"].ToString();
+                 facturaInfo[14] = registroIF["Nom_Cliente"].ToString();
+                 facturaInfo[16] = registroIF["fechaEmision"].ToString();
+             }
+             else
+             {
+                 MessageBox.Show("La Factura que esta Buscando No Existe!!");
+             }*/
+            conexion.Close();
+
+            conexion.Open();
+            string cadenaTipoFactura = "select Facturas from fe_ParametrosGenerales where NoId = '" + facturaInfo[4] + "' and Contabilidad = '" + facturaInfo[1] + "'";
+            SqlCommand comandoTF = new SqlCommand(cadenaTipoFactura, conexion);
+            SqlDataReader registroTF = comandoTF.ExecuteReader();
+            if (registroTF.Read())
+            {
+                facturaInfo[8] = registroTF["Facturas"].ToString();
+            }
+
+            conexion.Close();
+
+            conexion.Open();
+            string cadenaNumCons = "select num_cons from gn_conse where cod_arbo = '" + facturaInfo[1] + "' and cod_cons = '" + facturaInfo[8] + "'";
+            SqlCommand comandoNumCons = new SqlCommand(cadenaNumCons, conexion);
+            SqlDataReader registroNumCons = comandoNumCons.ExecuteReader();
+            if (registroNumCons.Read())
+            {
+                facturaInfo[9] = registroNumCons["num_cons"].ToString();
+            }
+
+            conexion.Close();
+
+            int cantidadCod = 0;
+            conexion.Open();
+            string cadenaCodigC = "select * from fe_ParametrosContables where No_IdCLiente = '" + facturaInfo[6] + "'";
+            SqlCommand comandoCodigC = new SqlCommand(cadenaCodigC, conexion);
+            SqlDataReader registroCodigC = comandoCodigC.ExecuteReader();
+            while (registroCodigC.Read())
+            {
+                facturaData[cantidadCod] = registroCodigC[3].ToString();
+                facturaType[cantidadCod] = registroCodigC[5].ToString();
+                cantidadCod++;
+            }
+            conexion.Close();
+            string[] TipoCuen = new string[99];
+            for (int i = 0; i < 6; i++)
+            {
+                conexion.Open();
+                string cadenaCIC = "select cod_cuen,man_trib from dbo.cm_cuent where cod_cuen='" + facturaData[i] + "'";
+                SqlCommand leerCIC = new SqlCommand(cadenaCIC, conexion);
+                SqlDataReader registroCIC = leerCIC.ExecuteReader();
+                if (registroCIC.Read())
+                {
+                    TipoCuen[i] = registroCIC["man_trib"].ToString();
+                }
+                conexion.Close();
+            }
+
+            bool validarCodigos = true; int movimiento = 0;
+
+            for (int i = 0; i < 6; i++)
+            {
+                int position = i + 7;
+                if (facturaData[i] == "" && facturaInfo[position] != "0.00")
+                {
+                    validarCodigos = false;
+                    movimiento = i;
+                    MessageBox.Show(facturaData[i] + " " + facturaInfo[position]);
+                }
+            }
+
+            if (validarCodigos)
+            {
+                string ruta = "./Plantilla.xlsx";
+                SLDocument sl = new SLDocument(ruta);
+
+                System.Data.DataTable dt = new System.Data.DataTable();
+                int CargarDataExcel = 0; int positionDataExcel = 1;
+                string[] NombreContabilidad = { "Ingreso", "IVA", "Rte.Fte", "Rte.Iva", "Rte.Ica", "Cta x Cobrar", "" };
+                for (int i = 0; i < NombreContabilidad.Length; i++)
+                {
+
+                    for (int j = 0; j < facturaInfo.Length; j++)
+                    {
+
+                        if (NombreContabilidad[i] == facturaInfo[j])
+                        {
+                            sl.SetCellValue("A" + positionDataExcel, facturaInfo[8]);
+                            sl.SetCellValue("B" + positionDataExcel, int.Parse(facturaInfo[9]));
+                            sl.SetCellValue("C" + positionDataExcel, DateTime.Parse(facturaInfo[7]));
+                            sl.SetCellValue("D" + positionDataExcel, long.Parse(facturaData[0 + i]));
+                            if (TipoCuen[0 + i] == "T")
+                            {
+                                sl.SetCellValue("E" + positionDataExcel, facturaInfo[6]);
+                                sl.SetCellValue("F" + positionDataExcel, facturaInfo[5]);
+                            }
+                            sl.SetCellValue("H" + positionDataExcel, NombreContabilidad[i] + " FACTURA No. " + facturaInfo[2] + " " + facturaInfo[6]);
+                            sl.SetCellValue("J" + positionDataExcel, double.Parse(facturaInfo[j + 1]));
+                            sl.SetCellValue("K" + positionDataExcel, facturaType[0 + i]);
+                            CargarDataExcel++; positionDataExcel++;
+                        }
+                    }
+
+                }
+
+                SaveFileDialog guarda = new SaveFileDialog();
+                guarda.Filter = "Libro de Excel|*.xlsx";
+                guarda.Title = "Guardar Reporte";
+                guarda.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+                if (guarda.ShowDialog() == DialogResult.OK)
+                {
+                    sl.SaveAs(guarda.FileName);
+                    MessageBox.Show("Archivo Guardado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: La factura tiene Movimientos que Faltan en parametros contables");
+            }
+            Console.WriteLine("5");
+
+        }
+
+        private void btn_ExcelNC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_GuardarExcelND_Click(object sender, EventArgs e)
         {
 
         }
