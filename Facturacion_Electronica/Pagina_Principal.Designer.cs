@@ -206,7 +206,7 @@ namespace Facturacion_Electronica
             this.tp_NotasCreditoCargadas = new System.Windows.Forms.TabPage();
             this.lbl_FechaNC = new System.Windows.Forms.Label();
             this.btn_ComprobanteNC = new System.Windows.Forms.Button();
-            this.btn_ExcelNC = new System.Windows.Forms.Button();
+            this.btn_GuardarExcelNC = new System.Windows.Forms.Button();
             this.btn_FiltroNC = new System.Windows.Forms.Button();
             this.label49 = new System.Windows.Forms.Label();
             this.cb_EmpresaNC = new System.Windows.Forms.ComboBox();
@@ -972,6 +972,7 @@ namespace Facturacion_Electronica
             this.label21.TabIndex = 133;
             this.label21.Text = "Fecha :";
             this.label21.Visible = false;
+            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // btn_FCGenerarComprobante
             // 
@@ -2353,7 +2354,7 @@ namespace Facturacion_Electronica
             this.tp_NotasCreditoCargadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.tp_NotasCreditoCargadas.Controls.Add(this.lbl_FechaNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.btn_ComprobanteNC);
-            this.tp_NotasCreditoCargadas.Controls.Add(this.btn_ExcelNC);
+            this.tp_NotasCreditoCargadas.Controls.Add(this.btn_GuardarExcelNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.btn_FiltroNC);
             this.tp_NotasCreditoCargadas.Controls.Add(this.label49);
             this.tp_NotasCreditoCargadas.Controls.Add(this.cb_EmpresaNC);
@@ -2400,20 +2401,20 @@ namespace Facturacion_Electronica
             this.btn_ComprobanteNC.Visible = false;
             this.btn_ComprobanteNC.Click += new System.EventHandler(this.btn_ComprobanteNC_Click);
             // 
-            // btn_ExcelNC
+            // btn_GuardarExcelNC
             // 
-            this.btn_ExcelNC.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_ExcelNC.FlatAppearance.BorderSize = 0;
-            this.btn_ExcelNC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ExcelNC.Location = new System.Drawing.Point(290, 91);
-            this.btn_ExcelNC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_ExcelNC.Name = "btn_ExcelNC";
-            this.btn_ExcelNC.Size = new System.Drawing.Size(158, 36);
-            this.btn_ExcelNC.TabIndex = 147;
-            this.btn_ExcelNC.Text = "Guardar en Excel";
-            this.btn_ExcelNC.UseVisualStyleBackColor = false;
-            this.btn_ExcelNC.Visible = false;
-            this.btn_ExcelNC.Click += new System.EventHandler(this.btn_ExcelNC_Click);
+            this.btn_GuardarExcelNC.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_GuardarExcelNC.FlatAppearance.BorderSize = 0;
+            this.btn_GuardarExcelNC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_GuardarExcelNC.Location = new System.Drawing.Point(290, 91);
+            this.btn_GuardarExcelNC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_GuardarExcelNC.Name = "btn_GuardarExcelNC";
+            this.btn_GuardarExcelNC.Size = new System.Drawing.Size(158, 36);
+            this.btn_GuardarExcelNC.TabIndex = 147;
+            this.btn_GuardarExcelNC.Text = "Guardar en Excel";
+            this.btn_GuardarExcelNC.UseVisualStyleBackColor = false;
+            this.btn_GuardarExcelNC.Visible = false;
+            this.btn_GuardarExcelNC.Click += new System.EventHandler(this.btn_GuardarExcelNC_Click);
             // 
             // btn_FiltroNC
             // 
@@ -2427,6 +2428,7 @@ namespace Facturacion_Electronica
             this.btn_FiltroNC.TabIndex = 146;
             this.btn_FiltroNC.Text = "Aplicar Filtro";
             this.btn_FiltroNC.UseVisualStyleBackColor = false;
+            this.btn_FiltroNC.Click += new System.EventHandler(this.btn_FiltroNC_Click);
             // 
             // label49
             // 
@@ -2760,6 +2762,7 @@ namespace Facturacion_Electronica
             this.btn_FiltroND.TabIndex = 146;
             this.btn_FiltroND.Text = "Aplicar Filtro";
             this.btn_FiltroND.UseVisualStyleBackColor = false;
+            this.btn_FiltroND.Click += new System.EventHandler(this.btn_FiltroND_Click);
             // 
             // label43
             // 
@@ -3485,7 +3488,7 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.TabPage tp_NotasCreditoCargadas;
         private System.Windows.Forms.Label lbl_FechaNC;
         private System.Windows.Forms.Button btn_ComprobanteNC;
-        private System.Windows.Forms.Button btn_ExcelNC;
+        private System.Windows.Forms.Button btn_GuardarExcelNC;
         private System.Windows.Forms.Button btn_FiltroNC;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.ComboBox cb_EmpresaNC;
