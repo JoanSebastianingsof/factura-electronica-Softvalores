@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Facturacion_Electronica.exe" size="296960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Facturacion_Electronica.exe" size="303616">
       <assemblyIdentity name="Facturacion_Electronica" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QW/ku93ccj/GLj8SgZJre/Y8xKki8i85K57d91T2HLI=</dsig:DigestValue>
+        <dsig:DigestValue>Xkxb+JjVBGmxbi3qx0jvvqSvzEmgpMJXOFzDyogDNQ4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

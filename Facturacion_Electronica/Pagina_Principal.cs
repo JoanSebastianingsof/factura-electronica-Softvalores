@@ -1321,7 +1321,8 @@ namespace Facturacion_Electronica
         private void btn_FCGenerarComprobante_Click(object sender, EventArgs e)
         {
             string columna = "Facturas";
-            generarComprobantes(columna, tb_FCIdFactura.Text);
+            string TipoMov = "Tipo_Mov";
+            generarComprobantes(columna, tb_FCIdFactura.Text, TipoMov);
 
             /*string[] MovNo = new string[99]; string[] MovType = new string[99]; string[] facturaInfo = new string[99];
             string[] TipoCuen = new string[99]; string estadoFactura = ""; string[] TipoCuenta = new string[99];
@@ -2047,7 +2048,8 @@ namespace Facturacion_Electronica
         private void btn_ComprobanteNC_Click(object sender, EventArgs e)
         {
             string columna = "Nota_Credito";
-            generarComprobantes(columna, tb_IdNC.Text);
+            string TipoMov = "Tipo_MovNC";
+            generarComprobantes(columna, tb_IdNC.Text, TipoMov);
 
         }
         private void btn_ConsultaNC_Click(object sender, EventArgs e)
@@ -2079,7 +2081,8 @@ namespace Facturacion_Electronica
         private void btn_GenerarComprobanteND_Click(object sender, EventArgs e)
         {
             string columna = "Nota_Debito";
-            generarComprobantes(columna, tb_IdND.Text);
+            string TipoMov = "Tipo_MovND";
+            generarComprobantes(columna, tb_IdND.Text, TipoMov);
         }
 
         private void btn_ConsultaND_Click(object sender, EventArgs e)
@@ -2625,7 +2628,7 @@ namespace Facturacion_Electronica
 
 
         //Clases
-        public void generarComprobantes(string documento, string tb)
+        public void generarComprobantes(string documento, string tb,string TipoMov)
         {
             string[] MovNo = new string[99]; string[] MovType = new string[99]; string[] facturaInfo = new string[99];
             string[] TipoCuen = new string[99]; string estadoFactura = ""; string[] TipoCuenta = new string[99];
@@ -2695,7 +2698,7 @@ namespace Facturacion_Electronica
 
                 // Consulta a PC "Parametros Contables" Para encontrar el Tipo de Movimiento de las cuentas Contables
                 conexion.Open();
-                string cadenaConsultaPC = "select Tipo_Mov,Cod_Cuenta,Man_Trib,RTRIM(Tipo_Cuenta) from fe_ParametrosContables where Contabilidad = '" + facturaInfo[1] + "' and No_idCLiente ='" + facturaInfo[6] + "'";
+                string cadenaConsultaPC = "select "+TipoMov+",Cod_Cuenta,Man_Trib,RTRIM(Tipo_Cuenta) from fe_ParametrosContables where Contabilidad = '" + facturaInfo[1] + "' and No_idCLiente ='" + facturaInfo[6] + "'";
                 SqlCommand comandoConsultaPC = new SqlCommand(cadenaConsultaPC, conexion);
                 SqlDataReader registroConsultaPC = comandoConsultaPC.ExecuteReader();
                 Console.WriteLine(cadenaConsultaPC);
@@ -3154,32 +3157,7 @@ namespace Facturacion_Electronica
 
             }
 
-            /* string cadenaInfoFactira = "select Contabilidad,Id_Factura,TipoId_EmpFactura,No_idEmpFactura,TipoId_Cliente,No_idCLiente,fechaEmision,Ingreso,Iva,Rte_Fte,Rte_Iva,Rte_Ica,Cta_Cobrar,Nom_EmpFact,Nom_Cliente from fe_comprobantes where Id_Factura = '" + tbId.Text + "'";
-             SqlCommand comandoIF = new SqlCommand(cadenaInfoFactira, conexion);
-             SqlDataReader registroIF = comandoIF.ExecuteReader();
-             if (registroIF.Read())
-             {
-                 facturaInfo[1] = registroIF["Contabilidad"].ToString();
-                 facturaInfo[2] = registroIF["Id_Factura"].ToString();
-                 facturaInfo[3] = registroIF["TipoId_EmpFactura"].ToString();
-                 facturaInfo[4] = registroIF["No_idEmpFactura"].ToString();
-                 facturaInfo[5] = registroIF["TipoId_Cliente"].ToString();
-                 facturaInfo[6] = registroIF["No_idCLiente"].ToString();
-
-                 facturaInfo[7] = registroIF["Ingreso"].ToString();
-                 facturaInfo[8] = registroIF["Iva"].ToString();
-                 facturaInfo[9] = registroIF["Rte_Fte"].ToString();
-                 facturaInfo[10] = registroIF["Rte_Iva"].ToString();
-                 facturaInfo[11] = registroIF["Rte_Ica"].ToString();
-                 facturaInfo[12] = registroIF["Cta_Cobrar"].ToString();
-                 facturaInfo[13] = registroIF["Nom_EmpFact"].ToString();
-                 facturaInfo[14] = registroIF["Nom_Cliente"].ToString();
-                 facturaInfo[16] = registroIF["fechaEmision"].ToString();
-             }
-             else
-             {
-                 MessageBox.Show("La Factura que esta Buscando No Existe!!");
-             }*/
+          
             conexion.Close();
 
             conexion.Open();
@@ -3304,19 +3282,35 @@ namespace Facturacion_Electronica
 
         private void btn_FiltroND_Click(object sender, EventArgs e)
         {
-
+            FiltrosbuscarDocs(cb_EmpresaND.Text, dgv_FondoND, cb_EstadoND.Text, "Nota_Debito");
         }
 
         private void btn_FiltroNC_Click(object sender, EventArgs e)
         {
-
+            FiltrosbuscarDocs(cb_EmpresaNC.Text, dgv_FondoNC, cb_EstadoNC.Text,"Nota_Credito");
         }
-        public void FiltrosbuscarDocs()
+        public void FiltrosbuscarDocs(string EmpresaId,DataGridView dgvFondo,string cbEstado,string columna)
         {
             string contabilidad = "";
+            conexion.Open();
+            string[] facturas = new string[99];
+            string[] Empresaid = new string[99];
+
+            int i = 0;
+            SqlCommand cmds = new SqlCommand("select " + columna + ",NoId from fe_parametrosgenerales", conexion);
+            SqlDataReader drs = cmds.ExecuteReader();
+            while (drs.Read())
+            {
+                facturas[i] = drs[columna].ToString();
+                Empresaid[i] = drs["NoId"].ToString();
+              
+                i++;
+
+            }
+            conexion.Close();
 
             conexion.Open();
-            SqlCommand comandoConta = new SqlCommand("select cod_arbo from dbo.gn_arbol where des_arbo ='" + cb_FCEmpresaFactura.Text + "'", conexion);
+            SqlCommand comandoConta = new SqlCommand("select cod_arbo from dbo.gn_arbol where des_arbo ='" + EmpresaId + "'", conexion);
             SqlDataReader leerConta = comandoConta.ExecuteReader();
             if (leerConta.Read())
             {
@@ -3324,52 +3318,88 @@ namespace Facturacion_Electronica
             }
             conexion.Close();
 
-            if (cb_FCEstado.Text == "Seleccione un Item..." && cb_FCEmpresaFactura.Text == "Seleccione un Item...")
+            if (cbEstado == "Seleccione un Item..." && EmpresaId == "Seleccione un Item...")
             {
-                cargaDg.cargaFC(dataGridView1, "Facturas");
+                cargaDg.cargaFC(dgvFondo, columna);
             }
-            if (cb_FCEstado.Text != "Seleccione un Item..." && cb_FCEmpresaFactura.Text == "Seleccione un Item...")
+            if (cbEstado != "Seleccione un Item..." && EmpresaId == "Seleccione un Item...")
             {
-                dataGridView1.Rows.Clear();
+                dgvFondo.Rows.Clear();
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where Estado ='" + cb_FCEstado.Text + "'", conexion);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    dataGridView1.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
-                    // dataGridView1.Rows.Add(dr[1].ToString(), dr[0].ToString(), dr[13].ToString(), dr[14].ToString(), dr[6].ToString(), dr[15].ToString());
 
-                }
+                for (int a = 0; a < Empresaid.Length; a++)
+                {
+                    Console.WriteLine(Empresaid[a] + "Empresaid");
+
+                    if (!string.IsNullOrEmpty(Empresaid[a]))
+                    {
+                        SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where No_IdEmpFactura=@IdEmpresa and Estado ='" + cbEstado + "'", conexion);
+                        cmd.Parameters.AddWithValue("@IdEmpresa", Empresaid[a]);
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                dgvFondo.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
+
+                            }
+                        }
+                    }
+
+                                   
+                }                                  
                 conexion.Close();
             }
-            if (cb_FCEstado.Text == "Seleccione un Item..." && cb_FCEmpresaFactura.Text != "Seleccione un Item...")
+            if (cbEstado == "Seleccione un Item..." && EmpresaId != "Seleccione un Item...")
             {
-                dataGridView1.Rows.Clear();
+                dgvFondo.Rows.Clear();
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where Contabilidad ='" + contabilidad + "'", conexion);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                for (int a = 0; a < Empresaid.Length; a++)
                 {
-                    dataGridView1.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
-                    //dataGridView1.Rows.Add(dr[1].ToString(), dr[0].ToString(), dr[13].ToString(), dr[14].ToString(), dr[6].ToString(), dr[15].ToString());
-                }
+                    Console.WriteLine(facturas[a] + "Facturas");
+
+                    if (!string.IsNullOrEmpty(facturas[a]))
+                    {
+                        SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where LEFT(id_factura, 2)=@IdFactura and No_IdEmpFactura=@IdEmpresa and Contabilidad ='" + contabilidad + "'", conexion);
+                        cmd.Parameters.AddWithValue("@IdFactura", facturas[a]);
+                        cmd.Parameters.AddWithValue("@IdEmpresa", Empresaid[a]);
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                dgvFondo.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
+                            }
+                        }
+                    }
+
+                          
+                }                   
                 conexion.Close();
             }
-            if (cb_FCEstado.Text != "Seleccione un Item..." && cb_FCEmpresaFactura.Text != "Seleccione un Item...")
+            if (cbEstado != "Seleccione un Item..." && EmpresaId != "Seleccione un Item...")
             {
-                dataGridView1.Rows.Clear();
+                dgvFondo.Rows.Clear();
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where Contabilidad ='" + contabilidad + "' and Estado ='" + cb_FCEstado.Text + "'", conexion);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                for (int a = 0; a < Empresaid.Length; a++)
                 {
-                    dataGridView1.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
+                    Console.WriteLine(facturas[a] + "Facturas");
 
-                    // dataGridView1.Rows.Add(dr[1].ToString(), dr[0].ToString(), dr[13].ToString(), dr[14].ToString(), dr[6].ToString(), dr[15].ToString());
-                }
+                    if (!string.IsNullOrEmpty(facturas[a]))
+                    {
+                        SqlCommand cmd = new SqlCommand("select * from fe_comprobantesV2 where LEFT(id_factura, 2)=@IdFactura and No_IdEmpFactura=@IdEmpresa and Contabilidad ='" + contabilidad + "' and Estado ='" + cbEstado + "'", conexion);
+                        cmd.Parameters.AddWithValue("@IdFactura", facturas[a]);
+                        cmd.Parameters.AddWithValue("@IdEmpresa", Empresaid[a]);
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                dgvFondo.Rows.Add(dr[2].ToString(), dr[1].ToString(), dr[4].ToString(), dr[6].ToString(), dr[7].ToString(), dr[9].ToString());
+
+                            }
+                        }                        
+                    }
+                }                   
                 conexion.Close();
             }
-
         }
     }
 }

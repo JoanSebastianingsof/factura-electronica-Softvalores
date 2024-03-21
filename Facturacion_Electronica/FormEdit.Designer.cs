@@ -58,6 +58,8 @@ namespace Facturacion_Electronica
             this.cb_TipoIdCliente = new System.Windows.Forms.ComboBox();
             this.cb_Contabilidad = new System.Windows.Forms.ComboBox();
             this.txt_NoIdCliente = new System.Windows.Forms.TextBox();
+            this.lbl_TipoDoc = new System.Windows.Forms.Label();
+            this.cb_TipoDoc = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // comboBox6
@@ -185,7 +187,7 @@ namespace Facturacion_Electronica
             this.PC_F2Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PC_F2Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.PC_F2Agregar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PC_F2Agregar.Location = new System.Drawing.Point(17, 158);
+            this.PC_F2Agregar.Location = new System.Drawing.Point(17, 197);
             this.PC_F2Agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PC_F2Agregar.Name = "PC_F2Agregar";
             this.PC_F2Agregar.Size = new System.Drawing.Size(116, 31);
@@ -218,7 +220,7 @@ namespace Facturacion_Electronica
             this.PC_F2Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PC_F2Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.PC_F2Buscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PC_F2Buscar.Location = new System.Drawing.Point(17, 202);
+            this.PC_F2Buscar.Location = new System.Drawing.Point(17, 241);
             this.PC_F2Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PC_F2Buscar.Name = "PC_F2Buscar";
             this.PC_F2Buscar.Size = new System.Drawing.Size(116, 31);
@@ -235,7 +237,7 @@ namespace Facturacion_Electronica
             this.lbl_TCodCuen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_TCodCuen.Location = new System.Drawing.Point(328, 10);
             this.lbl_TCodCuen.Name = "lbl_TCodCuen";
-            this.lbl_TCodCuen.Size = new System.Drawing.Size(82, 16);
+            this.lbl_TCodCuen.Size = new System.Drawing.Size(81, 16);
             this.lbl_TCodCuen.TabIndex = 156;
             this.lbl_TCodCuen.Text = "COD Cuenta";
             // 
@@ -246,7 +248,7 @@ namespace Facturacion_Electronica
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(199, 244);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 16);
+            this.label4.Size = new System.Drawing.Size(86, 16);
             this.label4.TabIndex = 155;
             this.label4.Text = "Cta x Cobrar :";
             // 
@@ -266,7 +268,7 @@ namespace Facturacion_Electronica
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(234, 202);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 16);
+            this.label5.Size = new System.Drawing.Size(55, 16);
             this.label5.TabIndex = 153;
             this.label5.Text = "Rte Ica :";
             // 
@@ -286,7 +288,7 @@ namespace Facturacion_Electronica
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(234, 158);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.Size = new System.Drawing.Size(55, 16);
             this.label6.TabIndex = 151;
             this.label6.Text = "Rte Iva :";
             // 
@@ -306,7 +308,7 @@ namespace Facturacion_Electronica
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(211, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 16);
+            this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 149;
             this.label3.Text = "Rte Fuente :";
             // 
@@ -326,7 +328,7 @@ namespace Facturacion_Electronica
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(256, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 16);
+            this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 147;
             this.label2.Text = "IVA :";
             // 
@@ -346,7 +348,7 @@ namespace Facturacion_Electronica
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(229, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 145;
             this.label1.Text = "Ingreso :";
             // 
@@ -367,7 +369,7 @@ namespace Facturacion_Electronica
             this.lblTIdNoCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTIdNoCliente.Location = new System.Drawing.Point(16, 97);
             this.lblTIdNoCliente.Name = "lblTIdNoCliente";
-            this.lblTIdNoCliente.Size = new System.Drawing.Size(95, 16);
+            this.lblTIdNoCliente.Size = new System.Drawing.Size(94, 16);
             this.lblTIdNoCliente.TabIndex = 143;
             this.lblTIdNoCliente.Text = "No. ID Cliente :";
             // 
@@ -378,7 +380,7 @@ namespace Facturacion_Electronica
             this.lblTIdCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTIdCliente.Location = new System.Drawing.Point(14, 55);
             this.lblTIdCliente.Name = "lblTIdCliente";
-            this.lblTIdCliente.Size = new System.Drawing.Size(102, 16);
+            this.lblTIdCliente.Size = new System.Drawing.Size(101, 16);
             this.lblTIdCliente.TabIndex = 142;
             this.lblTIdCliente.Text = "Tipo ID Cliente :";
             // 
@@ -389,7 +391,7 @@ namespace Facturacion_Electronica
             this.lblTContabilidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTContabilidad.Location = new System.Drawing.Point(14, 11);
             this.lblTContabilidad.Name = "lblTContabilidad";
-            this.lblTContabilidad.Size = new System.Drawing.Size(90, 16);
+            this.lblTContabilidad.Size = new System.Drawing.Size(89, 16);
             this.lblTContabilidad.TabIndex = 138;
             this.lblTContabilidad.Text = "Contabilidad :";
             // 
@@ -438,12 +440,37 @@ namespace Facturacion_Electronica
             this.txt_NoIdCliente.Size = new System.Drawing.Size(145, 22);
             this.txt_NoIdCliente.TabIndex = 139;
             // 
+            // lbl_TipoDoc
+            // 
+            this.lbl_TipoDoc.AutoSize = true;
+            this.lbl_TipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_TipoDoc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_TipoDoc.Location = new System.Drawing.Point(12, 139);
+            this.lbl_TipoDoc.Name = "lbl_TipoDoc";
+            this.lbl_TipoDoc.Size = new System.Drawing.Size(134, 16);
+            this.lbl_TipoDoc.TabIndex = 168;
+            this.lbl_TipoDoc.Text = "Tipo De Documento :";
+            // 
+            // cb_TipoDoc
+            // 
+            this.cb_TipoDoc.FormattingEnabled = true;
+            this.cb_TipoDoc.Items.AddRange(new object[] {
+            "Factura",
+            "Nota Debito",
+            "Nota Credito"});
+            this.cb_TipoDoc.Location = new System.Drawing.Point(14, 160);
+            this.cb_TipoDoc.Name = "cb_TipoDoc";
+            this.cb_TipoDoc.Size = new System.Drawing.Size(121, 21);
+            this.cb_TipoDoc.TabIndex = 167;
+            // 
             // FormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(457, 336);
+            this.Controls.Add(this.lbl_TipoDoc);
+            this.Controls.Add(this.cb_TipoDoc);
             this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.comboBox4);
@@ -475,7 +502,7 @@ namespace Facturacion_Electronica
             this.Controls.Add(this.txt_NoIdCliente);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(473, 375);
+            this.MaximumSize = new System.Drawing.Size(500, 500);
             this.MinimumSize = new System.Drawing.Size(473, 375);
             this.Name = "FormEdit";
             this.Text = "Editar Cliente";
@@ -515,5 +542,7 @@ namespace Facturacion_Electronica
         public System.Windows.Forms.ComboBox cb_TipoIdCliente;
         public System.Windows.Forms.ComboBox cb_Contabilidad;
         public System.Windows.Forms.TextBox txt_NoIdCliente;
+        private System.Windows.Forms.Label lbl_TipoDoc;
+        private System.Windows.Forms.ComboBox cb_TipoDoc;
     }
 }

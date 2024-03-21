@@ -36,7 +36,7 @@ namespace grid
 
         private void PC_F2Agregar_Click(object sender, EventArgs e)
         {
-            if (cb_Contabilidad.Text != "Seleccione un Item..." && cb_TipoIdCliente.Text != "Seleccione un Item..." && txt_NoIdCliente.Text != "")
+            if (cb_Contabilidad.Text != "Seleccione un Item..." && cb_TipoIdCliente.Text != "Seleccione un Item..." && txt_NoIdCliente.Text != "" && cb_TipoDoc.Text!="")
             {
                 conexion.Open();
                 string cadenaConsulta = "select nit_clie,tip_iden from dbo.cm_terce where nit_clie='" + txt_NoIdCliente.Text + "' and tip_iden='"+ cb_TipoIdCliente.Text + "'";
@@ -110,15 +110,17 @@ namespace grid
                     conexion.Close();
                 }
 
-                if (ValCodigos)
+            if (ValCodigos)
+            {
+                string Contabilidad = cont;
+                string tipoId_Client = cb_TipoIdCliente.Text;
+                string No_Client = txt_NoIdCliente.Text;
+                string TipoDoc = cb_TipoDoc.Text;
+                conexion.Open();
+                if (TipoDoc=="Factura")
                 {
-                    string Contabilidad = cont; 
-                    string tipoId_Client = cb_TipoIdCliente.Text;
-                    string No_Client = txt_NoIdCliente.Text;
-                    conexion.Open();
-                    string cadena = "insert into fe_ParametrosContables values(@Contabilidad, @TipoId_Cliente, @No_idCLiente, @Cod_Cuenta, @Tipo_Cuenta, @Tipo_Mov, @Man_Trib)";
+                    string cadena = "insert into fe_ParametrosContables (Contabilidad,TipoId_Cliente,No_idCLiente,Tipo_Cuenta,Cod_Cuenta,Tipo_Mov,Man_Trib) values(@Contabilidad, @TipoId_Cliente, @No_idCLiente, @Cod_Cuenta, @Tipo_Cuenta, @Tipo_Mov, @Man_Trib)";
                     SqlCommand agregar = new SqlCommand(cadena, conexion);
-
                     agregar.Parameters.Clear();
 
                     agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
@@ -194,6 +196,178 @@ namespace grid
                     MessageBox.Show("Datos agregados con Exito");
                     conexion.Close();
 
+
+                }
+                else if (TipoDoc == "Nota Debito")
+                {
+                    string cadena = "insert into fe_ParametrosContables (Contabilidad,TipoId_Cliente,No_idCLiente,Tipo_Cuenta,Cod_Cuenta,Tipo_MovND,Man_Trib) values(@Contabilidad, @TipoId_Cliente, @No_idCLiente, @Cod_Cuenta, @Tipo_Cuenta, @Tipo_MovND, @Man_Trib)";
+                    SqlCommand agregar = new SqlCommand(cadena, conexion);
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Ingreso");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_Ingreso.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovND", comboBox1.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[1]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "IVA");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_Iva.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovND", comboBox2.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[2]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Rte.Fte");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_rFuente.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovND", comboBox3.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[3]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Rte.Iva");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_rIva.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovND", comboBox4.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[4]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Rte.Ica");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_rIca.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovND", comboBox5.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[5]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Cta x Cobrar");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_CxC.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovND", comboBox6.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[6]);
+
+                    agregar.ExecuteNonQuery();
+
+                    MessageBox.Show("Datos agregados con Exito");
+                    conexion.Close();
+
+                }
+                else if (TipoDoc == "Nota Credito")
+                {
+                    string cadena = "insert into fe_ParametrosContables (Contabilidad,TipoId_Cliente,No_idCLiente,Tipo_Cuenta,Cod_Cuenta,Tipo_MovNC,Man_Trib) values(@Contabilidad, @TipoId_Cliente, @No_idCLiente, @Cod_Cuenta, @Tipo_Cuenta, @Tipo_MovNC, @Man_Trib)";
+                    SqlCommand agregar = new SqlCommand(cadena, conexion);
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Ingreso");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_Ingreso.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovNC", comboBox1.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[1]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "IVA");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_Iva.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovNC", comboBox2.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[2]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Rte.Fte");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_rFuente.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovNC", comboBox3.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[3]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Rte.Iva");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_rIva.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovNC", comboBox4.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[4]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Rte.Ica");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_rIca.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovNC", comboBox5.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[5]);
+
+                    agregar.ExecuteNonQuery();
+
+                    agregar.Parameters.Clear();
+
+                    agregar.Parameters.AddWithValue("@Contabilidad", Contabilidad);
+                    agregar.Parameters.AddWithValue("@TipoId_Cliente", tipoId_Client);
+                    agregar.Parameters.AddWithValue("@No_idCLiente", No_Client);
+                    agregar.Parameters.AddWithValue("@Tipo_Cuenta", "Cta x Cobrar");
+                    agregar.Parameters.AddWithValue("@Cod_Cuenta", txt_CxC.Text);
+                    agregar.Parameters.AddWithValue("@Tipo_MovNC", comboBox6.Text);
+                    agregar.Parameters.AddWithValue("@Man_Trib", TipoCuen[6]);
+
+                    agregar.ExecuteNonQuery();
+
+                    MessageBox.Show("Datos agregados con Exito");
+                    conexion.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+               // string cadena = "insert into fe_ParametrosContables values(@Contabilidad, @TipoId_Cliente, @No_idCLiente, @Cod_Cuenta, @Tipo_Cuenta, @Tipo_Mov, @Man_Trib)";
+                //SqlCommand agregar = new SqlCommand(cadena, conexion);
+
+                    
                     lbl_TCodCuen.Visible = false; label1.Visible = false; label2.Visible = false; label3.Visible = false; label4.Visible = false; label5.Visible = false;
                     label6.Visible = false; txt_CxC.Visible = false; txt_Ingreso.Visible = false; txt_Iva.Visible = false; txt_rFuente.Visible = false; txt_rIca.Visible = false;
                     txt_rIva.Visible = false; btn_F2Guardar.Visible = false; comboBox1.Visible = false; comboBox2.Visible = false; comboBox3.Visible = false;
@@ -384,6 +558,11 @@ namespace grid
         }
 
         private void cb_Contabilidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_TipoDocAdd_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -48,17 +48,19 @@ namespace grid
             this.label6 = new System.Windows.Forms.Label();
             this.txt_rIva = new System.Windows.Forms.TextBox();
             this.lbl_TCodCuen = new System.Windows.Forms.Label();
-            this.PC_F2Buscar = new System.Windows.Forms.Button();
             this.btn_F2Guardar = new System.Windows.Forms.Button();
-            this.PC_F2Agregar = new System.Windows.Forms.Button();
-            this.btn_Salir = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cb_TipoDoc = new System.Windows.Forms.ComboBox();
+            this.lbl_TipoDocAdd = new System.Windows.Forms.Label();
+            this.PC_F2Agregar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_Salir = new System.Windows.Forms.Button();
+            this.PC_F2Buscar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTIdNoCliente
@@ -284,23 +286,6 @@ namespace grid
             this.lbl_TCodCuen.Text = "COD Cuenta";
             this.lbl_TCodCuen.Visible = false;
             // 
-            // PC_F2Buscar
-            // 
-            this.PC_F2Buscar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.PC_F2Buscar.FlatAppearance.BorderSize = 0;
-            this.PC_F2Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PC_F2Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.PC_F2Buscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PC_F2Buscar.Location = new System.Drawing.Point(13, 203);
-            this.PC_F2Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PC_F2Buscar.Name = "PC_F2Buscar";
-            this.PC_F2Buscar.Size = new System.Drawing.Size(116, 31);
-            this.PC_F2Buscar.TabIndex = 127;
-            this.PC_F2Buscar.Text = "Buscar";
-            this.PC_F2Buscar.UseVisualStyleBackColor = false;
-            this.PC_F2Buscar.Visible = false;
-            this.PC_F2Buscar.Click += new System.EventHandler(this.PC_F2Buscar_Click);
-            // 
             // btn_F2Guardar
             // 
             this.btn_F2Guardar.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -308,7 +293,7 @@ namespace grid
             this.btn_F2Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_F2Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_F2Guardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_F2Guardar.Location = new System.Drawing.Point(323, 296);
+            this.btn_F2Guardar.Location = new System.Drawing.Point(323, 292);
             this.btn_F2Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_F2Guardar.Name = "btn_F2Guardar";
             this.btn_F2Guardar.Size = new System.Drawing.Size(116, 31);
@@ -317,38 +302,6 @@ namespace grid
             this.btn_F2Guardar.UseVisualStyleBackColor = false;
             this.btn_F2Guardar.Visible = false;
             this.btn_F2Guardar.Click += new System.EventHandler(this.btn_F2Guardar_Click);
-            // 
-            // PC_F2Agregar
-            // 
-            this.PC_F2Agregar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.PC_F2Agregar.FlatAppearance.BorderSize = 0;
-            this.PC_F2Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PC_F2Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.PC_F2Agregar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PC_F2Agregar.Location = new System.Drawing.Point(13, 159);
-            this.PC_F2Agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PC_F2Agregar.Name = "PC_F2Agregar";
-            this.PC_F2Agregar.Size = new System.Drawing.Size(116, 31);
-            this.PC_F2Agregar.TabIndex = 129;
-            this.PC_F2Agregar.Text = "Agregar";
-            this.PC_F2Agregar.UseVisualStyleBackColor = false;
-            this.PC_F2Agregar.Click += new System.EventHandler(this.PC_F2Agregar_Click);
-            // 
-            // btn_Salir
-            // 
-            this.btn_Salir.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Salir.FlatAppearance.BorderSize = 0;
-            this.btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_Salir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Salir.Location = new System.Drawing.Point(13, 296);
-            this.btn_Salir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Salir.Name = "btn_Salir";
-            this.btn_Salir.Size = new System.Drawing.Size(116, 31);
-            this.btn_Salir.TabIndex = 130;
-            this.btn_Salir.Text = "Salir";
-            this.btn_Salir.UseVisualStyleBackColor = false;
-            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
             // 
             // comboBox1
             // 
@@ -458,6 +411,46 @@ namespace grid
             this.comboBox6.Text = "D";
             this.comboBox6.Visible = false;
             // 
+            // cb_TipoDoc
+            // 
+            this.cb_TipoDoc.FormattingEnabled = true;
+            this.cb_TipoDoc.Items.AddRange(new object[] {
+            "Factura",
+            "Nota Debito",
+            "Nota Credito"});
+            this.cb_TipoDoc.Location = new System.Drawing.Point(10, 162);
+            this.cb_TipoDoc.Name = "cb_TipoDoc";
+            this.cb_TipoDoc.Size = new System.Drawing.Size(121, 21);
+            this.cb_TipoDoc.TabIndex = 139;
+            this.cb_TipoDoc.SelectedIndexChanged += new System.EventHandler(this.cb_TipoDocAdd_SelectedIndexChanged);
+            // 
+            // lbl_TipoDocAdd
+            // 
+            this.lbl_TipoDocAdd.AutoSize = true;
+            this.lbl_TipoDocAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_TipoDocAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_TipoDocAdd.Location = new System.Drawing.Point(8, 139);
+            this.lbl_TipoDocAdd.Name = "lbl_TipoDocAdd";
+            this.lbl_TipoDocAdd.Size = new System.Drawing.Size(134, 16);
+            this.lbl_TipoDocAdd.TabIndex = 140;
+            this.lbl_TipoDocAdd.Text = "Tipo De Documento :";
+            // 
+            // PC_F2Agregar
+            // 
+            this.PC_F2Agregar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PC_F2Agregar.FlatAppearance.BorderSize = 0;
+            this.PC_F2Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PC_F2Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.PC_F2Agregar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PC_F2Agregar.Location = new System.Drawing.Point(13, 207);
+            this.PC_F2Agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PC_F2Agregar.Name = "PC_F2Agregar";
+            this.PC_F2Agregar.Size = new System.Drawing.Size(116, 31);
+            this.PC_F2Agregar.TabIndex = 129;
+            this.PC_F2Agregar.Text = "Agregar";
+            this.PC_F2Agregar.UseVisualStyleBackColor = false;
+            this.PC_F2Agregar.Click += new System.EventHandler(this.PC_F2Agregar_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -465,7 +458,7 @@ namespace grid
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(135, 296);
+            this.button1.Location = new System.Drawing.Point(135, 292);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 31);
@@ -475,12 +468,47 @@ namespace grid
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btn_Salir
+            // 
+            this.btn_Salir.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_Salir.FlatAppearance.BorderSize = 0;
+            this.btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btn_Salir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Salir.Location = new System.Drawing.Point(13, 292);
+            this.btn_Salir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Salir.Name = "btn_Salir";
+            this.btn_Salir.Size = new System.Drawing.Size(116, 31);
+            this.btn_Salir.TabIndex = 130;
+            this.btn_Salir.Text = "Salir";
+            this.btn_Salir.UseVisualStyleBackColor = false;
+            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
+            // 
+            // PC_F2Buscar
+            // 
+            this.PC_F2Buscar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PC_F2Buscar.FlatAppearance.BorderSize = 0;
+            this.PC_F2Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PC_F2Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.PC_F2Buscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PC_F2Buscar.Location = new System.Drawing.Point(13, 251);
+            this.PC_F2Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PC_F2Buscar.Name = "PC_F2Buscar";
+            this.PC_F2Buscar.Size = new System.Drawing.Size(116, 31);
+            this.PC_F2Buscar.TabIndex = 127;
+            this.PC_F2Buscar.Text = "Buscar";
+            this.PC_F2Buscar.UseVisualStyleBackColor = false;
+            this.PC_F2Buscar.Visible = false;
+            this.PC_F2Buscar.Click += new System.EventHandler(this.PC_F2Buscar_Click);
+            // 
             // FormAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(457, 336);
+            this.ClientSize = new System.Drawing.Size(457, 352);
+            this.Controls.Add(this.lbl_TipoDocAdd);
+            this.Controls.Add(this.cb_TipoDoc);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.comboBox5);
@@ -514,7 +542,7 @@ namespace grid
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(473, 375);
+            this.MaximumSize = new System.Drawing.Size(500, 500);
             this.MinimumSize = new System.Drawing.Size(473, 375);
             this.Name = "FormAdd";
             this.Text = "Agregar Parametros Contables";
@@ -544,17 +572,19 @@ namespace grid
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_rIva;
         private System.Windows.Forms.Label lbl_TCodCuen;
-        private System.Windows.Forms.Button PC_F2Buscar;
         private System.Windows.Forms.Button btn_F2Guardar;
-        private System.Windows.Forms.Button PC_F2Agregar;
-        private System.Windows.Forms.Button btn_Salir;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cb_TipoDoc;
+        private System.Windows.Forms.Label lbl_TipoDocAdd;
+        private System.Windows.Forms.Button PC_F2Agregar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Salir;
+        private System.Windows.Forms.Button PC_F2Buscar;
     }
 }
 
