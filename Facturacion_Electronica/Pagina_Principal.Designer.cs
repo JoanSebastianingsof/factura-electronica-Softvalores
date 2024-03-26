@@ -279,6 +279,8 @@ namespace Facturacion_Electronica
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_MenuSalir = new System.Windows.Forms.Button();
             this.btn_MenuParametrosContables = new System.Windows.Forms.Button();
+            this.cb_tipDoc = new System.Windows.Forms.ComboBox();
+            this.lbl_TipoDoc = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_CargarFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FacturaCargada)).BeginInit();
@@ -604,7 +606,7 @@ namespace Facturacion_Electronica
             this.p_CargueDocs.Controls.Add(this.btn_NotaCredito);
             this.p_CargueDocs.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p_CargueDocs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.p_CargueDocs.Location = new System.Drawing.Point(214, 223);
+            this.p_CargueDocs.Location = new System.Drawing.Point(214, 232);
             this.p_CargueDocs.Name = "p_CargueDocs";
             this.p_CargueDocs.Size = new System.Drawing.Size(238, 102);
             this.p_CargueDocs.TabIndex = 146;
@@ -1689,6 +1691,8 @@ namespace Facturacion_Electronica
             // tp_ParametrosContables
             // 
             this.tp_ParametrosContables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tp_ParametrosContables.Controls.Add(this.lbl_TipoDoc);
+            this.tp_ParametrosContables.Controls.Add(this.cb_tipDoc);
             this.tp_ParametrosContables.Controls.Add(this.lbl_IdCliente);
             this.tp_ParametrosContables.Controls.Add(this.btn_PCEditarCliente);
             this.tp_ParametrosContables.Controls.Add(this.btn_PCNombreCliente);
@@ -1729,7 +1733,7 @@ namespace Facturacion_Electronica
             this.btn_PCEditarCliente.FlatAppearance.BorderSize = 0;
             this.btn_PCEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PCEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btn_PCEditarCliente.Location = new System.Drawing.Point(268, 78);
+            this.btn_PCEditarCliente.Location = new System.Drawing.Point(598, 119);
             this.btn_PCEditarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_PCEditarCliente.Name = "btn_PCEditarCliente";
             this.btn_PCEditarCliente.Size = new System.Drawing.Size(165, 57);
@@ -3023,7 +3027,7 @@ namespace Facturacion_Electronica
             this.p_DocsCargados.Controls.Add(this.btn_NDCargadas);
             this.p_DocsCargados.Controls.Add(this.btn_MenuFacturasCargadas);
             this.p_DocsCargados.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.p_DocsCargados.Location = new System.Drawing.Point(215, 333);
+            this.p_DocsCargados.Location = new System.Drawing.Point(215, 342);
             this.p_DocsCargados.Name = "p_DocsCargados";
             this.p_DocsCargados.Size = new System.Drawing.Size(233, 102);
             this.p_DocsCargados.TabIndex = 145;
@@ -3236,6 +3240,39 @@ namespace Facturacion_Electronica
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(829, 611);
             this.tabControl1.TabIndex = 11;
+            // 
+            // cb_tipDoc
+            // 
+            this.cb_tipDoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_tipDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_tipDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cb_tipDoc.FormatString = "N0";
+            this.cb_tipDoc.FormattingEnabled = true;
+            this.cb_tipDoc.Items.AddRange(new object[] {
+            "Factura",
+            "Nota Debito",
+            "Nota Credito"});
+            this.cb_tipDoc.Location = new System.Drawing.Point(310, 83);
+            this.cb_tipDoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_tipDoc.Name = "cb_tipDoc";
+            this.cb_tipDoc.Size = new System.Drawing.Size(148, 24);
+            this.cb_tipDoc.TabIndex = 126;
+            this.cb_tipDoc.Text = "Seleccione un Item...";
+            this.cb_tipDoc.Visible = false;
+            this.cb_tipDoc.SelectedIndexChanged += new System.EventHandler(this.cb_tipDoc_SelectedIndexChanged);
+            // 
+            // lbl_TipoDoc
+            // 
+            this.lbl_TipoDoc.AutoSize = true;
+            this.lbl_TipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_TipoDoc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_TipoDoc.Location = new System.Drawing.Point(307, 64);
+            this.lbl_TipoDoc.Name = "lbl_TipoDoc";
+            this.lbl_TipoDoc.Size = new System.Drawing.Size(124, 16);
+            this.lbl_TipoDoc.TabIndex = 127;
+            this.lbl_TipoDoc.Text = "Tipo de documento";
+            this.lbl_TipoDoc.Visible = false;
+            this.lbl_TipoDoc.Click += new System.EventHandler(this.lbl_TipoDoc_Click);
             // 
             // Pagina_Principal
             // 
@@ -3552,6 +3589,8 @@ namespace Facturacion_Electronica
         private System.Windows.Forms.Button btn_MenuFacturasCargadas;
         private System.Windows.Forms.Panel p_CargueDocs;
         private System.Windows.Forms.Button btn_CargueDocs;
+        private System.Windows.Forms.ComboBox cb_tipDoc;
+        private System.Windows.Forms.Label lbl_TipoDoc;
     }
 }
 

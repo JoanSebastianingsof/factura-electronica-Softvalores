@@ -18,7 +18,8 @@ namespace Facturacion_Electronica
         String oldContabilidad;
         String oldTipoId;
         String oldNoId;
-        public FormEdit(string R_Cont,string R_TipoId,string R_NoId)
+        string TipoDoc;
+        public FormEdit(string R_Cont,string R_TipoId,string R_NoId,string R_TipDoc)
         {
             InitializeComponent();
             combo.seleccionar(cb_Contabilidad);
@@ -28,6 +29,8 @@ namespace Facturacion_Electronica
             oldContabilidad = R_Cont;
             oldTipoId = R_TipoId;
             oldNoId = R_NoId;
+            cb_TipoDoc.Text = R_TipDoc;
+            TipoDoc = R_TipDoc;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,20 +105,57 @@ namespace Facturacion_Electronica
                 string Contabilidad = cont;
                 string tipoId_Client = cb_TipoIdCliente.Text;
                 string No_Client = txt_NoIdCliente.Text;
+                string tipoDoc = cb_TipoDoc.Text;
 
                 string[] CodigosG = new string[99]; CodigosG[1] = txt_Ingreso.Text; CodigosG[2] = txt_Iva.Text; CodigosG[3] = txt_rFuente.Text;
                 CodigosG[4] = txt_rIva.Text; CodigosG[5] = txt_rIca.Text; CodigosG[6] = txt_CxC.Text;
                 string[] TipoMovG = new string[99]; TipoMovG[1] = comboBox1.Text; TipoMovG[2] = comboBox2.Text; TipoMovG[3] = comboBox3.Text;
                 TipoMovG[4] = comboBox4.Text; TipoMovG[5] = comboBox5.Text; TipoMovG[6] = comboBox6.Text;
-                for (int i = 1; i <= 6; i++)
+                if (tipoDoc=="Factura")
                 {
-                    conexion.Open();
-                    string Mod = "update fe_ParametrosContables set Contabilidad='" + cont + "' , TipoId_Cliente='" + tipoId_Client + "' , No_idCLiente='" + No_Client + "' , Cod_Cuenta='" + CodigosG[i] + "' , Tipo_Cuenta='" + NombreContabilidad[i] + "' ,Tipo_Mov='" + TipoMovG[i] + "', Man_Trib='" + TipoCuen[i] + "' where Contabilidad ='" + oldContabilidad + "' and No_idCLiente='" + oldNoId + "' and Tipo_Cuenta ='" + NombreContabilidad[i] + "'";
-                    SqlCommand Modificar = new SqlCommand(Mod, conexion);
-                    Modificar.ExecuteNonQuery();
-                    conexion.Close();
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        conexion.Open();
+                        string Mod = "update fe_ParametrosContables set Contabilidad='" + cont + "' , TipoId_Cliente='" + tipoId_Client + "' , No_idCLiente='" + No_Client + "' , Cod_Cuenta='" + CodigosG[i] + "' , Tipo_Cuenta='" + NombreContabilidad[i] + "' ,Tipo_Mov='" + TipoMovG[i] + "', Man_Trib='" + TipoCuen[i] + "' where Contabilidad ='" + oldContabilidad + "' and No_idCLiente='" + oldNoId + "' and Tipo_Cuenta ='" + NombreContabilidad[i] + "'";
+                        SqlCommand Modificar = new SqlCommand(Mod, conexion);
+                        Modificar.ExecuteNonQuery();
+                        conexion.Close();
+                    }
+                    MessageBox.Show("Datos agregados con Exito");
+
                 }
-                MessageBox.Show("Datos agregados con Exito");
+                else if (tipoDoc == "Nota Debito")
+                {
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        conexion.Open();
+                        string Mod = "update fe_ParametrosContables set Contabilidad='" + cont + "' , TipoId_Cliente='" + tipoId_Client + "' , No_idCLiente='" + No_Client + "' , Cod_Cuenta='" + CodigosG[i] + "' , Tipo_Cuenta='" + NombreContabilidad[i] + "' ,Tipo_MovND='" + TipoMovG[i] + "', Man_Trib='" + TipoCuen[i] + "' where Contabilidad ='" + oldContabilidad + "' and No_idCLiente='" + oldNoId + "' and Tipo_Cuenta ='" + NombreContabilidad[i] + "'";
+                        SqlCommand Modificar = new SqlCommand(Mod, conexion);
+                        Modificar.ExecuteNonQuery();
+                        conexion.Close();
+                    }
+                    MessageBox.Show("Datos agregados con Exito");
+
+                }
+                else if (tipoDoc == "Nota Credito")
+                {
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        conexion.Open();
+                        string Mod = "update fe_ParametrosContables set Contabilidad='" + cont + "' , TipoId_Cliente='" + tipoId_Client + "' , No_idCLiente='" + No_Client + "' , Cod_Cuenta='" + CodigosG[i] + "' , Tipo_Cuenta='" + NombreContabilidad[i] + "' ,Tipo_MovNC='" + TipoMovG[i] + "', Man_Trib='" + TipoCuen[i] + "' where Contabilidad ='" + oldContabilidad + "' and No_idCLiente='" + oldNoId + "' and Tipo_Cuenta ='" + NombreContabilidad[i] + "'";
+                        SqlCommand Modificar = new SqlCommand(Mod, conexion);
+                        Modificar.ExecuteNonQuery();
+                        conexion.Close();
+                        MessageBox.Show("Datos agregados con Exito");
+                    }
+                    MessageBox.Show("Datos agregados con Exito");
+
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+
+                }
                 conexion.Close();
                 this.Close();
             }
@@ -130,6 +170,26 @@ namespace Facturacion_Electronica
         {
             conexion.Open();
             string cont = " ";
+            string tipoDocEdit = TipoDoc;
+            string tipoMov=""; 
+            
+            switch (tipoDocEdit)
+            {
+                case "Factura":
+                    tipoMov = "Tipo_Mov";
+                break;
+
+                case "Nota Credito":
+                    tipoMov = "Tipo_MovNC";
+                break;
+
+                case "Nota Debito":
+                    tipoMov = "Tipo_MovND";
+                break;
+                default:
+                    MessageBox.Show("Ingrese un tipo de documento");
+                break;
+            }
 
             string cadenaConsultaArbol = "select cod_arbo from dbo.gn_arbol where des_arbo='" + cb_Contabilidad.Text + "'";
             SqlCommand comandoCARBOL = new SqlCommand(cadenaConsultaArbol, conexion);
@@ -150,15 +210,18 @@ namespace Facturacion_Electronica
             }
             else
             {
+                Console.WriteLine("Paso los filtros");
                 string[] CodCuen = new string[50]; string[] TipoMov = new string[50]; int position = 1;
                 conexion.Open();
-                string cadenaCons = "select Cod_Cuenta,Tipo_Mov from fe_ParametrosContables where No_idCLiente='" + txt_NoIdCliente.Text + "' and TipoId_Cliente='" + cb_TipoIdCliente.Text + "' and Contabilidad ='" + cont + "'";
+                string cadenaCons = "select Cod_Cuenta,"+ tipoMov + " from fe_ParametrosContables where No_idCLiente='" + txt_NoIdCliente.Text + "' and TipoId_Cliente='" + cb_TipoIdCliente.Text + "' and Contabilidad ='" + cont + "'";
                 SqlCommand comandoCons = new SqlCommand(cadenaCons, conexion);
                 SqlDataReader registroCons = comandoCons.ExecuteReader();
                 if (registroCons.Read())
                 {
                     CodCuen[0] = registroCons["Cod_Cuenta"].ToString();
-                    TipoMov[0] = registroCons["Tipo_Mov"].ToString();
+                    TipoMov[0] = registroCons[tipoMov].ToString();
+                    Console.WriteLine(TipoMov[0]);
+
                     while (registroCons.Read())
                     {
                         CodCuen[position] = registroCons[0].ToString();

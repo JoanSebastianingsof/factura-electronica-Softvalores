@@ -386,7 +386,7 @@ namespace Facturacion_Electronica
         /* Parametros Contables */
         private void btn_PCEditarCliente_Click(object sender, EventArgs e)
         {
-            FormEdit formulario2 = new FormEdit(cb_PCContabilidad.Text, cb_PCTipoID.Text, lbl_IdCliente.Text);
+            FormEdit formulario2 = new FormEdit(cb_PCContabilidad.Text, cb_PCTipoID.Text, lbl_IdCliente.Text, cb_tipDoc.Text);
             formulario2.Show();
             btn_PCEditarCliente.Visible = false;
             cb_PCContabilidad.Text = "Seleccione un Item...";
@@ -454,6 +454,8 @@ namespace Facturacion_Electronica
                     conexion.Close();
                     btn_PCEditarCliente.Visible = true;
                     lbl_IdCliente.Visible = true;
+                    lbl_TipoDoc.Visible = true;
+                    cb_tipDoc.Visible = true;
                 }
                 else
                 {
@@ -477,6 +479,8 @@ namespace Facturacion_Electronica
             btn_PCNombreCliente.Text = "Seleccione Contabilidad...";
             lbl_PCNombreCliente.Visible = false;
             btn_PCEditarCliente.Visible = false;
+            lbl_TipoDoc.Visible = false;
+            cb_tipDoc.Visible = false;
             lbl_IdCliente.Visible = false;
             dgv_ParametrosContables.Rows.Clear();
             Form formulario2 = new FormAdd();
@@ -3400,6 +3404,16 @@ namespace Facturacion_Electronica
                 }                   
                 conexion.Close();
             }
+        }
+
+        private void lbl_TipoDoc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_tipDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
